@@ -1,0 +1,60 @@
+I was just watching a programming stream where someone makes a bad function to read a 32-bit integer of a certain endianness. For reference, this was Handmade Hero Day 453 - Parsing PNG Headers https://www.youtube.com/watch?v=lkEWbIUEuN0&t=52m24s
+In contrast, here is rob pike describing how you make a good function to read a 32-bit integer of a certain endianness: https://commandcenter.blogspot.com/2012/04/byte-order-fallacy.html
+(It also describes bad code in the second half that is pretty much equivalent to what the streamer wrote.)
+However, I looked at these examples and, in a moment of satori, said "why the heck is there bitshifting (and/or masking) in there?"
+So, I give you now the worst code I have ever written:
+
+int byteswap(int i){return *((int*)(char[]){((char*)(&i))[3],((char*)(&i))[2],((char*)(&i))[1],((char*)(&i))[0]});}
+
+Presented in a single line for your literary pleasure.
+It assumes you have an integer, takes the address of the integer, interprets that address as the address of a byte array, makes a new byte array of those bytes in reverse order, interprets the address of that byte array as the address of an integer, and then looks up that integer.
+It wouldn't surprise me if this is technically illegal/undefined under the C standard. However, it compiles and runs with no warnings, not even with -Wall -pedantic suppled as arguments to the compiler.
+It becomes a little less ridiculous if you assume you have a pointer to bytes already, as you read them in:
+
+int read_be_32(char *data){return *((int*)(char[]){data[3],data[2],data[1],data[0]});}
+
+But the concept of arranging a new array instead of shifting remains... for better or worse.
+Note that "compound literals", how I declare an array inline with (char[]){}, were introduced in C99 so rob pike could not have done exactly that in the old days.
+However, he still could have written the two-liner
+
+int old_read_be_32(char *data){
+  char new[] ={data[3],data[2],data[1],data[0]};
+  return *((int*)new);
+}
+
+Note that I am assuming a char is a byte is 8 bits, and an int is 4 chars is 4 bytes is 32 bits. If this bothers you, welcome to the 21st century! Also, you can pretend I'm using the types uint8_t and uint32_t.
+
+Here is some code that I wrote to test this stuff out. I would have polished it more, but then I figured I was going to make this a blog post instead of an actual software repository, so I decided not to sweat it.
+
+#include <stdio.h>
+
+int i = 0x12345678; //I wrote this code on a little-endian machine
+
+int read_be_32(char *data){return *((int*)(char[]){data[3],data[2],data[1],data[0]});}
+
+int old_read_be_32(char *data){
+  char new[] ={data[3],data[2],data[1],data[0]};
+  return *((int*)new);
+}
+
+int byteswap(int i){return *((int*)(char[]){((char*)(&i))[3],((char*)(&i))[2],((char*)(&i))[1],((char*)(&i))[0]});}
+
+int rob_read_be_32(char *data){return (data[3]<<0) | (data[2]<<8) | (data[1]<<16) | (data[0]<<24);}
+
+int rob_bad_byteswap(int i){return ((i&0xFF)<<24) | (((i>>8)&0xFF)<<16) |   (((i>>16)&0xFF)<<8) | (((i>>24)&0xFF)<<0);}
+
+int main(void) {
+  char* data = (char*)(&i);
+  int j = (data[0]<<0) | (data[1]<<8) | (data[2]<<16) | (data[3]<<24);
+  int ii = byteswap(i);
+  int be = old_read_be_32((char*)&i);
+  int rbe = rob_read_be_32((char*)&i);
+  int rbb = rob_bad_byteswap(i);
+  char c[] = {0x1, 0x2, 0x3, 0x4};
+  int ci = *((int*)c);
+  printf("%x %x, %x %x %x %x, %x\n", i, j, ii, be, rbe, rbb, ci);
+  return 0;
+}
+
+
+Interestingly, analyzing this code with https://godbolt.org/, my read function was almost always optimized into a bswap instruction, whereas rob's was not. Both of our byteswaps were sometimes optimized away, sometimes not, depending on compilers and settings. One imagines that this may be because rob's good example is somewhat rare "in the wild", while the bad version is endemic, so compiler writers may have had more of a chance to optimize the latter. I tried throwing a lot of consts and restricts into the byteswap functions at random to try to coax the compiler into optimizing them into bswaps, but I soon gave up. While vaguely interesting what optimizes away into a bswap, this information is actually not useful in predicting the performance of the resulting code-- nor is interpreting integers usually the bottleneck of a program. Even if my code were slightly faster, though, I would still recommend rob's, as the point is his is platform-independent and I believe mine is not. (Not having a big-endian machine around, however, I cannot test this belief.)
