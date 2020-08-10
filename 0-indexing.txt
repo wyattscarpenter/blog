@@ -1,0 +1,41 @@
+Having shepherded several novices to programming, including myself, I find that the universal reaction to "arrays start at 0" is "WTF". And they're right. WTF.
+
+I explain patiently that 0 is not an index, not the number indicating which element it is, but an offset. I then explain how pointers and memory work in C, and the fact that a[offset] is equivalent to *(a+offset). Sometimes, if I think they will find the tangent amusing, I point out the fact that [] is commutative. [] is often called "subscripting", which I also understand, but which is also dumb.
+
+So, I've made my peace with [0] by referring it to as "0-offset" instead of "0-index". However, I still believe the convention of 0-indexing is harmful, in that it creates great confusion in everything it touches.
+
+First, I would like to point out that the convention is entirely arbitrary: C could have defined a[n] to mean *(a+n-1). Indeed, this would increase my estimation of the C programming language, as I currently view it to have been frightfully unparsimonious with its pointer-related syntax. Consider the following (I am omitting type specifiers):
+
+&x: what is the address of x (this looks tantalizingly like a unary and)
+*x: what is at the address stored in x (this looks tantalizingly like a unary multiply)
+x[n]: *(x+n)
+x.n: *(&x+offsetof(x, n))
+x->n: *(x+offsetof(x, n))
+As I understand it, there's sort of a long and boring history around this syntax, but I maintain it's overcomplicated. I once began to amuse myself by concieving of a C dialect that had only one dereference operator, probably "$", that could handle all of these cases, but then I remembered I had more important things to do, and that if I ever invented a language it would be too unlike C for this puzzle to be worth contemplating. But the point is, if [] also added 1, in order to make array accesses 1-indexed, I would consider that a decent, instead of redundant, piece of syntactic sugar. Indeed, in FORTRAN arrays always started at one, and this was simply for programmer convenience, and all was right and good. Well, except for the fact that you had to write in FORTRAN.
+
+Second, I would like to address the main reason why 0-indexing is the wrong convention: it is unergonomic. Most of us have trained for years, very often in normal life, to deal with lists of elements 1 through N. 0-indexing means applying your common number sense in programming arrays is not only useless, but actively harmful. You have to develop a whole new perverse number sense to deal with arrays.
+
+Third, I would like to point out that 0-indexing makes an off-by-one error between the ordinals and the cardinals. In ordinary life, if you have a list of 1 element, it's the 1st element. If you have a list of 2 elements, there's a 1st element and a 2nd element. And so on. In 0-indexing, you suddenly have to deal with a 0th element and an (n-1)th element, and so your surefooted assumption that the last element of a list of N elements shall be N and the first shall be 1 is upended.
+
+Fourth, I would like to list some things that have been damaged by their exposure to 0-indexing, and thus make less sense:
+
+When programmers iterate over an array in C (something programmers are particularly fond of doing, for whatever reason) they use a for loop, which has the general form of for(set up this data before the loop body; run this code at the beginning of each loop iteration to check if we should stop iterating; run this code at the end of the end of each loop iteration to keep track of where we are){loop body of instructions to perform each iteration}. This in itself is knid of a pernicious overcomplication of the structure of iterating over things, but whatever. C programmers thus typically find themselves writing for(int i=0; i<length; i++). It is quite easy to learn this by rote, even though its structure is odd, and it's takes not-insignificant effort to determine when exactly the index integer i takes what value, and what that implies. For instance, you might ask yourself: why the devil are we stopping before length? Ah yes, because we want length-1. (Why didn't we use i <= length-1?) Wait, when does the i++ take effect again? does that effect whether we get to length? etc. But again, once you gain experience it is simple to glaze over your eyes and assume the for loop does the right thing. However, in more complicated for loops, it becomes impossible to ignore what the loops is doing, and you must break out your C array number sense anew, making sure always not to cross it with your regular number sense. God help you if you are also using a data structure that has been engineered to go from 1 to N! 
+
+Python's range function is crippled from this heritage. range(1,10) returns the integers 1 through 9. This is so you can code something like
+
+for i in range(0, 10): print(a[i])
+
+for an array a of length 10. I grant that it sort of makes as much sense for Python arrays to be 0-indexed as for C arrays, since Python arrays are also contiguous in memory (though, since they do not have pointer math, this is dubious), but when I ask for a range of integers from 1 to 10 I want a range of integers from 1 to 10, Jack! Don't shortchange me due to your poorly-thought-out conventions! I happen to know that the range operator in Rust, 1..N, also suffers from this defect. In contrast, the range operator in Haskell correctly gives the integers 1 to 10 for 1..10.
+
+In Python, you can index negative integers to count from the end of an array, which is cool and elegant. However, that means that the indexing is not symmetric, as the array starts at 0 and ends at -1. As an example, here are the two directions of indexing an array of 3, laid out on top of each other:
+
+ 0  1  2
+-3 -2 -1
+
+Yet another off-by-one error. (I would also consider it an egregious mistake for other reasons if they used a -0 to provide symmetry.)
+
+JavaScript gets an honorable mention in this, and every, enumeration of programming language flaws, since their arrays are 0-indexed despite not even being proper arrays, and instead being string-based hash tables. However, since JavaScript is really a bad lisp poorly disguised as a bad C-like, I think this is not, conceptually, an error: they could have chosen anything, and so they chose the thing that made them look most like C, for marketing reasons.
+
+Some programmers now have a nasty habit of referring to the first element of anything as the 0th, and the last as the (n-1)th ((n-1)st?), even in real life where we thought we had their poisonous philosophy contained. In fact, maybe you could replace this list of examples with "programmers in general" and replace the cause of damage with "programming".
+
+In conclusion: why enshrine an off-by-one?
