@@ -1,0 +1,191 @@
+Earlier, when I was considering whether my C zoo should be a series of blogposts or a repository of C files (and before I opted for the easier and less good option, as you see before you), it occurred to me that I could write all my commentary in C files as puts statements, so they would be printed when the program ran. Then it occurred to me that I could probably use some C macro trickery to print the actual C code as well, so every run of the file would print the relevant C code during the demonstration of its function. The obvious name for such a macro was quine, and its obvious definition was
+
+#define quine(x) puts(#x); x
+
+This is based on the book Gödel, Escher, Bach, in which the Tortoise says "this operation of preceding some phrase by its quotation is so overwhelmingly important that I think I'll give it a name [...] I believe I'll call it "to quine a phrase", to quine a phrase." Quines are a well-known phenomenon in programming, where they refer to a program that prints its own source code. According to the delightful web page http://www.madore.org/~david/computers/quine.html this has something to do with
+
+> the sentence “quine ‘quine’”. Here, the verb to quine (invented by Douglas R. Hofstadter) means “to write (a sentence fragment) a first time, and then to write it a second time, but with quotation marks around it” (for example, if we quine “say”, we get “say ‘say’”). Thus, if we quine “quine”, we get “quine ‘quine’”, so that the sentence “quine ‘quine’” is a quine… In this linguistic analogy, the verb “to quine”, plays the role of the code, and “quine” in quotation marks plays the role of the data.
+
+However, referring to my handy copy of GEB this is command is apparently known as "eniuq" because the order is backwards (fragment precedes quoted fragment in an eniuq). And a self-replicating program is known in that book as a self-rep, a term that has apparently not caught on in computing culture as much as it has as an endonym in the community of people who represent themselves in court, oddly enough.
+
+But the question arises: will my quine macro help me write C quines?
+
+And the answer is, uh, kinda.
+
+The best vanilla C quine I can produce is
+
+#include <stdio.h>
+int main(void){
+  char n = '\n'; char q = '"'; char s = '\\';
+  char *c="#include <stdio.h>%cint main(void){%c  char n = '%cn'; char q = '%c'; char s = '%c%c';%c  char *c=%c%s%c;%c  printf(c, n, n, s, q, s, s, n, q, c, q, n, n);%c}";
+  printf(c, n, n, s, q, s, s, n, q, c, q, n, n);
+}
+
+Note that quine has been engineered for correctness (also formatting), not just to produce the shortest possible program that will sneak by the compiler. It does not assume an ascii text encoding, and doesn't omit parts that are technically required but that compilers generally will take as assumed, like #include <stdio.h>. (However, we do exclude return 0; because that is implicit if omitted since C99 (ISO/IEC 9899:1999 §5.1.2.2.3 Program termination: "reaching the } that terminates the main function returns a value of 0."; compare to ISO/IEC 9899:1990 §5.1.2.2.3 which lacks this verbiage, and also probably the other pre-99 standards which I don't have access to lack that verbiage.))
+
+Maybe we can do better with the quine macro, since it's basically cheating. Here was my first functioning attempt:
+
+#include <stdio.h>
+#define quine(x) x; printf("quine(%s)", #x);
+#define puine(x) printf("puine(%s)", #x); x;
+int main(void){
+  quine(printf("#include <stdio.h>\n#define quine(x) x; printf(\"quine(%%s)\", #x);\n#define puine(x) printf(\"puine(%%s)\", #x); x;\nint main(void){\n  "))puine(puts("\n}"))
+}
+
+Note that I used the word puine as a reverse order quine (though my original quine is in enuiq order) as p is a mirror image of q.
+
+But it struck me that I could vastly simplify this, now that working on the previous quine had taught me the key insight that I had to include "quine(" and ")" in my quine:
+
+#include <stdio.h>
+#define quine(x, y) x; printf("quine(%s, %s)", #x, #y); y;
+int main(void){
+quine(puts("#include <stdio.h>\n#define quine(x, y) x; printf(\"quine(%s, %s)\", #x, #y); y;\nint main(void){"), puts("\n}"))
+}
+
+Note that I elected to use puts at the cost of no longer indenting the body of main (since I could not indent after the automatic terminal linebreak).
+
+Christian Stigen Larsen produces a significantly smaller macro-based quine in https://csl.name/post/two-quines/ which I have modified here to be more technically correct (eg include #include <stdio.h>):
+
+#include <stdio.h>
+#define Q(x) #x;x
+char *q=Q(int main(){puts("#include <stdio.h>\n#define Q(x) #x;x\nchar *q=Q(");puts(q);puts(")\n");})
+
+This is pretty neat. I see he's using memory outside the scope of main to avoid having to awkwardly turn main inside out. At first, this makes it a bit difficult to see how there's a main for the program to call at all! However, cc -E expands the macros and clears up our confusion
+
+char *q="int main(){puts(\"#include <stdio.h>\\n#define Q(x) #x;x\\nchar *q=Q(\");puts(q);puts(\")\\n\");}";int main(){puts("#include <stdio.h>\n#define Q(x) #x;x\nchar *q=Q(");puts(q);puts(")\n");}
+
+Emanuel Guével gives this quine in https://github.com/PotatoesMaster/c-quine which again I have modified slightly:
+
+#include <stdio.h>
+#define B(x)int main(void){puts("#include <stdio.h>\n#define B(x)"x"\n#define X(s)S(s)\n#define S(s)#s\nB(X(B(x)))");}
+#define X(s)S(s)
+#define S(s)#s
+B(X(B(x)))
+
+This is interesting due to its macro magic.
+
+There are many more c quines listed at https://www.nyx.net/~gthompso/self_c.txt, and I have not read them.
+
+In the self-rep chapter, Hofstader notes
+
+> But self-reps can be even shorter. For instance, in some computer language it might be  a  convention  that  any  program  whose  first  symbol  is  an  asterisk  is  to  be  copied  before  being  executed  normally.  Then  the  program  consisting  of  merely  one  asterisk  is  a  self-rep!  You  may  complain  that  this  is  silly  and  depends  on  a  totally  arbitrary  convention.  In  doing  so,  you  are  echoing  my  earlier  point  that  it  is  almost  cheating  to  use  the  phrase  "this  sentence"  to  achieve  self-reference-it  relies  too  much  on  the  processor,  and  not  enough  on  explicit  directions  for  self-reference.  Using  an  asterisk  as  an  example  of  a  self-rep  is  like  using the word "I" as an example of a self-ref: both conceal all the interesting aspects of their respective problems.
+
+Our quine macro is kind of like this, as the leading # preprocessor operator indicates the source code value of the subsequent macro parameter is just to be written out directly into memory, which can then be copied out of the program.
+
+Similarly, if we consider cc -E, in which only preprocessing is perform macros are expanded, we see that any non-preprocessor token is a quine as far as the preprocessor is concerned.
+
+You can also write uninspiring partial macros like #define q(x) q(x) which will turn anything you q into something you q. Unfortuantely you can't produce a newline in preprocessor macro so you cannot create a macro that quines under -E.
+
+I've become convinced that even though it's very popular to quine with printf, it's somewhat against the spirit of the thing due to printf's unusual properties. In my quest to quine without printf, I've adapted David Madore's http://www.madore.org/~david/programs/selfrep/yaq.c into this quite interesting quine:
+
+const char data [] =
+"#include <stdio.h>\n"
+"#define putchars(s) fputs(s, stdout);\n"
+"int main(void){\n"
+"  puts(\"const char data [] =\");\n"
+"  putchar('\"');\n"
+"  for(int i=0; data[i]; i++){\n"
+"    switch(data[i]){\n"
+"      case '\\\\':\n"
+"      case '\"':\n"
+"        putchar('\\\\'); putchar(data[i]);\n"
+"      break;\n"
+"      case '\\n':\n"
+"        putchars(\"\\\\n\\\"\\n\\\"\");\n"
+"      break;\n"
+"      default:\n"
+"        putchar(data[i]);\n"
+"    }\n"
+"  }\n"
+"  putchars(\"\\\";\\n\\n\");\n"
+"  for (int i=0; data[i]; i++){\n"
+"    putchar(data[i]);\n"
+"  }\n"
+"}\n"
+"";
+
+#include <stdio.h>
+#define putchars(s) fputs(s, stdout);
+int main(void){
+  puts("const char data [] =");
+  putchar('"');
+  for(int i=0; data[i]; i++){
+    switch(data[i]){
+      case '\\':
+      case '"':
+        putchar('\\'); putchar(data[i]);
+      break;
+      case '\n':
+        putchars("\\n\"\n\"");
+      break;
+      default:
+        putchar(data[i]);
+    }
+  }
+  putchars("\";\n\n");
+  for (int i=0; data[i]; i++){
+    putchar(data[i]);
+  }
+}
+
+I think this is much more instructive of a general structure of quining than sneaking things by printf.
+
+Based on that quine, I then wrote the slightly shorter quine:
+
+char *s="#include <stdio.h>\n#define putchars(s) fputs(s, stdout)\nint main(void){putchars(\"char *s=\\\"\");for(char *p=s,c=*p; c; p++, c=*p){c=='\\\\'||c=='\"'? putchar('\\\\'), putchar(c) : c=='\\n'? putchars(\"\\\\n\") : putchar(c);}putchars(\"\\\";\\n\");for(char *p=s,c=*p; c; p++, c=*p){putchar(c);}}\n";
+#include <stdio.h>
+#define putchars(s) fputs(s, stdout)
+int main(void){putchars("char *s=\"");for(char *p=s,c=*p; c; p++, c=*p){c=='\\'||c=='"'? putchar('\\'), putchar(c) : c=='\n'? putchars("\\n") : putchar(c);}putchars("\";\n");for(char *p=s,c=*p; c; p++, c=*p){putchar(c);}}
+
+Interestingly(?) I found that the fastest way to generate s was to copy most of my logic into a second, non-quine, program, cquote.c:
+
+#include <stdio.h>
+#define putchars(s) fputs(s, stdout)
+int main(void){
+  int c;
+  putchars("char *s=\"");
+  while((c = getchar()) != EOF){
+    c=='\\'||c=='"'? putchar('\\'), putchar(c) : c=='\n'? putchars("\\n") : putchar(c);
+  }
+  putchars("\";\n");
+}
+
+and run
+
+cc cquote.c && ./a.out <main.c
+
+Using the trickery of compund literals and unintelligible writing, I was able to shave this down to:
+
+char*s="#include<stdio.h>\n#define p(s)fputs(s,stdout)\nint main(void){p(\"char*s=\\\"\");for(char*p=s,c=*p;c;p++,c=*p){p((c=='\\\\'||c=='\"'?(char[]){'\\\\',c,0}:c=='\\n'?\"\\\\n\":(char[]){c,0}));}p(\"\\\";\\n\");for(char*p=s,c=*p;c;p++,c=*p){putchar(c);}}\n";
+#include<stdio.h>
+#define p(s)fputs(s,stdout)
+int main(void){p("char*s=\"");for(char*p=s,c=*p;c;p++,c=*p){p((c=='\\'||c=='"'?(char[]){'\\',c,0}:c=='\n'?"\\n":(char[]){c,0}));}p("\";\n");for(char*p=s,c=*p;c;p++,c=*p){putchar(c);}}
+
+Which was really a pointless exercise, but whatever. Note that I'm able to use a preprocessor macro p() and then a variable p. This means preprocessor is a lisp-2 ;)
+
+In case you are wondering, here are the character counts for each quine, to give you a general sense of length:
+
+My vanilla: 304
+My quine-puine: 302
+My sandwich quine: 222
+My Christian Stigen Larsen: 139
+My Emanuel Guével macro twister: 181
+My David-Madore-inspired printfless: 1048
+My quick quine: 590
+My shaved quine: 493
+
+I note that the smaller you make a quine's source code, the smaller you make the quine's source code.
+
+I also wrote this shell script to test/encourage/troubleshoot quinitude:
+
+cc -Wall -pedantic main.c && ./a.out > 2.c && cc -Wall -pedantic 2.c && ./a.out > 3.c && cc -Wall -pedantic 3.c && ./a.out > 4.c && diff 3.c 4.c 
+
+After a while it occured to me that to test quinehood this would be better:
+
+cc -Wall -pedantic main.c && ./a.out > 2.c && diff main.c 2.c
+
+After a successful test, I used
+
+rm ?.*
+
+to clean up.
