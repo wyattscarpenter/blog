@@ -9,4 +9,4 @@ Weblog entries:
 
 2020-08-09 A Note On 0-Indexing: in which I take a position on the 1st greatest issue of our time https://wyattscarpenter.github.io/0-indexing.txt
 
-2020-08-10 The C Zoo, part 1: some quines https://wyattscarpenter.github.io/some_quines.txt
+2020-08-10 The C Zoo, part 2: some quines https://wyattscarpenter.github.io/some_quines.txt
