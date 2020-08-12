@@ -1,0 +1,97 @@
+I was getting mighty tired of typing for(int i=0; i< length; i++), and I wanted an "enhanced for loop"/"for each loop" like they have in other languages, where you can type for(x in y){}
+
+(I was willing to accept minor syntactic variation.)
+
+I decided I would try to make one in c preprocessor macro, and call it foreach.
+
+I wanted to make especially sure that my macro didn't leak variable definitions into the greater namespace. Some consideration revealed that this probably wouldn't be difficult because the variables set up for a for loop (eg int i) are only accessible in the for loop, as god intended.
+
+I got as far as
+
+#define foreach(var, array) for(unsigned int var = 0; var < sizeof(array)/sizeof(array[0]); var++)
+
+But this still would have required the user to call array[var], which I thought was inelegant.
+
+And, basically against the spirit of the enhanced for loop.
+
+but for it to be a real foreach you'd have to define var_index like we did var here, and then a typeof(array[0]) var = array[var_index]; ... but you can't declare two different type of variables in the init_clause of a for loop :,(
+
+Luckily, an example on wikipedia got me thinking about the possibility of writing
+
+#define foreach(var, array) for(typeof(array[0]) *var = array; var < array; var++)
+
+But even then you still have to use *var. I wanted var plain, dammit.
+
+And then, in a flash of inspiration, I remembered one of the basic trip-ups of C that you have to master early on:
+
+You shouldn't write int* i, j;, no matter how much you want to, because that implies i and j are both pointers to int. But, instead, only i is a pointer to int, which is why you have to write int *i, j; to reflect this state of affairs.
+
+This had never been useful before, and indeed seemed to until then to be one of the many flaws in C's type system and syntax. But now, ah!
+
+#define foreach(var, array) for(typeof(array[0]) *var##_p = array, var = *var##_p; var##_p < array + sizeof(array)/sizeof(array[0]); var = *++var##_p)
+
+Works perfectly.
+
+(you also have to know that ## pastes tokens together in preprocessor)
+
+You can now write a foreach(var, array){} loop, in which var is the data and var_p is a pointer to that record. A more ideal implementation might provide us with var and var_index, but C makes that impossible to do cleanly. But, this is still pretty good, and you can var_p-array if you need the index.
+
+Example calling code:
+
+int a[] = {69, 57, 21};
+foreach(i,a){ //standard for loop
+  printf("%p %ld %d\n", i_p, i_p-a, i);
+}
+
+Of course, I immediately wrote a version of this for strings (and other zero-terminated things)
+
+#define foreachz(var, string) for(typeof(string[0]) *var##_p = string, var = *var##_p; var!=0; var = *++var##_p)
+
+And a version for a known length
+
+#define foreachn(var, array, n) for(typeof(array[0]) *var##_p = array, var = *var##_p; var##_p < array + n; var = *++var##_p)
+
+But I was able to restrain myself from writing a version for linked lists.
+
+Also, for some reason typeof isn't a standard c feature, so you could define a standard compliant version
+
+#define foreach(type, var, array) for(type *var##_p = array, var = *var##_p; var##_p < array + sizeof(array)/sizeof(array[0]); var = *++var##_p)
+
+int a[] = {69, 57, 21};
+foreach(int, i, a){ //standard for loop
+  printf("%p %ld %d\n", i_p, i_p-a, i);
+}
+
+which is more like the java for(int i : a)
+
+But I like the brevity of the 2-argument version, personally.
+
+Though, the standard-compliant version also has the weakness that if you want to pass in the type, say, int*, you have to typedef it to, say, intypointy first.
+
+#include <stdio.h>
+#define foreach(var, array) for(typeof(array[0]) *var##_p = array, var = *var##_p; var##_p < array + sizeof(array)/sizeof(array[0]); var = *++var##_p)
+
+int main(void) {
+  printf("Hello World\n");
+  int x=69, y=4, z=20;
+  int *a[] = {&x, &y, &z};
+foreach(i, a){ //standard for loop
+  printf("%ld %d\n", i_p-a, *i);
+}
+  return 0;
+}
+
+#include <stdio.h>
+#define foreach(type, var, array) for(type *var##_p = array, var = *var##_p; var##_p < array + sizeof(array)/sizeof(array[0]); var = *++var##_p)
+
+typedef int * intypointy;
+
+int main(void) {
+  printf("Hello World\n");
+  int x=69, y=4, z=20;
+  int *a[] = {&x, &y, &z};
+foreach(intypointy, i, a){ //standard for loop
+  printf("%ld %d\n", i_p-a, *i);
+}
+  return 0;
+}
