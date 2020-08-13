@@ -14,3 +14,5 @@ Weblog entries:
 2020-08-11 The C Zoo, part 3: foreach https://wyattscarpenter.github.io/foreach.txt
 
 2020-08-12 The C Zoo, part 4: print https://wyattscarpenter.github.io/print.txt
+
+2020-08-13 On the seventh day, I rested.
