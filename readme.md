@@ -1,6 +1,6 @@
 Hi, welcome to my programming-themed weblog. All content on this blog is released into the public domain under CC0. Updates whenever I have something to say. To see my real programming projects, check out https://wyattscarpenter.github.io or https://github.com/wyattscarpenter.
 
-Weblog entries: blog/
+Weblog entries:
 
 2020-08-07 The C Zoo, part 1: reading integers of a given endianness https://wyattscarpenter.github.io/blog/reading_endian.txt
 
