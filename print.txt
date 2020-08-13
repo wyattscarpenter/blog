@@ -1,0 +1,63 @@
+I will now explain my print macro.
+
+This macro took me about a week to write, from the time the idea rooted in my head seriously to the time I actually finished it. It took me about two days to actually write it, during which I chased down multiple semi-related rabbit holes, including "what kind of a machine is the c preprocessor?" but, tangents aside, the story of this macro is full of a great amount of adventure and thrill itself-- to the extent that macro writing can be full of adventure and thrill. Which is to say, VERY!
+
+Since I learned more modern languages, like Java and Python, before C, I always thought printf was kinda dumb. Why did I have to write a format string with a bunch of percents just to print things? And as I grew more knowledgeable in the ways of C people would tell me things like printf is a heavy function and printf causes various security flaws due to programmer error, and then I thought printf was dumb and was more confident in my opinion.
+
+So, for a while, in the back of my mind, I had pondered whether it would be possible to made a generic print function in C. Someone once told me that printf had an f on it so you could specify your own print function. I don't know if that's true in any way, but it did make me decide to call my print function simply print, as I would solve the printing problem once and for all.
+
+Initially I didn't know how such a function would be implemented, but as I learned more about C macros it seemed like it might be possible that way. Once I finished my foreach macro, riding that high, I cast my attention to print in earnest. Only problem was, it looked like it was going to be very grody-- how would I switch on type? Some sort of #if on a stringified typeof? Ugh.
+
+However, as I googled around, I found out that C11 has a feature called _Generic that allows you to switch on type at compile time! How convenient! I could now see my way to generically printing a single unit, so I implemented that. I had some difficulty understanding precisely how _Generic worked at first, but eventually ended up with a functioning final version:
+
+#define _print_unit(unit) _Generic( (unit), \
+  char: putchar, \
+  int: _print_int, \
+  long int: _print_int, \
+  long long int: _print_int, \
+  float: _print_float, \
+  //etc
+) (unit)
+
+The functions _print_int and _print_float here are defined above the macro, like so:
+
+//we count on promotion rules I don't understand
+//TODO: could replace printf.
+void _print_int(long long int i){printf("%lld", i);}
+void _print_uint(unsigned long long int u){printf("%llu", u);}
+void _print_float(double f){printf("%f", f);}
+
+So, the only thing to do then was to make a print macro that somehow passed all of its arguments to _print_unit individually. Variadic macros are a thing, but unfortunately there's no built in feature to do what I want. Some googling revealed the best idea that people had had involved writing lines and lines of macro like
+
+#define _FE_0(WHAT)
+#define _FE_1(WHAT, X) WHAT(X); 
+#define _FE_2(WHAT, X, ...) WHAT(X); _FE_1(WHAT, __VA_ARGS__)
+
+So I did that. And then to use this foreach macro structure, you write
+
+#define _GET_MACRO(_0, _1, _2, _3, _4, _5, _6, _7, _8, _9, _10, _11, _12, _13, _14, _15, _16, NAME, ...) NAME 
+#define _FOR_EACH(action,...) _GET_MACRO(_0,__VA_ARGS__, _FE_16, _FE_15, _FE_14, _FE_13, _FE_12, _FE_11, _FE_10, _FE_9, _FE_8, _FE_7, _FE_6, _FE_5, _FE_4, _FE_3, _FE_2, _FE_1, _FE_0)(action,__VA_ARGS__)
+#define print(...) _FOR_EACH(_print_unit,__VA_ARGS__)
+
+This was pretty ugly, but I was happy. By the way, there's a limit at 16 because C preprocessor can't implement recursion or loops-- this is what caused me to research precisely what machine it was-- so we can only do some constant number of things. I started to study this macro to figure out if I could get it to recurse "faster" so I could improve the limit over 16 without adding 16 more long lines. After studying it for a while, I realized I could rewrite the whole thing for my purposes much shorter! The whole thing could be replaced with this:
+
+//"You are without doubt the worst variadicity I've ever implemented." "But you have implemented me."
+#define _print_each(_1, _2, _3, _4, _5, _6, _7, _8, _9, _10, _11, _12, _13, _14, _15, _16, ...) do{ /*the ol' do-while(0) trick*/ _print_unit(_1); _print_unit(_2); _print_unit(_3); _print_unit(_4); _print_unit(_5); _print_unit(_6); _print_unit(_7); _print_unit(_8); _print_unit(_9); _print_unit(_10); _print_unit(_11); _print_unit(_12); _print_unit(_13); _print_unit(_14); _print_unit(_15); _print_unit(_16); } while(0)
+#define print(...) _print_each(__VA_ARGS__, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "")
+
+This made me pretty happy. However, there was one more problem, which was that the compiler would not warn you if you exceed 16 arguments. After some experimentation with various worse bound checks (like just printing " etc" if a 17th argument was provided, lol) I managed to achieve perfect compile time typechecking, with these small changes:
+
+typedef struct {char nothing;} _dont_print;
+[...]
+void _print_dont_print(){} 
+[...]
+//in _print_unit
+_dont_print: _print_dont_print, \
+[...]
+//replace the previous print definition stuff with this
+#define _print_each(_1, _2, _3, _4, _5, _6, _7, _8, _9, _10, _11, _12, _13, _14, _15, _16, _boundary_sentinel, ...) do{ /*the ol' do-while(0) trick*/ _print_unit(_1); _print_unit(_2); _print_unit(_3); _print_unit(_4); _print_unit(_5); _print_unit(_6); _print_unit(_7); _print_unit(_8); _print_unit(_9); _print_unit(_10); _print_unit(_11); _print_unit(_12); _print_unit(_13); _print_unit(_14); _print_unit(_15); _print_unit(_16); _Static_assert(_Generic((_boundary_sentinel), _dont_print: 1, default: 0 ), "Too many arguments supplied to print. Please do not do that, or simply edit the source code to expand the function."); } while(0)
+#define print(...) _print_each(__VA_ARGS__, (_dont_print){1}, (_dont_print){2}, (_dont_print){3}, (_dont_print){4}, (_dont_print){5}, (_dont_print){6}, (_dont_print){7}, (_dont_print){8}, (_dont_print){9}, (_dont_print){10}, (_dont_print){11}, (_dont_print){12}, (_dont_print){13}, (_dont_print){14}, (_dont_print){15}, (_dont_print){16}, (_dont_print){0}) //the (_dont_print){x}s are arbitrary placeholders that are known by type to be ignored
+
+It's probably more fun for you to puzzle out precisely how this works than for me to explain further, if you care to know, so I'll leave it at that.
+
+The print macro, along with its history, is available at https://github.com/wyattscarpenter/print.h
