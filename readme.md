@@ -1,5 +1,5 @@
-# wyattscarpenter.github.io
-Hi, welcome to my github pages website, which I am currently using as a programming-themed weblog which I will update sporadically. All content on this blog is released into the public domain under CC0. To see my real programming projects, check out https://github.com/wyattscarpenter.
+# wyattscarpenter.github.io/blog
+Hi, welcome to my programming-themed weblog. All content on this blog is released into the public domain under CC0. Updates whenever I have something to say. To see my real programming projects, check out https://wyattscarpenter.github.io or https://github.com/wyattscarpenter.
 
 Weblog entries:
 
