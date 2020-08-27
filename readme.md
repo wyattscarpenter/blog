@@ -23,4 +23,6 @@ NEW! join the webring weblog webring:
 
 https://thegreenstocking.com/
 
+https://wyattscarpenter.github.io/blog/
+
 </MARQUEE>
