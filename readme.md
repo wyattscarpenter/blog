@@ -15,3 +15,12 @@ Weblog entries:
 2020-08-12 The C Zoo, part 4: print https://wyattscarpenter.github.io/blog/print.txt
 
 2020-08-13 On the seventh day, I rested.
+
+
+NEW! join the webring weblog webring:
+
+<MARQUEE>
+
+https://thegreenstocking.com/
+
+</MARQUEE>
