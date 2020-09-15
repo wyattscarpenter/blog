@@ -6,7 +6,7 @@ Since I learned more modern languages, like Java and Python, before C, I always 
 
 So, for a while, in the back of my mind, I had pondered whether it would be possible to made a generic print function in C. Someone once told me that printf had an f on it so you could specify your own print function. I don't know if that's true in any way, but it did make me decide to call my print function simply print, as I would solve the printing problem once and for all.
 
-Initially I didn't know how such a function would be implemented, but as I learned more about C macros it seemed like it might be possible that way. Once I finished my foreach macro, riding that high, I cast my attention to print in earnest. Only problem was, it looked like it was going to be very grody-- how would I switch on type? Some sort of #if on a stringified typeof? Ugh.
+Initially I didn't know how such a function would be implemented, but as I learned more about C macros it seemed like it might be possible that way. Once I finished my foreach macro, riding that high, I cast my attention to print in earnest. Only problem was, it looked like it was going to be very grody-- how would I switch on type (that is, compile/run different code based on the type of something)? Some sort of #if on a stringified typeof? Ugh.
 
 However, as I googled around, I found out that C11 has a feature called _Generic that allows you to switch on type at compile time! How convenient! I could now see my way to generically printing a single unit, so I implemented that. I had some difficulty understanding precisely how _Generic worked at first, but eventually ended up with a functioning final version:
 
