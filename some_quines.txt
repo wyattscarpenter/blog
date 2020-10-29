@@ -2,7 +2,7 @@ Earlier, when I was considering whether my C zoo should be a series of blogposts
 
 #define quine(x) puts(#x); x
 
-This is based on the book Gödel, Escher, Bach, in which the Tortoise says "this operation of preceding some phrase by its quotation is so overwhelmingly important that I think I'll give it a name [...] I believe I'll call it "to quine a phrase", to quine a phrase." Quines are a well-known phenomenon in programming, where they refer to a program that prints its own source code. According to the delightful web page http://www.madore.org/~david/computers/quine.html this has something to do with
+This is based on the book Gödel, Escher, Bach, in which the Tortoise says "this operation of preceding some phrase by its quotation is so overwhelmingly important that I think I'll give it a name [...] I believe I'll call it “to quine a phrase”, to quine a phrase." Quines are a well-known phenomenon in programming, where they refer to a program that prints its own source code. According to the delightful web page http://www.madore.org/~david/computers/quine.html this has something to do with
 
 > the sentence “quine ‘quine’”. Here, the verb to quine (invented by Douglas R. Hofstadter) means “to write (a sentence fragment) a first time, and then to write it a second time, but with quotation marks around it” (for example, if we quine “say”, we get “say ‘say’”). Thus, if we quine “quine”, we get “quine ‘quine’”, so that the sentence “quine ‘quine’” is a quine… In this linguistic analogy, the verb “to quine”, plays the role of the code, and “quine” in quotation marks plays the role of the data.
 
@@ -154,7 +154,7 @@ and run
 
 cc cquote.c && ./a.out <main.c
 
-Using the trickery of compund literals and unintelligible writing, I was able to shave this down to:
+Using the trickery of compound literals and unintelligible writing, I was able to shave this down to:
 
 char*s="#include<stdio.h>\n#define p(s)fputs(s,stdout)\nint main(void){p(\"char*s=\\\"\");for(char*p=s,c=*p;c;p++,c=*p){p((c=='\\\\'||c=='\"'?(char[]){'\\\\',c,0}:c=='\\n'?\"\\\\n\":(char[]){c,0}));}p(\"\\\";\\n\");for(char*p=s,c=*p;c;p++,c=*p){putchar(c);}}\n";
 #include<stdio.h>
