@@ -2,7 +2,7 @@ I invented Wyatt's Or in 2017 to aid in natural deduction proofs.
 
 The symbol for Wyatt's Or is W, perhaps stylized Ｗ or ∨∨.
 
-Wyatt's Or has the introduction rules of an Or (disjunction):
+Wyatt's Or has the introduction rules of an Or (disjunction, ∧):
 
 P
 ----
@@ -12,7 +12,7 @@ Q
 ----
 ∴PWQ
 
-And the elimination rules of an And (conjunction):
+And the elimination rules of an And (conjunction, ∨):
 
 PWQ       
 ---
