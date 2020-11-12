@@ -1,0 +1,21 @@
+I invented Wyatt's Or in 2017 to aid in natural deduction proofs.
+
+The symbol for Wyatt's Or is W, perhaps stylized Ｗ or VV.
+
+Wyatt's Or has the introduction rule of an Or (disjunction):
+
+ P
+----W_I
+∴PWQ
+
+And the elimination rules of an And (conjunction)
+
+ PWQ       
+----W_E1
+∴P
+
+PWQ       
+----W_E2
+∴Q
+
+This tends to greatly simplify proofs.
