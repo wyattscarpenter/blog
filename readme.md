@@ -17,3 +17,5 @@ Weblog entries:
 2020-08-13 On the seventh day, I rested.
 
 2020-11-12 Wyatt's Or https://wyattscarpenter.github.io/blog/wyatts_or.txt
+
+2020-11-17 Good Esoteric Programming Languages https://wyattscarpenter.github.io/blog/goodlangs.txt
