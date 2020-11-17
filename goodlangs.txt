@@ -1,11 +1,11 @@
 I have an interest in programming languages, which extends to esoteric programming languages. I have invented or implemented several of these which I link to here with brief explanations.
 
-2018 wu: simply the best programming language https://github.com/wyattscarpenter/wu
+10 Aug 2018 wu: simply the best programming language https://github.com/wyattscarpenter/wu
 
-2018 ya: simply the most accurate statistical package https://github.com/wyattscarpenter/ya
+11 Sep 2018 ya: simply the most accurate statistical package. "found these source files / on an old floppy disk my russian grandmother gave me. how strange." https://github.com/wyattscarpenter/ya
 
-2018 fhq9+-: an expanded version of HQ9+- called FHQ9+-, in a single html file. Prior to 2018 this repo was an implementation of an expanded version of HQ9+ called FHQ9+ https://github.com/wyattscarpenter/fhq9
+15 Sep 2018 fhq9+-: an expanded version of HQ9+- called FHQ9+-, in a single html file. Prior to 2018 this code was an implementation of an expanded version of HQ9+ called FHQ9+ https://github.com/wyattscarpenter/fhq9
 
-2020 fractran: stunned by how simple yet Turing complete FRACTRAN was, I decided to write an implementation in C to wrap my head around it https://github.com/wyattscarpenter/fractran
+19 Jan 2020 fractran: stunned by how simple yet Turing complete FRACTRAN was, I decided to write an implementation in C to wrap my head around it https://github.com/wyattscarpenter/fractran
 
 I am unlikely to do any more of these. I feel like I have exhausted the interest they held for me.
