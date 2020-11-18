@@ -1,0 +1,77 @@
+I have an interest in programming languages, which extends to esoteric programming languages. Here is a list of several of them that I thought of but thought weren't even good enough to implement.
+
+
+
+2015? ruble:
+A parody of ruby in soviet style, this never past the basic preparation phase of deciding that it would not be object oriented (as class was abolished) and that the = operator would always return true.
+
+
+
+25 Dec 2018 c:
+
+*"Finally, a c programming language!"*
+ --Slogan of the c programming language
+
+It is a well-known fact that data is stored in computers as integers, and that code is data. c is the first programming language to take advantage of this fact. c is an unary programming language, in which a C program is encoded as a number of cs equivalent to the C program interpreted as an (unsigned) integer. For instance, a minimal hello world program of 109097105110040041123112117116115040034072101108108111032119111114108100033034041059125 cs is possible, though unfortunately this repository is too small to contain it. The interpretation of a c program with other, non-c characters is undefined. The interpretation of an uppercase C is, however, merely unspecified.
+
+Remark: You could probably pipe wc into xd into cc to achieve this.
+
+Remark 2: This is essentially the same gimmick as https://esolangs.org/wiki/Unary, but I slightly perfer my version of the gimmick.
+
+Remark 3: Obviously, part of the joke about this programming language is that there is already a very popular language named C, but what if there was a language that was just the letter c?! The distinction between undefined and unspecified behavior is a joke about the odd conventions of the C standard.
+
+
+
+25 Dec 2018: ℤ
+
+It is a well-known fact that data is stored in computers as integers, and that code is data. ℤ (spelled "Int") is the first programming language to take advantage of this fact. Instead of textual commands, programs in Int are directly programmed as integers. For instance, the hello world program in Int is 035105110099108117100101032060115116100105111046104062010105110116032109097105110040105110116032097114103099044032099104097114042042032097114103118041123010009112117116115040034072101108108111032119111114108100033034041059010125010, which has helpfully been included in this folder as hello world.int for your convenience.
+
+To compile Int programs, just use gcc :^)
+
+Remark: the joke here is that all data is a computer can be interpreted as integers, so hello world.int is just a regular C hello world program:
+
+#include <stdio.h>
+int main(int argc, char** argv){
+	puts("Hello world!");
+}
+
+
+
+26 Dec 2018: 🐍🤐
+
+*"Finally, a code golfing language!"*
+ --Slogan of PyZip
+
+PyZip is a computer programming language defined as a python program compressed as a zip file.
+
+This is exceptionally useful for code golfing, if you ignore the fact that the resultant zip file is usually longer than the source text.
+
+Thanks to Mego's Actually programming language, https://github.com/Mego/Seriously, in which "[e]very character whose ordinal is in [0,255] does something", for inspiring me to consider the whole byte range.
+
+*"Finally, a bad code golfing language!"*
+ --Second slogan of PyZip
+
+Remark: Not to be confused with https://pypi.org/project/pyzip/, a much more useful project.
+
+Remark 2: The concept here is seperating the programming language aspect ("code") from the compression aspect ("golf"). Python was chosen as the ubiquitous user-friendly programming language, and zip as the ubiquitous compression format. I think you could probably pipe gunzip into python to run these. You may fine it instructive to note that this concept doesn't actually work, suggesting the conclusion that golf languages are a better domain-specific compression scheme than zip here. Here is hello world in pyzip:
+
+PK
+     ΝM@ρƒ         hello world.pyprint("Hello world!")
+PK? 
+     ΝM@ρƒ       $               hello world.py
+         ¶Φ}σΤ#0άςΤ#0άςΤPK      `   C     
+
+Remark 3: I will surely regret embedding a zip file into this text document, somewhere down the line.
+
+Remark 4: Not only is the file now "binary" according to the snivelling cowards who care about such things, and parts of it are "unprintable", but an zip file embedded in a document is likely to get flagged as a potential virus under some regimes... ah, if only they knew it was in fact a program, but not a malicious one. Also, I'm not 100% sure I pasted this in right, it looks a little different between my two text editor windows. I think the NULs got replaced by spaces.
+
+
+
+16 Nov 2020: dudetrustme
+Working in formal verification languages recently, I think it would be slightly amusing to have a language for machine-checked mathematical proofs where some obviously bunk sorce of justification was used, like "dude, trust me" (https://i.kym-cdn.com/photos/images/original/001/820/208/0d5.jpg) or Direct Revelation (https://en.wikipedia.org/wiki/Direct_revelation). But, not so slightly amusing that I intend to do anything about it!
+
+Remark: Direct Revelation verification would be similar to Intelligent Design Sort https://www.dangermouse.net/esoteric/intelligentdesignsort.html
+
+
+
+I am unlikely to do any more of these. Heck, I didn't even do these, when you get right down to it.
