@@ -68,7 +68,7 @@ Remark 4: Not only is the file now "binary" according to the snivelling cowards 
 
 
 16 Nov 2020: dudetrustme
-Working in formal verification languages recently, I think it would be slightly amusing to have a language for machine-checked mathematical proofs where some obviously bunk sorce of justification was used, like "dude, trust me" (https://i.kym-cdn.com/photos/images/original/001/820/208/0d5.jpg) or Direct Revelation (https://en.wikipedia.org/wiki/Direct_revelation). But, not so slightly amusing that I intend to do anything about it!
+Working in formal verification languages recently, I think it would be slightly amusing to have a language for machine-checked mathematical proofs where some obviously bunk sorce of justification was used, like "dude, trust me" (https://i.kym-cdn.com/photos/images/original/001/820/208/0d5.jpg) or Direct Revelation (https://en.wikipedia.org/wiki/Direct_revelation) or "by inspection". But, not so slightly amusing that I intend to do anything about it!
 
 Remark: Direct Revelation verification would be similar to Intelligent Design Sort https://www.dangermouse.net/esoteric/intelligentdesignsort.html
 
