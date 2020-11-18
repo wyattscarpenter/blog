@@ -19,3 +19,5 @@ Weblog entries:
 2020-11-12 Wyatt's Or https://wyattscarpenter.github.io/blog/wyatts_or.txt
 
 2020-11-17 Some Good Esoteric Programming Languages https://wyattscarpenter.github.io/blog/goodlangs.txt
+
+2020-11-18 Some Bad Esoteric Programming Languages https://wyattscarpenter.github.io/blog/badlangs.txt
