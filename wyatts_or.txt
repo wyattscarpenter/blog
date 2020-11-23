@@ -1,3 +1,7 @@
+"Pierce and DeMorgan are pretty cool, they have basic logical laws named after them
+Well, MOVE OVER"
+--Wyatt S Carpenter
+
 I invented Wyatt's Or in 2017 to aid in natural deduction proofs.
 
 The symbol for Wyatt's Or is W, perhaps stylized Ｗ or ∨∨.
