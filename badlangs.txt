@@ -3,7 +3,7 @@ I have an interest in programming languages, which extends to esoteric programmi
 
 
 2015? ruble:
-A parody of ruby in soviet style, this never past the basic preparation phase of deciding that it would not be object oriented (as class was abolished) and that the = operator would always return true.
+A parody of ruby in soviet style, this never got past the basic preparation phase of deciding that it would not be object oriented (as class was abolished) and that the = operator would always return true.
 
 
 
