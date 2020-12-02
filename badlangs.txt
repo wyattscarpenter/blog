@@ -16,7 +16,7 @@ It is a well-known fact that data is stored in computers as integers, and that c
 
 Remark: You could probably pipe wc into xd into cc to achieve this.
 
-Remark 2: This is essentially the same gimmick as https://esolangs.org/wiki/Unary, but I slightly perfer my version of the gimmick.
+Remark 2: This is essentially the same gimmick as https://esolangs.org/wiki/Unary, but I slightly prefer my version of the gimmick.
 
 Remark 3: Obviously, part of the joke about this programming language is that there is already a very popular language named C, but what if there was a language that was just the letter c?! The distinction between undefined and unspecified behavior is a joke about the odd conventions of the C standard.
 
@@ -53,7 +53,7 @@ Thanks to Mego's Actually programming language, https://github.com/Mego/Seriousl
 
 Remark: Not to be confused with https://pypi.org/project/pyzip/, a much more useful project.
 
-Remark 2: The concept here is seperating the programming language aspect ("code") from the compression aspect ("golf"). Python was chosen as the ubiquitous user-friendly programming language, and zip as the ubiquitous compression format. I think you could probably pipe gunzip into python to run these. You may fine it instructive to note that this concept doesn't actually work, suggesting the conclusion that golf languages are a better domain-specific compression scheme than zip here. Here is hello world in pyzip:
+Remark 2: The concept here is separating the programming language aspect ("code") from the compression aspect ("golf"). Python was chosen as the ubiquitous user-friendly programming language, and zip as the ubiquitous compression format. I think you could probably pipe gunzip into python to run these. You may find it instructive to note that this concept doesn't actually work, suggesting the conclusion that golf languages are a better domain-specific compression scheme than zip here. Here is hello world in pyzip:
 
 PK
      ΝM@ρƒ         hello world.pyprint("Hello world!")
@@ -63,7 +63,7 @@ PK?
 
 Remark 3: I will surely regret embedding a zip file into this text document, somewhere down the line.
 
-Remark 4: Not only is the file now "binary" according to the snivelling cowards who care about such things, and parts of it are "unprintable", but an zip file embedded in a document is likely to get flagged as a potential virus under some regimes... ah, if only they knew it was in fact a program, but not a malicious one. Also, I'm not 100% sure I pasted this in right, it looks a little different between my two text editor windows. I think the NULs got replaced by spaces.
+Remark 4: Not only is the file now "binary" according to the sniveling cowards who care about such things, and parts of it are "unprintable", but a zip file embedded in a document is likely to get flagged as a potential virus under some regimes... ah, if only they knew it was in fact a program, but not a malicious one. Also, I'm not 100% sure I pasted this in right, it looks a little different between my two text editor windows. I think the NULs got replaced by spaces.
 
 
 
