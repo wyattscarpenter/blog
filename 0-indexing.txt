@@ -1,3 +1,5 @@
+"People of God, from that encounter my life has never known peace. For the past two years it has been one problem or the other. [...] The following day, snakes started manifesting in my house physically." --Uhrie Anthony
+
 Having shepherded several novices to programming, including myself, I find that the universal reaction to "arrays start at 0" is "WTF". And they're right. WTF.
 
 I explain patiently that 0 is not an index, not the number indicating which element it is, but an offset. I then explain how pointers and memory work in C, and the fact that a[offset] is equivalent to *(a+offset). Sometimes, if I think they will find the tangent amusing, I point out the fact that [] is commutative. [] is often called "subscripting", which I also understand, but which is also dumb.
