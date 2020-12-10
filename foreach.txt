@@ -39,19 +39,41 @@ You can now write a foreach(var, array){} loop, in which var is the data and var
 Example calling code:
 
 int a[] = {69, 57, 21};
-foreach(i,a){ //standard for loop
+foreach(i,a){ //expands to standard for loop
   printf("%p %ld %d\n", i_p, i_p-a, i);
 }
 
-Of course, I immediately wrote a version of this for strings (and other zero-terminated things)
+foreach(i,a){ //nested for works properly without the i values colliding (variable shadowing)
+  printf("%p %d\n", i_p, i);
+  foreach(i,a){
+    printf("%p %d\n", i_p, i);
+  }
+}
+
+foreach(i,a){ //nested for works properly and you can use outer vars in inner loops
+  printf("%p %d\n", i_p, i);
+  foreach(j,a){
+    printf("%d %d\n", i, a[j]);
+  }
+}
+
+A more natural example might be something like:
+
+foreach(user, users){
+  puts(user.name);
+}
+
+This simple example immediately calls to our attention the fact that we are doing a bunch of assigning/accessing behind the scenes that the compiler may or may not optimize out... ah, no matter.
+
+Of course, our foreach here is only usable for simple arrays, so I immediately wrote a version of this for strings (and other zero-terminated things)
 
 #define foreachz(var, string) for(typeof(string[0]) *var##_p = string, var = *var##_p; var!=0; var = *++var##_p)
 
-And a version for a known length
+And a version for a known length (not available to the compiler at compile time)
 
 #define foreachn(var, array, n) for(typeof(array[0]) *var##_p = array, var = *var##_p; var##_p < array + n; var = *++var##_p)
 
-But I was able to restrain myself from writing a version for linked lists.
+But I was able to restrain myself from writing a version for linked lists. Because, who uses linked lists?
 
 Also, for some reason typeof isn't a standard c feature, so you could define a standard compliant version
 
@@ -70,6 +92,8 @@ Though, the standard-compliant version also has the weakness that if you want to
 
 #include <stdio.h>
 #define foreach(var, array) for(typeof(array[0]) *var##_p = array, var = *var##_p; var##_p < array + sizeof(array)/sizeof(array[0]); var = *++var##_p)
+
+Example full, compiling programs:
 
 int main(void) {
   printf("Hello World\n");
