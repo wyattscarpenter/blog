@@ -1,0 +1,32 @@
+"A monad is just a monoid in the category of endofunctors, what's the problem?" --A Brief, Incomplete, and Mostly Wrong History of Programming Languages, https://james-iry.blogspot.com/2009/05/brief-incomplete-and-mostly-wrong.html
+
+"A monad on a category C is given by a functor 𝑇:C→C and natural transformations 𝜂:id→𝑇 and 𝜇:𝑇◦𝑇→𝑇 satisfying
+  𝑇_𝜂       𝜂_𝑇            𝜇_𝑇
+𝑇 ———> 𝑇◦𝑇 <——— 𝑇    𝑇◦𝑇◦𝑇 ———> 𝑇◦𝑇
+ \      |      /      |         |
+  \     |𝜇    /   𝑇_𝜇 |         | 𝜇
+   \    |    /        |         |
+id_𝑇\   ↓   /id_𝑇     ↓         ↓
+     ↘  𝑇  ↙         𝑇◦𝑇 —————> 𝑇
+                           𝜇
+" --Prof Andrew M Pitts
+
+"A monad is just a struct with opinions." --Wyatt Carpenter
+
+In this blog post I would like to explain the concept of a monad in programming. This is actually quite simple. I will assume the reader has basic proficiency in programming. 
+
+Even though I took an entire graduate course on category theory, I didn't do very well, so I'm not qualified to comment on "monad"'s connections to category theory. However, I do have a philosophy minor, and I will make the case that the "monad" is analogous to the proper meaning of monad, from Leibniz's Monadology.
+
+A monad is just a struct with opinions. The monad has one important field and one important method. The important field is the data, and the important method is called bind (but, as we will see, is really just a complicated apply). The point of the monad is to emulate plain data, but also do some other stuff each time the data is manipulated. We will call doing the other stuff "side effects" from now on, even though the point of the monad is that you don't need side effects in the formal sense. There can be other fields and methods within the struct for the implementations of the side effects.
+
+Then instead of calling functions like f(x), you call them like x.bind(f). Internally, this applies f to x and also does the other stuff. The point of this is that your function calls can just be written x.bind(f) instead of f(x); side_effects(x); every time, which would be hard to keep track of, inelegant, etc.
+
+Also, though it's not clear to me how useful this is, if you wanted different side effects you could use the same x.bind(f) code with a different monad x with different side effects, instead of having to change all the calls to side_effect.
+
+This is actually quite similar to Leibniz's concept of a monad. As any student of philosophy knows, Leibniz posits
+(1) the universe is made of monads, ontologically basic... particles or something...
+(2) that are conscious.
+(3) Monads can't actually affect each other, and merely appear to affect each other because they spontaneously act AS THOUGH they affected each other, in harmony preordained by God.
+
+Monads are just structs with opinions. In an object-oriented system, everything is an object, a struct with opinions. Therefore, everything is made of these objects/monads and they are ontologically basic. This corresponds to (1). Monads have opinions, which corresponds to (2). Instead of another function calling a function on a monad, thus affecting it, the monad instead calls a function on itself, thereby spontaneously acting AS THOUGH they affected each other, in harmony preordained by God (3).
+
