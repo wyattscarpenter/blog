@@ -25,3 +25,5 @@ Weblog entries:
 2020-11-17 Some Good Esoteric Programming Languages https://wyattscarpenter.github.io/blog/goodlangs.txt
 
 2020-11-18 Some Bad Esoteric Programming Languages https://wyattscarpenter.github.io/blog/badlangs.txt
+
+2020-12-21 A Monad Is Just A Struct With Opinions: An Explanation of the So-Called "Monad" of Computer Science, With Connections to Leibniz's Monadology https://wyattscarpenter.github.io/blog/a_monad_is_just_a_struct_with_opinions.txt
