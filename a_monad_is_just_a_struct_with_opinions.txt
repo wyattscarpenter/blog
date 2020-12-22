@@ -2,12 +2,12 @@
 
 "A monad on a category C is given by a functor 𝑇:C→C and natural transformations 𝜂:id→𝑇 and 𝜇:𝑇◦𝑇→𝑇 satisfying
   T_η       η_T            μ_T
-T ---> T◦T <--- T    T◦T◦T ---> T◦T
- \      |      /       |         |
-  \     |μ    /    T_μ |         | μ
-   \    |    /         |         |
-id_T\   v   /id_T      v         v
-      > T <           T◦T -----> T
+T ───→ T◦T ←─── T    T◦T◦T ───→ T◦T
+ \      │      /       │         │
+  \     │μ    /    T_μ │         │ μ
+   \    │    /         │         │
+id_T\   ↓   /id_T      ↓         ↓
+     ↘  T  ↙          T◦T ─────→ T
                             μ
 " --Prof Andrew M Pitts
 
