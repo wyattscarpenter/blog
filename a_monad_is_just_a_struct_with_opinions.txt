@@ -7,7 +7,7 @@ T ───> T◦T <─── T    T◦T◦T ───> T◦T
   \     │μ    /    T_μ │         │ μ
    \    │    /         │         │
 id_T\   v   /id_T      v         v
-     ↘  T  ↙          T◦T ─────> T
+     ┘  T  └          T◦T ─────> T
                             μ
 " --Prof Andrew M Pitts
 
