@@ -1,14 +1,14 @@
 "A monad is just a monoid in the category of endofunctors, what's the problem?" --A Brief, Incomplete, and Mostly Wrong History of Programming Languages, https://james-iry.blogspot.com/2009/05/brief-incomplete-and-mostly-wrong.html
 
 "A monad on a category C is given by a functor 𝑇:C→C and natural transformations 𝜂:id→𝑇 and 𝜇:𝑇◦𝑇→𝑇 satisfying
-  𝑇_𝜂       𝜂_𝑇            𝜇_𝑇
-𝑇 ———> 𝑇◦𝑇 <——— 𝑇    𝑇◦𝑇◦𝑇 ———> 𝑇◦𝑇
- \      |      /      |         |
-  \     |𝜇    /   𝑇_𝜇 |         | 𝜇
-   \    |    /        |         |
-id_𝑇\   ↓   /id_𝑇     ↓         ↓
-     ↘  𝑇  ↙         𝑇◦𝑇 —————> 𝑇
-                           𝜇
+  T_η       η_T            μ_T
+T ───> T◦T <─── T    T◦T◦T ───> T◦T
+ ╲      │      ╱      │         │
+  ╲     │μ    ╱   T_μ │         │ μ
+   ╲    │    ╱        │         │
+id_T╲   ↓   ╱id_T     ↓         ↓
+     ↘  T  ↙         T◦T ─────> T
+                           μ
 " --Prof Andrew M Pitts
 
 "A monad is just a struct with opinions." --Wyatt Carpenter
