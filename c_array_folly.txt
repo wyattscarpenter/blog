@@ -1,0 +1,101 @@
+Wise men have asked, "When is a door not a door?" and answered "When it's ajar."
+
+Similarly, foolish men like myself have asked "When is an array not a pointer?" and answered "Oh God! I've fallen into the famous C Array Folly!"
+
+It's a well-known fact in C that array usually decay into pointers, pretty much whenever you use them. Most importantly, any function passed an array actually gets a pointer to that array. And, almost everything else does this decay as well: as helpfully pointed out and transcribed by Michael Burr on stackoveflow https://stackoverflow.com/a/1462103 C99 6.3.2.1 "Lvalues, arrays, and function designators" point 3 tells us:
+
+> Except when it is the operand of the sizeof operator or the unary & operator, or is a string literal used to initialize an array, an expression that has type "array of type" is converted to an expression with type "pointer to type" that points to the initial element of the array object and is not an lvalue.
+
+Well, keep that in mind.
+
+Anyhow, today I thought I might take care of something that's been niggling the back of my mind, and expand the boundary on my print function from 16 to 32. As I say, it's trivial to do this. The only cost is that your error messages are probably (unhelpfully) twice as long now. 16 seemed just a little too low, in that I could see someone wanting to print out 8 items separated by whitespace, so I increased it to 32. I could still read the useful parts of most error outputs so I'm satisfied.
+
+While I was doing this, I noticed that I had left a comment in the example file:
+
+//just a pointer... can't razzmatazz the compiler into convincing itself it knows the size. or can I? TODO
+
+This comment was to alert you that an array of ints would just be printed as a pointer, not the more informative full form of the array like {1, 2, 3} or what have you.
+
+I was already looking to make some improvements to the print function, so I decided to dive in an satisfy this TODO. Turns out, doing it perfectly was a fool's errand. The basic problem is that the compiler of course knows what is an array and what is a pointer, and what the size of arrays are, but is forbidden to tell you. What follows is a record of remarks I made while investigating the matter, with light editing:
+
+Running into an extremely bespoke problem... I realized my compile time type-safe print macro COULD print arrays, since the sizeof is known at compile time. However, arrays match pointers in the _generic match, so there's no way to tell between a pointer and an array of two ints... since sizeof(intpointer) = 8 and sizeof(intarrayoftwo) = 8.
+
+If it is a pointer, I just want to print the pointer address... it's very bad if, say, it's a pointer to 1 int and I try to print 2 ints. That would potentially even be a security hazard, or crash your program. And if it's a pointer to 3 or more ints and I only print the first two ints, that's also bad-- so confusing I would prefer not to make the feature. It would also be confusing if it printed an array iff the array wasn't exactly the size of a pointer. This is especially bad because arrays of 2 items are a pair, which is fairly common.
+
+Currently, I always just print the address.
+
+I suppose I could make the user cast the array to a custom type array or something, but this would sort of ruin the point of compile-time-type-safe dispatching, if you have to specify stuff. On the other hand, it's possibly excusable as a user interface issue; since an array is much larger than a pointer, perhaps it makes sense that you'd have to specify that you actually want to print the full array.
+
+Hmm I can't typedef void *printable_array; and then slap printable_array into the _Generic because this will also match regular void pointers...
+
+typedef struct {void *p;}* printable_array; works, but casts now (predictably?) lose their correct size. I wonder if I can take that first * out...
+
+can't declare an array of voids...
+
+can't declare a variable or field void...
+
+Of course, something like typedef struct {void * p;} printable_array; doesn't work because-- even once you massage it together-- you lose the type information by explicitly converting to a void pointer.
+
+Other options: make a fake variable called "print_next_array" that you pass in as an argument to trigger printing of the next pointer (bad! the point is to avoid the possibility for mistakes!), make printable_array types for all the specific types (still doesn't work for the same reason), make printable_array a macro you call on the array which evaluates to a struct containing the pointer to the data, the data size, and the unit size-- well, you still wouldn't know what the types were unless I added another _Generic in there... or make a new macro for each and every array type... that might be the way though. Or maybe I can jam more stuff into the first _Generic's int * slot.
+
+You basically run into the same problem in all ways, which is that sizeof still knows the size of the type because of course the compiler knows that, but (even though it also knows this) it's not allowed to tell you whether the thing is an array or a pointer.
+
+I'm trying not to use typeof because _Generic is the standardized version of typeof.
+
+I might be able to do some malarkey about the edge case in which pointers and array work differently, if any... (decay, addressing...)
+
+Hmm, yes, intarray == &intarry but intpointer!=&intpointer!
+
+Funny, I've just found that I'm allowed to use int (*)[] (pointer to array of int, I guess) as a type in _Generic, even though int[] is not allowed
+
+This is very close to working! but unfortunately the way the macro / _Generic works is it distributes all calls over all paths for type checking and such, and there are many things you can't take the address of in C that I'm now trying to take the address of in int *: ( ((void *)unit == (void *)&unit) ? (_print_array_size = sizeof(unit), _print_int_array) : _print_int_pointer), \
+
+What I mean to say is, the macro expands to semantically invalid things in some untaken branches of the _Generic, and my compiler refuses to ignore them. I also tested latest clang and it refuses to ignore them. Oh well.
+
+Unfortunately, up in the printing function itself, said function just takes an int *. So its sizeof will be wrong for the array and I can't use that.
+
+Related: http://www.open-std.org/jtc1/sc22/wg14/www/docs/n2396.htm#dr_481
+
+But this is still unhelpful; even if the committee had made the other choice, int[] is still an incomplete type and therefore invalid. What I really want is a Choice 3 in which int[]-- or even wackier things like void[]-- is allowed. Or an "is_real_array" operator. That's what I want, Santa Claus!
+
+In the end, I decided to print the full array out iff the sizeof the array != the sizeof a pointer. I feel that this is an inelegant solution and there may be a better one out there-- if you know it, please let me know! (I didn't use _Alignof because I don't know much about it, but I don't imagine it would resolve anything. It's basically just the same as size, plus maybe some padding (arrays of 2 and pointers aren't usually padded).)
+
+I'm exhausted.
+
+Merry Christmas.
+
+Appendix: Further Remarks: Thread Safety, Types, Library Considerations
+
+Here are more remarks I made after I had made the decision:
+
+There are so many other design considerations I could make that rest on this part, this impossible thing.
+
+I see now why I didn't do this the first time.
+
+I currently just have a global int _print_array_size; for some iterations of this hack. But I'm pretty sure that isn't thread safe, or something. So different threads printing different things could crash. Or maybe it is thread safe, and each thread would have its own copy of the global. I'm not a master of this.
+
+https://en.wikipedia.org/wiki/Thread_safety:
+
+> In the C programming language, each thread has its own stack. However, a static variable is not kept on the stack; all threads share simultaneous access to it. If multiple threads overlap while running the same function, it is possible that a static variable might be changed by one thread while another is midway through checking it. This difficult-to-diagnose logic error, which may compile and run properly most of the time, is called a race condition. One common way to avoid this is to use another shared variable as a "lock" or "mutex" (from mutual exclusion).
+
+So I guess random globals are a bad idea. Shame, because I have to rearchitect every function call now if I want this additional info. Well, that part probably isn't too hard. (It wasn't.)
+
+After this change I thought that maybe I would be able to get literal char printing with the following code, since I was now passing the size around, but it turns out it's still impossible. The immediate promotion to int is just too strong!
+
+void _print_int(long long int i, int size){
+  if(size==sizeof(char)){
+    _print_char(i, size);
+  } else {
+    printf("%lld", i);
+  }
+}
+
+Now that I'm passing the size around, I figured I could print out all the bytes in arbitrary structs, but actually this is also impossible because I would need a pointer to the struct, not the struct itself, and once you take the pointer you lose the size. Or, alternatively, note that once I have the struct inside the generic, there's no function that can can receive an arbitrary struct in its type signature. Or, maybe if I switch the positions of the size and the data in the function signatures, I could make _print_unknown a variadic function that appropriately ignores type? Well, maybe I'll try that some day. Anyway, my current default function didn't really make sense so I removed it.
+
+I've also implemented 2d array printing. However, for similar reasons as the above it seems impossible to print a nice {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}} style pattern; I just have to print {1, 2, 3 4, 5, 6 7, 8, 9}. This is because to get the size of the inner array you'd have to deference the outer array, and you can't do that in a _Generic (again, see above). An alternative would be making n of these functions (dispatching to int (*)[n] in the _Generic), which isn't very good. Oh well. This is more honest, in a way.
+
+I also considered making an even wackier system where type information is extracted and everything is converted into a void pointer and passed along with its type info to a function that then prints it properly. One problem here is that you can't convert, say, a literal 27.0 into a pointer. There may be a way around that with exceptional trickery. 
+
+One awkward implication of the _Generic style type switching is that for this function to cover all cases... well, there's (maybe) an infinite depth of n-dimensional arrays I'd have to match, for example. The file could get quite large. Meanwhile, I haven't even implemented arrays of floats! I am hoping if this library gets other users they can extend it to what they need without much trouble, or request I do it, and eventually we'll get the most common cases. It's also a bit annoying that I rely on the user to implement custom printers if they want to print custom structs, but there's no compile-time struct introspection in C so there's no way around that.
+
+Also embarrassing is the fact that despite being listed as .h, print.h is actually full of implementations. This is because I don't quite know the best way to do header files. It's possible I should just copy the stb.h way. Or maybe I should rename print.c and invite the user to directly include it. I don't quite know. Again, this is mostly because my particular use-case doesn't need this, so I'm hoping he who has the opinions, opines.
