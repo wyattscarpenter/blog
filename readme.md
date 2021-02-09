@@ -1,6 +1,6 @@
 Hi, welcome to my programming-themed weblog. All content on this blog is released into the public domain under CC0 https://creativecommons.org/publicdomain/zero/1.0/.  To see my real programming projects, check out https://wyattscarpenter.github.io or https://github.com/wyattscarpenter.
 
-This blog updates whenever I have something to say. As far as I can tell, the closest thing to an rss feed for this blog is https://github.com/wyattscarpenter/blog/commits.atom. You can also watch the repo on github at https://github.com/wyattscarpenter/blog
+This blog updates whenever I have something to say. As far as I can tell, the closest thing to an rss feed for this blog is https://github.com/wyattscarpenter/blog/commits.atom. You can also Watch the repo on github at https://github.com/wyattscarpenter/blog to recieve emails and/or github notifications about updates.
 
 If you have any comments or corrections, feel free to submit a pull request https://github.com/wyattscarpenter/blog/pulls so long as you are ok releasing your content under CC0.
 
