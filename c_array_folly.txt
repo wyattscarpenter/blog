@@ -40,11 +40,11 @@ Other options: make a fake variable called "print_next_array" that you pass in a
 
 You basically run into the same problem in all ways, which is that sizeof still knows the size of the type because of course the compiler knows that, but (even though it also knows this) it's not allowed to tell you whether the thing is an array or a pointer.
 
-I'm trying not to use typeof because _Generic is the standardized version of typeof.
+I'm trying not to use typeof because _Generic is the standardized way to do type-generic things, and typeof is nonstandard.
 
 I might be able to do some malarkey about the edge case in which pointers and array work differently, if any... (decay, addressing...)
 
-Hmm, yes, intarray == &intarry but intpointer!=&intpointer!
+Hmm, yes, intarray == &intarray but intpointer!=&intpointer
 
 Funny, I've just found that I'm allowed to use int (*)[] (pointer to array of int, I guess) as a type in _Generic, even though int[] is not allowed
 
