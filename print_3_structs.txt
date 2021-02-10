@@ -1,0 +1,42 @@
+This blogpost continues my adventures in the print series, https://wyattscarpenter.github.io/blog/print.txt and https://wyattscarpenter.github.io/blog/c_array_folly.txt
+
+Turns out Clang 8 introduces a new nonstandard builtin, __builtin_dump_struct, that you can pass a struct and it will print correctly using compile time information.
+
+https://clang.llvm.org/docs/LanguageExtensions.html#builtin-dump-struct
+
+Eminently useful, but nonstandard so I can't use it without violating my commitment to being standard-bound. It's not even available in gcc (the other most popular respectable c compiler). The other compilers I often consider, TCC and MSVC, also don't have it.
+
+Tangent about those TCC and MSVC and why print.h might not work on them: TCC, Tiny C Compiler doesn't implement _Generic at all, since _Generic was introduced in C11 and TCC is only C89-compliant (though apparently close to C99) (remember, C11 is from 2011 and is thus newer than C99 which is from 1999). I just indulged in a flight of fancy about volunteering to implement _Generic in TCC, but I don't really have time to do that right now, no matter how personally satisfying I would find it. MSVC, the Microsoft Visual C Compiler, recently added support for the new features of C11 https://devblogs.microsoft.com/cppblog/c11-and-c17-standard-support-arriving-in-msvc/ but I got my copy of that compiler before they added the support and my installation is sort of held together by duct-tape so I can actually invoke their compiler from the command-line (you know, like how a normal person invokes a c compiler) https://github.com/wyattscarpenter/util/blob/master/cl.bat so I don't really want to install a new version just to see if print.h actually works there.
+
+I find it interesting that, given this willingness to compile-time-type-safe print structs, clang implemented no compile-time-type-safe generic __builtin_print.
+
+Unfortunately, you can't use struct * in a _Generic, because it's an incomplete type and probably not even grammatically correct, so we still can't dispatch structs to __builtin_dump_struct in the print function.
+
+Earlier, I was considering making a macro applicable to structs and arrays that would make print print out hex dumps of their memory. You would call it like this:
+
+print(full_print_form(somestruct), full_print_form(somearray));
+
+The implementation is something like this:
+
+typedef struct {int size; void* a;} _full_print_form;
+#define full_print_form(a) (_full_print_form){sizeof(a), &a}
+void _print_full_print_form(_full_print_form a, int size){
+    //note that the size parameter will always be sizeof int + sizeof void*, so it's ignored for our purposes here
+    for(int i = 0; i < a.size; i++){
+        printf("%02X", ((char*)a.data)[i]);
+    }
+}
+
+I initially dismissed this as too user unfriendly, and not compile-time enough (since I just using printf for everything anyway, this second concern was somewhat ridiculous) but it's perhaps better than having nothing. So I made it and added it.
+
+This raised the question if I could use __builtin_dump_struct in that macro when appropriate. And the answer, after a lot of searching, is... yes? I could #define the macro to be __builtin_dump_struct (with &printf as second argument) when the latter is available; because of how evaluation works, this means print would evaluate the __builtin_dump_struct, causing the struct to be printed, and then print the return value of that evaluation, which is probably the number of bytes written since it uses printf. Even better, the macro can be written cleverly to make the return into a datatype which I "print" by ignoring it, so it's just the struct, clean!
+
+So, the only question is if this makes sense as a thing to do. And I think so. It doesn't really make sense to call full_print_form on non-structs, since we can actually implement printers for those. (Remember you can even implement custom printers for your structs or types, but we want to avoid that hassle if possible) Well, maybe more complex types like an array of structs would be better dumped into hex than left unhandled or falling to a different handler (obviously, if you called it with __builtin_dump_struct you'd just print the first item, because arrays decay into pointers with the address being the first element). So the compromise I've settled on is making _printable_bytes the new name of full_print_form, and defining _printable_struct as either _printable_bytes or __builtin_dump_struct if the latter is available. Naming these was hard; for example, the structure I produce in _printable_bytes in order to print bytes is not actually just a clump of bytes. And _printable_struct literally just prints the bytes, instead of providing you with anything. But, no other functions should be expected to handle these, so I don't feel too bad about the names. I also thought it was important to keep the word "print" in there, like all the other things print.h defines. 
+
+An alternative I approach I abandoned, suggested by the name _printable_struct, is defining a macro where __builtin_dump_struct would be called with some sort of arguments such that it would simply return its output as a string for print to print. Alas, I did not want to get into the memory management puzzles that would entail. You'd have to, like, sprintf into a string, and how large should the string be? Since there's no theoretical upper limit on the size of names of or within structs, and that information is not available for introspection, there's no way to know how much string to allocate. I'd have to write a dynamically expanding string. Which is doable, but by then I had already discovered the other method, so this way isn't worth the trouble.
+
+To sum up, here are some deficiencies of _Generic at the moment, expressed in terms of type names you can't have in the association list:
+
+int[]
+
+struct *
