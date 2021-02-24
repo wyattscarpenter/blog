@@ -70,11 +70,14 @@ In the self-rep chapter, Hofstader notes
 
 > But self-reps can be even shorter. For instance, in some computer language it might be  a  convention  that  any  program  whose  first  symbol  is  an  asterisk  is  to  be  copied  before  being  executed  normally.  Then  the  program  consisting  of  merely  one  asterisk  is  a  self-rep!  You  may  complain  that  this  is  silly  and  depends  on  a  totally  arbitrary  convention.  In  doing  so,  you  are  echoing  my  earlier  point  that  it  is  almost  cheating  to  use  the  phrase  "this  sentence"  to  achieve  self-reference-it  relies  too  much  on  the  processor,  and  not  enough  on  explicit  directions  for  self-reference.  Using  an  asterisk  as  an  example  of  a  self-rep  is  like  using the word "I" as an example of a self-ref: both conceal all the interesting aspects of their respective problems.
 
-Our quine macro is kind of like this, as the leading # preprocessor operator indicates the source code value of the subsequent macro parameter is just to be written out directly into memory, which can then be copied out of the program.
+Our quine macro is kind of like this, as the preprocessor stringfy operator (# prepended to the use of a macro argument) indicates the source code value of the subsequent macro parameter is just to be written out directly into memory, which can then be copied out of the program.
 
-Similarly, if we consider cc -E, in which only preprocessing is perform macros are expanded, we see that any non-preprocessor token is a quine as far as the preprocessor is concerned.
+Similarly, if we consider cc -E, in which only preprocessing is performed (that is, among other things, macros are expanded), we see that any non-preprocessor token is a quine as far as the preprocessor is concerned. (You can also write uninspiring macros like #define q(x) q(x) which will turn anything you q into something you q.) Unfortunately you can't produce a newline in preprocessor macro so you cannot create a macro that quines under -E. What I mean by this is that if you attempt to write something like
 
-You can also write uninspiring partial macros like #define q(x) q(x) which will turn anything you q into something you q. Unfortuantely you can't produce a newline in preprocessor macro so you cannot create a macro that quines under -E.
+#define q q
+q
+
+then you will stumble and fail in constructing a quine because, even though you can produce the #define q q line fine, you will not be able to get the macro expansion to produce a second line with the q on it.
 
 I've become convinced that even though it's very popular to quine with printf, it's somewhat against the spirit of the thing due to printf's unusual properties. In my quest to quine without printf, I've adapted David Madore's http://www.madore.org/~david/programs/selfrep/yaq.c into this quite interesting quine:
 
