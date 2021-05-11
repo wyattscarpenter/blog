@@ -1,4 +1,4 @@
-This blogpost continues my adventures in the print series, https://wyattscarpenter.github.io/blog/print.txt and https://wyattscarpenter.github.io/blog/c_array_folly.txt
+This blogpost continues my adventures in the print series, https://wyattscarpenter.github.io/blog/print.txt and https://wyattscarpenter.github.io/blog/print_2_c_array_folly.txt
 
 Turns out Clang 8 introduces a new nonstandard builtin, __builtin_dump_struct, that you can pass a struct and it will print correctly using compile time information.
 
