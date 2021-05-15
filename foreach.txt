@@ -69,13 +69,26 @@ Of course, our foreach here is only usable for simple arrays, so I immediately w
 
 #define foreachz(var, string) for(typeof(string[0]) *var##_p = string, var = *var##_p; var!=0; var = *++var##_p)
 
-And a version for a known length (not available to the compiler at compile time)
+And a version for a length which is known but not available to the compiler
 
 #define foreachn(var, array, n) for(typeof(array[0]) *var##_p = array, var = *var##_p; var##_p < array + n; var = *++var##_p)
 
-But I was able to restrain myself from writing a version for linked lists. Because, who uses linked lists?
+I was initially able to restrain myself from writing a version for linked lists. Because, who uses linked lists? And, furthermore, it seemed to me that writing a generic version for linked lists was implausible because the pointer to the next node could be named anything, like "next" or "node". So the macro would have to use that variable name in it, either in a standardized way or by being supplied the variable name, either of which is messy. However, I realized any C programmer worth his salt would likely have the pointer be the first member of the node struct (I can't explain this hunch but I'm fairly sure that that's the best layout) like so
 
-Also, for some reason typeof isn't a standard c feature, so you could define a standard compliant version
+struct linked_list {
+  struct linked_list *next;
+  int data; //example... could be many fields in practice
+};
+
+So, theoretically, one could write a linked list version
+
+#define foreachl(var, linked_list) for(typeof(linked_list) *var##_p = &linked_list, var = *var##_p; var##_p!=0 && ( var = *var##_p , 1); var##_p = *(typeof(linked_list)**)(void*)var##_p)
+
+Note that we do some weird stuff in the condition expression so we can iterate over all non-null nodes without fencepost errors nor segfaulting. Note also that we use more indirection than conceptually necessary in the end expression to avoid C complaining about us trying to cast a struct into a pointer... it's fine, the compiler will probably optimize out our indirection anyway.
+
+(Fun fact I learned while writing the previous paragraph: according to the 1999 C standard §6.8.5.3, the technical names of the condition expression and the end expression are expression-2 and expression-3, respectively. The first expression is called clause-1, though, presumably because it can also be a declaration, not just an expression.)
+
+For some reason typeof isn't a standard c feature, even though it's in virtually all the compilers. One could define a three-argument standard-compliant version of the foreach macro
 
 #define foreach(type, var, array) for(type *var##_p = array, var = *var##_p; var##_p < array + sizeof(array)/sizeof(array[0]); var = *++var##_p)
 
@@ -88,12 +101,12 @@ which is more like the java for(int i : a)
 
 But I like the brevity of the 2-argument version, personally.
 
-Though, the standard-compliant version also has the weakness that if you want to pass in the type, say, int*, you have to typedef it to, say, intypointy first.
+The standard-compliant version also has the weakness that if you want to pass in a type like, say, int*, you have to typedef it to, say, intypointy first, so that the declarations of var and var_p will be valid.
+
+Example full, compiling programs demonstrating the difference between the regular version and the standard-compliant version:
 
 #include <stdio.h>
 #define foreach(var, array) for(typeof(array[0]) *var##_p = array, var = *var##_p; var##_p < array + sizeof(array)/sizeof(array[0]); var = *++var##_p)
-
-Example full, compiling programs:
 
 int main(void) {
   printf("Hello World\n");
@@ -119,3 +132,30 @@ foreach(intypointy, i, a){ //standard for loop
 }
   return 0;
 }
+
+Example full, compiling program demonstrating the linked list version, also demonstrating the copyness of the local variables:
+
+#include <stdio.h>
+
+#define foreachl(var, linked_list) for(\
+typeof(linked_list) *var##_p = &linked_list, var = *var##_p;\
+var##_p!=0 && ( var = *var##_p , 1); \
+var##_p = *(typeof(linked_list)**)(void*)var##_p)
+
+struct linked_list {
+  struct linked_list *next;
+  int data;
+};
+
+int main() {
+  struct linked_list l3 = {0, 3};
+  struct linked_list l2 = {&l3, 2};
+  struct linked_list l = {&l2, 1};
+
+  foreachl(d, l){printf("%d", d.data);d.data=0;} //123
+  foreachl(d, l){printf("%d", d.data);d_p->data=0;} //123
+  foreachl(d, l){printf("%d", d.data);} //000
+  return 0;
+}
+
+Feel free to use any and all of the code in this blog post in your own projects; I've released the blog post and the code into the public domain. Note, however, that it's probably more trouble than it's worth to use some of these. Also note that, importantly, var will be a COPY of the array member, so assigning to it will not effect the original data structure. You'll have to assign through var_p.
