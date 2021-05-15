@@ -158,4 +158,4 @@ int main() {
   return 0;
 }
 
-Feel free to use any and all of the code in this blog post in your own projects; I've released the blog post and the code into the public domain. Note, however, that it's probably more trouble than it's worth to use some of these. Also note that, importantly, var will be a COPY of the array member, so assigning to it will not effect the original data structure. You'll have to assign through var_p.
+Feel free to use any and all of the code in this blog post in your own projects; I've released the blog post and the code into the public domain. Note, however, that it's probably more trouble than it's worth to use some of these. Also note that, importantly, var will be a COPY of the array member, so assigning to it will not affect the original data structure. You'll have to assign through var_p.
