@@ -1,0 +1,29 @@
+The question as she is posed: In the Standard Ebooks the novel Penguin Island, the word "penguinos" has no diaeresis and is suggested to be from dutchmen, yet is still labelled spanish. Is this correct? (Pengüinos should be spelled with a diaeresis on the u in spanish. Penguinos is the italian word for "penguins", and pinguïns is the dutch word for "penguins".)
+
+I had a bit of free time so I did some digging, and TLDR: I conclude that the language tag is correct, even though the text in the book lacks the diacritic in the word and misidentifies the source language.
+
+Here is the text in the english version from Internet Archive (page ix) https://archive.org/details/in.ernet.dli.2015.167011/page/n11/mode/2up:
+
+manchots, and he gives for reason that they received from the Dutch, who in 1598 reached Cape Magellan, the name of pinguinos, doubtless because of their fat. But if the manchots are called penguins what are we in future to call the Penguins themselves? Dr. J. B. Charcot does not tell us, and he does not seem to have given the matter a moment’s attention.
+
+Here is the text in the french version, from Internet Archive (page 10) https://archive.org/details/lledespingouins01frangoog/page/n15/mode/2up:
+
+Le docteur J.-B. Charcot affirme au contraire que les vrais et les seuls pingouins sont ces oiseaux de l'antarctique, que nous appelons manchots, et il donne pour raison qu'ils reçurent des Hollandais, parvenus, en 1598, au cap Magellan, le nom de pinguinos, à cause sans doute -de leur graisse. Mais si les manchots s'appellent pingouins, comment s'appelleront désormais les pingouins ? Le docteur J.-B. Charcot ne nous le dit pas et il n'a pas l'air de s'en inquiéter le moins du monde².
+
+Here is the french text of the relevant footnote in the cited source (page 6) https://www.biodiversitylibrary.org/item/15956#page/14/mode/1up:
+
+(2) Nous avons conservé dans ce journal le nom de Pingouin qui est le vrai nom de ces Oiseaux qui furent appelés Pinguinos par les navigateurs espagnols du XVIIᵉ siècle. Il n'y a qu’en francais que l'on appelle à tort Pingouins des Oiseaux tout à fait dissemblables du Nord en désignant souvent ceux du Sud, les seuls vrais Pingouins, du nom de manchots.
+
+(English translation from Google Translate: (2) We have kept in this journal the name of Penguin which is the real name of these Birds which were called Pinguinos by the Spanish navigators of the 17th century. It is only in French that one wrongly calls Penguins quite dissimilar Birds of the North, often designating those of the South, the only true Penguins, by the name of penguins.)
+
+Notes:
+
+None of the source texts correctly diaeresize pinguinos.
+
+The english text of Penguin Island translates a word meaning "Hollander" to "Dutch", in the grand paneuropean tradition of confusing the two. The english text also moves the location of the footnote citing the source for some reason. The Internet Archive ocr contains the "docs" for "does" error that this patch corrects-- I should have realized that's where it came from.
+
+In repeating its source, Penguin Island changes the description of the explorers who named the southern penguins from 17th century spanish navigators to 1598 hollanders (likely referring Simon de Cordes' expedition). It is unclear why; possibly he was following the etymology given in the extremely popular 1877 Dictionnaire de la langue française by Émile Littré https://www.littre.org/definition/pingouin. I will note that by 1598 Holland was independent of Spain, being part of the United Provinces of the Netherlands. But perhaps Anatole France thought "Northern Netherlands, Southern Netherlands; 1598, 1600... what's the difference?" and so adjusted Dr. J. B. Charcot's account without adjusting his (unlikely) claim that the word for penguin comes from the Spanish word pingüinos.
+
+The text claims the name of pinguinos is "doubtless because of their fat / à cause sans doute -de leur graisse", a reference to the etymological theory that the word for penguin is from the latin word pinguis meaning "fat" (spanish: pingüe, dutch: vet). There is a rival theory that penguin comes from the welsh words pen gwyn (white head), because they are named for their similarity to great auks, who have a large white spot on their heads.
+
+The question posed in this paragraph of Penguin Island of what to call pingouins (great auks) in french if one were to decide that manchots (penguins) were properly called pingouins was resolved several decades prior to the publication of the novel with the extinction of the great auk. However, a species of bird related to the great auk, not in the same genus of Pinguinus but in the same family of Alcidae, Alca torda, is still known as le petit pingouin or pingouin torda in french.
