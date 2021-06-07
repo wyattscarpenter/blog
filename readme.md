@@ -30,6 +30,10 @@ Weblog entries:
 
 2020-12-21 A Monad Is Just A Struct With Opinions: An Explanation of the So-Called "Monad" of Computer Science, With Connections to Leibniz's Monadology https://wyattscarpenter.github.io/blog/a_monad_is_just_a_struct_with_opinions.txt
 
-2020-12-25 Print part 2: The C Array Folly: https://wyattscarpenter.github.io/blog/print_2_c_array_folly.txt
+2020-12-25 Print, part 2: the C array folly https://wyattscarpenter.github.io/blog/print_2_c_array_folly.txt
 
-2021-02-10 Print part 3: Structs: https://wyattscarpenter.github.io/blog/print_3_structs.txt
+2021-02-10 Print, part 3: structs https://wyattscarpenter.github.io/blog/print_3_structs.txt
+
+2021-04-06: Essays On Extremely Specific Questions, part 1: What unix time is it in milliseconds during a leap second, in javascript? https://wyattscarpenter.github.io/blog/unix_milliseconds_in_javascript.txt adapted from https://github.com/qntm/t-a-i/issues/15#issuecomment-814128119
+
+2021-06-07: Essays On Extremely Specific Questions, part 2: Why does the word "penguinos" have no diaresis in the novel Penguin Island, and is it spanish? https://wyattscarpenter.github.io/blog/penguinos.txt adapted from https://github.com/standardebooks/anatole-france_penguin-island_a-w-evans/pull/4#issuecomment-855788226
