@@ -1,0 +1,21 @@
+The question as she is posed: how to model the relationship between Unix milliseconds and TAI milliseconds during an inserted leap second.
+
+I'm not an expert on this but I love being overly pedantic so I thought I'd comment.
+
+It's not exactly clear to me what precisely you mean by "Unix time" in this, well, entire project. Bear with me here; it might make a difference. Possibly, you mean POSIX's concept of "seconds since the epoch", which is defined in https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap04.html#tag_04_16. However, I don't think that's even defined with respect to a smaller granularity than a second! Also, a lot seems to be left "unspecified" or "implementation-defined" here. As you say, the rationale, https://pubs.opengroup.org/onlinepubs/9699919799/xrat/V4_xbd_chap04.html#tag_21_04_16, is difficult to understand.
+
+However, in the readme of the project, you seem to treat JavaScript's Date as a definitive source of "Unix time". (This, I assume, is especially relevant because the project is written in JavaScript). This may mean the ECMAScript standard holds sway here. Luckily, that standard seems a little more forthcoming. The ECMAScript® 2020 Language Specification says this about time, in https://262.ecma-international.org/11.0/#sec-date-objects:
+
+    Time measurement in ECMAScript is analogous to time measurement in POSIX, in particular sharing definition in terms of the proleptic Gregorian calendar, an epoch of midnight at the beginning of 01 January, 1970 UTC, and an accounting of every day as comprising exactly 86,400 seconds (each of which is 1000 milliseconds long).
+
+    An ECMAScript time value is a Number, either a finite integer representing an instant in time to millisecond precision or NaN representing no specific instant. A time value that is a multiple of 24 × 60 × 60 × 1000 = 86,400,000 (i.e., is equal to 86,400,000 × d for some integer d) represents the instant at the start of the UTC day that follows the epoch by d whole UTC days (preceding the epoch for negative d). Every other finite time value t is defined relative to the greatest preceding time value s that is such a multiple, and represents the instant that occurs within the same UTC day as s but follows it by t − s milliseconds.
+
+    Time values do not account for UTC leap seconds—there are no time values representing instants within positive leap seconds, and there are time values representing instants removed from the UTC timeline by negative leap seconds. However, the definition of time values nonetheless yields piecewise alignment with UTC, with discontinuities only at leap second boundaries and zero difference outside of leap seconds.
+
+It seems to me like "there are no time values representing instants within positive leap seconds", how one calculates multiples, and "discontinuities only at leap second boundaries and zero difference outside of leap seconds", suggest (3) as the only correct answer under the ECMAScript standard. (Though, possibly, you should return NaN, "representing no specific instant", as does new Date('2016-12-31 23:59:60').getTime()*, instead of throwing an exception.)
+
+Whether implementations respect this standard is left as an exercise for the reader.
+
+...Of course, if "Unix time" is supposed to mean "what time might a unix system tell us it is?" then you should probably implement all the options you've described here because there's probably a unix system that does it for each of those ways.
+
+*see https://searchfox.org/mozilla-central/rev/d7e344e956d9da2808ea33e1fe0f963ed10c142d/js/src/jsdate.cpp#992 for the validation code that rejects this example in firefox, if you're curious. It is not very illuminating.
