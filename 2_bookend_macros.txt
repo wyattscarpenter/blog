@@ -1,0 +1,207 @@
+There are many situations in programming where operations must be wrapped by a beginning operation and an ending operation. Some examples are: allocating dynamic memory, using it, then freeing it; setting up a stateful object, then using it, then tearing it down; acquiring a file lock, using the file, and then releasing it.
+
+I call these "bookend situations", after the metaphorical usage of the word "bookend" meaning "a thing set both before and after" (bookends are literally heavy objects which may be set before and after a row of books to keep the books standing up, on a desk or shelf.)
+
+There is a problem inherent in bookend situations: programmers are well-known to be fallible humans, and thus may perform the beginning operation and forget the ending operation, or otherwise bungle the bookend. Another problem is that the code execution flow might jump away from the operations between the beginning and ending bookends, using a goto, longjmp, return, or standard structured programming constructs. However, this latter problem is rather harder to solve, to be honest.
+
+There are various techniques for dealing with this: managed languages have garbage collection, something this is just for memory, sometimes it covers other things; C++ has RAII (Resource Allocation Is Initialization), in which the bookend situation is associated with the lifetime of a variable—the bookend begin is in the variable's constructor, and the bookend end is in the variable's destructor, which is triggered when the variable goes out of scope; Go has a defer statement that you can call with the bookend end to sink that to the bottom of the scope, which has recently been proposed for C http://www.open-std.org/jtc1/sc22/wg14/www/docs/n2542.pdf; and of course Python has the old "with open("file.txt") as file: dostuff(file)" thing.
+
+Here I'd like to present two bookend macros for C I've stumbled upon recently, which may prove useful. Basically, they just allow you to specify the bookend begin and the bookend end in the same place, to reduce the chance that you will bungle that.
+
+The first variation uses a for loop. I learned this trick from the talk Modern C and What We Can Learn From It - Luca Sas [ ACCU 2021 ] https://www.youtube.com/watch?v=QpAhX-gsHMs&t=17m55s though I do get the funny feeling that I've seen this trick somewhere before, but did not appreciate the problem of bookending at the time, so I immediately forgot it. He called it "defer", which is perhaps not exactly what we'd like to call it, so I have renamed it to "bookend". Which is also not a perfect name, but it's ok. I have rewritten his macro slightly to be slightly more to my taste.
+
+#define bookend(begin, end) for(int _bookend_macro_bookkeeping_variable = (begin, 1); _bookend_macro_bookkeeping_variable-- ; end)
+
+you can use this macro like
+
+bookend(foo(), bar()){
+  /*write code in here like normal, bookended by the begin and end*/
+}
+
+or
+
+bookend( (i=0, dostuffmaybe(), opensomestuff(), etc()) , (z = 0, domorestuffmaybe(), closethestuff(), etc())){
+  /*write code in here like normal, bookended by the begin and end*/
+}
+
+Note that for implementation reasons the begin and end clauses must both be expressions.
+
+This implementation also has the advantage, or at least characteristic, that it has an explicit {} scope block associated with it, which may remind (or distract) the programmer as to its purpose.
+
+However, since we are already using c preprocessor macros, there is a much simpler way to achieve this:
+
+#define bookend(begin, end, ...) begin;  __VA_ARGS__; end;
+
+you can use this macro like
+
+bookend(foo(), bar(),
+  /*write code in here like normal, bookended by the begin and end*/
+)
+
+or
+
+bookend(i=0; dostuffmaybe(); opensomestuff(); etc(); , z = 0; domorestuffmaybe(); closethestuff(); etc();,
+  /*write code in here like normal, bookended by the begin and end*/
+)
+
+Note that for implementation reasons all three clauses can be an arbitrary number of statements, and it doesn't matter if they have trailing semicolons (redundant trailing semicolons will just produce so-called "null statements").
+
+Here is some code that shows both bookend implementations are correct:
+
+#define bookend(begin, end) for(int _bookend_macro_bookkeeping_variable = (begin, 1); _bookend_macro_bookkeeping_variable-- ; end)
+#include <stdio.h>
+int main(void){
+  int i = 1;
+  printf("%d\n", i);   //1
+  bookend(i=2, i=1){
+    printf("%d\n", i); //2
+  }
+  printf("%d\n\n", i);   //1
+
+  i = 1;
+  printf("%d\n", i);   //1
+  bookend( (i=2,
+    i=3), i=1){
+    printf("%d\n", i); //3
+  }
+  printf("%d\n\n", i);   //1
+
+  i = 1;
+  printf("%d\n", i);   //1
+  bookend(i=2, i=1){
+    bookend(i=4, i=3){
+      printf("%d\n", i); //4
+    }
+  }
+  printf("%d\n", i);   //1
+}
+
+#include <stdio.h>
+#include <stdlib.h>
+#define bookend(begin, end, ...) begin;  __VA_ARGS__; end;
+int main() {
+  int *memory;
+  bookend(memory = malloc(sizeof(int)), free(memory),
+    *memory = 12;
+    printf("Hello, world %d!\n", *memory); //12
+    *memory = (short[]){1,2}[1]; //just some crazy syntax to show it doesn't break the macro
+    printf("Hello, world %d!\n", *memory); //2
+    puts("ok");
+  )
+//free(memory); //free(): double free detected in tcache 2
+}
+
+Here is some code that shows both bookend implementations will not save you from early returns, gotos, or longjmps:
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <setjmp.h>
+
+#define bookend(begin, end, ...) begin;  __VA_ARGS__; end;
+int *memory;
+jmp_buf buf;
+
+int early_return(){
+  bookend(memory = malloc(sizeof(int)), free(memory),
+    *memory = 12;
+    printf("%d\n", *memory); //12
+    return 0; //we just return out of everything, so we never free
+  )
+}
+
+int early_goto(){
+  bookend(memory = malloc(sizeof(int)), free(memory),
+    *memory = 13;
+    printf("%d\n", *memory); //13
+    goto ret//we just return out of everything, so we never free
+  )
+  ret:
+    return 0;
+}
+
+int early_longjmp_helper(){
+  bookend(memory = malloc(sizeof(int)), free(memory),
+    *memory = 14;
+    printf("%d\n", *memory); //14
+    longjmp(buf,1); //we just return out of everything, so we never free
+  )
+}
+
+int early_longjmp(){
+  if (!setjmp(buf)){
+    early_longjmp_helper();
+  }
+  return 0;
+}
+
+int main() {
+  early_return();
+  printf("%d\n", *memory); //12; no error
+  free(memory); //no error
+  early_goto();
+  printf("%d\n", *memory); //13; no error
+  free(memory); //no error
+  early_longjmp();
+  printf("%d\n", *memory); //14; no error
+  free(memory); //no error
+}
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <setjmp.h>
+
+#define bookend(begin, end) for(int _bookend_macro_bookkeeping_variable = (begin, 1); _bookend_macro_bookkeeping_variable-- ; end)
+int *memory;
+jmp_buf buf;
+
+int early_return(){
+  bookend(memory = malloc(sizeof(int)), free(memory)){
+    *memory = 12;
+    printf("%d\n", *memory); //12
+    return 0; //we just return out of everything, so we never free
+  }
+  return 0;
+}
+
+int early_goto(){
+  bookend(memory = malloc(sizeof(int)), free(memory)){
+    *memory = 13;
+    printf("%d\n", *memory); //13
+    goto ret; //we just return out of everything, so we never free
+  }
+  ret:
+    return 0;
+}
+
+int early_longjmp_helper(){
+  bookend(memory = malloc(sizeof(int)), free(memory)){
+    *memory = 14;
+    printf("%d\n", *memory); //14
+    longjmp(buf,1); //we just return out of everything, so we never free
+  }
+  return 0;
+}
+
+int early_longjmp(){
+  if (!setjmp(buf)){
+    early_longjmp_helper();
+  }
+  return 0;
+}
+
+int main() {
+  early_return();
+  printf("%d\n", *memory); //12; no error
+  free(memory); //no error
+  early_goto();
+  printf("%d\n", *memory); //13; no error
+  free(memory); //no error
+  early_longjmp();
+  printf("%d\n", *memory); //14; no error
+  free(memory); //no error
+}
+
+Though it's well known that "goto considered harmful", this complication of returning to bookending may provide additional rationale for the "single return at end of function" style of programming.
+
+It's not clear to me that either of these macros are standards-compliant. I'm staring right at the definition of function-like macros' semantics in the standard, and it's still anyone's guess. Well, my compiler doesn't complain, anyway.
