@@ -41,3 +41,6 @@ Weblog entries:
 2021-06-07: Essays On Extremely Specific Questions, part 2: Why does the word "penguinos" have no diaresis in the novel Penguin Island, and is it spanish? https://wyattscarpenter.github.io/blog/penguinos.txt adapted from https://github.com/standardebooks/anatole-france_penguin-island_a-w-evans/pull/4#issuecomment-855788226
 
 2021-06-13: The C Zoo, part 5: two bookend macros https://wyattscarpenter.github.io/blog/2_bookend_macros.txt
+
+2021-10-27: The C Zoo, part 6: the strcat folly https://wyattscarpenter.github.io/blog/strcat_folly.txt
+
