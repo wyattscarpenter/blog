@@ -1,0 +1,76 @@
+Having just read several critique of the C programming languages, in which strings were an especially sticking point, I decided to take another stab at implementing a variadic string concatenation function in C. But alas! I realized at the end, much as I realized 3 years ago when I tried this the first time, that the problem with strcat in C isn't that you can't call strcat(destination, source1, source2, source3...); it's that you have to know exactly how long your strings are, in advance.
+
+Basically, without getting too deep into it, strings can be variable length, but the memory you put them into has to be of known length.
+
+So you get this weird situation where even though the thing strcat is doing is sticking a string of unknown length, source, on to the end a thing of unknown length, destination, destination still has live in an allotment of memory that can hold a string of the combined length of source and destination. You have to set this up explicitly!
+
+This is tiresome.
+ 
+Oddly enough, in (noted C user) Brian W. Kernighan's essay "Why Pascal is Not My Favorite Programming Language" he complains of Pascal:
+
+    The size of an array is part of its type [...] The particular data type most often affected is 'array of char', for in Pascal a string is an array of characters. [...] The problem is how to handle the string argument [...]  The calls [...] cannot both be legal, since the strings have different lengths.
+
+Newsflash, my guy, your favorite programming language has an extremely similar problem! Except C made it a runtime error that might blow up your computer or silently corrupt your data if you do it wrong!
+
+Interestingly, Kernighan also notes:
+
+     The only escape from this infinite regress is to define a family of routines with a member for each possible string size, or to make all strings (including constant strings like 'define' ) of the same length.
+
+    The latter approach is the lesser of two great evils.  In 'Tools', a type called 'string' is declared as
+
+         type    string = array [1..MAXSTR] of char;
+
+    where the constant 'MAXSTR' is ``big enough,'' and all strings in all programs are exactly this size.  This is far from ideal, although it made it possible to get the programs running.  It does not solve the problem of creating true libraries of useful routines.
+
+Which is how many C programmers end up solving the problem. "Oh, 256 characters ought to be enough for anyone!"
+
+Now, to be fair, in C you can break free of the automatic memory management scheme and dynamically allocate more memory on the fly based on runtime-calculated string lengths, using malloc. And then the programmer just has to remember to call free on every incidental string he's concatenated, by the end of the function. What a pain.
+
+If only c had a defer statement (hopefully soon... http://www.open-std.org/jtc1/sc22/wg14/www/docs/n2542.pdf), then I could just slap one of those bad boys in a macro that also includes a defer and wallpaper over the whole thing... well, assuming I want it destroyed when the defer would trigger.
+
+See also https://wyattscarpenter.github.io/blog/2_bookend_macros.txt for a defer-like macro that is still more annoying to use than I want.
+
+Unlike most of these blog posts, I cannot offer you working code, only code I abandoned halfway through:
+
+//The char pointers in the following functions are deliberately (and perhaps foolishly) not marked restrict. Go hog-wild!
+
+static char *_wyatt_variadic_string_concatenation_implementation_new(char** strings) //variadically concatenates strings. O(2n), does not leak memory; allocates and returns a new null-terminated char*, which the caller must free.
+  size_t total_size = 0;
+  int str_index = 0;
+  while(sources[str_index]){
+    total_size += strlen(sources[str_index]);
+    str_index++;
+  }
+  str_index = 0;
+  char *new_string = malloc(total_size);
+  for(int i = 0; i < total_size; i++){
+    
+  }
+
+static char *_wyatt_variadic_string_concatenation_implementation_classic(char** strings, size_t number_of_chars_in_destination_storage) //variadically concatenates strings to strings[0]. O(n), does not leak memory; tacks the source strings on to the first element of the first argument (terminating with a null) and returns a pointer to it 
+  int index_in_strings = 0;
+  int index_in_current_string = 0;
+  int index_in_destination_string = 0;
+  while(index_in_destination_string < number_of_chars_in_destination_storage){
+    if(!strings[index_in_strings]){ //we've reached the terminating NULL //should this actually use the foreach macro to allow for the user passing in NULLS to be concatenated? ...Nah, since that'd deref a null anyway.
+      break;
+    }
+    if(!*strings[index_in_strings]){ //we've reached the terminating \0
+      index_in_strings++;
+      index_in_current_string = 0;
+      continue;
+    }
+    strings[0][index_in_destination_string] = strings[index_in_strings][index_in_current_string];
+    index_in_destination_string++;
+    index_in_current_string++;
+  }
+  strings[0][index_in_destination_string < number_of_chars_in_destination_storage? index_in_destination_string : number_of_chars_in_destination_storage-1] = '\0';
+  return strings[0];
+}
+  
+
+
+//unfortunately it seems there's no way to check if the destination argument is a pointer at compile time; the way we do it here is a hack. There is another hack, where you compare the size of the destination argument to the size of a char*, but this will disallow the use of char[8] for most users, which they will find opaque. Might be worth it though, since char[8] is a pretty rare value to use.
+#define cat(destination, ...) ( assert("cat can only be called with a destination char[] of known size in the local scope; this allows the memory to be managed correctly in C. If you need to concatenate to a new char*, use cat_new", destination == &destination) , _wyatt_variadic_string_concatenation_implementation_classic((char *[]){destination, ..., NULL}), sizeof(destination))
+
+#define cat_new(...) _wyatt_variadic_string_concatenation_implementation_new((char *[]){..., NULL})
