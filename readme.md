@@ -44,3 +44,4 @@ Weblog entries:
 
 2021-10-27: The C Zoo, part 6: the strcat folly https://wyattscarpenter.github.io/blog/strcat_folly.txt
 
+2021-11-23: Escaping Mathese https://wyattscarpenter.github.io/blog/escaping_mathese.txt
