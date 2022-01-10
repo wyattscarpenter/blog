@@ -45,3 +45,5 @@ Weblog entries:
 2021-10-27: The C Zoo, part 6: the strcat folly https://wyattscarpenter.github.io/blog/strcat_folly.txt
 
 2021-11-23: Escaping Mathese https://wyattscarpenter.github.io/blog/escaping_mathese.txt
+
+2022-01-09: A Note On The GNU/Linux Naming Controversy: in which I take a position on the greatest issue of the late 1990s - early 2000s https://wyattscarpenter.github.io/blog/gnu_linux_naming_controversy.txt
