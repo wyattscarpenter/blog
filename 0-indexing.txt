@@ -11,8 +11,8 @@ First, I would like to point out that the convention is entirely arbitrary: C co
 &x: what is the address of x (this looks tantalizingly like a unary and)
 *x: what is at the address stored in x (this looks tantalizingly like a unary multiply)
 x[n]: *(x+n)
-x.n: *(&x+offsetof(x, n))
-x->n: *(x+offsetof(x, n))
+x.m: *(&x+offsetof(x, m))
+x->m: *(x+offsetof(x, m))
 As I understand it, there's sort of a long and boring history around this syntax, but I maintain it's overcomplicated. I once began to amuse myself by concieving of a C dialect that had only one dereference operator, probably "$", that could handle all of these cases, but then I remembered I had more important things to do, and that if I ever invented a language it would be too unlike C for this puzzle to be worth contemplating. (apparently, C's grandfather language, BCPL, already worked kind of like this, using the operator !, as it happens.) But the point is, if [] also added 1, in order to make array accesses 1-indexed, I would consider that a decent, instead of redundant, piece of syntactic sugar. Indeed, in FORTRAN arrays always started at one, and this was simply for programmer convenience, and all was right and good. Well, except for the fact that you had to write in FORTRAN.
 
 Second, I would like to address the main reason why 0-indexing is the wrong convention: it is unergonomic. Most of us have trained for years, very often in normal life, to deal with lists of elements 1 through N. 0-indexing means applying your common number sense in programming arrays is not only useless, but actively harmful. You have to develop a whole new perverse number sense to deal with arrays.
