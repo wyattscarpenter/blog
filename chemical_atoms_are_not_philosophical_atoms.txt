@@ -1,0 +1,17 @@
+A note on a philosophical topic: chemical atoms are not philosophical atoms.
+
+If you're like me, you probably learned as a child that some ancient greek philosophers, possibly some guy name Democritus or some guy named Epicurus, thought the universe was made of atoms: tiny little simple parts that make up complex parts.
+
+Later you probably learned in chemistry class that we later learned all things are made up of atoms: tiny little simple parts that make up complex parts.
+
+"Huh," you may have thought, "looks like those ancient greeks were right!"
+
+No!
+
+While those ancient greeks should rightly get a lot of credit for figuring out there are tiny little simple parts that make up complex parts, especially when they didn't have microscopes or advanced chemistry, they did not actually predict chemical atoms; they predicted philosophical atoms.
+
+The, or a least a major, defining characteristic of philosophical atoms is that they cannot be divided. This is, in fact, the meaning of the word "atom" ("a"=not and "tom"=cut, in greek). Originally, when they were discovered, chemical atoms seemed like they might be indivisible, which I assume is why they were then called "atoms". However, we then later learned that chemical atoms are made out of parts, and famously "split the atom" into its parts later in science. So they cannot be philosophical atoms.
+
+The things that chemical atoms are made of (or, in some cases, the parts those parts are made of), the "fundamental particles", as science currently calls them, like quarks, electrons, and bosons, seem like candidates for philosophical atoms. After all, we haven't been able to split them into something else yet. However, it's not clear to me if even they count as philosophical atoms. For instance, some accounts of these particles seem to imply that they are waves, or quantum fields, or something else, not particles. This would not match well with the predictions of ancient atomism, probably.
+
+There is much more on this topic that I have not said, and much more reading you can do on your own, elsewhere. But the important part is that chemical atoms (hydrogen, helium, carbon, etc) are not philosophical atoms!

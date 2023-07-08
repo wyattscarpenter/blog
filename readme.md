@@ -47,3 +47,5 @@ Weblog entries:
 2021-11-23: Escaping Mathese https://wyattscarpenter.github.io/blog/escaping_mathese.txt
 
 2022-01-09: A Note On The GNU/Linux Naming Controversy: in which I take a position on the greatest issue of the late 1990s - early 2000s https://wyattscarpenter.github.io/blog/gnu_linux_naming_controversy.txt
+
+2023-07-08: Chemical Atoms Are Not Philosophical Atoms https://wyattscarpenter.github.io/blog/chemical_atoms_are_not_philosophical_atoms.txt
