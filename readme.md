@@ -8,7 +8,7 @@ If you have any comments or corrections, feel free to submit a pull request <htt
 
 If you don't know the C programming language, you may enjoy reading <https://github.com/wyattscarpenter/guide-to-c> to gain background for many of these posts.
 
-<style> body { text-indent: 2em; font-family: serif, monospace !important; } /* This line is merely to style the page correctly in systems that respect such styling; it has no semantic meaning otherwise. */ </style>
+<style> p { text-indent: 2em; font-family: garamond, georgia, times, serif, monospace; line-height: 1.2; } /* This line is merely to style the page correctly in systems that respect such styling; it has no semantic meaning otherwise. */ </style>
 
 # Weblog entries:
 
