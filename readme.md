@@ -54,4 +54,4 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 
 2023-07-08: 𝝋 Chemical Atoms Are Not Philosophical Atoms <https://wyattscarpenter.github.io/blog/chemical_atoms_are_not_philosophical_atoms.txt>
 
-2023-10-22: 𝝋 Is It Irrational To Believe In God? Well, I Think So [is_it_rational_to_believe_in_god.txt]
+2023-10-22: 𝝋 Is It Irrational To Believe In God? Well, I Think So [./is_it_irrational_to_believe_in_god.txt]
