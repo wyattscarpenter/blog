@@ -8,6 +8,8 @@ If you have any comments or corrections, feel free to submit a pull request <htt
 
 If you don't know the C programming language, you may enjoy reading <https://github.com/wyattscarpenter/guide-to-c> to gain background for many of these posts.
 
+Weblog entries that are about philosophy instead of programming (or in addition to programming) are marked with 𝝋, unicode bold italic lowercase phi.
+
 <style> p { text-indent: 2em; font-family: garamond, georgia, times, serif, monospace; line-height: 1.2; } /* This line is merely to style the page correctly in systems that respect such styling; it has no semantic meaning otherwise. */ </style>
 
 # Weblog entries:
@@ -32,7 +34,7 @@ If you don't know the C programming language, you may enjoy reading <https://git
 
 2020-11-18 Some Bad Esoteric Programming Languages <https://wyattscarpenter.github.io/blog/badlangs.txt>
 
-2020-12-21 A Monad Is Just A Struct With Opinions: An Explanation of the So-Called "Monad" of Computer Science, With Connexions to Leibniz's Monadology <https://wyattscarpenter.github.io/blog/a_monad_is_just_a_struct_with_opinions.txt>
+2020-12-21 𝝋 A Monad Is Just A Struct With Opinions: An Explanation of the So-Called "Monad" of Computer Science, With Connexions to Leibniz's Monadology <https://wyattscarpenter.github.io/blog/a_monad_is_just_a_struct_with_opinions.txt>
 
 2020-12-25 Print, part 2: the C array folly <https://wyattscarpenter.github.io/blog/print_2_c_array_folly.txt>
 
@@ -50,4 +52,6 @@ If you don't know the C programming language, you may enjoy reading <https://git
 
 2022-01-09: A Note On The GNU/Linux Naming Controversy: in which I take a position on the greatest issue of the late 1990s - early 2000s <https://wyattscarpenter.github.io/blog/gnu_linux_naming_controversy.txt>
 
-2023-07-08: Chemical Atoms Are Not Philosophical Atoms <https://wyattscarpenter.github.io/blog/chemical_atoms_are_not_philosophical_atoms.txt>
+2023-07-08: 𝝋 Chemical Atoms Are Not Philosophical Atoms <https://wyattscarpenter.github.io/blog/chemical_atoms_are_not_philosophical_atoms.txt>
+
+2023-10-22: 𝝋 Is It Irrational To Believe In God? Well, I Think So [is_it_rational_to_believe_in_god.txt]
