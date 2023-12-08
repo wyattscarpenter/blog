@@ -1,0 +1,152 @@
+Notes on urbit and hoon, 2023.
+
+I've learned hoon and urbit, kind of, but I can't help you that much about it. Here are some notes I made:
+
+The most practical note I can offer: do not learn hoon! It is a waste of time! That said, if you like wasting time, let's go.
+
+For example, much of their Nock rationale is based on the idea that thereby Urbit will be able to run ***anywhere***, but Urbit is incapable of running on Windows, the most popular operating system in the world. (It only runs on WSL2 on Windows, which is a Linux virtual machine. It doesn't even really run on WSL1. I know this from personal experience, because I only had WSL1 on my machine when I went through Hoon School Live, so I had to complete most of the assignments a priori, as much of the provided example code would cause Urbit on WSL to immediately and opaquely break (as far as I can tell).)
+
+However, in the social aspect, they're a great bunch of lads.
+
+(It's kind of like the parable of the fox and the sour grapes, but counter this counter-parable I just made up: the parable of the fox who spent a lot of time getting one or two grapes, and discovered they were much too sour, and then spent another enormous amount of time getting the rest of the grapes, which are also much too sour.)
+
+I have to confess: I dislike hoon. The reasons will become apparent as you read this document. But, to sum up, it's a toy created by people who wanted to make simple things complex, and complex things impossible. It's an utter waste of time, and at this point in my life I've reflected that I would like to make my own wastes of time forging real-life connections, instead of some bullshit some guy made up for no reason. I wish them all the best. But want to learn an esoteric language? How about Sorbian? I hear some of their words even have more than 4 letters!
+
+To add to this difficulty, I was using hoon to work on a project that was a start-up created by one man but had an enterprise-level of complexity. This project had, like, 4 different tech stacks. Each piece of functionality wove through 10 different files. To some degree this is a matter of taste, but no ide on earth understands hoon, so my usual strategy of "show definition"+"show uses", which only worked half the time because overly-functional style lmao, was completely screwed. I was doing this project for fun and profit, and I got the dwarf fortress definition of "fun" and the jeremiad definition of "prophet". Well, I wish that project all the best, but I decided to rethink my life priorities. After attending Assembly 2023 (which was a fun time; they are cool dudes) I bid Urbit goodbye and good riddance. At the very least, before returning to it, I need to take a break.
+
+It's very funny that Hoon tries to be a clean fresh start of the computing stack but immediately added in the browser stack (the worst part of computing) to do the user interface (not a very complex requirement!!!)
+
+For a while I was trying to pursue Hoon jobs, because I also want to replace computing, and work on new things, and possibly work on a compiler (which is not a super common project type to be hiring developers) but now... well, I'm happy doing what I'm doing now, and I'm unhappy with Urbit, so it's really not my comparative advantage. I do still feel a little warm glow when I consider writing a command-line Hoon compiler, however. But ars longa, and vita brevis.
+
+The only mild benefit of learning hoon I got was the ability to sloppily skim hoon code like I do any other programming language. It was cool to see my skills port over. For, like, a day. "Wow, neat" for a day is not worth it.
+
+Almost nothing in the dojo is documented, especially on-line (offline) documentation. The way to exit the dojo is by typing |exit. You will only ever learn this in other materials that are not about dojo but have to introduce you to dojo so you can do something else. I hate bash, but even bash has a manual!
+
+Hoon is a very My First Programming Language programming language, and makes a lot of boneheaded mistakes, which it stubbornly sticks to. For instance, it's extremely concerned with arity, which the rest of programming has figured out should just be dealt with via, say, parenthesized lists.
+
+Every : rune (except ::, the comment—but that might be a digraph? it's not clear. it's not even clear to me if people in the urbit community use this term consistently) is a synonym for [1 2 3...] with different orders and arity. This is EXTREMELY unparsimonious. Hoon loves burning runespace on trivial things like "the same binary operation, but reversed". Who cares?? Just write your code in the other order. Except for ?: and ?., which are if and ifn't, which are pretty good tbh. By the way, the correct mnemonic for this is that ?: is like the c ternary operator, which returns the first possibility if the condition is true; and ?. is that but the second one. (I never use the ifn't operator because it's so unintuitive to me after years of ifn'tn'ted programming.)
+
+In fact, I might go so far as to recommend you write in a subset of hoon, using only the 13 or so constructions that you actually need. They're often the same length, or even shorter. I'm kind of confused why the code I see in the wild isn't already doing this, tbh.
+
+It's also extremely picky about whitespace. Don't put a tall form in a wide form! %-(add :-  1   2) is invalid. Look, I'm just gonna say it: the rune system is bad.
+
+At least [] isn't quite so picky about whitespace.
+
+Certain pieces of hoon syntax are not documented anywhere, or at least nowhere you can easily look up. What do you think x+y means in hoon? Good luck looking that up!
+
+Hoon is also obsessed with making words the same length, which is a specious kind of regularity that adds nothing. It also likes to make names short to the point of near-intelligibility instead of self-documenting english words (some of them still achieve being self-documenting english words, however). This is real High Modernism hours. I feel like it was way more fun to create than use.
+
+This is exactly the opposite direction that computing should be moving. We've spent years trying to convince programmers to put all the vowels back in and write good error messages. You should not use a system that respects you so little that a type error is expressed as
+  -need.@  
+  -have.[i=@tD t=""]  
+  nest-fail  
+  dojo: hoon expression failed
+(Note that this is the error message for the code (add "1" "2") )
+
+A lot of the interfaces to the systems in Urbit's operating system seem to take arbitrary single-character arguments, so, good luck remembering those.
+
+The standard advice for debugging in hoon is staring at the screen and using debugging printfs. This is also how I debug, but it is bad that that is the only way to debug. What idiot would build a programming language in the 2000s, ostensibly for production uses, and not support step-through debugging? Someone who is only building toy programs, or has never used anyone else's code.
+
+I don't care how cool you are, your standard text parsing functions should not be named sa so and se.
+
+Symbols in urbit seem to have been chosen at random. This is an extremely funny joke about computer programming you need to be a master of computer science to get. I am, and I do indeed find it funny.
+
+Many of the symbols in hoon and urbit are used for completely unrelated things at different times, making them very difficult to reason about or look up. This is also an intercal-style-joke-style move on hoon's part. For instance, `t` is used to cast a type, but ` is used to make a "unit". `` is a valid operation, as is ``t`x. The multiple-uses of percent signs is also annoying.
+
+There's a particular problem that it's impossible to look up what simpliciter (non-rune-component) punctation marks mean in Hoon. For example, ? is not only the rune that begins all the conditionals runes, but also by itself the literal name of the boolean (loobean) type in hoon code. $ is not only used for every structure rune but is also... ah, well, I forget at this point. * is noun, @ is atom, and $ is structure, I think? I tried to submit a pull request to the documentation website about this, but it was an awkward period of time where https://developers.urbit.org was deprecated enough that it wasn't accepting pull requests anymore, but https://docs.urbit.org had just come out and was too new to accept pull requests, so it was impossible for me to improve the documentation at that point.
+
+Every rationale provided for hoon and urbit generally is completely misguided. Every sentence in them is false, as they were written by people who didn't understand what they were talking about. Well, the part where they realize static typing is good is true. Oddly enough I've often been able to get type errors at runtime in hoon programs, so they obviously did a bad job at that, but you know. I'm sure it does catch some errors.
+
+For instance, the problem with contemporary computing is not "it is not implemented by a combinator language" (note: the previous clause is about Nock, which is allegedly a combinator language that everything in urbit boils down to, and which can hypothetically be interpreted very easily. However, in the Plunder talk I attended I learned that (according to the guy presenting details about Plunder; I couldn't tell you) Nock isn't a combinator language because its evaluation model is different, apparently. I also learned, at the Ares (new compiler/runtime for Hoon&Nock) talks, that you actually need jets (Nock "accelerators", eg it cheats and lets you use non-combinator code if you solemnly swear the result would be the same) for Nock to ever do anything of interest, for example, boot Urbit. So it's pretty obvious to me that the Nock abstraction layer is a bad or at least impure one—again the problem with computing was not that it was possible to subtract in machine language. And now you have a joint riveted between the outside and the inside of the world in the subtraction algorithm); it's that it was cobbled-together very poorly. The problem with personal servers is not "machines are incapable of running personal servers"; it's that no-one can be bothered.
+
+Remember: the default state of anything people make in computers is bad, so there's no prima facie reason to suspect this one would be better. It has met expectations.
+
+Hoon does not seem to have a specification, except maybe the documentation at https://developers.urbit.org/reference/hoon/rune, which to be fair is pretty good, and also pretty spec-like. But the point I'm trying to make is that if that documentation isn't the definitive source of hoon knowledge, like the thing the creators wrote to explain it in the first place, I don't know what it is. Maybe that is it. But it feels incomplete for that purpose, like that can't really be how the first adopter learned Hoon... Maybe you just read comments in the source code or something.
+
+Nock has a specification, and it acts all smug (elsewhere in urbit writing) because it "can fit on a t-shirt". https://docs.urbit.org/language/nock/reference/definition Interestingly (this is not unique to the nock specification, and is a common fact of "simple specifications", quite often) the specification omits so much information as to be useless unless you already know what it means. It doesn't even tell you if the values are supposed to be read horizontally as pairs, or what.
+
+Speaking of; from that:
+
+  > A formula that reduces to itself is an infinite loop, which we define as a crash ("bottom" in formal logic). A real interpreter can detect this crash and produce an out-of-band value instead.
+
+From https://docs.urbit.org/language/nock/reference/specification
+
+  > Another way to see this is that Nock has "crash-only" semantics. There is no exception mechanism. The only way to catch Nock errors is to simulate Nock in a higher-level virtual Nock - which, in fact, we do all the time. A simulator (or a practical low-level interpreter) can report, out of band, that Nock would not terminate. It cannot recognize all infinite loops, of course, but it can catch the obvious ones - like *42.)
+
+What an odd thing to do. Well, anyway.
+
+"Subject oriented programming" is an extremely bad name. It's a pun on "object oriented programming", but the "subject" in hoon really is the context, like the subject of a conversation, not the primary thing under consideration like the subject of a sentence. (I think...?)
+
+Also, the big twist reveal is that the subject... is just a big linked list of state. Want some variables? They're in there. It may or may not just be the scope, ie https://en.wikipedia.org/wiki/Scope_(computer_science) . It may or may not just be the concept of "dynamic scoping" under a new name. I tried asking a guy about this once but I didn't understand the answer (I'm not sure if I understand what subject-oriented-programming is supposed to be, which is an awkward position to be in, because I don't want to just ask question that confirm my tentative hypothesis.)
+
+@ stands for atom, not aura. Auras are not actually visually depicted anywhere, merely types and operators that force something to be of the right type (the type is just how to interpret the number underneath... this is how all computers work... so the aura actually is the type I guess).
+
+You might think about using Hoon Assist. For some reason, it's outdated, and possibly-relatedly, only has half the runes in it. (I think it wouldn't be that hard to update, and considered doing so myself, but I eventually lost interest.)
+
++help is how you see the dojo commands in the urbit dojo (the urbit command line). Unfortunately, many commands are documented with "<undocumented>", which is not very helpful. The rest are documented with a terse line explaining almost nothing unless you already know what it is. Oh well. You can also pass something in to +help to see just its own terse line. For instance, +help %verb tells you that |verb:
+  +verb     ::  Tell app to print what it's doing
+Which is odd because I actually the wanted the documentation for |verb, and +verb seems to just return %loud. Well, whatever.
+
+Hoon sometimes claims to be a "runic language". This refers to the use of punctuation like !! as semantic units. This annoys me because we already have textual units called runes: runes. For a while I considered making Hrune, version of Hoon but the runes are actual runic characters like from the Elder Futhark and stuff. Maybe !! is ᛟ or something. But not all projects are meant to be. Someone also told me there used to be a version of hoon with english keywords instead of runes, at one point, which was widely disliked. I also considered trying to make a transpiler from Hoon to C because, really, when you get down to it, how hard could it be? But I have enough unprofitable projects.
+
+A certain hoon programmer complained in my presence that a particular standard library had been written with long, clear, and intuitive variable names; because that's not how it should be done. This is in the end a matter of taste, but I thought the incident was amusing and illustrative.
+
+Tooling support for hoon is so sparse that if you use an import that strips the face of the import, then you'll never be able to figure out where a variable comes from in any way more easy than grepping for it.
+
+After ceasing to use hoon for a month, I find I forget most of it.
+
+The conventional hoon indentation style seems illogical to me, because it doesn't nest operators that clearly nest within each other.
+
+Half of hoon terminology is terrible and dumb. I'm always going to remember "pinning a face", though.
+
+Hey also, why can't dojo evaluate all of the same stuff that hoon code can, even though it's running hoon code? Odd. (If they've fixed this since, ignore this line. Actually, apply that disclaimer to every line in this post.)
+
+## Notes from when I was reading the documentation 
+
+From https://developers.urbit.org/reference/hoon/hoon-errors :
+
+> Turn on debugging or verbose mode
+> Your first step should be to put a !: ("zapcol") rune at the top of the file. This is like calling the C compiler with -g; it tells the Hoon compiler to generate tracing references.
+
+> You may also find it helpful to turn on verbose mode by entering |verb into Dojo, which prints (almost) everything happening in the kernel to the console. This is useful for performing stack trace. An extensive stack trace tutorial is below.
+
+> However, you can use the ~! rune (sigzap) to print the type of any hoon in your stack trace.
+> The counterpart of ~! for runtime crashes is ~| (sigbar):
+
+> ~& (sigpam) is Hoon's debugging printf. This pretty-prints its argument
+>  A variant is ~? (sigwut), which prints only if a condition is true
+> For now, you need to be on the local console to see these debug printfs (which are implemented by interpreter hints). This is a bug and, like all bugs, will be fixed at some point.
+
+https://developers.urbit.org/guides/core/hoon-school/E-types :
+
+> To see the inferred type of a literal expression in the Dojo, use the ? operator. (This operator isn't part of the Hoon programming language; it's a Dojo-only tool.)
+```
+> 15
+15
+
+> ? 15
+  @ud
+15
+```
+
+My note: for some reason this doesn't work for double-quote strings, which just say they have a type of ""?
+
+> Besides ? (which is a Dojo-specific tool), the programmatic way to figure out which mold the Hoon compiler thinks something is to use the !> zapgar rune.
+> For reasons which will be elaborated in Trees, this is often employed as the so-called “type spear” -:!>:
+
+My note: I'm pretty sure the output [#t/@ux q=2.900.541.101] has #t/ to indicate type, then the type, then the q is just the thing under consideration. The type spear is applied like -:!>(2). Maybe there's another way.
+
+
+https://developers.urbit.org/guides/core/hoon-school/F-cores :
+
+> We will revert to the irregular form more and more. If you would like to see exactly how an expression is structured, you can use the !, zapcom rune. !, zapcom produces an annotated abstract syntax tree (AST) which labels every value and expands any irregular syntax into the regular runic form.
+> (There's a lot going on in there. Focus on the four-letter runic identifiers: %sgpm for ~& sigpam, for instance.)
+
+My note: wow. %sgpm for ~& sigpam, huh? Microcosm of how urbit got to make up its own rules, and chose iron-clad regularity, and then immediately betrayed that on another level, thus making the system as a whole far more complicated than you would expect.
+
+>     You can retrieve the nth element in a tape using the ++snag gate, e.g. (snag 3 `(list @ud)`~[1 2 3 4 5]) yields 4 (so ++snag is zero-indexed; it counts from zero).
+>    You can join an element to a list using the ++snoc gate, e.g. (snoc `(list @ud)`~[1 2 3] 4) yields ~[1 2 3 4].
+
+Wow, finally, list accessing.
+
+https://operators.urbit/org/manual/running/vere contains many helpful pieces of information, that confusingly are not in the help message for vere. Among them, I found more surprising, you can pipe into the stdin of ./urbit eval to evaluate a hoon. This is possibly easier than testing little things in the dojo, although the error messages are still bad.

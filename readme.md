@@ -57,3 +57,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2023-10-22: 𝝋 Is It Irrational To Believe In God? Well, I Think So <https://wyattscarpenter.github.io/blog/is_it_irrational_to_believe_in_god.txt>
 
 2023-11-13: On The “Great Vowel Shortage” In Computer Programming <https://wyattscarpenter.github.io/blog/the_great_vowel_shortage.txt>
+
+2023-12-07: Some notes on Hoon and Urbit from 2023: <https://wyattscarpenter.github.io/blog/urbit_2023.txt>
