@@ -12,6 +12,8 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 
 <style> p { text-indent: 2em; font-family: garamond, georgia, times, serif, monospace; line-height: 1.2; } /* This line is merely to style the page correctly in systems that respect such styling; it has no semantic meaning otherwise. */ </style>
 
+<iframe src="https://wyattscarpenter.github.io/the-webring-weblog-webring-widget/">
+
 # Weblog entries:
 
 2020-08-07 The C Zoo, part 1: reading integers of a given endianness <https://wyattscarpenter.github.io/blog/reading_endian.txt>
