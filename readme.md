@@ -65,3 +65,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2024-01-01: How To Have Hair: <https://wyattscarpenter.github.io/blog/how_to_have_hair.txt>
 
 2024-01-07: 0-Indexing 1: a digression on buildings and storeys <https://wyattscarpenter.github.io/blog/indexing_storeys.txt>
+
+2024-01-08: 𝝅𝝋 It Literally Can’t Happen Here: <https://wyattscarpenter.github.io/blog/it_literally_cant_happen_here.txt>
