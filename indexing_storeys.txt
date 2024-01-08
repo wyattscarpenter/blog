@@ -1,0 +1,30 @@
+In the time since I wrote https://wyattscarpenter.github.io/blog/0-indexing.txt , I have had occasional call to reflect on the numbering of storeys. Here are my thoughts.
+
+A building is made up of a number of storeys (also called "stories" or "floors", but I disprefer those terms in technical writing as they are slightly ambiguous with other senses of the words "story" and "floor"), which are levels of the building that people can occupy. This isn't a very complex concept, but you can see https://en.wiktionary.org/wiki/storey and https://en.wikipedia.org/wiki/Storey if you'd like more information on this.
+
+Here in America, we typically number the ground storey (the storey that is level with the ground, also called the "ground floor"; this can be kind of arbitrary in cases where the building is eg built into a hill, but it's usually pretty intuitive) as 1, and then count up for storeys above that (so the next storey above that is storey 2), and below that we number as P1 (parking 1) or B1 (basement 1), and then count in that manner as we go down (so the next storey below that is P2 or B2).
+
+When I was in England, I learned that they number the ground storey as 0, the storey above the ground storey as 1, the storey below the ground storey as -1, and so on, like the integers.
+
+Perhaps this makes the british better at computer science, as they are already used to 0-indexing. They're also used to calling a queue a "queue", instead of a "line", so perhaps they are head-and-shoulders above their american brethren to start with.
+
+Anyway, I think the negative numbering of the below-ground storeys is elegant, and I think we should have that in america too. However, I don't like the ground storey being labeled 0. In my preferred system, the ground storey is labeled 1, storeys above it are labeled ascendingly, and storeys below it are labeled descendingly, starting at -1 and going down. There is no 0 storey ("the null storey"?).
+
+Incidentally, this is pretty similar to how I think you should design python-style negative array indexing in a programming language. An array of three elements should, in my opinion, be indexed like:
+   1  2  3
+  -3 -2 -1
+And there is no 0 element. (This has the slight "disadvantage" that arr[-1] is no-longer equal to arr[length-1], but you pick your poison.) But that's neither here nor there.
+
+Why do I prefer this labeling system for storeys? Well, to some extent it's arbitrary; you can just choose to label storeys whatever you want. It springs from my intuition that the ground storey should be the "first" storey instead of, what, the "zeroth" storey? (I guess they just say "ground storey"). Also, whenever you get up a storey in England, and someone says "this is the first storey", the mind rebels; I was just in a storey to get to this one, how could this be the first?!
+
+However, I do think there's a coherent system for my labeling, mapping between the number line of building height and the storeys, which I have come up with post-hoc:
+
+In the british system, storeys are labeled with the distance their floor is from the ground (measured in storeys). The ground storey is thus 0, the one above that is 1, and the one below it is -1.
+
+In my system, and to some extent the common american system, storeys are labeled with the distance their MOST EXTREME POINT is from the ground (measured in storeys*). The ground storey is thus 1, as its most extreme point, its ceiling, extends one storey above the ground. The storey above that is 2, as its ceiling extends up to two storeys above the ground. The storey below the ground storey, however, is -1 because its most-extreme point is on its FLOOR, which is 1 storey below the ground.
+
+* naturally, the storeys have to be measured in storeys because different storeys can be different heights, and other such geometrical irregularities, which are abstracted away in the storey numbering system.
+
+For an illustrative diagram, please see https://wyattscarpenter.github.io/blog/indexing_storeys_example.png
+
+Despite the fact that my preferred storey-numbering system doesn't always number the storeys based on their floors, I still do call storeys "floors" in my day-to-day life. It's just metonymy, I guess. Perhaps an even simpler explanation than the one I have given above is, "it's called the first floor because you get there first, and then as you go up you go up, and as you go down you also go up, but in the negatives.

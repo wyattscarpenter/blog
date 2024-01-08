@@ -63,3 +63,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2023-12-07: Some notes on Hoon and Urbit from 2023: <https://wyattscarpenter.github.io/blog/urbit_2023.txt>
 
 2024-01-01: How To Have Hair: <https://wyattscarpenter.github.io/blog/how_to_have_hair.txt>
+
+2024-01-07: 0-Indexing 1: a digression on buildings and storeys <https://wyattscarpenter.github.io/blog/indexing_storeys.txt>
