@@ -66,4 +66,4 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 
 2024-01-07: 0-Indexing 1: a digression on buildings and storeys <https://wyattscarpenter.github.io/blog/indexing_storeys.txt>
 
-2024-01-08: 𝝅𝝋 It Literally Can’t Happen Here: <https://wyattscarpenter.github.io/blog/it_literally_cant_happen_here.txt>
+2024-01-08: 𝝅𝝋 It Literally Can’t Happen Here: in which I review a review of a review of the Third Reich <https://wyattscarpenter.github.io/blog/it_literally_cant_happen_here.txt>
