@@ -31,5 +31,5 @@ cool_string: str = f"""\n{date.today()}: \
 {a['"Title Of Post"']}: <https://wyattscarpenter.github.io/blog/{a['basename.ext']}>\n"""
 print(cool_string)
 
-with open(file_to_which_to_append, "a", encoding="utf-8") as f:
+with open(file_to_which_to_append, "a", encoding="utf-8", newline='\n') as f:
   f.write(cool_string)
