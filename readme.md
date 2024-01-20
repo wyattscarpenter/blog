@@ -69,3 +69,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2024-01-08: 𝝅𝝋 It Literally Can’t Happen Here: in which I review a review of a review of the Third Reich <https://wyattscarpenter.github.io/blog/it_literally_cant_happen_here.txt>
 
 2024-01-16: Am I The First Guy To Use Computers? Signs Point To Yes: <https://wyattscarpenter.github.io/blog/am_i_the_first_guy_to_use_computers.txt>
+
+2024-01-19: The Most Interesting Thing In The Waffle House Effect: <https://wyattscarpenter.github.io/blog/the_most_interesting_thing_in_the_waffle_house_effect.txt>
