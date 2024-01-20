@@ -33,7 +33,7 @@ if a['basename.ext'][0] == '.':
   old_ext = a['basename.ext']
   if a['basename.ext'] == '.':
     a['basename.ext'] = '.txt'
-  a['basename.ext'] = a['"Title Of Post"'].lower().replace(" ", "_") + a['basename.ext']
+  a['basename.ext'] = a['"Title Of Post"'].lower().replace(" ", "_").replace(":","") + a['basename.ext'] #This does not cover all the NTFS-forbidden characters, but maybe it should, someday.
   print(f"Due to the special circumstance of basename.ext starting with . ( {old_ext} ) I'm creating a new file by the name of {a['basename.ext']} instead of requiring it to be a pre-existing file.")
   if path.isfile(a['basename.ext']):
     print(f"Error: {a['basename.ext']} is an existing file, which is forbidden.", file=stderr)
@@ -48,7 +48,7 @@ cool_string: str = f"""\n{date.today()}: \
 {a['"Title Of Post"']}: <https://wyattscarpenter.github.io/blog/{a['basename.ext']}>\n"""
 print(cool_string)
 
-if file_to_which_to_append:
+if a['nono']:
   exit()
 
 with open(file_to_which_to_append, "a", encoding="utf-8", newline='\n') as f:
@@ -56,5 +56,10 @@ with open(file_to_which_to_append, "a", encoding="utf-8", newline='\n') as f:
 if special_circumstance:
   with open(a['basename.ext'], "a", encoding="utf-8", newline='\n') as f:
     f.write("")
-if not a["dont-git"]:
-  run(["git", "add", a['basename.ext'], file_to_which_to_append])
+
+if not a["dont_git"]:
+  try:
+    run(["git", "add", a['basename.ext'], file_to_which_to_append])
+  except FileNotFoundError:
+    print("git wasn't found on the path, so I assume YOU are ME, and use the forbidden jutsu: git.bat", file=stderr)
+    run(["git.bat", "add", a['basename.ext'], file_to_which_to_append])
