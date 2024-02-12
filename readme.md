@@ -71,3 +71,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2024-01-16: Am I The First Guy To Use Computers? Signs Point To Yes: <https://wyattscarpenter.github.io/blog/am_i_the_first_guy_to_use_computers.txt>
 
 2024-01-19: The Most Interesting Thing In The Waffle House Effect: <https://wyattscarpenter.github.io/blog/the_most_interesting_thing_in_the_waffle_house_effect.txt>
+
+2024-02-12: Moby-Quick: <https://wyattscarpenter.github.io/blog/moby-quick.txt>

@@ -1,0 +1,149 @@
+Recently, I read Moby-Dick. It's a great book, and you should read all of it. But, to address the elephant in the room: people complain that Moby-Dick has a lot of irrelevant digressions about whales and the whaling industry. This is, indeed, correct. Those digressions are just also good, and you should also read them. If, however, they aren't your cup of tea, you *can* just skip them and go to the whaling adventure story. This is pretty easy to figure out on your own; if Melville starts talking about some historical circumstance about whales, it's an expository chapter, and can be safely skipped. I think he did this as a service to readers like you! However, if you'd like help with this abridgment, I have prepared a table of guidance below. Chapters are marked either W for "Whale business", B for "Boat business", or L for "Land business". The "Land business" category is because about 15% of Moby-Dick takes place before they get on the Pequod, the main whaling ship they stay on for the rest of the novel (they even get on a different ship during this time!). However, you must read the "Land business" portions as well, because they contain crucial portions that enrich the work. I guess you can skip them if short on time. You may skip "Whale business", which is what I call the expository parts of the novel. Perhaps a poor name, because "Boat business" also includes the parts where the protagonists actively hunt whales. "Whale business" also includes bits where Ishmael is describing whale boats, except in cases where this is wholly embedded in a chapter describing an advancement in the plot.
+
+The word-counts (approximate):
+  Full book: 216,000
+  Moby-Quick (the book sans W chapters): 158,000
+So, perhaps it's not as "quick" as all that. In fact, this book is still longer than the average novel, which is about 100,000 words, maybe. But at least it's no-longer as long as TWO novels. Actually it's weird to me that it's so long, since I feel like its story is about average length, in terms of how many things happen. Well, whatever. I guess if you get rid of the Land busines as well, it becomes about 118,000 words (I just checked) — but, of course, this is not permissible.
+
+You can find a copy of the full text of Moby-Quick (based on https://www.gutenberg.org/files/2701/2701-h/2701-h.htm) here at https://wyattscarpenter.github.io/blog/moby-quick.full_text.txt . Below is the table of classifications:
+
+Title Page: L
+Inscription: L
+Etymology (Supplied by a late consumptive usher to a grammar school): W
+Extracts (Supplied by a sub-sub-librarian): W (the ideal way to read this, I find, is to pace them out between chapters for a while, concurrently as you read the rest of the book)
+Chapter 1 - Loomings: L
+Chapter 2 - The Carpet-Bag: L
+Chapter 3 - The Spouter-Inn: L
+Chapter 4 - The Counterpane: L
+Chapter 5 - Breakfast: L
+Chapter 6 - The Street: L
+Chapter 7 - The Chapel: L
+Chapter 8 - The Pulpit: L
+Chapter 9 - The Sermon: L (this is the long sermon on the subject of Jonah)
+Chapter 10 - A Bosom Friend: L
+Chapter 11 - Nightgown: L
+Chapter 12 - Biographical: L
+Chapter 13 - Wheelbarrow: L
+Chapter 14 - Nantucket: L
+Chapter 15 - Chowder: L
+Chapter 16 - The Ship: L
+Chapter 17 - The Ramadan: L
+Chapter 18 - His Mark: L
+Chapter 19 - The Prophet: L
+Chapter 20 - All Astir: L
+Chapter 21 - Going Aboard: L
+Chapter 22 - Merry Christmas: L
+Chapter 23 - The Lee Shore: L
+Chapter 24 - The Advocate: W
+Chapter 25 - Postscript: W
+Chapter 26 - Knights And Squires: B
+Chapter 27 - Knights And Squires: B
+Chapter 28 - Ahab: B
+Chapter 29 - Enter Ahab; To Him, Stubb: B
+Chapter 30 - The Pipe: B
+Chapter 31 - Queen Mab: B
+Chapter 32 - Cetology: W
+Chapter 33 - The Specksynder: W
+Chapter 34 - The Cabin-Table: B
+Chapter 35 - The Mast-Head: W
+Chapter 36 - The Quarter-Deck: B
+Chapter 37 - Sunset: B
+Chapter 38 - Dusk: B
+Chapter 39 - First Night-Watch: B
+Chapter 40 - Midnight, Forecastle: B
+Chapter 41 - Moby Dick: B
+Chapter 42 - The Whiteness of the Whale: W
+Chapter 43 - Hark!: B
+Chapter 44 - The Chart: B
+Chapter 45 - The Affidavit: W
+Chapter 46 - Surmises: B
+Chapter 47 - The Mat-Maker: B
+Chapter 48 - The First Lowering: B
+Chapter 49 - The Hyena: B
+Chapter 50 - Ahab's Boat and Crew. Fedallah: B
+Chapter 51 - The Spirit-Spout: B
+Chapter 52 - The Albatross: B (gam)
+Chapter 53 - The Gam: W
+Chapter 54 - The Town-Ho's Story: B (gam) (remarkable flash-forward framing story in Lima)
+Chapter 55 - Of the Monstrous Pictures of Whales: W
+Chapter 56 - Of the Less Erroneous Pictures of Whales, and the True Pictures of Whaling Scenes: W
+Chapter 57 - Of Whales in Paint; in Teeth; in Wood; in Sheet-Iron; in Stone; in Mountains; in Stars: W
+Chapter 58 - Brit: B
+Chapter 59 - Squid: B
+Chapter 60 - The Line: W
+Chapter 61 - Stubb Kills A Whale: B
+Chapter 62 - The Dart: W
+Chapter 63 - The Crotch: W
+Chapter 64 - Stubb's Supper: B
+Chapter 65 - The Whale as a Dish: W
+Chapter 66 - The Shark Massacre: B
+Chapter 67 - Cutting In: B
+Chapter 68 - The Blanket: W
+Chapter 69 - The Funeral: B
+Chapter 70 - The Sphynx: B (note how the whale-processing story is told circuitously, like the unwinding skin of the whale!)
+Chapter 71 - The Jeroboam's Story: B (gam)
+Chapter 72 - The Monkey Rope: B
+Chapter 73 - Stubb and Flask Kill a Right Whale; and Then Have a Talk Over Him: B
+Chapter 74 - The Sperm Whale's Head—Contrasted View: W
+Chapter 75 - The Right Whale's Head—Contrasted View: W
+Chapter 76 - The Battering-Ram: W
+Chapter 77 - The Great Heidelburgh Tun: W
+Chapter 78 - Cistern and Buckets: B
+Chapter 79 - The Prairie: W
+Chapter 80 - The Nut: W
+Chapter 81 - The Pequod Meets the Virgin: B (gam)
+Chapter 82 - The Honor and Glory of Whaling: W
+Chapter 83 - Jonah Historically Regarded: W
+Chapter 84 - Pitchpoling: B
+Chapter 85 - The Fountain: W
+Chapter 86 - The Tail: W
+Chapter 87 - The Grand Armada: B
+Chapter 88 - Schools and Schoolmasters: W
+Chapter 89 - Fast-Fish and Loose-Fish: W
+Chapter 90 - Heads or Tails: W
+Chapter 91 - The Pequod Meets the Rose-Bud: B (gam)
+Chapter 92 - Ambergris: W
+Chapter 93 - The Castaway: B
+Chapter 94 - A Squeeze of the Hand: B
+Chapter 95 - The Cassock: W
+Chapter 96 - The Try-Works: B
+Chapter 97 - The Lamp: W
+Chapter 98 - Stowing Down and Clearing Up: W
+Chapter 99 - The Doubloon: B
+Chapter 100 - Leg and Arm - The Pequod, of Nantucket, Meets the Samuel Enderby, Of London: B (gam) (Captain Boomer is the most direct foil to Captain Ahab in the novel)
+Chapter 101 - The Decanter: W
+Chapter 102 - A Bower in the Arsacides: W (this contains a remarkable flash-forward to Ishmael's exciting future life)
+Chapter 103 - Measurement of the Whale's Skeleton: W
+Chapter 104 - The Fossil Whale: W
+Chapter 105 - Does the Whale's Magnitude Diminish?—Will he Perish?: W
+Chapter 106 - Ahab's Leg: B
+Chapter 107 - The Carpenter: B
+Chapter 108 - Ahab and the Carpenter: B
+Chapter 109 - Ahab and Starbuck in the Cabin: B
+Chapter 110 - Queequeg in his Coffin: B
+Chapter 111 - The Pacific: B
+Chapter 112 - The Blacksmith: B
+Chapter 113 - The Forge: B
+Chapter 114 - The Gilder: B
+Chapter 115 - The Pequod Meets The Bachelor: B (gam)
+Chapter 116 - The Dying Whale: B
+Chapter 117 - The Whale Watch: B
+Chapter 118 - The Quadrant: B
+Chapter 119 - The Candles: B
+Chapter 120 - The Deck Towards the End of the First Night Watch: B
+Chapter 121 - Midnight—The Forecastle Bulwarks: B
+Chapter 122 - Midnight Aloft—Thunder and Lightning: B
+Chapter 123 - The Musket: B
+Chapter 124 - The Needle: B 
+Chapter 125 - The Log and Line: B
+Chapter 126 - The Life-Buoy: B
+Chapter 127 - The Deck: B
+Chapter 128 - The Pequod Meets the Rachel: B (gam)
+Chapter 129 - The Cabin: B
+Chapter 130 - The Hat: B
+Chapter 131 - The Pequod Meets the Delight: B (gam) (note how there are 9 gams, like the 9 ribs of a whale and the 9 circles of hell!)
+Chapter 132 - The Symphony: B
+Chapter 133 - The Chase—First Day: B
+Chapter 134 - The Chase—Second Day: B
+Chapter 135 - The Chase—Third Day: B
+Epilogue: B
