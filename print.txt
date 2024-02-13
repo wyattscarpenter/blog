@@ -4,7 +4,7 @@ This macro took me about a week to write, from the time the idea rooted in my he
 
 Since I learned more modern languages, like Java and Python, before C, I always thought printf was kinda dumb. Why did I have to write a format string with a bunch of percents just to print things? And as I grew more knowledgeable in the ways of C people would tell me things like printf is a heavy function and printf causes various security flaws due to programmer error, and then I thought printf was dumb and was more confident in my opinion.
 
-So, for a while, in the back of my mind, I had pondered whether it would be possible to made a generic print function in C. Someone once told me that printf had an f on it so you could specify your own print function. I don't know if that's true in any way, but it did make me decide to call my print function simply print, as I would solve the printing problem once and for all.
+So, for a while, in the back of my mind, I had pondered whether it would be possible to make a generic print function in C. Someone once told me that printf had an f on it so you could specify your own print function. I don't know if that's true in any way, but it did make me decide to call my print function simply print, as I would solve the printing problem once and for all.
 
 Initially I didn't know how such a function would be implemented, but as I learned more about C macros it seemed like it might be possible that way. Once I finished my foreach macro, riding that high, I cast my attention to print in earnest. Only problem was, it looked like it was going to be very grody-- how would I switch on type (that is, compile/run different code based on the type of something)? Some sort of #if on a stringified typeof? Ugh.
 
