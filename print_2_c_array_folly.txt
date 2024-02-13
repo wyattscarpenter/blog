@@ -2,7 +2,7 @@ Wise men have asked, "When is a door not a door?" and answered "When it's ajar."
 
 Similarly, foolish men like myself have asked "When is an array not a pointer?" and answered "Oh God! I've fallen into the famous C Array Folly!"
 
-It's a well-known fact in C that array usually decay into pointers, pretty much whenever you use them. Most importantly, any function passed an array actually gets a pointer to that array. And, almost everything else does this decay as well: as helpfully pointed out and transcribed by Michael Burr on stackoveflow https://stackoverflow.com/a/1462103 C99 6.3.2.1 "Lvalues, arrays, and function designators" point 3 tells us:
+It's a well-known fact in C that arrays usually decay into pointers, pretty much whenever you use them. Most importantly, any function passed an array actually gets a pointer to that array. And, almost everything else does this decay as well: as helpfully pointed out and transcribed by Michael Burr on stackoverflow https://stackoverflow.com/a/1462103 C99 6.3.2.1 "Lvalues, arrays, and function designators" point 3 tells us:
 
 > Except when it is the operand of the sizeof operator or the unary & operator, or is a string literal used to initialize an array, an expression that has type "array of type" is converted to an expression with type "pointer to type" that points to the initial element of the array object and is not an lvalue.
 
