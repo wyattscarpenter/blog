@@ -75,3 +75,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2024-02-12: Moby-Quick: <https://wyattscarpenter.github.io/blog/moby-quick.txt>
 
 2024-02-13: 𝝋 My Most Controversial Philosophical View: <https://wyattscarpenter.github.io/blog/my_most_controversial_philosophical_view.txt>
+
+2024-02-14: 𝝋 A Brief Review Of Martin Heidegger’s _Being And Time_: <https://wyattscarpenter.github.io/blog/a_brief_review_of_being_and_time.txt>
