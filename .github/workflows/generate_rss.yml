@@ -1,0 +1,9 @@
+name: Generate RSSs
+run-name: Generating RSSs
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - run: python3 generate_rss.py
