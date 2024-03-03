@@ -45,7 +45,7 @@ else:
 
 cool_string: str = f"""\n{date.today()}: \
 {'𝝅𝝋 ' if a['pi'] and a['phi'] else '𝝅 ' if a['pi'] else '𝝋 ' if a['phi'] else ''}\
-{a['"Title Of Post"']}: <https://wyattscarpenter.github.io/blog/{a['basename.ext']}>\n"""
+{a['"Title Of Post"']} <https://wyattscarpenter.github.io/blog/{a['basename.ext']}>\n"""
 print(cool_string)
 
 if a['nono']:

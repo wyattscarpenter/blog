@@ -60,20 +60,20 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 
 2023-11-13: On The “Great Vowel Shortage” In Computer Programming <https://wyattscarpenter.github.io/blog/the_great_vowel_shortage.txt>
 
-2023-12-07: Some notes on Hoon and Urbit from 2023: <https://wyattscarpenter.github.io/blog/urbit_2023.txt>
+2023-12-07: Some notes on Hoon and Urbit from 2023 <https://wyattscarpenter.github.io/blog/urbit_2023.txt>
 
-2024-01-01: How To Have Hair: <https://wyattscarpenter.github.io/blog/how_to_have_hair.txt>
+2024-01-01: How To Have Hair <https://wyattscarpenter.github.io/blog/how_to_have_hair.txt>
 
 2024-01-07: 0-Indexing 1: a digression on buildings and storeys <https://wyattscarpenter.github.io/blog/indexing_storeys.txt>
 
 2024-01-08: 𝝅𝝋 It Literally Can’t Happen Here: in which I review a review of a review of the Third Reich <https://wyattscarpenter.github.io/blog/it_literally_cant_happen_here.txt>
 
-2024-01-16: Am I The First Guy To Use Computers? Signs Point To Yes: <https://wyattscarpenter.github.io/blog/am_i_the_first_guy_to_use_computers.txt>
+2024-01-16: Am I The First Guy To Use Computers? Signs Point To Yes <https://wyattscarpenter.github.io/blog/am_i_the_first_guy_to_use_computers.txt>
 
-2024-01-19: The Most Interesting Thing In The Waffle House Effect: <https://wyattscarpenter.github.io/blog/the_most_interesting_thing_in_the_waffle_house_effect.txt>
+2024-01-19: The Most Interesting Thing In The Waffle House Effect <https://wyattscarpenter.github.io/blog/the_most_interesting_thing_in_the_waffle_house_effect.txt>
 
-2024-02-12: Moby-Quick: <https://wyattscarpenter.github.io/blog/moby-quick.txt>
+2024-02-12: Moby-Quick <https://wyattscarpenter.github.io/blog/moby-quick.txt>
 
-2024-02-13: 𝝋 My Most Controversial Philosophical View: <https://wyattscarpenter.github.io/blog/my_most_controversial_philosophical_view.txt>
+2024-02-13: 𝝋 My Most Controversial Philosophical View <https://wyattscarpenter.github.io/blog/my_most_controversial_philosophical_view.txt>
 
-2024-02-14: 𝝋 A Brief Review Of Martin Heidegger’s _Being And Time_: <https://wyattscarpenter.github.io/blog/a_brief_review_of_being_and_time.txt>
+2024-02-14: 𝝋 A Brief Review Of Martin Heidegger’s _Being And Time_ <https://wyattscarpenter.github.io/blog/a_brief_review_of_being_and_time.txt>
