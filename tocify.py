@@ -15,15 +15,13 @@ parser = argparse.ArgumentParser(
 )
 
 file_to_which_to_append = "readme.md"
-rss_file = "rss.xml"
 
 parser.add_argument('basename.ext', type=str, help="The file name that will be used in the url. Do not include the rest of the path. Example: foo.txt. Note: you should be able to tab-complete this, which is why it's the first argument. Also, tocify will check that this file exists, to help you prevent typos. SPECIAL CIRCUMSTANCE: if basename.ext is .[ext] then \"Title Of Post\" will be converted to an appropriate file name a la title_of_post.[ext] and the file will be created (in which case, the file already existing is an error); in such cases, ext defaults to txt if not provided.")
 parser.add_argument('"Title Of Post"', type=str, help="The post title that will be used in the listing. Example: 'On The Fooing Of Foos: Or, How I Learned To Give Up And Love The Foo'. Note: you will probably have to quote this argument, in your shell.")
 parser.add_argument('-p', '-pi', '--pi', '-political', '--political', '-pol', '--pol', '-π', action='store_true', help="Mark the post with a 𝝅. Note: only ever used to mark a post as 𝝅𝝋, political philosophy; you may do that with -pf")
 parser.add_argument('-f', '-phi', '--phi', '-philosophy', '--philosophy', '-phil', '--phil', '-φ', action='store_true', help="Mark the post with a 𝝋, indicating it is about philosophy. Note: sometimes used to mark a post as 𝝅𝝋, political philosophy; you may do that with -pf")
 parser.add_argument('-n', '-nono', '-dry-run', '--nono', '--dry-run', action='store_true', help="Exit the program before we write the file, thereby doing nothing, in order to merely test the program.")
-parser.add_argument('-dont-rss', action='store_true', help=f"Don't refresh {rss_file} after updating {file_to_which_to_append}.")
-parser.add_argument('-dont-git', action='store_true', help=f"Don't git add the changes (the newly-created file, {file_to_which_to_append}, and {rss_file}.)")
+parser.add_argument('-dont-git', action='store_true', help=f"Don't git add the changes (the newly-created file and {file_to_which_to_append}.)")
 a = vars(parser.parse_args())
 print(a)
 print("file_to_which_to_append:", file_to_which_to_append)
@@ -58,12 +56,9 @@ if special_circumstance:
   with open(a['basename.ext'], "a", encoding="utf-8", newline='\n') as f:
     f.write("")
 
-if not a["dont_rss"]:
-  import generate_rss
-
 if not a["dont_git"]:
   try:
-    run(["git", "add", a['basename.ext'], file_to_which_to_append, rss_file])
+    run(["git", "add", a['basename.ext'], file_to_which_to_append])
   except FileNotFoundError:
     print("git wasn't found on the path, so I assume YOU are ME, and use the forbidden jutsu: git.bat", file=stderr)
-    run(["git.bat", "add", a['basename.ext'], file_to_which_to_append, rss_file])
+    run(["git.bat", "add", a['basename.ext'], file_to_which_to_append])
