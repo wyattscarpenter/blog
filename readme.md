@@ -1,6 +1,6 @@
 Hi, welcome to my programming-themed weblog. To see my real programming projects, check out <https://wyattscarpenter.github.io> or <https://github.com/wyattscarpenter>. <https://github.com/wyattscarpenter/blog> is the git repo where this blog is hosted.
 
-This blog updates whenever I have something to say. You may subscribe to this blog using RSS at <https://wyattscarpenter.github.io/feed.rss> <link rel="alternate" type="application/rss+xml" title="Wyatt S Carpenter’s Blog, RSS Feed" href="feed.rss" />. You can also Watch the repo on github at <https://github.com/wyattscarpenter/blog> to receive emails and/or github notifications about updates.
+This blog updates whenever I have something to say. You may subscribe to this blog using RSS at <https://wyattscarpenter.github.io/blog/rss.xml><!--Here's the rss as an html alternate link, although I don't know if anything honors this in any particular way.--><link rel="alternate" type="application/rss+xml" title="Wyatt S Carpenter’s Blog, RSS Feed" href="rss.xml"/>. You can also Watch the repo on github at <https://github.com/wyattscarpenter/blog> to receive emails and/or github notifications about updates.
 
 You can search the full text of my blog using <https://github.com/wyattscarpenter/blog/search?q=example>.
 
