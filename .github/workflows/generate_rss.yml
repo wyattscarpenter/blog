@@ -7,5 +7,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: python3 generate_rss.py
+      - run: mkdir _site/
       - run: mv rss.xml _site/
       - uses: actions/upload-pages-artifact@v3
