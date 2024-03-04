@@ -42,9 +42,9 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 
 2021-02-10: Print, part 3: structs <https://wyattscarpenter.github.io/blog/print_3_structs.txt>
 
-2021-04-06: Essays On Extremely Specific Questions, part 1: What unix time is it in milliseconds during a leap second, in javascript? <https://wyattscarpenter.github.io/blog/unix_milliseconds_leap_javascript.txt> adapted from <https://github.com/qntm/t-a-i/issues/15#issuecomment-814128119>
+2021-04-06: Essays On Extremely Specific Questions, part 1: What unix time is it in milliseconds during a leap second, in javascript? <https://wyattscarpenter.github.io/blog/unix_milliseconds_leap_javascript.txt>
 
-2021-06-07: Essays On Extremely Specific Questions, part 2: Why does the word “penguinos” have no diaresis in the novel Penguin Island, and is it spanish? <https://wyattscarpenter.github.io/blog/penguinos.txt> adapted from <https://github.com/standardebooks/anatole-france_penguin-island_a-w-evans/pull/4#issuecomment-855788226>
+2021-06-07: Essays On Extremely Specific Questions, part 2: Why does the word “penguinos” have no diaresis in the novel Penguin Island, and is it spanish? <https://wyattscarpenter.github.io/blog/penguinos.txt>
 
 2021-06-13: The C Zoo, part 5: two bookend macros <https://wyattscarpenter.github.io/blog/2_bookend_macros.txt>
 

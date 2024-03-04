@@ -1,4 +1,4 @@
-The question as she is posed: how to model the relationship between Unix milliseconds and TAI milliseconds during an inserted leap second.
+The question as she is posed: how to model the relationship between Unix milliseconds and TAI milliseconds during an inserted leap second. Adapted from https://github.com/qntm/t-a-i/issues/15#issuecomment-814128119 .
 
 I'm not an expert on this but I love being overly pedantic so I thought I'd comment.
 
