@@ -1,5 +1,5 @@
-name: Generate RSSs
-run-name: Generating RSSs
+name: Generate RSS
+run-name: Generating RSS
 on: push
 jobs:
   build:
@@ -7,3 +7,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: python3 generate_rss.py
+      - run: tar -czvf github-pages rss.xml
+      - uses: actions/upload-pages-artifact@v3
