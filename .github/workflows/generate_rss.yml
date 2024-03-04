@@ -7,10 +7,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: python3 generate_rss.py
-      - run: mkdir _site/
-      - run: mv rss.xml _site/
       - uses: actions/jekyll-build-pages@v1
-      - run: ls -al
+      - run: mv rss.xml _site/
+      - run: ls -al _site/
       - uses: actions/upload-pages-artifact@v3
   deploy: # this is just the recommended script job from https://github.com/actions/deploy-pages?tab=readme-ov-file#inputs-
     # Add a dependency to the build job
