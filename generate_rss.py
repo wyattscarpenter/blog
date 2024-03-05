@@ -4,8 +4,8 @@ import re
 from datetime import datetime
 from os.path import basename
 
-version = 3
-output_encoding = "ISO-8859-1"
+version = 4
+output_encoding = "windows-1252"
 
 def xml_escape(string: str) -> str:
   return string.replace("&","&amp;").replace('"','&quot;').replace("'","&apos;").replace("<","&lt;").replace(">","&gt;") #note that, obviously, &-replacing must come first.
