@@ -7,6 +7,7 @@ from os import path
 from sys import stderr
 import argparse
 from subprocess import run
+import re
 
 parser = argparse.ArgumentParser(
   prog='tocify',
@@ -32,7 +33,7 @@ if a['basename.ext'][0] == '.':
   old_ext = a['basename.ext']
   if a['basename.ext'] == '.':
     a['basename.ext'] = '.txt'
-  a['basename.ext'] = a['"Title Of Post"'].lower().replace(" ", "_").replace(":","") + a['basename.ext'] #This does not cover all the NTFS-forbidden characters, but maybe it should, someday.
+  a['basename.ext'] = ( "_".join(re.findall("[-_a-z0-9_]+", a['"Title Of Post"'].lower())) ) + a['basename.ext'] #This assumes you want url-style document titles. Which, you know, probably you do.
   print(f"Due to the special circumstance of basename.ext starting with . ( {old_ext} ) I'm creating a new file by the name of {a['basename.ext']} instead of requiring it to be a pre-existing file.")
   if path.isfile(a['basename.ext']):
     print(f"Error: {a['basename.ext']} is an existing file, which is forbidden.", file=stderr)
