@@ -4,11 +4,20 @@ import re
 from datetime import datetime
 from os.path import basename
 
-version = 5
+version = 6
 encoding = "UTF-8"
 
+def is_xml_licit_unicode_codepoint(c: int) -> bool:
+  return c in [0x9, 0xA, 0xD] or 0x20<=c<=0xD7FF or 0xE000<=c<=0xFFFD or 0x10000<=c<=0x10FFFF
+
+def xml_unicode_limit(string: str) -> str:
+  """I'm pretty sure I have to replace any non-valid characters, the characters excluded from https://www.w3.org/TR/REC-xml/#charsets , for xml parsers to like my document. I'm not sure why XML doesn't believe in most unicode characters under 20, but whatever. Netizen Jon Skeet claims this was fixed in XML 1.1 but XML 1.0 is still the dominant standard: https://stackoverflow.com/a/39698949/"""
+  return ''.join([c if is_xml_licit_unicode_codepoint(ord(c)) else '�' for c in string])
+
 def xml_escape(string: str) -> str:
-  return string.replace("&","&amp;").replace('"','&quot;').replace("'","&apos;").replace("<","&lt;").replace(">","&gt;") #note that, obviously, &-replacing must come first.
+  string = string.replace("&","&amp;").replace('"','&quot;').replace("'","&apos;").replace("<","&lt;").replace(">","&gt;") #note that, obviously, of these replacements, &-replacing must come first.
+  string = xml_unicode_limit(string)
+  return string
 
 def rss_item(pubDate: str, title_raw: str, link: str) -> bytes:
   # It's kind of implied that the pubDates have to be both time AND date, but we don't really have enough information to do that so we just use the rfc 822 date format https://datatracker.ietf.org/doc/html/rfc822#section-5 (2-digit day 3-letter month 4-digit year) # Actually, we just ignore the RSS specification's specification of rfc 822 format, and use YYYY-MM-DD instead. Who's going to stop us?
@@ -39,11 +48,11 @@ rss_footer="""  </channel>
 </rss>
 """
 
-with open("rss.xml", "w", encoding=encoding) as f: #for some crazy Python reason, if you were to specify errors='replace' here, it would replace the unicode replacement characters (U+FFFD, �) with question marks (U+003F, ?)
+with open("rss.xml", "w", encoding=encoding, newline="\n") as f: #for some crazy Python reason, if you were to specify errors='replace' here, it would replace the unicode replacement characters (U+FFFD, �) with question marks (U+003F, ?)
   f.write(rss_header)
-  with open("readme.md", "r", encoding=encoding, errors='replace') as file:
+  with open("readme.md", "r", encoding=encoding, errors='replace', newline="\n") as file:
     for i in file:
-      m = re.match("^(.*?): (.*) <?(https?://.*?)>?\s*?$", i) 
+      m = re.match("^(.*?): (.*) <?(https?://.*?)>?\s*?$", i)
       if m:
         f.write( rss_item( *m.groups() ) )
   f.write(rss_footer)
