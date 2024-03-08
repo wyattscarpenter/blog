@@ -1,5 +1,5 @@
-name: Generate RSS
-run-name: Generating RSS
+name: Generate Github Pages and RSS
+run-name: Generating Pages and RSS
 on: push
 jobs:
   build:
@@ -8,9 +8,8 @@ jobs:
       - uses: actions/checkout@v4
       - run: python3 generate_rss.py
       - uses: actions/jekyll-build-pages@v1
-      - run: ls -al _site/
       - uses: actions/upload-pages-artifact@v3
-  deploy: # this is just the recommended script job from https://github.com/actions/deploy-pages?tab=readme-ov-file#inputs-
+  deploy: # Henceforth is just the recommended script job from https://github.com/actions/deploy-pages?tab=readme-ov-file#inputs-
     # Add a dependency to the build job
     needs: build
 
