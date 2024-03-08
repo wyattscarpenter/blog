@@ -1,0 +1,16 @@
+They say the simplest theory is always the best, but how would you know?
+
+I take it as given that the best theory is always the theory that is the case. That's what theories are for, after all. If you want, you can totally have an approximate theory— it merely helps you predict things sometimes— but I will arbitrarily call that a "heuristic" theory instead, and stipulate that I'm talking about "real" theories here instead of those.
+
+So, to expand on the title question, they say the simplest theory that explains all of the evidence is the best. This has a certain intuitive appeal to it. But let's consider:
+
+1. The moon makes the tides go out and in.
+2. The moon makes the tides go out and in, but this happens by means of invisible fairies.
+
+(It's important to the example that the fairies are literally fairies, like little people with wings, but are also undetectable in every way.)
+
+1 is the simpler theory, therefore better. But imagine we were living in a universe where 2 is in fact the case. We would still conclude that 1 is the simpler theory, and therefore better.
+
+I think the standard reply is that 1 is simply more likely to be the case. Why? How many invisible fairies have you observed to not be the case?
+
+Anyway, I guess it's just shows there can't be any empirical validation for the strong version of Occam's razor. But that's okay, it's actually a truth about the distribution of Bayesian probability priors, ie an a priori truth.
