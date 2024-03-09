@@ -1,0 +1,8 @@
+“I hope you enjoy my new blog post about scientific induction. It follows the publication of many other blog posts, so it is to be expected.”
+— Wyatt S Carpenter, on the subject of this blog post
+
+There's something very odd about statistical power of studies, a topic which I don't fully understand. The odd thing is epistemic. I believe in science basically based on the instinct that you can go out and see a couple examples of something and then make an inference about the general rules that govern the world. We do this all the time in our daily life, so I don't think it's controversial.
+
+(By the way, this is my non-uncharitable explanation for why people "believe the science". Science seems like the same kind of highly reliable process we use normally, but we've dispatched a guy to go get the examples for us.)
+
+But how many examples? Intuitively, I think you only need like 10. But apparently there's an extremely significant fact about how many precisely you need, and you can discover this using statistical arguments.
