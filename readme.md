@@ -81,3 +81,7 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2024-03-08: 𝝋 They Say The Simplest Theory Is Always The Best, But How Would You Know? <https://wyattscarpenter.github.io/blog/they_say_the_simplest_theory_is_always_the_best_but_how_would_you_know.txt>
 
 2024-03-09: 𝝋 Scientific Induction And Sample Size <https://wyattscarpenter.github.io/blog/scientific_induction_and_sample_size.txt>
+
+2024-03-10: 𝝋 On The Twofold Rout Of The Principle Of Sufficient Reason <https://wyattscarpenter.github.io/blog/on_the_twofold_rout_of_the_principle_of_sufficient_reason.txt>
+
+

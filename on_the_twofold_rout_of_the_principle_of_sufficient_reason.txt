@@ -1,0 +1,47 @@
+Recently, I listened to https://www.youtube.com/watch?v=24VrkZUzPJo (“Debate With Michael Huemer About Whether A Perfect Being is Plausible” by _Deliberation Under Ideal Conditions_, Feb 11, 2024). This brought to my attention (possibly for the first time, possibly not) that there's a famous argument in philosophy from Peter van Inwagen that the Principle of Sufficient Reason leads to Modal Collapse. The argument, as Michael Huemer sums it up at 24:45¹ is (very roughly) that if everything ("thing" including here also events, causes, and the causes of causes, and so on) needs a cause (in the sense of, reason why it exists/happened), then the cause of something can either be contingent, in which case that cause also needs an explanation, or necessary, in which case the cause needs no explanation but would also make the thing it causes necessary. Therefore, everything must ultimately be caused by something necessary, and be necessary itself, if you accept the Principle of Sufficient Reason.
+
+This seems directly related to my nondiscomfort about why the universe happened. (“Why is there something rather than nothing?”, a question that seem to captivate a lot of people, but not really me.) I had this nondiscomfort previously, and it was due to thinking along the same lines, but hearing about this argument this crystallized it for me.
+
+If the argument holds, which seems right to me, then either the PSR is false and there can be brute contingencies, or MC is true and the universe exists necessarily.
+
+In either case, the cause of the existence of the universe is already of a type, either brute contingency or necessary truth, that we've admitted to be a possibility. So we can't claim any great surprise at it, or demand further reasons.
+
+¹ I thought I would just include the youtube auto-generated transcription of this part, but it's very long and the youtube auto-generation is not great, so it isn't very helpful. However, here it is anyway:
+
+Appendix 1, youtube auto-generated transcription of Michael Huemer summing up Peter van Inwagen's argument that the Principle of Sufficient Reason leads to Modal Collapse:
+
+oh uh I
+don't like the principle of sufficient reason so I think the principle of sufficient reason is false um I think it
+has as a consequence that there are no modal distinctions and I got this argument from Peter Van inwagen a long
+time ago but I don't remember exactly where I think it's in his book on Free Will that um principle sufficient reason
+entails collapse of all modal distinctions um why okay so we take it
+that the I take it that the principle is um you know any contingent proposition requires an explanation and you know
+maybe necessary truths don't require an explanation I I hope that's it because I don't know how to explain some some of
+the necessary truth okay so let's say there's a contingent truth call it C it's got an explanation if the
+explanation is another contingent truth and you need an explanation for that and if that's another conent truth you need
+another explanation for that and then there's going to be an infinite regress but even if there's an infinite regress you're still not dumb because then you
+have to have an explanation for the entire infinite series okay and so ultimately it's going to have to be that
+all the contingent truths get explained by necessary truth okay but now you think about the nature of explanation
+like a common account of explanation is well um the you have an explanation when
+the explanans entails the explanandum but if something is entailed by necessary truth then it is a
+necessary truth right so like on that account of explanation um the PSR entails that everything is a necessary
+truth um okay now you might think oh no maybe there could be explanations that where the explan doesn't entail the
+explananda maybe it just raises the probability okay but then I think you would just have like another contingent
+proposition that would require an explanation so like you know if a explains B but doesn't entail B then
+there's some kind of gap between a and b and then you could formulate a contingent proposition which says you
+know if a then b or something like that and then you need an explanation of that since that's contingent that needs to be
+explained by necessary truth there's going to be another infinite regress um until you know there's going
+to you're not going to be able to complete the explanations unless um you turn turn it into an
+entailment okay and then I think uh well you shouldn't accept the collapse of modal distinctions because you know what
+like we we never would have even formulated this distinction between contingent and necessary truths if we
+didn't think like we wouldn't have formed the concept of necessity if we didn't think
+there was a distinction between contingent truths and necessary truths and and that some things were contingent and like you know if you tell me that
+the Paradigm examples that people give when they're expl the idea of a contingent truth are not actually
+contingent then I think okay well then you know
+like I I don't have a grasp on the concept
+
+Appendix 2, a thing my friend comment about this post, and what I replied to him:
+
+Your post before is the sort of thing im like damn I should google key phrases there, eventually
+
+Either you will decide to Google the key phrases at some point for a reason, or at random :)
