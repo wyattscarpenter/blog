@@ -1,0 +1,28 @@
+“Yeah ive always been like, how do you even calculate the probability of like, c being the measurement it is, or its like, oh all these need to be exactly what they are for life to exist, and I'm like okay I believe you but unless you believe in a multiverse and know the constants over there how can you have any sort of probability calculation at all”
+—Alexander Chang, agreeing with this blog post
+
+One of the crazy things about philosophy is that, I feel like some arguments are pretty obviously wrong. And if I worked at it, I could perfectly elucidate why they are obviously wrong, and verbalize it exactly, and relate it back to some sort of principle about rationality or something. Maybe even get a paper published. But because philosophers are pretty smart, and can consider all aspects of an argument, it turns out that whatever principle I was relating it to will be exactly as dubious as the initial argument, probably!
+
+For instance, I think the fine tuning argument for the existence of God, while being one of the more respectable arguments, is deeply mistaken about its view of probability. And I could argue that. But my general principle about what types of probability it makes sense to consider would not actually be more convincing than your initial impression about whether or not it makes any sense to consider the probability of fine tuning in the first place.
+
+Amusingly, I think perhaps the entire fine-tuning argument can be tracked back to Sir Roger Penrose making some sort of claim about the likelihood of the initial conditions of the universe / big bang. Which is kind of like the strongest argument for a philosophical position being derived from a pop science book.
+
+And, of course, exactly the sort of claim I want philosophers to pick apart. "What do you mean by 'probability'?" And, to be fair, this is an entire subfield of philosophy, so it isn't like they've been slacking.
+
+I should elaborate on the object-level point here, because I might never bother to again.
+
+This likelihood of the universe / universal constants having certain values / the big bang...
+
+Is it a subjective, epistemic probability? (Like a credence?) I don't think so. After all, the subjective probability of any past events that you're sure happened is 1. We're sure the universe happened because we're here. Therefore there can be no surprise of this exact type, that an event we are sure happened, happened.
+
+Is it an objective probability (like, perhaps, certain quantum events) or pseudo-objective probability (like a die roll (in classical mechanics))? I don't think it can be that either. To have an objective probability, you need to have some idea of the range and likelihood of values produced by whatever you're considering. I don't know the range and likelihood of values produced by whatever makes universes (as Hume points out, I've only seen one universe, and I didn't even see how it was made). So I don't know how to assess its objective probability.
+
+(I suppose there could be a specific variant of this argument that considers the big bang at time t = 0 (or, rather, t = epsilon) and says it's very unlikely that this would lead to the big bang at t = 1. (This might even be the original form of the argument, for all I know, because I have not read into it further.) However, I don't see this as particularly likely or interesting. Although I'm sure it would be an interesting scientific question. And, not entirely without evidential weight vis-a-vis intelligent design and the fine-tuning argument.)
+
+Therefore, I think the confusion about the beginning of the universe being unlikely probably comes from trying to use the subjective uniform distribution on personally guessing a universal constant on the objective mechanisms(?) that produced the universe.
+
+Maybe it's a subjective probability over the objective probabilities? For instance, someone personally thinks it's probably equally likely that there's a mechanism that produces a universal constant (like the speed of light) with value X, for all X, and thus is surprised when they get a particular value for the speed of light that can sustain life in the universe, instead of one of the wide range of values that don't? Well, if they continue to be surprised, then I think they aren't updating hard enough on the evidence of the universe we actually have, which gives us information about what mechanisms fixed the universe. I take it that's how subjective probability is supposed to go — it gets focused, the uncertainty gets dismissed, once you figure out what actually is the case.
+
+(You can also consider the objective probability over the objective probabilities, but this is not noticeably difference than the base-level objective probability case, because I also don't know how any of these things happened.)
+
+I haven't mentioned the anthropic principle all blog post, because it doesn't seem strictly relevant; although to some other arguments about the fine-tuning argument, it is.

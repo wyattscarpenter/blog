@@ -84,4 +84,4 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 
 2024-03-10: 𝝋 On The Twofold Rout Of The Principle Of Sufficient Reason <https://wyattscarpenter.github.io/blog/on_the_twofold_rout_of_the_principle_of_sufficient_reason.txt>
 
-
+2024-03-13: 𝝋 Musing About The Beginning Of The World <https://wyattscarpenter.github.io/blog/musing_about_the_beginning_of_the_world.txt>
