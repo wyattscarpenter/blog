@@ -4,7 +4,7 @@
 
 from datetime import date
 from os import path
-from sys import stderr
+from sys import stderr, argv
 import argparse
 from subprocess import run
 import re
@@ -22,10 +22,39 @@ parser.add_argument('"Title Of Post"', type=str, help="The post title that will 
 parser.add_argument('-p', '-pi', '--pi', '-political', '--political', '-pol', '--pol', '-π', action='store_true', help="Mark the post with a 𝝅. Note: only ever used to mark a post as 𝝅𝝋, political philosophy; you may do that with -pf")
 parser.add_argument('-f', '-phi', '--phi', '-philosophy', '--philosophy', '-phil', '--phil', '-φ', action='store_true', help="Mark the post with a 𝝋, indicating it is about philosophy. Note: sometimes used to mark a post as 𝝅𝝋, political philosophy; you may do that with -pf")
 parser.add_argument('-n', '-nono', '-dry-run', '--nono', '--dry-run', action='store_true', help="Exit the program before we write the file, thereby doing nothing, in order to merely test the program.")
-parser.add_argument('-dont-git', action='store_true', help=f"Don't git add the changes (the newly-created file and {file_to_which_to_append}.)")
+parser.add_argument('-dont-git', '--dont-git', action='store_true', help=f"Don't git add the changes (the newly-created file and {file_to_which_to_append}). Furthermore, unless this flag is specified, this script will attempt to add a pre-commit hook to the .git/hooks folder (although it will not overwrite an extant pre-commit file.")
+parser.add_argument('-check', '--check', action='store_true', help=f"Instead of doing anything else, cross-reference the contents of {file_to_which_to_append} and git ls-files and exit with an error if there are files listed in the former that are missing from the latter.")
+
+print("file_to_which_to_append:", file_to_which_to_append)
+
+def capture_stdout(program: list[str]) -> list[str]:
+  result = run(program, capture_output=True, encoding="utf-8")
+  result.check_returncode()
+  return result.stdout.splitlines()
+
+if '--check' in argv or '-check' in argv: #due to the way argparse works, this is the best way to do this.
+  number_of_errors = 0
+  # Get the list of files from git (these are the files in the new commit, btw, the staged changes are included)
+  try:
+    git_files = capture_stdout(['git', 'ls-files'])
+  except FileNotFoundError:
+    # (As it happens, I never expect to need this forbidden jutsu in this part of the code, because --check is mostly run from a git hook, which is thus already in WSL for me. But, anyway...)
+    print("git wasn't found on the path, so I assume YOU are ME, and use the forbidden jutsu: git.bat", file=stderr)
+    git_files = capture_stdout(['git.bat', 'ls-files'])
+  # Check the contents of the readme
+  with open(file_to_which_to_append, "r", encoding="utf-8", newline="\n") as file:
+    for i in file:
+      m = re.match("^(.*?): (.*) <?(https?://.*)/(.*?)>?\s*?$", i)
+      if m:
+        if m.group(4) not in git_files:
+          print(f"{m.group(4)} not found in git files! (The cache/stage of git.) Are you sure you git add'd it? Are you sure you didn't git rm it? Are you sure that if you moved it, you git mv'd it?", file=stderr)
+          number_of_errors += 1
+  if not number_of_errors:
+    print(f"No problems found with {file_to_which_to_append} vis-a-vis what files are in the git ls-files.", file=stderr)
+  exit(number_of_errors)
+
 a = vars(parser.parse_args())
 print(a)
-print("file_to_which_to_append:", file_to_which_to_append)
 
 special_circumstance = False
 if a['basename.ext'][0] == '.':
@@ -58,8 +87,18 @@ if special_circumstance:
     f.write("")
 
 if not a["dont_git"]:
+  # git add the files
   try:
     run(["git", "add", a['basename.ext'], file_to_which_to_append])
   except FileNotFoundError:
     print("git wasn't found on the path, so I assume YOU are ME, and use the forbidden jutsu: git.bat", file=stderr)
     run(["git.bat", "add", a['basename.ext'], file_to_which_to_append])
+  # Add the git pre-commit hook to the git hooks folder
+  p = ".git/hooks/pre-commit"
+  p_payload = "git diff --check && ./tocify.py --check"
+  try:
+    with open(p, 'x', encoding="utf-8", newline='\n') as f:
+      f.write(p_payload)
+    print(f"Created new git hook '{p_payload}' at {p}.")
+  except FileExistsError:
+    print(f"{p} already exists, so I am not trying to overwrite it.")
