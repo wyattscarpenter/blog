@@ -23,3 +23,5 @@ I believe in the platonic God now, the one that is just a sphere. I mean, I just
 Appendix A: Head Achey 🤕
 
 People are always saying stuff like "don't look at the sun when it's partially eclipsed, you'll go blind". And I'm always saying "that's probably overblown; you can glance at the sun and not go blind". Incidentally, everyone agrees you can look at the sun during totality and it's fine. (And, indeed, we all did, and the crowd let out a great cheer, looking up, removing their eclipse glasses  when the moon completely covered the sun and it was like dusk in the middle of the day...) But I guess the joke is on me because even though I only looked at the eclipse today through the approved glasses (except during totality) the light was too strong and it gave me a headache until I went back home and rested my eyes in the dark.
+
+<link rel="stylesheet" type="text/css" href="/style.css" /> <!-- This line is merely to style the page correctly in systems that respect such styling; it has no semantic meaning otherwise. -->
