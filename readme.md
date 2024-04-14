@@ -86,4 +86,4 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 
 2024-03-13: 𝝋 Musing About The Beginning Of The World <https://wyattscarpenter.github.io/blog/musing_about_the_beginning_of_the_world.txt>
 
-2024-04-08: 𝝋 Addendum To The Fine-Tuning Argument: Observing Totality <https://wyattscarpenter.github.io/blog/observing_totality.md>
+2024-04-08: 𝝋 Addendum To The Fine-Tuning Argument: Observing Totality <https://wyattscarpenter.github.io/blog/observing_totality>

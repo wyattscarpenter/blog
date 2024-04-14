@@ -48,8 +48,9 @@ if '--check' in argv or '-check' in argv: #due to the way argparse works, this i
       m = re.match("^(.*?): (.*) <?(https?://.*)/(.*?)>?\s*?$", i)
       if m:
         if m.group(4) not in git_files:
-          print(f"{m.group(4)} not found in git files! (The cache/stage of git.) Are you sure you git add'd it? Are you sure you didn't git rm it? Are you sure that if you moved it, you git mv'd it?", file=stderr)
-          number_of_errors += 1
+          if m.group(4)+".md" not in git_files: #special case due to how github pages treats md files by default
+            print(f"{m.group(4)} not found in git files! (The cache/stage of git.) Are you sure you git add'd it? Are you sure you didn't git rm it? Are you sure that if you moved it, you git mv'd it?", file=stderr)
+            number_of_errors += 1
   if not number_of_errors:
     print(f"No problems found with {file_to_which_to_append} vis-a-vis what files are in the git ls-files.", file=stderr)
   exit(number_of_errors)
