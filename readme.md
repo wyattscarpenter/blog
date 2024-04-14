@@ -10,7 +10,7 @@ If you don't know the C programming language, you may enjoy reading <https://git
 
 Weblog entries that are about philosophy instead of programming (or in addition to programming) are marked with 𝝋, unicode bold italic lowercase phi. Political philosophy is marked with 𝝅𝝋, pi-phi of the aforementioned style.
 
-<style> p { text-indent: 2em; font-family: garamond, georgia, times, serif, monospace; line-height: 1.2; } /* This line is merely to style the page correctly in systems that respect such styling; it has no semantic meaning otherwise. */ </style>
+<link rel="stylesheet" type="text/css" href="/style.css" /> <!-- This line is merely to style the page correctly in systems that respect such styling; it has no semantic meaning otherwise. -->
 
 <iframe src="https://wyattscarpenter.github.io/the-webring-weblog-webring-widget/"></iframe>
 
