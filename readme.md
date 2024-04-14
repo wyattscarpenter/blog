@@ -1,8 +1,12 @@
-Hi, welcome to my programming-themed weblog. To see my real programming projects, check out <https://wyattscarpenter.github.io> or <https://github.com/wyattscarpenter>. <https://github.com/wyattscarpenter/blog> is the git repo where this blog is hosted.
+Hi, welcome to my programming-themed weblog. To see my real programming projects, check out <https://wyattscarpenter.github.io> or <https://github.com/wyattscarpenter>.
+
+## The care and feeding of this blog
+
+<https://github.com/wyattscarpenter/blog> is the git repo where this blog is hosted.
 
 This blog updates whenever I have something to say. You may subscribe to this blog using RSS at <https://wyattscarpenter.github.io/blog/rss.xml><!--Here's the rss as an html alternate link, although I don't know if anything honors this in any particular way.--><link rel="alternate" type="application/rss+xml" title="Wyatt S Carpenter’s Blog, RSS Feed" href="rss.xml"/>. You can also Watch the repo on github at <https://github.com/wyattscarpenter/blog> to receive emails and/or github notifications about updates.
 
-You can search the full text of my blog using <https://github.com/wyattscarpenter/blog/search?q=example>.
+You can search the full text of my blog using <https://github.com/wyattscarpenter/blog/search?q=example>. You can also use the rss link above to get the full text of this blog, and then (for example) ctrl-f it.
 
 If you have any comments or corrections, feel free to submit a pull request <https://github.com/wyattscarpenter/blog/pulls>. Note: by doing this, you agree to release your contribution into the public domain under CC0.
 
@@ -14,7 +18,7 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 
 <iframe src="https://wyattscarpenter.github.io/the-webring-weblog-webring-widget/"></iframe>
 
-# Weblog entries:
+## Weblog entries
 
 2020-08-07: The C Zoo, part 1: reading integers of a given endianness <https://wyattscarpenter.github.io/blog/reading_endian.txt>
 
