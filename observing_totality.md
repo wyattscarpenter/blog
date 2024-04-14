@@ -1,6 +1,7 @@
-Totality review: holy fucking shit dude
+Totality review: holy fucking shit dude\
 — Keaton
-Totality review: the sun isn't supposed to do that lol
+
+Totality review: the sun isn't supposed to do that lol\
 — Wyatt Carpenter
 
 Today, 2024 April 8th, I observed a total eclipse in Beachwood, Ohio.
@@ -13,9 +14,10 @@ The moon obscures the sun just so, so that the sun is covered but its corona is 
 
 I don't find the actual fine-tuning argument very convincing, because I have no idea what the distribution of universal constants are " supposed to be like ". However, the fact that the Earth happens to be in an arrangement with its moon and sun in such a way that it creates an incredible astronomical event that you don't get on other planets, and which if you read in a sci-fi book you would think "that's technically possible but it would be really unlikely", makes some kind of an argument for man's significance in the universe.
 
-I believe in god now, but like the paleolithic sun deity
+I believe in god now, but like the paleolithic sun deity\
 — Keaton
-I believe in the platonic God now, the one that is just a sphere. I mean, I just saw it!
+
+I believe in the platonic God now, the one that is just a sphere. I mean, I just saw it!\
 — Wyatt Carpenter
 
 Appendix A: Head Achey 🤕
