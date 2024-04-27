@@ -1,6 +1,6 @@
 The people are afraid of listening to music.
 
-One of the petty biographical details of my life is that for the first twenty or so years of my life, I was unduly prejudiced against classical music. Don't get me wrong—most classical music is still bad and boring. As is true of everything (Sturgeon's Law, approximately). But in the past I thought it was more like 95% percent was bad, whereas now my estimate is more like 50%.
+One of the petty biographical details of my life is that for the first twenty or so years of my life, I was unduly prejudiced against classical music. Don't get me wrong—most classical music is still bad and boring. As is true of everything (Sturgeon's Law, approximately). But in the past I thought it was more like 95% was bad, whereas now my estimate is more like 50%.
 
 I've been to several classical music performances in my life and, since they never pick a slate I think is good, I find it usually helps to zone out and think of something else. Gives you a nice little soundtrack for your more-important thoughts.
 
@@ -16,7 +16,7 @@ This was brought to my mind recently on a road trip with a friend, where he did 
 
 Now, it's possible, I suppose, that my mother and my friend are both (against all other evidence I have from speaking to them?) gifted with super-hearing, such that they can perceive details in music I cannot at low volumes. And they would have to have super-normal hearing, because in the course of regular medical examinations, my hearing has been tested, and has always been found to be perfect; to whatever standard they measure to, in those tests of hearing impairment—so I am at *least* a reasonably normal benchmark of hearing ability.
 
-(Incidentally, one of the things I have learned in my life is: I often can't understand what people are saying in noisy environments etc, but this is not because I have hearing loss or auditory processing disorder; I know this because for years after not understanding a garbled statement, I would turn to whoever was next to me and ask, "What did he say?". The answer is almost always "I don't know".
+(Incidentally, one of the things I have learned in my life is: I often can't understand what people are saying in noisy environments etc, but this is not because I have hearing loss or an auditory processing disorder; I know this because for years after not understanding a garbled statement, I would turn to whoever was next to me and ask, "What did he say?". The answer is almost always "I don't know".
 
 Sometimes the answer is "I'm not sure, but... (a guess based on context and phonic elements)". In fact, since that's just a puzzle, and I am good at puzzles, I am quite often the one with the best guess, of all of the listeners, about what has been said.
 
@@ -26,4 +26,4 @@ But I don't think there is a difference in hearing ability. I think these people
 
 Now that I'm done with the complaining part of my blog post, it is now my civic duty to dispel this myth, which I will do by looking at a couple wikipedia pages and doing some intuitive math.
 
-This reasoning is not airtight, but consider: 85dB is about the level where long-term exposure can cause loss of hearing. This is about the volume of standing next to a road with cars going by quickly. Hopefully, you can perceive the difference between the road noise inside of a car and the road noise outside of the car. Hopefully, it will also be apparent to you that the music in a car would have to be *quite* loud in order to sound like cars going by outside of a car.
+This reasoning is not airtight, but consider: 85dB is about the level where long-term exposure can cause loss of hearing. This is about the volume of standing next to a road with cars going by quickly. Hopefully, you can perceive the difference between the road noise inside of a car and the road noise outside of the car. Hopefully, it will also be apparent to you that the music in a car would have to be *quite* loud in order to sound as loud cars going by outside of a car.
