@@ -23,6 +23,8 @@ Then instead of calling functions like f(x), you call them like x.bind(f). Inter
 
 Also, though it's not clear to me how useful this is, if you wanted different side effects you could use the same x.bind(f) code with a different monad x with different side effects, instead of having to change all the calls to side_effect.
 
+(Apparently, this fact about monads, them being a container type with a standardized and useful interface, sort of being "transparent" (in a way) with regard to the underlying data, is half the reason functional programmers like them so much. (The other half is to encapsulating real-world side effects with them, like I/O.))
+
 This is actually quite similar to Leibniz's concept of a monad. As any student of philosophy knows, Leibniz posits
 (1) the universe is made of monads, ontologically basic... particles or something...
 (2) that are conscious.
