@@ -97,3 +97,6 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2024-04-27: The People Are Afraid Of Listening To Music <https://wyattscarpenter.github.io/blog/the_people_are_afraid_of_listening_to_music.txt>
 
 2024-05-10: Git Commit Messages Are In The Bare Infinitive <https://wyattscarpenter.github.io/blog/git_commit_messages_are_in_the_bare_infinitive.txt>
+
+2024-05-11: 𝝋 A Brief Review Of Martin Heidegger’s _Being And Time_ (Joke Version) <https://wyattscarpenter.github.io/blog/a_brief_review_of_being_and_time_joke_version.txt>
+
