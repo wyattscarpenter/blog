@@ -100,3 +100,4 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 
 2024-05-11: 𝝋 A Brief Review Of Martin Heidegger’s _Being And Time_ (Joke Version) <https://wyattscarpenter.github.io/blog/a_brief_review_of_being_and_time_joke_version.txt>
 
+2024-05-12: 𝝋 Addendum To The Fine-Tuning Argument 2: Unobserving Aurora Borealis <https://wyattscarpenter.github.io/blog/unobserving_aurora_borealis.txt>
