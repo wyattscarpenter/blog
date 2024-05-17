@@ -8,7 +8,7 @@ For example, much of their Nock rationale is based on the idea that thereby Urbi
 
 However, in the social aspect, they're a great bunch of lads.
 
-(It's kind of like the parable of the fox and the sour grapes, but counter this counter-parable I just made up: the parable of the fox who spent a lot of time getting one or two grapes, and discovered they were much too sour, and then spent another enormous amount of time getting the rest of the grapes, which are also much too sour.)
+(It's kind of like the parable of the fox and the sour grapes, but consider this counter-parable I just made up: the parable of the fox who spent a lot of time getting one or two grapes, and discovered they were much too sour, and then spent another enormous amount of time getting the rest of the grapes, which are also much too sour.)
 
 I have to confess: I dislike hoon. The reasons will become apparent as you read this document. But, to sum up, it's a toy created by people who wanted to make simple things complex, and complex things impossible. It's an utter waste of time, and at this point in my life I've reflected that I would like to make my own wastes of time forging real-life connections, instead of some bullshit some guy made up for no reason. I wish them all the best. But want to learn an esoteric language? How about Sorbian? I hear some of their words even have more than 4 letters!
 
@@ -36,7 +36,7 @@ At least [] isn't quite so picky about whitespace.
 
 Certain pieces of hoon syntax are not documented anywhere, or at least nowhere you can easily look up. What do you think x+y means in hoon? Good luck looking that up!
 
-Hoon is also obsessed with making words the same length, which is a specious kind of regularity that adds nothing. It also likes to make names short to the point of near-intelligibility instead of self-documenting english words (some of them still achieve being self-documenting english words, however). This is real High Modernism hours. I feel like it was way more fun to create than use.
+Hoon is also obsessed with making words the same length, which is a specious kind of regularity that adds nothing. It also likes to make names short to the point of near-unintelligibility instead of self-documenting english words (some of them still achieve being self-documenting english words, however). This is real High Modernism hours. I feel like it was way more fun to create than use.
 
 This is exactly the opposite direction that computing should be moving. We've spent years trying to convince programmers to put all the vowels back in and write good error messages. You should not use a system that respects you so little that a type error is expressed as
   -need.@  
@@ -55,7 +55,7 @@ Symbols in urbit seem to have been chosen at random. This is an extremely funny 
 
 Many of the symbols in hoon and urbit are used for completely unrelated things at different times, making them very difficult to reason about or look up. This is also an intercal-style-joke-style move on hoon's part. For instance, `t` is used to cast a type, but ` is used to make a "unit". `` is a valid operation, as is ``t`x. The multiple-uses of percent signs is also annoying.
 
-There's a particular problem that it's impossible to look up what simpliciter (non-rune-component) punctation marks mean in Hoon. For example, ? is not only the rune that begins all the conditionals runes, but also by itself the literal name of the boolean (loobean) type in hoon code. $ is not only used for every structure rune but is also... ah, well, I forget at this point. * is noun, @ is atom, and $ is structure, I think? I tried to submit a pull request to the documentation website about this, but it was an awkward period of time where https://developers.urbit.org was deprecated enough that it wasn't accepting pull requests anymore, but https://docs.urbit.org had just come out and was too new to accept pull requests, so it was impossible for me to improve the documentation at that point.
+There's a particular problem that it's impossible to look up what simpliciter (non-rune-component) punctuation marks mean in Hoon. For example, ? is not only the rune that begins all the conditionals runes, but also by itself the literal name of the boolean (loobean) type in hoon code. $ is not only used for every structure rune but is also... ah, well, I forget at this point. * is noun, @ is atom, and $ is structure, I think? I tried to submit a pull request to the documentation website about this, but it was an awkward period of time where https://developers.urbit.org was deprecated enough that it wasn't accepting pull requests anymore, but https://docs.urbit.org had just come out and was too new to accept pull requests, so it was impossible for me to improve the documentation at that point.
 
 Every rationale provided for hoon and urbit generally is completely misguided. Every sentence in them is false, as they were written by people who didn't understand what they were talking about. Well, the part where they realize static typing is good is true. Oddly enough I've often been able to get type errors at runtime in hoon programs, so they obviously did a bad job at that, but you know. I'm sure it does catch some errors.
 
@@ -63,7 +63,7 @@ For instance, the problem with contemporary computing is not "it is not implemen
 
 Remember: the default state of anything people make in computers is bad, so there's no prima facie reason to suspect this one would be better. It has met expectations.
 
-Hoon does not seem to have a specification, except maybe the documentation at https://developers.urbit.org/reference/hoon/rune, which to be fair is pretty good, and also pretty spec-like. But the point I'm trying to make is that if that documentation isn't the definitive source of hoon knowledge, like the thing the creators wrote to explain it in the first place, I don't know what it is. Maybe that is it. But it feels incomplete for that purpose, like that can't really be how the first adopter learned Hoon... Maybe you just read comments in the source code or something.
+Hoon does not seem to have a specification, except maybe the documentation at https://developers.urbit.org/reference/hoon/rune, which to be fair is pretty good, and also pretty spec-like. But the point I'm trying to make is that if that documentation isn't the definitive source of hoon knowledge, like the thing the creators wrote to explain it in the first place, I don't know what is. Maybe that is it. But it feels incomplete for that purpose, like that can't really be how the first adopter learned Hoon... Maybe you just read comments in the source code or something.
 
 Nock has a specification, and it acts all smug (elsewhere in urbit writing) because it "can fit on a t-shirt". https://docs.urbit.org/language/nock/reference/definition Interestingly (this is not unique to the nock specification, and is a common fact of "simple specifications", quite often) the specification omits so much information as to be useless unless you already know what it means. It doesn't even tell you if the values are supposed to be read horizontally as pairs, or what.
 
@@ -79,7 +79,7 @@ What an odd thing to do. Well, anyway.
 
 "Subject oriented programming" is an extremely bad name. It's a pun on "object oriented programming", but the "subject" in hoon really is the context, like the subject of a conversation, not the primary thing under consideration like the subject of a sentence. (I think...?)
 
-Also, the big twist reveal is that the subject... is just a big linked list of state. Want some variables? They're in there. It may or may not just be the scope, ie https://en.wikipedia.org/wiki/Scope_(computer_science) . It may or may not just be the concept of "dynamic scoping" under a new name. I tried asking a guy about this once but I didn't understand the answer (I'm not sure if I understand what subject-oriented-programming is supposed to be, which is an awkward position to be in, because I don't want to just ask question that confirm my tentative hypothesis.)
+Also, the big twist reveal is that the subject... is just a big linked list of state. Want some variables? They're in there. It may or may not just be the scope, ie https://en.wikipedia.org/wiki/Scope_(computer_science) . It may or may not just be the concept of "dynamic scoping" under a new name. I tried asking a guy about this once but I didn't understand the answer (I'm not sure if I understand what subject-oriented-programming is supposed to be, which is an awkward position to be in, because I don't want to just ask questions that confirm my tentative hypothesis.)
 
 @ stands for atom, not aura. Auras are not actually visually depicted anywhere, merely types and operators that force something to be of the right type (the type is just how to interpret the number underneath... this is how all computers work... so the aura actually is the type I guess).
 
@@ -87,7 +87,7 @@ You might think about using Hoon Assist. For some reason, it's outdated, and pos
 
 +help is how you see the dojo commands in the urbit dojo (the urbit command line). Unfortunately, many commands are documented with "<undocumented>", which is not very helpful. The rest are documented with a terse line explaining almost nothing unless you already know what it is. Oh well. You can also pass something in to +help to see just its own terse line. For instance, +help %verb tells you that |verb:
   +verb     ::  Tell app to print what it's doing
-Which is odd because I actually the wanted the documentation for |verb, and +verb seems to just return %loud. Well, whatever.
+Which is odd because I actually wanted the documentation for |verb, and +verb seems to just return %loud. Well, whatever.
 
 Hoon sometimes claims to be a "runic language". This refers to the use of punctuation like !! as semantic units. This annoys me because we already have textual units called runes: runes. For a while I considered making Hrune, version of Hoon but the runes are actual runic characters like from the Elder Futhark and stuff. Maybe !! is ᛟ or something. But not all projects are meant to be. Someone also told me there used to be a version of hoon with english keywords instead of runes, at one point, which was widely disliked. I also considered trying to make a transpiler from Hoon to C because, really, when you get down to it, how hard could it be? But I have enough unprofitable projects.
 
