@@ -61,7 +61,7 @@ a = vars(parser.parse_args())
 print(a)
 
 if a['initial_caps']:
-  a['"Title Of Post"'] = a['"Title Of Post"'].title()
+  a['"Title Of Post"'] = "".join( x.capitalize() for x in re.findall("[-\w']+|\W+", a['"Title Of Post"']) )
 
 special_circumstance = False
 if a['basename.ext'][0] == '.':
@@ -91,6 +91,7 @@ cool_string: str = f"""\n{a['date']}: \
 print(cool_string)
 
 if a['nono']:
+  print('Dry-run ("nono" run) completed; no changes made.')
   exit()
 
 with open(file_to_which_to_append, "a", encoding="utf-8", newline='\n') as f:
