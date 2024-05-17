@@ -17,9 +17,8 @@ parser = argparse.ArgumentParser(
 
 file_to_which_to_append = "readme.md"
 
-parser.add_argument('basename.ext', type=str, help="The file name that will be used in the url. Do not include the rest of the path. Example: foo.txt. Note: you should be able to tab-complete this, which is why it's the first argument. Also, tocify will check that this file exists, to help you prevent typos. SPECIAL CIRCUMSTANCE: if basename.ext is .[ext] then \"Title Of Post\" will be converted to an appropriate file name a la title_of_post.[ext] and the file will be created (in which case, the file already existing is an error); in such cases, ext defaults to txt if not provided. You can also specify -m, below, to make the file in other circumstances.")
+parser.add_argument('basename.ext', type=str, help="The file name that will be used in the url. Do not include the rest of the path. Example: foo.txt. Note: you should be able to tab-complete this, which is why it's the first argument. Also, if the file doesn't exist, tocify will create it for you. SPECIAL CIRCUMSTANCE: if basename.ext is .[ext] then \"Title Of Post\" will be converted to an appropriate file name a la title_of_post.[ext] and the file will be created (in which case, the file already existing is an error); in such cases, ext defaults to txt if not provided.")
 parser.add_argument('"Title Of Post"', type=str, help="The post title that will be used in the listing. Example: 'On The Fooing Of Foos: Or, How I Learned To Give Up And Love The Foo'. Note: you will probably have to quote this argument, in your shell. The title will be converted to initial caps, the capitalization style in the example I just gave.")
-parser.add_argument('-m', '--make-file', action='store_true', help="Instead of refusing to make the toc entry if the basename.ext file doesn't exist, make the file if it does not exist (and also make the toc entry). If the file already exists, just make the toc entry. In this way, this flag is like a --force flag on other programs.")
 parser.add_argument('-d', '-date', '--date', type=date.fromisoformat, help="The date the post will be dated as. Defaults to the output of date.today() if not specified. It should be given in 2024-03-31 format. The argument to this flag is validated against python's datetime's ISO 8601 recognizer: https://docs.python.org/3/library/datetime.html#datetime.date.fromisoformat")
 parser.add_argument('-p', '-pi', '--pi', '-political', '--political', '-pol', '--pol', '-π', action='store_true', help="Mark the post with a 𝝅. Note: only ever used to mark a post as 𝝅𝝋, political philosophy; you may do that with -pf")
 parser.add_argument('-f', '-phi', '--phi', '-philosophy', '--philosophy', '-phil', '--phil', '-φ', action='store_true', help="Mark the post with a 𝝋, indicating it is about philosophy. Note: sometimes used to mark a post as 𝝅𝝋, political philosophy; you may do that with -pf")
@@ -70,15 +69,8 @@ if a['basename.ext'][0] == '.':
   a['basename.ext'] = ( "_".join(re.findall("[-\w]+", a['"Title Of Post"'].lower())) ) + a['basename.ext'] #This assumes you want sort-of-url-style document titles. Which, you know, probably you do.
   print(f"Due to the special circumstance of basename.ext starting with . ( {old_ext} ) I'm creating a new file by the name of {a['basename.ext']} instead of requiring it to be a pre-existing file.")
   if path.isfile(a['basename.ext']):
-    print(f"Error: {a['basename.ext']} is an existing file, which is forbidden.", file=stderr)
+    print(f"Error: {a['basename.ext']} is an extant file, which is forbidden.", file=stderr)
     exit(-1)
-else:
-  if not path.isfile(a['basename.ext']):
-    if a['make_file']:
-      pass
-    else:
-      print(f"Error: {a['basename.ext']} is not an existing file, which is required.", file=stderr)
-      exit(-1)
 
 if not a['date']:
   a['date'] = date.today()
@@ -94,7 +86,7 @@ if a['nono']:
 
 with open(file_to_which_to_append, "a", encoding="utf-8", newline='\n') as f:
   f.write(cool_string)
-if special_circumstance or a['make_file']:
+if not path.isfile(a['basename.ext']):
   with open(a['basename.ext'], "a", encoding="utf-8", newline='\n') as f:
     f.write("")
 
