@@ -101,3 +101,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2024-05-11: 𝝋 A Brief Review Of Martin Heidegger’s _Being And Time_ (Joke Version) <https://wyattscarpenter.github.io/blog/a_brief_review_of_being_and_time_joke_version.txt>
 
 2024-05-12: 𝝋 Addendum To The Fine-Tuning Argument 2: Unobserving Aurora Borealis <https://wyattscarpenter.github.io/blog/unobserving_aurora_borealis.txt>
+
+2024-05-17: Demons Are Not Abstract Objects; They Are Angry Guys Who Don't Have Bodies (Sometimes) <https://wyattscarpenter.github.io/blog/demons_are_not_abstract_objects_they_are_angry_guys_who_don_t_have_bodies_sometimes.txt>
