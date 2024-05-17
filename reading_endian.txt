@@ -8,7 +8,7 @@ int byteswap(int i){return *((int*)(char[]){((char*)(&i))[3],((char*)(&i))[2],((
 
 Presented in a single line for your literary pleasure.
 It assumes you have an integer, takes the address of the integer, interprets that address as the address of a byte array, makes a new byte array of those bytes in reverse order, interprets the address of that byte array as the address of an integer, and then looks up that integer.
-It wouldn't surprise me if this is technically illegal/undefined under the C standard. However, it compiles and runs with no warnings, not even with -Wall -pedantic suppled as arguments to the compiler.
+It wouldn't surprise me if this is technically illegal/undefined under the C standard. However, it compiles and runs with no warnings, not even with -Wall -pedantic supplied as arguments to the compiler.
 It becomes a little less ridiculous if you assume you have a pointer to bytes already, as you read them in:
 
 int read_be_32(char *data){return *((int*)(char[]){data[3],data[2],data[1],data[0]});}
