@@ -1,8 +1,8 @@
-Having just read several critique of the C programming languages, in which strings were an especially sticking point, I decided to take another stab at implementing a variadic string concatenation function in C. But alas! I realized at the end, much as I realized 3 years ago when I tried this the first time, that the problem with strcat in C isn't that you can't call strcat(destination, source1, source2, source3...); it's that you have to know exactly how long your strings are, in advance.
+Having just read several critiques of the C programming languages, in which strings were an especially sticky sticking point, I decided to take another stab at implementing a variadic string concatenation function in C. But alas! I realized at the end, much as I realized 3 years ago when I tried this the first time, that the problem with strcat in C isn't that you can't call strcat(destination, source1, source2, source3...); it's that you have to know exactly how long your strings are, in advance.
 
 Basically, without getting too deep into it, strings can be variable length, but the memory you put them into has to be of known length.
 
-So you get this weird situation where even though the thing strcat is doing is sticking a string of unknown length, source, on to the end a thing of unknown length, destination, destination still has live in an allotment of memory that can hold a string of the combined length of source and destination. You have to set this up explicitly!
+So you get this weird situation where even though the thing strcat is doing is sticking a string of unknown length, source, on to the end a thing of unknown length, destination, destination still has to live in an allotment of memory that can hold a string of the combined length of source and destination. You have to set this up explicitly!
 
 This is tiresome.
  
@@ -29,6 +29,8 @@ Now, to be fair, in C you can break free of the automatic memory management sche
 If only c had a defer statement (hopefully soon... http://www.open-std.org/jtc1/sc22/wg14/www/docs/n2542.pdf), then I could just slap one of those bad boys in a macro that also includes a defer and wallpaper over the whole thing... well, assuming I want it destroyed when the defer would trigger.
 
 See also https://wyattscarpenter.github.io/blog/2_bookend_macros.txt for a defer-like macro that is still more annoying to use than I want.
+
+Update 2024-05-17: It has occurred to me that you could probably get around my complaints here by using alloca to allocate on the stack, although alloca isn't in the C standard; or "Variable Length Arrays" to allocate on the stack, which is in the c standard; or "Flexible Array Members", which are also in the C standard (although I think for this one you still have to use malloc). You can also just resign yourself to using malloc, and live with the scourge of non-automatic memory management (if you wanted to, say, return the string you were building from a function, instead of just using it locally after the macro, you would have to do this in any case, at least to some extent).
 
 Unlike most of these blog posts, I cannot offer you working code, only code I abandoned halfway through:
 
