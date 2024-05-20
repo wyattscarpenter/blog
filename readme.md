@@ -105,3 +105,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2024-05-17: Demons Are Not Abstract Objects; They Are Angry Guys Who Don't Have Bodies (Sometimes) <https://wyattscarpenter.github.io/blog/demons_are_not_abstract_objects_they_are_angry_guys_who_don_t_have_bodies_sometimes.txt>
 
 2024-05-18: 𝝅𝝋 Deaths Vs Taxes <https://wyattscarpenter.github.io/blog/deaths_vs_taxes.txt>
+
+2024-05-19: Plastic Earth <https://wyattscarpenter.github.io/blog/plastic_earth.txt>
