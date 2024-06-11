@@ -107,3 +107,7 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2024-05-18: 𝝅𝝋 Deaths Vs Taxes <https://wyattscarpenter.github.io/blog/deaths_vs_taxes.txt>
 
 2024-05-19: Plastic Earth <https://wyattscarpenter.github.io/blog/plastic_earth.txt>
+
+2024-06-10: Github Inactions <https://wyattscarpenter.github.io/blog/github_inactions.txt>
+
+2024-06-11: Final Disproof Of All Religions (Real) <https://wyattscarpenter.github.io/blog/final_disproof_of_all_religions.txt>
