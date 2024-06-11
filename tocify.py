@@ -45,7 +45,7 @@ if '--check' in argv or '-check' in argv: #due to the way argparse works, this i
   # Check the contents of the readme
   with open(file_to_which_to_append, "r", encoding="utf-8", newline="\n") as file:
     for i in file:
-      m = re.match("^(.*?): (.*) <?(https?://.*)/(.*?)>?\s*?$", i)
+      m = re.match(r"^(.*?): (.*) <?(https?://.*)/(.*?)>?\s*?$", i)
       if m:
         if m.group(4) not in git_files:
           if m.group(4)+".md" not in git_files: #special case due to how github pages treats md files by default
@@ -58,7 +58,7 @@ if '--check' in argv or '-check' in argv: #due to the way argparse works, this i
 a = vars(parser.parse_args())
 print(a)
 
-a['"Title Of Post"'] = "".join( x.capitalize() for x in re.findall("[-\w']+|\W+", a['"Title Of Post"']) )
+a['"Title Of Post"'] = "".join( x.capitalize() for x in re.findall(r"[-\w']+|\W+", a['"Title Of Post"']) )
 
 special_circumstance = False
 if a['basename.ext'][0] == '.':
@@ -66,7 +66,7 @@ if a['basename.ext'][0] == '.':
   old_ext = a['basename.ext']
   if a['basename.ext'] == '.':
     a['basename.ext'] = '.txt'
-  a['basename.ext'] = ( "_".join(re.findall("[-\w]+", a['"Title Of Post"'].lower())) ) + a['basename.ext'] #This assumes you want sort-of-url-style document titles. Which, you know, probably you do.
+  a['basename.ext'] = ( "_".join(re.findall(r"[-\w]+", a['"Title Of Post"'].lower())) ) + a['basename.ext'] #This assumes you want sort-of-url-style document titles. Which, you know, probably you do.
   print(f"Due to the special circumstance of basename.ext starting with . ( {old_ext} ) I'm creating a new file by the name of {a['basename.ext']} instead of requiring it to be a pre-existing file.")
   if path.isfile(a['basename.ext']):
     print(f"Error: {a['basename.ext']} is an extant file, which is forbidden.", file=stderr)
