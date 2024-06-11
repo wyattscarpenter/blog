@@ -12,7 +12,7 @@ import re
 parser = argparse.ArgumentParser(
   prog='tocify',
   description=__doc__,
-  epilog="""Example usage: tocify.py test.txt "example post" -pf ===> 2024-01-01: 𝝅𝝋 example post: <https://wyattscarpenter.github.io/blog/test.txt>"""
+  epilog="""Example usage: tocify.py test.txt "example post" -pi -phi ===> 2024-01-01: 𝝅𝝋 example post: <https://wyattscarpenter.github.io/blog/test.txt>"""
 )
 
 file_to_which_to_append: str = "readme.md"
