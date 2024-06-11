@@ -1,3 +1,5 @@
+GitHub INactions
+
 I like the look of my blog that I deploy from markdown files on github pages (nb: This is almost entirely due to the custom CSS I wrote for it (https://wyattscarpenter.github.io/style.css) that would work in basically any HTML document and furthermore (conceptually) basically any document presentation system), but now that github pages is entirely on Actions, I am looking at the 40+ seconds of a github pages deployment with jekyll like "hmm..."
 
 Maybe I should replace that.
