@@ -26,6 +26,8 @@ The default github actions are also... written in javascript...
 
 I considered pursuing a very fast GitHub action, and maybe writing a blog post about this experience, but then I got busy; in part with my actual work, and in part with my actual life; and so did not do it.
 
+The blog post would have been called "My obsessive path to making this blog publish very fast" or something, and ideally it would have had screenshots, when pertinent.
+
 https://github.com/features/actions
 lists an example CI action as completing in 59 seconds, as though that isn't a deeply embarrassing number to display.
 
