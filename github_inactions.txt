@@ -37,4 +37,4 @@ I intuit that maybe you have to write them in JavaScript if you want to avoid a 
 
 I basically forgot all about the project of trying to make my GitHub actions maximally efficient because I got too busy to do this. And, indeed, I don't think I'll ever become unbusy enough that it's a good idea to do that. They aren't even paying me, for example. Even though hypothetically this could deliver millions of dollars of value to their collective userbase and therefore company. Let it be known that if they offer me a mere million dollars I will make such an optimized Action (Or is it technically called a library? Or a workflow?) and upload it to the public.
 
-(It's also possible that someone else has already gone to this trouble, in which case I know somebody tells me about that!)
+(It's also possible that someone else has already gone to this trouble, in which case I hope somebody tells me about that!)
