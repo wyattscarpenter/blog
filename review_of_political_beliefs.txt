@@ -1,8 +1,25 @@
 review of political beliefs a philosophical introduction
 
+# 1
+
+I'm reading _Political Beliefs: A Philosophical Introduction_ by Oliver Traldi recently ([open access here](https://www.taylorfrancis.com/books/oa-mono/10.4324/9781003355274/political-beliefs-oliver-traldi)) and one of the things he's most impressed with during the book, which is also the most impressing thing he's discovered (from the academic field of "epistemic democracy"), is that due to the Condorcet Jury Theorem, independent thinkers add to the probability of a vote getting the right answer. But the group vote is then more likely to get the correct answer on any given question than a given individual. Which leads to the striking result that the pro-social move is to remain an independent thinker, as you improve the group outcome but get worse individual outcomes; and the antisocial move is to conform, as you get better individual outcomes but worsen the group outcomes.
+
+Under ideal conditions, of course. But it has an unintuitive moral that applies to us when we approximate those conditions!
+
+In a technical sense, "independent thinker" means that your errors aren't correlated with others'. And the main way your answers get correlated, in real life, is that you adopt somebody else's answers.
+
+# 2
 It's kind of crazy to me that the beginning of this book is a number of failed attempts to define politics, and he doesn't mention the polis even once!
 
 like, all of his counterexamples fail because They aren't about the subject matter of politics, that is, "What should we do with the polis".
+
+# 3
+
+I think the Condorcet Jury Theorem result implies that you can make the voting process do better if you vote in a way that counteracts the correlation of others' votes. Which would be a real The Joker move.
+
+# 4
+
+In podcasts he's said it's hard to figure out what the people want from votes. Usually they don't even vote on issues! Just candidates. Such thinking has recently gotten me more excited about Liquid Democracy lately. See https://en.wikipedia.org/wiki/Liquid_democracy for an example. I have a sort of muted view about it, but some of it seems cool and useful.
 
 appendix A: typos I found in the work 
 
