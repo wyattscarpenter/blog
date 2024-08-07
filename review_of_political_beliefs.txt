@@ -2,6 +2,10 @@ review of political beliefs a philosophical introduction
 
 # 1
 
+It's a good book.
+
+# 1
+
 I'm reading _Political Beliefs: A Philosophical Introduction_ by Oliver Traldi recently ([open access here](https://www.taylorfrancis.com/books/oa-mono/10.4324/9781003355274/political-beliefs-oliver-traldi)) and one of the things he's most impressed with during the book, which is also the most impressing thing he's discovered (from the academic field of "epistemic democracy"), is that due to the Condorcet Jury Theorem, independent thinkers add to the probability of a vote getting the right answer. But the group vote is then more likely to get the correct answer on any given question than a given individual. Which leads to the striking result that the pro-social move is to remain an independent thinker, as you improve the group outcome but get worse individual outcomes; and the antisocial move is to conform, as you get better individual outcomes but worsen the group outcomes.
 
 Under ideal conditions, of course. But it has an unintuitive moral that applies to us when we approximate those conditions!
