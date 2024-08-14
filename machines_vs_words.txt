@@ -1,0 +1,19 @@
+Computer programs kind of look like they are the domain of words, but really they are the domain of machines. (Good words help, but not as much as you might think!)
+
+The actual goal of computer programming is to replace every more-bespoke machine with general purpose machines that can be set to tasks. You can tell this in a couple of ways. The most telling being that around the time of the invention of programmable computers, everyone involved was saying, like "it's crazy that we have to build a bespoke circuit for everything we want to do; if only the circuit itself could control the configuration of the circuits; yes, let's do that". And so forth. And then they did, and it's been a smashing success on the whole.
+
+Therefore, the aims of a computer program inherit some of the aims of machines that the aims of writing (the medium in which computer programs are typically expressed) generally clash with.
+
+1. The machine should do the same thing every time. Unlike in writing where it's a matter of interpretation by the reader. In the program, you want each word to have the same effect every time, predictably. If there's "a matter of interpretation", something has gone horribly wrong.
+
+2. No synonyms. Unlike writing where it's basically no harm (and good style, for whatever reason) to have a bunch of synonyms; programming languages are more like machines with standardized parts, where it's nice to have only one part of a type, which you know and understand, rather than many. There is no real room for subtle shades of non-functional meaning between synonyms.
+
+3. Optimization. Somehow, the words you write will make the computer do more or less work, and you should typically choose less.
+
+4. Perfection. Unlike in a paragraph, which can be written several ways as a matter of taste, in programming there's often one perfect way to do something (although this doesn't usually extend to variable names; instead, usually just the structure of the program and the commands used).
+
+There is an analogy of some kind between what the computer program words do to the computer and what regular words do to the reader, but the disanalogy is to be stressed, I suppose.
+
+Computer programs and computers are also physical objects, not mathematical objects (which is another thing you might mix them up with). They can *approximate* or *model* or *follow* mathematical objects, sometimes, which can be convenient; but they can also choose not to do this, which is also convenient sometimes. (Technically every computer program has a corresponding mathematical object, probably, but whatever. I'm just saying not every program has to be Haskell.)
+
+The words in a programming language are more like labels you can put on parts. And you should choose good labels!

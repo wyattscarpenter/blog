@@ -115,3 +115,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2024-06-17: Unlocking First Jhana Through A Modern Koan <https://wyattscarpenter.github.io/blog/1jhana.txt>
 
 2024-08-13: 𝝋 The Pirahã And Hume's Argument Against Miracles <https://wyattscarpenter.github.io/blog/the_piraha_and_hume_s_argument_against_miracles.txt>
+
+2024-08-14: Machines Vs Words <https://wyattscarpenter.github.io/blog/machines_vs_words.txt>
