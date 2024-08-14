@@ -36,12 +36,7 @@ def capture_stdout(program: list[str]) -> list[str]:
 if '--check' in argv or '-check' in argv: #due to the way argparse works, this is the best way to do this.
   number_of_errors = 0
   # Get the list of files from git (these are the files in the new commit, btw, the staged changes are included)
-  try:
-    git_files = capture_stdout(['git', 'ls-files'])
-  except FileNotFoundError:
-    # (As it happens, I never expect to need this forbidden jutsu in this part of the code, because --check is mostly run from a git hook, which is thus already in WSL for me. But, anyway...)
-    print("git wasn't found on the path, so I assume YOU are ME, and use the forbidden jutsu: git.bat", file=stderr)
-    git_files = capture_stdout(['git.bat', 'ls-files'])
+  git_files = capture_stdout(['git', 'ls-files'])
   # Check the contents of the readme
   with open(file_to_which_to_append, "r", encoding="utf-8", newline="\n") as file:
     for i in file:
@@ -90,11 +85,7 @@ if not path.isfile(a['basename.ext']):
     f.write("")
 
 if not a["dont_git"]:
-  try:
-    run(["git", "add", a['basename.ext'], file_to_which_to_append])
-  except FileNotFoundError:
-    print("git wasn't found on the path, so I assume YOU are ME, and use the forbidden jutsu: git.bat", file=stderr)
-    run(["git.bat", "add", a['basename.ext'], file_to_which_to_append])
+  run(["git", "add", a['basename.ext'], file_to_which_to_append])
   # Add the git pre-commit hook to the git hooks folder
   p = ".git/hooks/pre-commit"
   p_payload = "git diff --check && ./tocify.py --check"
