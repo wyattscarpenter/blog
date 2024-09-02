@@ -1,4 +1,4 @@
-Hi, welcome to my programming-themed weblog. To see my real programming projects, check out <https://wyattscarpenter.github.io> or <https://github.com/wyattscarpenter>.
+Hi, welcome to my programming-themed weblog. <!-- Perhaps it should be called: Wyatt S Computer? --> To see my real programming projects, check out <https://wyattscarpenter.github.io> or <https://github.com/wyattscarpenter>.
 
 ## The care and feeding of this blog
 
