@@ -121,3 +121,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2024-08-15: 𝝋 Effect Size Vs Causality <https://wyattscarpenter.github.io/blog/effect_size_vs_causality.txt>
 
 2024-08-26: My Proclamation Of 2023 <https://wyattscarpenter.github.io/blog/my_proclamation_of_2023.txt>
+
+2024-09-02: My Proclamation Of 2024 <https://wyattscarpenter.github.io/blog/my_proclamation_of_2024.txt>
