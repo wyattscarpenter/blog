@@ -13,3 +13,5 @@ so, as you may be able to tell from my verbiage, im a fan of static typing. howe
 in python typing is in its infancy
 
 python typing is not finished, it's in its experimental phase, and therefore A lot of the things you might like to do are not really possible yet.
+
+The fact that it took several senior engineers multiple days of effort to figure out the correct way type this in Python is perhaps the most damning sign that the type system is not ready.
