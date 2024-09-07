@@ -1,8 +1,8 @@
-A brief note on "effect sizes", causality, and (perhaps) the principle sufficient of reason.
+A brief note on "effect sizes", causality, and (perhaps) the principle of sufficient reason.
 
 After my last blog post on scientific induction and sample size (scientific_induction_and_sample_size.txt), in personal correspondence a friend of mine mentioned something like "ah, yes, you only need big sample sizes for small effect sizes, effects that barely exist. For normal effects you can just use small sample sizes". First of all, I think he's right. (In fact, I already knew this before he mentioned it lol; it's a logical entailment of what I was taught in school about sample size.) But it also reminded me I'd like to mention something on my blog that, while not breaking new ground in epistemology per se, is relevant to the former topic.
 
-A great entry point into the topic I'm about to broach is his phrasing (as best I remember it): "small effect sizes, effects that barely exist". What? (Again: he's right. But let's pretend to be surprised.) This actually run counter to our instincts about causality, if you think about it. Causation can't "barely exist"; either A causes B or it doesn't!
+A great entry point into the topic I'm about to broach is his phrasing (as best I remember it): "small effect sizes, effects that barely exist". What? (Again: he's right. But let's pretend to be surprised.) This actually runs counter to our instincts about causality, if you think about it. Causation can't "barely exist"; either A causes B or it doesn't!
 
 Of course, existence itself is already a binary property; either something exists or it doesn't. Any intensification or diminishment of "existence" here must be understood as a (perfectly licit, mind you) figure of speech. So what do we actually mean, here? It's a question of at least slight interest (although, unlike many philosophical questions, I feel most people aren't confused about the answer to this question).
 
@@ -10,11 +10,11 @@ Firstly, let me give the— I don't know— "classical" answer to this question.
 
 You can also imagine less obvious cases of the same principle, like maybe the iron needs a certain body temperature to work, and half of people have below the required temperature. And there can be many of these at the same time.
 
-Secondly, you could assume there are true chances somewhere. As a property causal laws are allowed to have. A causes B 50% of the time, as a brute fact. We give the treatment and due to some kind of truly random quantum chemical effect or something, the iron in the supplement all fails to enter the body. Note that this violates the principle sufficient of reason by definition.
+Secondly, you could assume there are true chances somewhere. As a property causal laws are allowed to have. A causes B 50% of the time, as a brute fact. We give the treatment and due to some kind of truly random quantum chemical effect or something, the iron in the supplement all fails to enter the body. Note that this violates the principle of sufficient reason by definition.
 
 Even though you could hold the position that this could happen, I don't think it's really relevant. I think most people who believe in true chances think they exist at a micro scale so small that treatments for a condition are called macro by comparison, so it's unlikely that the true chance would contribute.
 
 Finally, we have noise. Noise is kind of hard to explain, or conceptualize, because their are many different types of it, which all do different but similar things. One type is The Devil. But anyway, you can imagine that experiments fail to measure something accurately sometimes. This could also diminish the effect size. This inaccuracy is often captured in one way or another into some other variable, like "placebo" or "nonshared environment". See, for further information https://slatestarcodex.com/2016/03/16/non-shared-environment-doesnt-just-mean-schools-and-peers/
 
-Anyway, it's not so unexpected that effect size, a derived quantity, a summary statistic, should hide this extra nuance in it. However, it did give me pause the first time I hear about it.
+Anyway, it's not so unexpected that effect size, a derived quantity, a summary statistic, should hide this extra nuance in it. However, it did give me pause the first time I heard about it.
 
