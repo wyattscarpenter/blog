@@ -23,6 +23,6 @@ Therefore, I think the confusion about the beginning of the universe being unlik
 
 Maybe it's a subjective probability over the objective probabilities? For instance, someone personally thinks it's probably equally likely that there's a mechanism that produces a universal constant (like the speed of light) with value X, for all X, and thus is surprised when they get a particular value for the speed of light that can sustain life in the universe, instead of one of the wide range of values that don't? Well, if they continue to be surprised, then I think they aren't updating hard enough on the evidence of the universe we actually have, which gives us information about what mechanisms fixed the universe. I take it that's how subjective probability is supposed to go — it gets focused, the uncertainty gets dismissed, once you figure out what actually is the case.
 
-(You can also consider the objective probability over the objective probabilities, but this is not noticeably difference than the base-level objective probability case, because I also don't know how any of these things happened.)
+(You can also consider the objective probability over the objective probabilities, but this is not noticeably different than the base-level objective probability case, because I also don't know how any of these things happened.)
 
 I haven't mentioned the anthropic principle all blog post, because it doesn't seem strictly relevant; although to some other arguments about the fine-tuning argument, it is.
