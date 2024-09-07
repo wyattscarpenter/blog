@@ -15,3 +15,19 @@ in python typing is in its infancy
 python typing is not finished, it's in its experimental phase, and therefore A lot of the things you might like to do are not really possible yet.
 
 The fact that it took several senior engineers multiple days of effort to figure out the correct way type this in Python is perhaps the most damning sign that the type system is not ready.
+
+pythonistas know this, by the way. they know they're not done. im just sanguinely surmising it. im sure they would accept peps that improved the python typing situation with open arms.
+
+I have a huge amount of respect for the people involved in Python whom I recognize. in the course of googling a ton of things about python typing, I saw a bunch of names repeated a lot, and they were always doing good work and being unfailingly positive and intelligent. many of the GitHub issues I found (both open and closed) when googling "how do you type annotate X in Python" were personally responded to by Guido van Rossum in the first couple of responses. usually making a great point about typing! and occasionally, like all people, being mistaken, and then someone would make a reasonable argument for the opposite position and he would go great point, and switch his position. I note this mostly because usually when there's a wildly successful project and a guy associated with the project You rarely see that guy.
+
+I had assumed that Guido had adopted types into python begrudgingly, at the gun point of community demands or something, on the general theory about the world that nobody would invent python the programming language and also be the kind of person to appreciate static typing. But actually apparently he is very enthusiastic and well informed about the idea!
+
+It's completely arbitrary, and I see why they didn't do this because types are optional and for other syntactic reasons, but I strongly prefer types on the left over types on the right. What can I say? I toothed on C and i like to read code "there once was a Foo called f..."
+
+here are some concrete limitations of Python type annotations that I ran into that theoretically I should go and contribute to fixing, but you know ars longa vita brevis:
+
+assert is the most popular way to do a type narrowing operation, but if anyone ever turned on the optimization flag in Python, all the asserts would be silently omitted. This is kind of the original purpose of assert, but if you're using assert to screen off possibilities in the type space at runtime, uh, you don't want your program to silently start doing the wrong thing unexpectedly if it gets the wrong static type. Or, maybe you do prefer this for some reason. But you should have the option to not have it happen. so there should be an assert_always as well, that doesn't get optimized out. I mean, ideally you'll never need to assert ever at all. But, you know, if you're reading in user values and you can't turn the user value into an integer, it's basically fine to immediately crash on that usually. 
+
+in general, there are a lot of Python tricks you can use to get around the type system, such as cast and type ignore annotations, and I think there should be an ultra strict mode that means you can't use these. opt in, like every type checking mode in Python, but there. I've jury-rigged one together myself.
+
+It's good that you can do overloads in Python, but it's bad that doing so results in a combinatorial explosion of function signatures. It's not good at all. there has to be a better way!
