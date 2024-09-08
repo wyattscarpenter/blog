@@ -25,6 +25,6 @@ In my system, and to some extent the common american system, storeys are labeled
 
 * naturally, the storeys have to be measured in storeys because different storeys can be different heights, and other such geometrical irregularities, which are abstracted away in the storey numbering system.
 
-For an illustrative diagram, please see https://wyattscarpenter.github.io/blog/indexing_storeys_example.png
+For an illustrative diagram, please see https://wyattscarpenter.github.io/blog/assets/indexing_storeys/indexing_storeys_example.png
 
 Despite the fact that my preferred storey-numbering system doesn't always number the storeys based on their floors, I still do call storeys "floors" in my day-to-day life. It's just metonymy, I guess. Perhaps an even simpler explanation than the one I have given above is, "it's called the first floor because you get there first, and then as you go up you go up, and as you go down you also go up, but in the negatives.
