@@ -15,6 +15,9 @@ parser = argparse.ArgumentParser(
   epilog="""Example usage: tocify.py test.txt "example post" -pi -phi ===> 2024-01-01: 𝝅𝝋 example post: <https://wyattscarpenter.github.io/blog/test.txt>"""
 )
 
+def warn(*args: object) -> None:
+  print(*args, file=stderr)
+
 file_to_which_to_append: str = "readme.md"
 
 parser.add_argument('basename.ext', type=str, help="The file name that will be used in the url. Do not include the rest of the path. Example: foo.txt. Note: you should be able to tab-complete this, which is why it's the first argument. Also, if the file doesn't exist, tocify will create it for you. SPECIAL CIRCUMSTANCE: if basename.ext is .[ext] then \"Title Of Post\" will be converted to an appropriate file name a la title_of_post.[ext] and the file will be created (in which case, the file already existing is an error); in such cases, ext defaults to txt if not provided.")
@@ -34,21 +37,37 @@ def capture_stdout(program: list[str]) -> list[str]:
   return result.stdout.splitlines()
 
 if '--check' in argv or '-check' in argv: #due to the way argparse works, this is the best way to do this.
-  number_of_errors = 0
-  # Get the list of files from git (these are the files in the new commit, btw, the staged changes are included)
-  git_files = capture_stdout(['git', 'ls-files'])
+  # Get the list of files from git (if used in pre-commit, these are the files in the new commit, btw, the staged changes are included)
+  git_files = capture_stdout(['git', 'ls-files', ':(glob)*']) # the final argument means only list the files in the base directory, not recursive.
   # Check the contents of the readme
+  readme_files: list[str] = []
   with open(file_to_which_to_append, "r", encoding="utf-8", newline="\n") as file:
-    for i in file:
-      m = re.match(r"^(.*?): (.*) <?(https?://.*)/(.*?)>?\s*?$", i)
-      if m:
-        if m.group(4) not in git_files:
-          if m.group(4)+".md" not in git_files: #special case due to how github pages treats md files by default
-            print(f"{m.group(4)} not found in git files! (The cache/stage of git.) Are you sure you git add'd it? Are you sure you didn't git rm it? Are you sure that if you moved it, you git mv'd it?", file=stderr)
-            number_of_errors += 1
-  if not number_of_errors:
-    print(f"No problems found with {file_to_which_to_append} vis-a-vis what files are in the git ls-files.", file=stderr)
-  exit(number_of_errors)
+    for line in file:
+      if m := re.match(r"^(.*?): (.*) <?(https?://.*)/(.*?)>?\s*?$", line):
+        readme_files += m.group(4), #lol at this syntax
+  missing_files = [file for file in readme_files if file not in git_files and file+".md" not in git_files] # There is a special case due to how github pages treats md files by default
+  if missing_files: 
+    warn("These files are not found in git files (the cache/stage of git)! (Are you sure you have git add/rm/mv'd properly?):")
+    for mf in missing_files:
+      warn("  ", mf)
+    exit(4)
+  else:
+    warn(f"No problems found with {file_to_which_to_append} vis-a-vis what files are in the git ls-files.")
+  additionally_expected_files = [ # files we expect to be here, but aren't entries in the readme
+    'readme.md',
+    '.gitignore',
+    'generate_rss.py',
+    'tocify',
+    'tocify.bat',
+    'tocify.py'
+  ]
+  expected_files = additionally_expected_files + readme_files
+  unexpectedly_found_files = [file for file in git_files if file not in expected_files and file.removesuffix(".md") not in readme_files]
+  if unexpectedly_found_files:
+    warn(f"These files were unexpectedly found in the main directory, even though {file_to_which_to_append} does not contemplate them:")
+    for uff in unexpectedly_found_files:
+      warn("  ", uff)
+  exit(0) # if you got all the way here you must be fine.
 
 a = vars(parser.parse_args())
 print(a)
