@@ -1,4 +1,4 @@
-Hi, welcome to my programming-themed weblog. <!-- Perhaps it should be called: Wyatt S Computer? --> To see my real programming projects, check out <https://wyattscarpenter.github.io> or <https://github.com/wyattscarpenter>.
+Hi, welcome to my programming-themed weblog. To see my real programming projects, check out <https://wyattscarpenter.github.io> or <https://github.com/wyattscarpenter>.
 
 ## The care and feeding of this blog
 
@@ -123,3 +123,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2024-08-26: My Proclamation Of 2023 <https://wyattscarpenter.github.io/blog/my_proclamation_of_2023.txt>
 
 2024-09-02: My Proclamation Of 2024 <https://wyattscarpenter.github.io/blog/my_proclamation_of_2024.txt>
+
+2024-09-07: I Can Feel My Blood <https://wyattscarpenter.github.io/blog/i_can_feel_my_blood.txt>
