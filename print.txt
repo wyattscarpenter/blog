@@ -21,8 +21,8 @@ However, as I googled around, I found out that C11 has a feature called _Generic
 
 The functions _print_int and _print_float here are defined above the macro, like so:
 
-//we count on promotion rules I don't understand
-//TODO: could replace printf.
+// We count on promotion rules I don't fully understand.
+// Could replace printf with something lighter.
 void _print_int(long long int i){printf("%lld", i);}
 void _print_uint(unsigned long long int u){printf("%llu", u);}
 void _print_float(double f){printf("%f", f);}

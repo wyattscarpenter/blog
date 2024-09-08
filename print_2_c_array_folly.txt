@@ -12,11 +12,11 @@ Anyhow, today I thought I might take care of something that's been niggling the 
 
 While I was doing this, I noticed that I had left a comment in the example file:
 
-//just a pointer... can't razzmatazz the compiler into convincing itself it knows the size. or can I? TODO
+//just a pointer... can't razzmatazz the compiler into convincing itself it knows the size. or can I?
 
 This comment was to alert you that an array of ints would just be printed as a pointer, not the more informative full form of the array like {1, 2, 3} or what have you.
 
-I was already looking to make some improvements to the print function, so I decided to dive in an satisfy this TODO. Turns out, doing it perfectly was a fool's errand. The basic problem is that the compiler of course knows what is an array and what is a pointer, and what the size of arrays are, but is forbidden to tell you. What follows is a record of remarks I made while investigating the matter, with light editing:
+I was already looking to make some improvements to the print function, so I decided to dive in an satisfy this potential improvement. Turns out, doing it perfectly was a fool's errand. The basic problem is that the compiler of course knows what is an array and what is a pointer, and what the size of arrays are, but is forbidden to tell you. What follows is a record of remarks I made while investigating the matter, with light editing:
 
 Running into an extremely bespoke problem... I realized my compile time type-safe print macro COULD print arrays, since the sizeof is known at compile time. However, arrays match pointers in the _generic match, so there's no way to tell between a pointer and an array of two ints... since sizeof(intpointer) = 8 and sizeof(intarrayoftwo) = 8.
 
