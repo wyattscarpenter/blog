@@ -8,7 +8,10 @@ Today, 2024 April 8th, I observed a total eclipse in Beachwood, Ohio.
 
 It's kind of hard for my phone to take pictures of it, so just imagine a disc being obscured by another disc.
 
-![It looked better in person.](assets/observing_totality/1.jpg)
+<figure>
+![[My photo of a total solar eclipse from 2024 April 8th in Beachwood, Ohio.]](assets/observing_totality/1.jpg)
+<figcaption><center><i>(It looked better in person.)</i></center></figcaption>
+</figure>
 
 The moon obscures the sun just so, so that the sun is covered but its corona is visible around the moon, like an aura.
 
