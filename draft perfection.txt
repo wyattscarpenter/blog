@@ -1,3 +1,8 @@
+(draft:
+"perfection as a dicey prospect"
+"contributing to software as a perfectionist"
+I guess over just grab myself as a perfectionist. Why the hell didn't think I said that instead of what the hell is going on die die die die die. I guess I wouldn't describe myself as a perfectionist because perfectionism seems to denote for people other mental problems than whatever the one I have is
+)
 Someone once told me that, apparently, master salesmen will say of sales: convincing people of things is like building a palace out of ice: you'd better be getting paid for it, because it's hard as heck and it comes to nothing in the end. The same is also generally true of programming. 
 
   And so, typically, one is programming for money, or at least for utility, or at the very least to accomplish something in particular that you are highly invested in achieving. however, sometimes this is not true. sometimes, if you're like me, at any rate, You come across some programming project, probably on GitHub, and you notice something is slightly wrong about it and so you decide to contribute, driven only by fellow feeling and the beauty of perfection in the universe.
