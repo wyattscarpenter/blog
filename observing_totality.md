@@ -9,7 +9,7 @@ Today, 2024 April 8th, I observed a total eclipse in Beachwood, Ohio.
 It's kind of hard for my phone to take pictures of it, so just imagine a disc being obscured by another disc.
 
 <figure>
-![[My photo of a total solar eclipse from 2024 April 8th in Beachwood, Ohio.]](assets/observing_totality/1.jpg)
+![My photo of a total solar eclipse from 2024 April 8th in Beachwood, Ohio.](assets/observing_totality/1.jpg)
 <figcaption><center><i>(It looked better in person.)</i></center></figcaption>
 </figure>
 
