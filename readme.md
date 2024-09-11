@@ -128,3 +128,4 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 
 2024-09-10: Quitin’: Or, How I Learned To Stop <https://wyattscarpenter.github.io/blog/quitin.txt>
 
+2024-09-11: Writing My Gay Little Programs <https://wyattscarpenter.github.io/blog/writing_my_gay_little_programs.txt>

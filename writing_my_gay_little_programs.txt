@@ -1,0 +1,59 @@
+I'm a big fan of several software development acronyms. For example:
+
+  DRY: Don't Repeat Yourself. "Every piece of knowledge must have a single, unambiguous, authoritative representation within a system". Possibly invented by Andy Hunt and Dave Thomas in their book The Pragmatic Programmer, a book which seemed like it was bad until I learned it invented DRY and then it suddenly seemed very, very good. This principle should not be confused with the superficially-similar, but mistaken, idea that if two pieces of code are similar then they should be combined; this is . I love DRY. I do DRY all the time, and aspire to do DRY even more than that. (This being the paying down of tech debt...) I feel like we wouldn't even have DRY as a concept except that there are a lot of bad software systems out there where you decide to change one thing and then suddenly you have to change 8 constants in 3 functions, 3 files, and 2 databases to get the thing to work again. How wearisome! DRY is better. Often the best place for DRY knowledge to be stored is the type system (especially if it's machine-checkable constraints). Often the worst place (in the sense of, a last resort) for DRY knowledge to be stored is comments. (For more, unrelated musings on DRY and comments, here's a blogpost I've just read and enjoyed and agreed with: https://danielrotter.at/2021/01/16/code-comments-are-mostly-a-violation-of-dry.html) I am a DRY extremist, which the authors also are, which is good: "They apply it quite broadly to include database schemas, test plans, the build system, even documentation.[2]" —https://en.wikipedia.org/wiki/Don%27t_repeat_yourself
+
+  KISS: Keep It Simple Stupid. Ironically, this is overcomplicated. You could just say "Simplicity".
+
+  SOLID: Something about object-oriented methodology. The only one of these I consistently remember is L, the Liskov Substitution Principle, because it's, quite strangely, named after a person. (It's something about how subclasses are supposed to work.)
+
+  YAGNI: You Aren't Gonna Need It. This one is, uh, just true. If you remember this, you can save yourself a lot of time and trouble and also code.
+
+Therefore, I would like to introduce my own software acronym, to crystallize some stuff I think about software. I'm trying to avoid overlap with DRY or other useful acronyms, because we already have those:
+
+GAY
+
+  G. Guarantee early.
+
+    Guarantee everything you can, as early as you can. Why? In short, because this will prevent it from exploding later. I do a lot of work in Python lately and even though I like python, I cannot describe to you the amount of frustration it causes me that you have to actually run every code path of your program to get it to report errors to you that it could easily figure out in advance. (I use a typechecker with python as well, in the strictest mode possible, but even this is not really adequate.)
+
+    Often the earliest time you can get a guarantee is typing time, when you're typing the stuff into a computer — and and IDE can often be made to tell you about this stuff, with the right plug-ins. (The things it tells you will usually also be about "typing", but that's a coincedence I think.)
+
+    There are two limits to G.
+
+      1. Sometimes it's not worth the trouble to guarantee something. For instance, even though I'm fond of systems where to write any program you must formally prove it correct, it is often economically infeasible to proceed this way. So you're stuck to just proving things that the type system you have to hand can prove, which is usually fine. Also, I'm pretty sure a type system (and other guarantee systems) can inherently only deal with the abstracted qualities of your code, because otherwise they would just be all of the information about your code again—and, guess what, you already had that, it's called your code, so you're now back to square one.
+
+      2. Do not guarantee bad things. Eg adding a code formatter to your CI so you get tiny short lines, or enforcing \n{\n brace style in anything.
+
+      Example contrast of the two: enforcing that code files don't contain trailing whitespace on lines—which various tools think is a rule text files should follow—is probably not worth it (although it's a borderline case). Enforcing that code files *do* contain trailing whitespace on random lines would be a bad thing to guarantee.
+
+      As a closing coda to this rule, consider this, one of my favorite tweets:
+
+      https://twitter.com/bit_christ/status/1676714457211486208
+      Albert (@bit_christ) on X
+      programming is so easy bro like literally just type in the right letters. the computer even tells you when you're wrong
+      Twitter•07/05/2023 5:07 PM
+
+  A. Always be closing.
+
+    This is a reference to "Glengarry Glen Ross", where it means something different, but somewhat related. Ah, hold on a minute, now I'm going to have some coffee, even though I haven't closed this blogpost yet. Ah, the joys of working from home...!
+    OK that "coffee break" actually took me over a month and now I don't really remember what else I had planned for this blog post. This is why you should always be closing!!! I... I think. Assuming I remember it right. Luckily, the rest of the blogpost was almost completely done anyway, having been written out-of-order as it occurred to me.
+
+    Similar in spirit to:
+
+      I hate code and I want as little of it as possible in our product.
+      —Jack Diederich, "Stop Writing Classes", 2012, https://www.youtube.com/watch?v=o9pEzgHorH0
+
+    Which I was trying to capture some elements of.
+
+    Close expectations. There is enough to do in the world anyway.
+
+    Close like "closed under addition".
+
+
+  Y. Ypsilon substitution principle.
+
+    If you have object-oriented code, you can probably substitute regular code in for it to improve the codebase.
+
+GAY is named in honor of Percival Gay, the greatest programmer I have ever known.
+
+The opposite of GAY code (not to be confused with Gray code, of course...) is GHÊ code. It doesn't stand for anything. It's just the Vietnamese word for horrifying, scary, disgusting, terrible. The opposite of what GAY code is; what GAY code seeks to avoid. (The joke is that these antonyms sound the same to English speakers, which I am.)
