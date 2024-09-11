@@ -5,7 +5,7 @@ Basically, without getting too deep into it, strings can be variable length, but
 So you get this weird situation where even though the thing strcat is doing is sticking a string of unknown length, source, on to the end a thing of unknown length, destination, destination still has to live in an allotment of memory that can hold a string of the combined length of source and destination. You have to set this up explicitly!
 
 This is tiresome.
- 
+
 Oddly enough, in (noted C user) Brian W. Kernighan's essay "Why Pascal is Not My Favorite Programming Language" he complains of Pascal:
 
     The size of an array is part of its type [...] The particular data type most often affected is 'array of char', for in Pascal a string is an array of characters. [...] The problem is how to handle the string argument [...]  The calls [...] cannot both be legal, since the strings have different lengths.
@@ -46,10 +46,10 @@ static char *_wyatt_variadic_string_concatenation_implementation_new(char** stri
   str_index = 0;
   char *new_string = malloc(total_size);
   for(int i = 0; i < total_size; i++){
-    
+
   }
 
-static char *_wyatt_variadic_string_concatenation_implementation_classic(char** strings, size_t number_of_chars_in_destination_storage) //variadically concatenates strings to strings[0]. O(n), does not leak memory; tacks the source strings on to the first element of the first argument (terminating with a null) and returns a pointer to it 
+static char *_wyatt_variadic_string_concatenation_implementation_classic(char** strings, size_t number_of_chars_in_destination_storage) //variadically concatenates strings to strings[0]. O(n), does not leak memory; tacks the source strings on to the first element of the first argument (terminating with a null) and returns a pointer to it
   int index_in_strings = 0;
   int index_in_current_string = 0;
   int index_in_destination_string = 0;
@@ -69,7 +69,7 @@ static char *_wyatt_variadic_string_concatenation_implementation_classic(char** 
   strings[0][index_in_destination_string < number_of_chars_in_destination_storage? index_in_destination_string : number_of_chars_in_destination_storage-1] = '\0';
   return strings[0];
 }
-  
+
 
 
 //unfortunately it seems there's no way to check if the destination argument is a pointer at compile time; the way we do it here is a hack. There is another hack, where you compare the size of the destination argument to the size of a char*, but this will disallow the use of char[8] for most users, which they will find opaque. Might be worth it though, since char[8] is a pretty rare value to use.

@@ -31,7 +31,7 @@ The blog post would have been called "My obsessive path to making this blog publ
 https://github.com/features/actions
 lists an example CI action as completing in 59 seconds, as though that isn't a deeply embarrassing number to display.
 
-From the website's vague statement that 
+From the website's vague statement that
 > Want to venture off the beaten path? Use the millions of open source libraries available on GitHub to create your own actions. Write them in JavaScript or create a container action—both can interact with the full GitHub API and any other public API.
 I intuit that maybe you have to write them in JavaScript if you want to avoid a hideously long containerization process.
 

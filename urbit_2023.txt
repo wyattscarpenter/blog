@@ -39,9 +39,9 @@ Certain pieces of hoon syntax are not documented anywhere, or at least nowhere y
 Hoon is also obsessed with making words the same length, which is a specious kind of regularity that adds nothing. It also likes to make names short to the point of near-unintelligibility instead of self-documenting english words (some of them still achieve being self-documenting english words, however). This is real High Modernism hours. I feel like it was way more fun to create than use.
 
 This is exactly the opposite direction that computing should be moving. We've spent years trying to convince programmers to put all the vowels back in and write good error messages. You should not use a system that respects you so little that a type error is expressed as
-  -need.@  
-  -have.[i=@tD t=""]  
-  nest-fail  
+  -need.@
+  -have.[i=@tD t=""]
+  nest-fail
   dojo: hoon expression failed
 (Note that this is the error message for the code (add "1" "2") )
 
@@ -103,7 +103,7 @@ Half of hoon terminology is terrible and dumb. I'm always going to remember "pin
 
 Hey also, why can't dojo evaluate all of the same stuff that hoon code can, even though it's running hoon code? Odd. (If they've fixed this since, ignore this line. Actually, apply that disclaimer to every line in this post.)
 
-## Notes from when I was reading the documentation 
+## Notes from when I was reading the documentation
 
 From https://developers.urbit.org/reference/hoon/hoon-errors :
 

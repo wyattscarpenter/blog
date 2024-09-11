@@ -18,11 +18,11 @@ Q
 
 And the elimination rules of and (conjunction, ∨):
 
-PWQ       
+PWQ
 ---
 ∴P
 
-PWQ       
+PWQ
 ---
 ∴Q
 

@@ -46,7 +46,7 @@ if '--check' in argv or '-check' in argv: #due to the way argparse works, this i
       if m := re.match(r"^(.*?): (.*) <?(https?://.*)/(.*?)>?\s*?$", line):
         readme_files += m.group(4), #lol at this syntax
   missing_files = [file for file in readme_files if file not in git_files and file+".md" not in git_files] # There is a special case due to how github pages treats md files by default
-  if missing_files: 
+  if missing_files:
     warn("These files are not found in git files (the cache/stage of git)! (Are you sure you have git add/rm/mv'd properly?):")
     for mf in missing_files:
       warn("  ", mf)

@@ -181,7 +181,7 @@ I note that the smaller you make a quine's source code, the smaller you make the
 
 I also wrote this shell script to test/encourage/troubleshoot quinitude:
 
-cc -Wall -pedantic main.c && ./a.out > 2.c && cc -Wall -pedantic 2.c && ./a.out > 3.c && cc -Wall -pedantic 3.c && ./a.out > 4.c && diff 3.c 4.c 
+cc -Wall -pedantic main.c && ./a.out > 2.c && cc -Wall -pedantic 2.c && ./a.out > 3.c && cc -Wall -pedantic 3.c && ./a.out > 4.c && diff 3.c 4.c
 
 After a while it occured to me that to test quinehood this would be better:
 

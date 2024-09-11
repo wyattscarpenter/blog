@@ -17,4 +17,3 @@ Even though you could hold the position that this could happen, I don't think it
 Finally, we have noise. Noise is kind of hard to explain, or conceptualize, because their are many different types of it, which all do different but similar things. One type is The Devil. But anyway, you can imagine that experiments fail to measure something accurately sometimes. This could also diminish the effect size. This inaccuracy is often captured in one way or another into some other variable, like "placebo" or "nonshared environment". See, for further information https://slatestarcodex.com/2016/03/16/non-shared-environment-doesnt-just-mean-schools-and-peers/
 
 Anyway, it's not so unexpected that effect size, a derived quantity, a summary statistic, should hide this extra nuance in it. However, it did give me pause the first time I heard about it.
-

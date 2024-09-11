@@ -30,12 +30,12 @@ void _print_float(double f){printf("%f", f);}
 So, the only thing to do then was to make a print macro that somehow passed all of its arguments to _print_unit individually. Variadic macros are a thing, but unfortunately there's no built in feature to do what I want. Some googling revealed the best idea that people had had involved writing lines and lines of macro like
 
 #define _FE_0(WHAT)
-#define _FE_1(WHAT, X) WHAT(X); 
+#define _FE_1(WHAT, X) WHAT(X);
 #define _FE_2(WHAT, X, ...) WHAT(X); _FE_1(WHAT, __VA_ARGS__)
 
 So I did that. And then to use this foreach macro structure, you write
 
-#define _GET_MACRO(_0, _1, _2, _3, _4, _5, _6, _7, _8, _9, _10, _11, _12, _13, _14, _15, _16, NAME, ...) NAME 
+#define _GET_MACRO(_0, _1, _2, _3, _4, _5, _6, _7, _8, _9, _10, _11, _12, _13, _14, _15, _16, NAME, ...) NAME
 #define _FOR_EACH(action,...) _GET_MACRO(_0,__VA_ARGS__, _FE_16, _FE_15, _FE_14, _FE_13, _FE_12, _FE_11, _FE_10, _FE_9, _FE_8, _FE_7, _FE_6, _FE_5, _FE_4, _FE_3, _FE_2, _FE_1, _FE_0)(action,__VA_ARGS__)
 #define print(...) _FOR_EACH(_print_unit,__VA_ARGS__)
 
@@ -49,7 +49,7 @@ This made me pretty happy. However, there was one more problem, which was that t
 
 typedef struct {char nothing;} _dont_print;
 [...]
-void _print_dont_print(){} 
+void _print_dont_print(){}
 [...]
 //in _print_unit
 _dont_print: _print_dont_print, \

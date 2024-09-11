@@ -2,7 +2,7 @@ I have an interest in programming languages, which extends to esoteric programmi
 
 10 Aug 2018 wu: simply the best programming language https://github.com/wyattscarpenter/wu
 
-Update: on 12 Jan 2023, EncampedMar801 forked wu to create wei, which I think is pretty good https://github.com/EncampedMar801/wei 
+Update: on 12 Jan 2023, EncampedMar801 forked wu to create wei, which I think is pretty good https://github.com/EncampedMar801/wei
 
 11 Sep 2018 ya: simply the most accurate statistical package. "found these source files / on an old floppy disk my russian grandmother gave me. how strange." https://github.com/wyattscarpenter/ya
 
