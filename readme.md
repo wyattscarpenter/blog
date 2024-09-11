@@ -125,3 +125,6 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2024-09-02: My Proclamation Of 2024 <https://wyattscarpenter.github.io/blog/my_proclamation_of_2024.txt>
 
 2024-09-07: I Can Feel My Blood <https://wyattscarpenter.github.io/blog/i_can_feel_my_blood.txt>
+
+2024-09-10: Quitin’: Or, How I Learned To Stop <https://wyattscarpenter.github.io/blog/quitin.txt>
+
