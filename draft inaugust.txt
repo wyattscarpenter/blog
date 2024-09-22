@@ -3,6 +3,10 @@ my inaugust end of august
 "How could it possibly be september 21st when actually august ended approximately last week?"
 —Wyatt S Carpenter, upon the occasion of September 21
 
+blah blah blah
+
+i enjoyed gyatt. git is the sort of puzzle where you have n-1 pieces where you might want n, and you have to see if you can produce the new piece out of the old pieces. often very satisfying. I find the more fun such a puzzle is, the worse the technological system involved is; for instance, I had a great amount of fun doing the same thing with the C macro system. TIS-100 is also a fairly fun game based on the same pattern. Meanwhile, just programming something in C is only a little fun in this sort of way (instead, you sort of just combine the primitives you know about in a straightforward manner, which can also be quite fun, but a different type of fun).
+
   I quit many things haltingly, half-hearted, in little jolts and slides. i used to feel sort of embarrassed about this, as it reminded me of people i knew (or heard about) who resolved wholeheartedly to not do something ever again, and then suffer an inexplicable weakness of will and do it again. i don't want to have a weak will so i thought maybe i shouldn't do what im doing, the weakk quiting? but then i realized: 1. just because I'm doing something superficially similar to vowing never to do something, doesn't mean I'm actually doing that, so it's fine. 2. doing the weak quiting is definitely reducing the amount i do things more than not doing the weak quiting! so it helps and there's no reason not to do it. I could even come up with a more accurate term for it than quitting, if I so desired.
 
   so, with that said, maybe we'll get some good programming done by the end of September. run it back, take care of some things that are starting to interest me again, see what happens.
@@ -10,3 +14,5 @@ my inaugust end of august
   If you think about it, maybe the arbitrary period of one month wasn't a great way to schedule my life a priori, and instead I should have merely listened to the rhythms of my body and interests, and programmed a lot for 2 weeks and then given up almost entirely for 2 weeks, which I kind of did, except I should have switched faster so I could enjoy both of them more when they were happening.
 
   The end of Autumn is coming up now... a good capstone to shoot for, again!
+
+whoops that just happened. well, the end of September, maybe. Maybe by then I'll finish every desire in the world.
