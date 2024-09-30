@@ -14,6 +14,8 @@ Someone once told me that, apparently, master salesmen will say of sales: convin
 
 Why was the github web text editor indenting like that? Well, as a token of imperfection I will leave this post all screwed up. I'm not even going to capitalize things.
 
+(By the way, I correct typos if I see them, because why not just make things perfect, but I don't hold them against people; they're unimportant. Everyone makes typos, even the smartest and most correct people in the world. And you have better things to spend your time on than combing through things for typos. In fact, I should publish more typos on this blog. If you're uh, if you don,t, if you r bglo doesn't have if it has no ytpos then you're sepnding too much time correcting typos that's the Umeshism baby! In fact I often do publish typos on this blog and other correct them later when I listen back to the blogposts as a treat. Unless the typos make it hard to understand something, like removing the "not" from a sentence, it's probably fine. The communiications of most CEOs bears this out, I think. They write like a dog learned to type. And maybe many of them are just stupid; but if they aren't stupid, their time is still probably too valuable to spend punctuating their clauses correctly, I suppose.)
+
 So anyway, here's what this post is actually about:
 
 When you make a PR, say, on someone's repo and they don't review it or anything. To be clear, I don't hold it against them; they literally don't owe me anything. They literally gave me the right to use their software for free (assuming it's free software — although I also feel free to contribute to non-free software if I feel like it. But at the very least they gave me the right to see it for free. Or maybe I paid them. But, ok, I didn't pay them to review my PR, probably, or else by stipulation this blogpost doesn't apply), and it would be ungrateful to also demand their time to review PRs and so forth. If they want to do that, great, it's cool that we both have the same (possibly remunerated) hobby and interests. It would also probably help their users (other random people, usually) to accept my PR if it's good.
@@ -24,6 +26,16 @@ In principle, this is maybe not a problem? Storage is cheap. In fact, often I'm 
 
 In principle, also, you could be cloning every software project you ever look at or touch, in case you need it later. In which case this wouldn't be a huge difference from that.
 
-But, in practice, it really does make a difference that I'm lugging all these projects around I don't care about. There are some github-specific problems, like how it makes every patch you make show up as a repo in your repo collection (when actually I want my repos to just be only my personal (or at least significant) repos — maybe there's some kind of setting to hide it from the main page), and how I don't want to make a second account just for my contributions because I think it's neat when the little github graph of contribution frequency turns green (via my legitimate efforts); but even if those were fixed it's still better for someone to accept my PR than not.
+But, in practice, it really does make a difference that I'm lugging all these projects around I don't care about. There are some github-specific problems, like:—
 
-The fact that I have an instinct to make things perfect, but people can make up arbitrary systems of arbitrary complexity that I will feel should be perfected if possible is disturbingly similar to being dutch-booked. It feels like I'm not valuing my own time highly enough. Although usually I only do them because it seems like it will be a tractible little effort.
+• how it makes every patch you make show up as a repo in your repo collection (when actually I want my repos to just be only my personal (or at least significant) repos — maybe there's some kind of setting to hide it from the main page)
+• and how I don't want to make a second account just for my contributions because I think it's neat when the little github graph of contribution frequency turns green (via my legitimate efforts)
+• and how (recently, this has gotten better) it was very hard to search through forks of a project on github to filter out ones that weren't improvements, so you don't want to contribute to that problem.
+
+; but even if those were fixed it's still better for someone to accept my PR than not.
+
+After all, that makes it Not My Problem, at the cost of merely making it Their Problem; and it was already Their Problem, to at least some extent.
+
+I thought about including some little case-studies here but eventually decided against it. I mean they are a little interesting, at least to me, but you already get the gist.
+
+The fact that I have an instinct to make things perfect, but people can make up arbitrary systems of arbitrary complexity that I will feel should be perfected if possible is disturbingly similar to being dutch-booked. It feels like I'm not valuing my own time highly enough. Although usually I only do them because it seems like it will be a tractable little effort.
