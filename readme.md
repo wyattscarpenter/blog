@@ -131,3 +131,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2024-09-11: Writing My Gay Little Programs <https://wyattscarpenter.github.io/blog/writing_my_gay_little_programs.txt>
 
 2024-09-17: Aliefs, Beliefs, Cliefs <https://wyattscarpenter.github.io/blog/aliefs_beliefs_cliefs.txt>
+
+2024-09-29: Perfectionist PRs As A Dicey Prospect <https://wyattscarpenter.github.io/blog/perfectionist_prs_as_a_dicey_prospect.txt>
