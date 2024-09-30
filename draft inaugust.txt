@@ -3,7 +3,7 @@ my inaugust end of august
 "How could it possibly be september 21st when actually august ended approximately last week?"
 —Wyatt S Carpenter, upon the occasion of September 21
 
-blah blah blah
+blah blah blah There was very little agony.
 
 i enjoyed gyatt. git is the sort of puzzle where you have n-1 pieces where you might want n, and you have to see if you can produce the new piece out of the old pieces. often very satisfying. I find the more fun such a puzzle is, the worse the technological system involved is; for instance, I had a great amount of fun doing the same thing with the C macro system. TIS-100 is also a fairly fun game based on the same pattern. Meanwhile, just programming something in C is only a little fun in this sort of way (instead, you sort of just combine the primitives you know about in a straightforward manner, which can also be quite fun, but a different type of fun).
 
@@ -15,4 +15,4 @@ i enjoyed gyatt. git is the sort of puzzle where you have n-1 pieces where you m
 
   The end of Autumn is coming up now... a good capstone to shoot for, again!
 
-whoops that just happened. well, the end of September, maybe. Maybe by then I'll finish every desire in the world.
+whoops that just happened. well, the end of September, maybe. Maybe by then I'll finish every desire in the world. ...What do you mean it's September 30?
