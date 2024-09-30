@@ -1,0 +1,5 @@
+A Note On 'AI Bias': From Linear Regression To Text Prediction <https://wyattscarpenter.github.io/blog/a_note_on_ai_bias_from_linear_regression_to_text_prediction.txt>
+
+(Criterion hysteria.)
+
+Usually by people who didn't seem to have a great idea of what "bias" actually meant. ( For elaboration at length of this situation, see also https://jacobitemag.com/2017/08/29/a-i-bias-doesnt-mean-what-journalists-want-you-to-think-it-means/ , which was republished on the non-defunct internet as: https://medium.com/@lisamahapatra/ai-bias-doesnt-mean-what-journalists-want-you-to-think-it-means-f3aabbb3b15b )
