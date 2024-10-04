@@ -137,3 +137,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2024-10-02: Thinking About The Trump Tariffs <https://wyattscarpenter.github.io/blog/thinking_about_the_trump_tariffs.txt>
 
 2024-10-03: Constant Incredible Improvement <https://wyattscarpenter.github.io/blog/constant_incredible_improvement.txt>
+
+2024-10-04: On The Threefold Encoding Of Unicode Flags <https://wyattscarpenter.github.io/blog/unicode_flags.txt>

@@ -1,0 +1,19 @@
+As a plain text enthusiast, newly-minted proud owner of a hard copy of the 1,000-page The Unicode Standard Version 14.0 – Core Specification (unfortunately this is the most recent edition offered in hard copy at the moment — but it's still a laugh and half!), and emojicant (it's hard to say what this means), sometimes I investigate a thing or two about Unicode.
+Result of my recent research: shockingly, there are MULTIPLE ways to encode flags symbols in Unicode. At least 3, I think.
+🏴‍☠️, 🇺🇸, 🏴󠁧󠁢󠁷󠁬󠁳󠁿... these are the three different types.
+In a strictly technical sense, of course, none of these encodings are "in Unicode", because they're about how certain combinations of code points are rendered, and the Unicode philosophy on that (besides little supplemental standards that are associated with Unicode but not the Unicode standard itself) is "We just make the code points; it's up to you how they look". (For instance, in my text editor... none of those look like special flags.)
+Okay, so, if you're familiar with the Unicode encoding of emoji at all, the first one might be familiar: you just encode it using [Waving black flag] [ZWJ] [Skull and crossbones]
+🏴, ("zero width joiner", a special character that's supposed to be used before suggesting the font renderer render something together with a ligature), ☠️
+(for other emoji zwj flags, you may use the 🏳️ instead)
+So now for the flags of actual countries, like 🇺🇸, or, for example, 🇦🇫.
+The flag of afghanistan (now sorely outdated... how odd...).
+This is actually just the characters 🇦 🇫. If you put them without a space between, the font renders them as a flag.
+These are https://en.wikipedia.org/wiki/Regional_indicator_symbol, funny little symbols resembling the latin alphabet used for some situations where you need to spell something out in metacharacters.
+HOWEVER
+if you want to make the flag of wales
+(By the way, I believe Wales is technically a country, that is also a part of another country (the UK) — much like how each US state is a country that is also part of another country — and I respect it as such 🫡; and I believe technical standards about flags should also select it as such. But that's neither here nor there; just my opinion. My objectively-correct opinion.)
+you have to use the tag characters, https://en.wikipedia.org/wiki/Tags_(Unicode_block), a completely separate set of funny little symbols resembling the latin alphabet used for some situations where you need to spell something out in metacharacters.
+And then instead of just spelling them out (like for RI symbols), or flag + zwj, you use 🏴(a different(!) flag emoji), and then you spell out the region name, gbwls, in tag characters, and then you put a tag end character. And that's how you get 🏴󠁧󠁢󠁷󠁬󠁳󠁿.
+
+(This post brought to you by my reading about language tag characters in my hard copy of Unicode (I own a hard copy of The Unicode Standard Version 14.0 – Core Specification, btw. Both volumes. NBD.) and stumbling down a rabbithole.)
+(The core spec (we unicode-heads call it the "Core Spec", of course) wasn't actually very helpful here. Because most of the information is actually in https://www.unicode.org/reports/tr51/#def_emoji_flag_sequence instead. And also that document is very long and hard to read and boring, so I mostly just ended up looking at Wikipedia and testing in my browser. And also looking at https://unicode.org/emoji/charts/emoji-zwj-sequences.html, a webpage that is weirdly slow-to-load.)
