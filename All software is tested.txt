@@ -1,0 +1,1 @@
+explain this adage: all software is tested; some of it is tested by the users
