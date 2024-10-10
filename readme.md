@@ -141,3 +141,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2024-10-04: On The Threefold Encoding Of Unicode Flags <https://wyattscarpenter.github.io/blog/unicode_flags.txt>
 
 2024-10-05: Double Standards Of Speech <https://wyattscarpenter.github.io/blog/double_standards_of_speech.txt>
+
+2024-10-09: 𝝋 Aurora Borealis 2 <https://wyattscarpenter.github.io/blog/aurora_borealis_2.txt>
