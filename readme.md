@@ -102,7 +102,7 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 
 2024-05-12: 𝝋 Addendum To The Fine-Tuning Argument 2: Unobserving Aurora Borealis <https://wyattscarpenter.github.io/blog/unobserving_aurora_borealis.txt>
 
-2024-05-17: Demons Are Not Abstract Objects; They Are Angry Guys Who Don't Have Bodies (Sometimes) <https://wyattscarpenter.github.io/blog/demons_are_not_abstract_objects_they_are_angry_guys_who_don_t_have_bodies_sometimes.txt>
+2024-05-17: 𝝋 Demons Are Not Abstract Objects; They Are Angry Guys Who Don't Have Bodies (Sometimes) <https://wyattscarpenter.github.io/blog/demons_are_not_abstract_objects_they_are_angry_guys_who_don_t_have_bodies_sometimes.txt>
 
 2024-05-18: 𝝅𝝋 Deaths Vs Taxes <https://wyattscarpenter.github.io/blog/deaths_vs_taxes.txt>
 
@@ -130,7 +130,7 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 
 2024-09-11: Writing My Gay Little Programs <https://wyattscarpenter.github.io/blog/writing_my_gay_little_programs.txt>
 
-2024-09-17: Aliefs, Beliefs, Cliefs <https://wyattscarpenter.github.io/blog/aliefs_beliefs_cliefs.txt>
+2024-09-17: 𝝋 Aliefs, Beliefs, Cliefs <https://wyattscarpenter.github.io/blog/aliefs_beliefs_cliefs.txt>
 
 2024-09-29: Perfectionist PRs As A Dicey Prospect <https://wyattscarpenter.github.io/blog/perfectionist_prs_as_a_dicey_prospect.txt>
 
@@ -140,6 +140,6 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 
 2024-10-04: On The Threefold Encoding Of Unicode Flags <https://wyattscarpenter.github.io/blog/unicode_flags.txt>
 
-2024-10-05: Double Standards Of Speech <https://wyattscarpenter.github.io/blog/double_standards_of_speech.txt>
+2024-10-05: 𝝅𝝋 Double Standards Of Speech <https://wyattscarpenter.github.io/blog/double_standards_of_speech.txt>
 
 2024-10-09: 𝝋 Aurora Borealis 2 <https://wyattscarpenter.github.io/blog/aurora_borealis_2.txt>
