@@ -143,3 +143,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2024-10-05: 𝝅𝝋 Double Standards Of Speech <https://wyattscarpenter.github.io/blog/double_standards_of_speech.txt>
 
 2024-10-09: 𝝋 Aurora Borealis 2 <https://wyattscarpenter.github.io/blog/aurora_borealis_2.txt>
+
+2024-11-02: The Dark Side Of Comparative Advantage <https://wyattscarpenter.github.io/blog/the_dark_side_of_comparative_advantage.txt>
