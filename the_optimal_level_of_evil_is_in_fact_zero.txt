@@ -1,0 +1,39 @@
+> The Optimal Amount of [Bad Thing] Is Not Zero
+> If Lying For Money's most important idea can be described in a single line, it's that fraud is an equilibrium phenomenon – or, as Davies likes to put it, "It is highly unlikely that the optimal level of fraud is zero."
+> …
+> The more protections you put in place to prevent counterfeit people from falling victim to counterfeit drug scams, the more expensive it becomes to obtain drugs through the approved channels. If it becomes too expensive, people will choose to eschew it entirely, and opt for cheaper markets where they will find lower prices (and fewer fraud protections).  The implied conclusion here seems to be that the optimal level of counterfeit drugs entering the system is not zero: at a certain point, the marginal cost of counterfeit prevention is so high that the resulting higher prices are enough to drive customers out of the official channels, and into the waiting arms of unlicensed internet pharmacies with fewer protections.
+— https://www.astralcodexten.com/p/your-book-review-lying-for-money (brackets original)
+
+> Theologian: I want to believe in God, but the problem of evil seems inescapable.
+> Economist: The optimal level of evil is not zero.
+— András (@andrastimot), 26 Oct 2024 · 3:50 PM, https://x.com/andrastimot/status/1850308938308169852
+
+> The cost of antisocial behavior includes the value of all institutions that we don't have because they would be ruined by such behavior; ...
+> ...this quantity has no obvious upper bound.
+— Steven Kaas (@stevenkaas), 10 Jan 2012, https://x.com/stevenkaas/status/156845985530773504 & https://x.com/stevenkaas/status/156846053692407809
+
+❧
+
+Some economics have a saying "the optimal level of [some bad thing x] is not zero".
+
+After some thought, I'm comfortable calling this saying a deepity, in the Dennettian sense: a statement with a profound meaning that is false, and a trivial meaning that is true. (Although, of course, my assessment of something as trivially true is colored by my genius, and the rest of you may find it non-trivial, and thus the statement valuable anyway.) The trivial meaning that is true is "it's expensive to perfectly fix [bad thing x], and that's why we don't prevent all of it". No shit, Sherlock! What are you going to tell me next, "money doesn't grow on trees"⸮ And the profound meaning that is false is, like, "it's impossible to design and implement a system where [bad thing x] never happens". Hint: they don't know this is impossible, because they have never tried. They are small-hearted and small-souled, and their dreams are small, and they are content with petty contributions to the world, and for this I do not grudge them. It's actually a pretty useful thing to realize about the world if you've never realized it before... like, the average person thinks everyone's disease should be cured, even if it costs a million billion dollars (and to be fair to the average person, there's something to this as well); the suggestion that the money is perfectly fungible and could better be spent on something else blows their minds.
+
+Here is a list of a few things where the level of x would be zero and, obviously, it would be more valuable to live in this scenario, therefore proving the second half of the deepity wrong. Inshaʾallah and the creek don't rise, we will engineer these successes in the future, hopefully in my lifetime.
+
+- No one ever dies (we have cured aging, disease, and being hit by cars, and live as immortal gods on earth, exactly as Jesus intended)
+- No one ever lies (they have all decided not to)
+- No one ever commits petty robberies or anything like that (〃)
+- There are no mosquitos anymore
+
+This is just a few of my glorious vision of the future. What did you need money for that was better than this? Watching television⸮ (I would accept "steel-manufacturing processes" as an answer, btw.)
+
+Here are some items we have already accomplished:
+
+- Smallpox eradication
+- Human sacrifice eradication
+- Cannibalism eradication
+- Highwayman eradication (interestingly: were eliminated by greater firearm technology in England, and also were eradicated by the gendarme system in France, apparently, which was rejected in England for cultural reasons. And highway robbery was eradicated even more by the automobile)
+
+Imagine what a dumbass you'd look like saying "the optimal amount of smallpox is not none", "the optimal amount of highwaymannery is not none". You'd be wrong. I live in this future and this part of it is great.
+
+Human destiny is great, and we shall encounter many optimalities along the way.
