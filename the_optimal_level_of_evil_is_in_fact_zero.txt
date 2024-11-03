@@ -19,7 +19,7 @@
 
 ❧
 
-Some economics have a saying "the optimal level of [some bad thing x] is not zero".
+Some economists have a saying: "the optimal level of [some bad thing x] is not zero".
 
 After some thought, I'm comfortable calling this saying a deepity, in the Dennettian sense: a statement with a profound meaning that is false, and a trivial meaning that is true. (Although, of course, my assessment of something as trivially true is colored by my genius, and the rest of you may find it non-trivial, and thus the statement valuable anyway.) The trivial meaning that is true is "it's expensive to perfectly fix [bad thing x], and that's why we don't prevent all of it". No shit, Sherlock! What are you going to tell me next, "money doesn't grow on trees"⸮ And the profound meaning that is false is, like, "it's impossible to design and implement a system where [bad thing x] never happens". Hint: they don't know this is impossible, because they have never tried. They are small-hearted and small-souled, and their dreams are small, and they are content with petty contributions to the world, and for this I do not grudge them. It's actually a pretty useful thing to realize about the world if you've never realized it before... like, the average person thinks everyone's disease should be cured, even if it costs a million billion dollars (and to be fair to the average person, there's something to this as well); the suggestion that the money is perfectly fungible and could better be spent on something else blows their minds.
 
