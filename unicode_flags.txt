@@ -11,7 +11,7 @@ This is actually just the characters 🇦 🇫. If you put them without a space 
 These are https://en.wikipedia.org/wiki/Regional_indicator_symbol, funny little symbols resembling the latin alphabet used for some situations where you need to spell something out in metacharacters.
 HOWEVER
 if you want to make the flag of wales
-(By the way, I believe Wales is technically a country, that is also a part of another country (the UK) — much like how each US state is a country that is also part of another country — and I respect it as such 🫡; and I believe technical standards about flags should also select it as such. But that's neither here nor there; just my opinion. My objectively-correct opinion.)
+(By the way, I believe Wales is technically a country, that is also a part of another country (the UK) — much like how each US state is a country that is also part of another country — and I respect it as such 🫡; and I believe technical standards about flags should also respect it as such. But that's neither here nor there; just my opinion. My objectively-correct opinion.)
 you have to use the tag characters, https://en.wikipedia.org/wiki/Tags_(Unicode_block), a completely separate set of funny little symbols resembling the latin alphabet used for some situations where you need to spell something out in metacharacters.
 And then instead of just spelling them out (like for RI symbols), or flag + zwj, you use 🏴(a different(!) flag emoji), and then you spell out the region name, gbwls, in tag characters, and then you put a tag end character. And that's how you get 🏴󠁧󠁢󠁷󠁬󠁳󠁿.
 
