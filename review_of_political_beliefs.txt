@@ -25,6 +25,9 @@ I think the Condorcet Jury Theorem result implies that you can make the voting p
 
 In podcasts he's said it's hard to figure out what the people want from votes. Usually they don't even vote on issues! Just candidates. Such thinking has recently gotten me more excited about Liquid Democracy lately. See https://en.wikipedia.org/wiki/Liquid_democracy for an example. I have a sort of muted view about it, but some of it seems cool and useful.
 
+trolley hints at including the palace in his definition in around the 26-minute mark of This interview https://www.youtube.com/watch?v=o7HLXsXoLzw so that may be reflected in his forthcoming paper on the matter
+
+
 appendix A: typos I found in the work
 
 there are typos in this work, this is not a critique of the work, all initially published large works tend to have typos, but I want to get these out of my notes so here they are:
