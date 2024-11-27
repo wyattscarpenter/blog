@@ -147,3 +147,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2024-11-02: The Dark Side Of Comparative Advantage <https://wyattscarpenter.github.io/blog/the_dark_side_of_comparative_advantage.txt>
 
 2024-11-03: The Optimal Level Of Evil Is In Fact Zero <https://wyattscarpenter.github.io/blog/the_optimal_level_of_evil_is_in_fact_zero.txt>
+
+2024-11-27: Taking The No Information Pledge <https://wyattscarpenter.github.io/blog/no_information_pledge.txt>

@@ -1,4 +1,4 @@
-related: Quitin'
+related: Quitin' https://wyattscarpenter.github.io/blog/quitin.txt
 
 Taking the no information pledge — perhaps you could call this "No Information December".
 
