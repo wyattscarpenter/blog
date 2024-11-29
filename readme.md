@@ -152,3 +152,4 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 
 2024-11-28: Life Should Feel Like Meth <https://wyattscarpenter.github.io/blog/life_should_feel_like_meth.txt>
 
+2024-11-29: Life Should Feel Like Meth 2: The Opportunity Cost Corollary <https://wyattscarpenter.github.io/blog/life_should_feel_like_meth_2_opportunity_cost.txt>
