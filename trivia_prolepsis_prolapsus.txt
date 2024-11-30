@@ -1,0 +1,21 @@
+One of the funny things about historical dates is that everything's pretty consistent now, but if you try to give a date in the past, starting about a hundred years ago, suddenly it can start getting confusing what date everyone thought it was at that time.
+
+(By the way, the correct way to avoid this trouble is to use a "proleptic calendar", which is a calendar projected back into the past, even before it was conceived. This is so obviously the right way to do date accounting that everyone does it, without a second thought (people in BC didn't even know there was a C to be B!). However, it won't tell you what date was printed on newspapers and stuff in the place at the time.)
+
+Example: https://en.wikipedia.org/wiki/Old_Style_and_New_Style_dates
+
+To quote:
+
+> Old Style (O.S.) and New Style (N.S.) indicate dating systems before and after a calendar change, respectively. Usually, they refer to the change from the Julian calendar to the Gregorian calendar as enacted in various European countries between 1582 and 1923. 
+
+This is not so long ago!
+
+To continue to quote:
+
+> In England, Wales, Ireland and Britain's American colonies, there were two calendar changes, both in 1752. The first adjusted the start of a new year from 25 March (Lady Day, the Feast of the Annunciation) to 1 January, a change which Scotland had made in 1600. The second discarded the Julian calendar in favour of the Gregorian calendar, skipping 11 days in the month of September to do so.[2][3] To accommodate the two calendar changes, writers used dual dating to identify a given day by giving its date according to both styles of dating.
+
+The first time I learned about this my brain basically blue screened for a moment while I pondered what it would mean for the start of a new year to be the 25th of March.
+
+(It means that day is when they increment the year number.
+
+Which is really weird! In the current system I think of days as being contained in months as being contained in years! But you don't have to do that, as they've just shown lmao.)
