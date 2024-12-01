@@ -155,3 +155,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2024-11-29: Life Should Feel Like Meth 2: The Opportunity Cost Corollary <https://wyattscarpenter.github.io/blog/life_should_feel_like_meth_2_opportunity_cost.txt>
 
 2024-11-30: Trivia: Prolepsis Prolapsus <https://wyattscarpenter.github.io/blog/trivia_prolepsis_prolapsus.txt>
+
+2024-11-01: Trivia: Games Vs Game Products <https://wyattscarpenter.github.io/blog/trivia_games_vs_game_products.txt>
