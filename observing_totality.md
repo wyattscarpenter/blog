@@ -13,7 +13,7 @@ It's kind of hard for my phone to take pictures of it, so just imagine a disc be
 
 The moon obscures the sun just so, so that the sun is covered but its corona is visible around the moon, like an aura.
 
-I don't find the actual fine-tuning argument very convincing, because I have no idea what the distribution of universal constants are " supposed to be like ". However, the fact that the Earth happens to be in an arrangement with its moon and sun in such a way that it creates an incredible astronomical event that you don't get on other planets, and which if you read in a sci-fi book you would think "that's technically possible but it would be really unlikely", makes some kind of an argument for man's significance in the universe.
+I don't find the actual fine-tuning argument very convincing, because I have no idea what the distribution of universal constants are “ supposed to be like ”. However, the fact that the Earth happens to be in an arrangement with its moon and sun in such a way that it creates an incredible astronomical event that you don't get on other planets, and which if you read in a sci-fi book you would think "that's technically possible but it would be really unlikely", makes some kind of an argument for man's significance in the universe.
 
 I believe in god now, but like the paleolithic sun deity\
 — Keaton
