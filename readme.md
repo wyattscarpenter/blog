@@ -159,3 +159,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2024-12-01: Trivia: Games Vs Game Products <https://wyattscarpenter.github.io/blog/trivia_games_vs_game_products.txt>
 
 2024-12-02: Trump Bible Review <https://wyattscarpenter.github.io/blog/trump_bible_review.txt>
+
+2024-12-14: 𝝋 Guys Who Can Turn Water Into Wine <https://wyattscarpenter.github.io/blog/guys_who_can_turn_water_into_wine.txt>
