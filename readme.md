@@ -163,3 +163,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2024-12-14: 𝝋 Guys Who Can Turn Water Into Wine <https://wyattscarpenter.github.io/blog/guys_who_can_turn_water_into_wine.txt>
 
 2024-12-15: I'm Entering My Jibboo Era <https://wyattscarpenter.github.io/blog/im_entering_my_jibboo_era>
+
+2024-12-16: Levels Of Busyness <https://wyattscarpenter.github.io/blog/levels_of_busyness.txt>
