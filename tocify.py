@@ -49,7 +49,7 @@ if '--check' in argv or '-check' in argv: #due to the way argparse works, this i
   readme_files: list[str] = []
   with open(file_to_which_to_append, "r", encoding="utf-8", newline="\n") as file:
     for line in file:
-      if m := re.match(r"^(.*?): (.*) <?(https?://.*)/(.*?)>?\s*?$", line):
+      if m := re.match(r"^(.*?): 𝝅?𝝋? ?\[(.*)\]\((https?://.*)/(.*?)\)\s*?$", line):
         readme_files += m.group(4), #lol at this syntax
   missing_files = [file for file in readme_files if file not in git_files and file+".md" not in git_files] # There is a special case due to how github pages treats md files by default
   if missing_files:
@@ -61,6 +61,7 @@ if '--check' in argv or '-check' in argv: #due to the way argparse works, this i
     warn(f"No problems found with {file_to_which_to_append} vis-a-vis what files are in the git ls-files.")
   additionally_expected_files = [ # files we expect to be here, but aren't entries in the readme
     'readme.md',
+    'README.txt',
     '.gitignore',
     'generate_rss.py',
     'tocify',
