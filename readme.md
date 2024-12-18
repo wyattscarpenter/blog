@@ -165,3 +165,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2024-12-15: I'm Entering My Jibboo Era <https://wyattscarpenter.github.io/blog/im_entering_my_jibboo_era>
 
 2024-12-16: Levels Of Busyness <https://wyattscarpenter.github.io/blog/levels_of_busyness.txt>
+
+2024-12-17: On The Power Of The Understanding With Regards To Motivation <https://wyattscarpenter.github.io/blog/on_the_power_of_the_understanding_with_regards_to_motivation.txt>
