@@ -12,7 +12,7 @@ import re
 parser = argparse.ArgumentParser(
   prog='tocify',
   description=__doc__,
-  epilog="""Example usage: tocify.py test.txt "example post" -pi -phi ===> 2024-01-01: 𝝅𝝋 example post: <https://wyattscarpenter.github.io/blog/test.txt>"""
+  epilog="""Example usage: tocify.py test.txt "example post" -pi -phi ===> 2024-01-01: 𝝅𝝋 [Example Post] (https://wyattscarpenter.github.io/blog/test.txt)"""
 )
 
 def warn(*args: object) -> None:
@@ -96,7 +96,7 @@ if not a['date']:
   a['date'] = date.today()
 
 pf: str = '𝝅'*a['pi'] + '𝝋'*a['phi'] + ' '*(a['pi'] or a['phi'])
-cool_string: str = f"""\n{a['date']}: {pf}{a['"Title Of Post"']} <https://wyattscarpenter.github.io/blog/{a['basename.ext']}>\n"""
+cool_string: str = f"""\n{a['date']}: {pf}[{a['"Title Of Post"']}](https://wyattscarpenter.github.io/blog/{a['basename.ext']})\n"""
 print(cool_string)
 
 if a['nono']:

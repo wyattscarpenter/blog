@@ -21,7 +21,7 @@ def xml_escape(string: str) -> str:
 
 def rss_item(pubDate: str, title_raw: str, link: str) -> bytes:
   # It's kind of implied that the pubDates have to be both time AND date, but we don't really have enough information to do that so we just use the rfc 822 date format https://datatracker.ietf.org/doc/html/rfc822#section-5 (2-digit day 3-letter month 4-digit year) # Actually, we just ignore the RSS specification's specification of rfc 822 format, and use YYYY-MM-DD instead. Who's going to stop us?
-  file_name = re.match("^\s*.*?://.*?/blog/(.*?)\s*$", link).group(1) #this regex is fairly flexible to rehosting, but does assume the paths are domain-name-and-maybe-more-stuff/blog/*
+  file_name = re.match(r"^\s*.*?://.*?/blog/(.*?)\s*$", link).group(1) #this regex is fairly flexible to rehosting, but does assume the paths are domain-name-and-maybe-more-stuff/blog/[the actual file path you want to access]
   try:
     with open(file_name, "r", encoding=encoding, newline="\n", errors='replace') as f: # My rss feed replaces non-unicode characters with unicode replacement characters (U+FFFD, � using errors='replace', because I like to use fancy unicode characters like the aforementioned emoji, which require unicode, but the XML specification (RSS documents are XML documents) defines it as a fatal error(!) "if an XML entity is determined (via default, encoding declaration, or higher-level protocol) to be in a certain encoding but contains byte sequences that are not legal in that encoding" https://www.w3.org/TR/REC-xml/#charencoding . They have additional verbiage in there that makes it extremely clear that my previous plan of shoving arbitrary binary data into a UTF-8 xml document is NOT ALLOWED and MANDATORILY ILLEGAL.
       full_text_raw = f.read()
@@ -56,7 +56,7 @@ with open("rss.xml", "w", encoding=encoding, newline="\n") as f: #for some crazy
   f.write(rss_header)
   with open("readme.md", "r", encoding=encoding, errors='replace', newline="\n") as file:
     for i in file:
-      m = re.match("^(.*?): (.*) <?(https?://.*?)>?\s*?$", i)
+      m = re.match(r"^(.*?): 𝝅?𝝋? ?\[(.*)\]\((https?://.*?)\)\s*?$", i)
       if m:
         f.write( rss_item( *m.groups() ) )
   f.write(rss_footer)
