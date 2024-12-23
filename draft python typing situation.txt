@@ -31,3 +31,5 @@ assert is the most popular way to do a type narrowing operation, but if anyone e
 in general, there are a lot of Python tricks you can use to get around the type system, such as cast and type ignore annotations, and I think there should be an ultra strict mode that means you can't use these. opt in, like every type checking mode in Python, but there. I've jury-rigged one together myself.
 
 It's good that you can do overloads in Python, but it's bad that doing so results in a combinatorial explosion of function signatures. It's not good at all. there has to be a better way!
+
+part 2: the python type situation is actually crazy. it's just a huge number of layers of ad hoc additions? they should have just come up with one, consistent, high-level type system in the 2010s, when they started experimenting with typing. it's not actually hard to do that; every other language with static typing did that pretty easily. But instead it's just a pile of special cases and competing implementations of type checkers that sometimes have slightly different opinions about how things should work because there's no clear way it should all resolve?? Nonsense...
