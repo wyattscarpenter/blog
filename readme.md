@@ -169,3 +169,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2024-12-17: [On The Power Of The Understanding With Regards To Motivation](https://wyattscarpenter.github.io/blog/on_the_power_of_the_understanding_with_regards_to_motivation.txt)
 
 2024-12-23: [In Fact, Most Things Are Not What You Would Call Tradeoffs](in_fact_most_things_are_not_what_you_would_call_tradeoffs.txt)
+
+2024-12-31: [New Year, New Me (2025)](https://wyattscarpenter.github.io/blog/new_year_new_me_2025.txt)
