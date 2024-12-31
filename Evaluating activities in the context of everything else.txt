@@ -1,1 +1,4 @@
 
+evaluating every activity
+
+we all intincitvely know the structure of this. partial ordering. like the integers. or the reals
