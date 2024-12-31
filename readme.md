@@ -173,3 +173,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2024-12-31: [New Year, New Me (2025)](https://wyattscarpenter.github.io/blog/new_year_new_me_2025.txt)
 
 2025-01-01: [Hypo/ernyms For Reading](https://wyattscarpenter.github.io/blog/hypoernyms_for_reading.txt)
+
+2025-01-02: [Å As An Abbreviation For About](å.txt)

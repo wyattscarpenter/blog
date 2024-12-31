@@ -1,0 +1,13 @@
+I've decided that an abbreviation for "about" will be "å". Please note that this applies to English only! (And any other languages/speakers that decide to adopt it.) "Å" is already a proper word in some other languages, with its own meaning.
+
+Here are some additional considerations I had about an abbreviation for about:
+
+About is a very common word, yet it has no abbr, making writing it just a little less efficient. A little too inefficient. It's even longer than and, which has &. It's much longer than at, which has @ — @ for at is so ridiculous that I, for some time, as a child, resolved to use @ as an abbr for about. However, no one else does this, so it's very confusing. No one, that is, except a property manager I recently toured a property of, who apparently had the same idea at one point, and therefore wrote me "I [...] will text you when I get back [...] in @ 30 minutes or so". A clever man! Well, stealing @ for about is simply not cricket. Let that sign mean what it means, however foolishly, and let us invent a new sign, for about. (@ also means "at" in the sense of goods bought at a price, which apparently is kept on receipts and invoices and stuff, so that's fine — it's also fine to use @ for other uses of at, I would say.)
+
+I was also reading this page on "brevigraphs, those strange shapes in early printed texts" https://www.folger.edu/blogs/collation/brevigraphs/ lately. (I was trying to figure out why there were backwards Ns in an old map (the first map to use the word "america", in fact)), which made me think about how letters can be embellished to add to their meaning. As a side note, many brevigraphs seem rather spendthrift to me. Do you really need ꝰ (U+A770 "modifier letter us" — looks like a superscript 9) to write "us"? I mean, it's very common, sure, but is that really faster to write than "us"? Well, whatever.
+
+@ also has the benefit of having a circle around the a — about the a, you might say. Very pleasing.
+
+Around the same time, I was thinking about how my abbr for about should be typable on at least my phone, and also a computer with a little doing, and should be a representable character in unicode already, so I could immediately use it. There didn't seem to already be any symbols for "about", based on my googling. English letter strings, "ab", "abt", didn't strike me as very good; not enough savings, and also too ambiguous. Doing a long-press on my phone keyboard (Gboard), I considered many letters like ã and ä. Å seems the best. It even shares two letters with about! Kind of.
+
+I predict this will only ever be ambiguous if you are also trying to talk about a river in scandinavia, or a town named after a river. ("å" is also the word for river in some of those languages.)
