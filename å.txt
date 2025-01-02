@@ -8,6 +8,8 @@ I was also reading this page on "brevigraphs, those strange shapes in early prin
 
 @ also has the benefit of having a circle around the a — about the a, you might say. Very pleasing.
 
+If you want to abbreviate about with regard to a date, or possibly a location, you can write c., which is short for "circa", which is Latin for "around". academics will understand (maybe other people as well). if you want to abbreviate about in a memo or email, you can use "re:", which I believe is short for "regarding".
+
 Around the same time, I was thinking about how my abbr for about should be typable on at least my phone, and also a computer with a little doing, and should be a representable character in unicode already, so I could immediately use it. There didn't seem to already be any symbols for "about", based on my googling. English letter strings, "ab", "abt", didn't strike me as very good; not enough savings, and also too ambiguous. Doing a long-press on my phone keyboard (Gboard), I considered many letters like ã and ä. Å seems the best. It even shares two letters with about! Kind of.
 
 I predict this will only ever be ambiguous if you are also trying to talk about a river in scandinavia, or a town named after a river. ("å" is also the word for river in some of those languages.)
