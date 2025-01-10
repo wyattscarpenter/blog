@@ -31,3 +31,6 @@ trolley hints at including the palace in his definition in around the 26-minute 
 appendix A: typos I found in the work
 
 there are typos in this work, this is not a critique of the work, all initially published large works tend to have typos, but I want to get these out of my notes so here they are:
+
+First, consider a case in which fifty people have opinions about what the income tax rate should be: the first person thinks it should be 1 percent, the second percent thinks it should be 2 percent, and so on.
+"the second percent" should read "the second person".
