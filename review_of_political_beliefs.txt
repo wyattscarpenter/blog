@@ -40,3 +40,6 @@ This quote does not include The end of the sentence which says what 8 indicated.
 
 > On many of the same questions on which Americans displayed a risky shift, Taiwanese subjects showed a “cautious shift.” On most of the topics just listed, deliberation led citizens of Taiwan to become significantly less risk-inclined than they were before they started to talk.
 There don't seem to be any topics just listed. This is in a quote, but perhaps an ellipsis should have been used, as it is time-to-time in other parts of the quote. Or perhaps that's unnecessary!
+
+> I reproduced these examples at full length because I think they’re very fully striking and because Sunstein does a great job of explaining them himself.
+Can you say something is very fully striking? maybe you can. or maybe it's a typo (perhaps fully was edited to very but the old word was left in as well)
