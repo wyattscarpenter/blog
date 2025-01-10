@@ -83,3 +83,6 @@ Can you say something is very fully striking? maybe you can. or maybe it's a typ
 
 > Thus, as a conspiracy theory matures, attempt after attempt to falsity a conspiracy theory appears to succeed, and this apparent success must be explained as the nefarious work of the conspirators. 
 This seems to be a typo in the quote. It should say falsify instead of falsity. I suppose this deserves either a sic or consulting the original source material to see if the typo was introduced in the copying process.
+
+> and treating them as though we might treat animals or objects
+I think the word though is incorrect here, and probably results from an earlier draft of the sentence being "As though they were animals or objects", which was incompletely edited to say "As we might treat animals or objects"
