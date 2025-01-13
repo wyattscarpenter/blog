@@ -177,3 +177,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2025-01-02: [Å As An Abbreviation For About](å.txt)
 
 2025-01-10: [b/y As A Special Symbol For Authorship](by.txt)
+
+2025-01-11: [The Transcendent Beauty Of Life Is Very Inconvenient](the_transcendent_beauty_of_life_is_very_inconvenient.txt)
