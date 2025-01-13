@@ -166,7 +166,7 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 
 2024-12-16: [Levels Of Busyness](https://wyattscarpenter.github.io/blog/levels_of_busyness.txt)
 
-2024-12-17: [On The Power Of The Understanding With Regards To Motivation](https://wyattscarpenter.github.io/blog/on_the_power_of_the_understanding_with_regards_to_motivation.txt)
+2024-12-17: 𝝋 [On The Power Of The Understanding With Regards To Motivation](https://wyattscarpenter.github.io/blog/on_the_power_of_the_understanding_with_regards_to_motivation.txt)
 
 2024-12-23: [In Fact, Most Things Are Not What You Would Call Tradeoffs](in_fact_most_things_are_not_what_you_would_call_tradeoffs.txt)
 
@@ -178,4 +178,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 
 2025-01-10: [b/y As A Special Symbol For Authorship](by.txt)
 
-2025-01-11: [The Transcendent Beauty Of Life Is Very Inconvenient](the_transcendent_beauty_of_life_is_very_inconvenient.txt)
+2025-01-11: 𝝋 [The Transcendent Beauty Of Life Is Very Inconvenient](the_transcendent_beauty_of_life_is_very_inconvenient.txt)
+
