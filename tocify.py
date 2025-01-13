@@ -12,7 +12,7 @@ import re
 parser = argparse.ArgumentParser(
   prog='tocify',
   description=__doc__,
-  epilog="""Example usage: tocify.py test.txt "example post" -pi -phi ===> 2024-01-01: 𝝅𝝋 [Example Post] (https://wyattscarpenter.github.io/blog/test.txt)"""
+  epilog="""Example usage: tocify.py test.txt "example post" -pi -phi ===> 2024-01-01: 𝝅𝝋 [Example Post] (test.txt)"""
 )
 
 def warn(*args: object) -> None:
@@ -49,9 +49,11 @@ if '--check' in argv or '-check' in argv: #due to the way argparse works, this i
   readme_files: list[str] = []
   with open(file_to_which_to_append, "r", encoding="utf-8", newline="\n") as file:
     for line in file:
-      if m := re.match(r"^(.*?): 𝝅?𝝋? ?\[(.*)\]\((https?://.*)/(.*?)\)\s*?$", line):
-        readme_files += m.group(4), #lol at this syntax
+      if m := re.match(r"^(.*?): 𝝅?𝝋? ?\[(.*)\]\((.*?)\)\s*?$", line):
+        readme_files += m.group(3), #lol at this syntax
   missing_files = [file for file in readme_files if file not in git_files and file+".md" not in git_files] # There is a special case due to how github pages treats md files by default
+  if r'"\303\245.txt"' in git_files: #handle an å encoding snafu
+    missing_files.remove("å.txt")
   if missing_files:
     warn("These files are not found in git files (the cache/stage of git)! (Are you sure you have git add/rm/mv'd properly?):")
     for mf in missing_files:
@@ -70,6 +72,8 @@ if '--check' in argv or '-check' in argv: #due to the way argparse works, this i
   ]
   expected_files = additionally_expected_files + readme_files
   unexpectedly_found_files = [file for file in git_files if file not in expected_files and file.removesuffix(".md") not in readme_files]
+  if "å.txt" in readme_files: #handle an å encoding snafu
+    unexpectedly_found_files.remove(r'"\303\245.txt"')
   if unexpectedly_found_files:
     warn(f"These files were unexpectedly found in the main directory, even though {file_to_which_to_append} does not contemplate them:")
     for uff in unexpectedly_found_files:
@@ -97,7 +101,7 @@ if not a['date']:
   a['date'] = date.today()
 
 pf: str = '𝝅'*a['pi'] + '𝝋'*a['phi'] + ' '*(a['pi'] or a['phi'])
-cool_string: str = f"""\n{a['date']}: {pf}[{a['"Title Of Post"']}](https://wyattscarpenter.github.io/blog/{a['basename.ext']})\n"""
+cool_string: str = f"""\n{a['date']}: {pf}[{a['"Title Of Post"']}]({a['basename.ext']})\n"""
 print(cool_string)
 
 if a['nono']:
