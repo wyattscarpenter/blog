@@ -20,7 +20,7 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 
 ## Weblog entries
 
-2020-08-07: [The C Zoo, part 1: reading integers of a given endianness](https://wyattscarpenter.github.io/blog/reading_endian.txt)
+2020-08-07: [The C Zoo, part 1: reading integers of a given endianness](https://wyattscarpenter.github.io/blog/endian_reading.txt)
 
 2020-08-08: [A Note On Endianness: in which I take a position on the greatest issue of our time](https://wyattscarpenter.github.io/blog/endianness.txt)
 
