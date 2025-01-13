@@ -175,3 +175,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2025-01-01: [Hypo/ernyms For Reading](https://wyattscarpenter.github.io/blog/hypoernyms_for_reading.txt)
 
 2025-01-02: [Å As An Abbreviation For About](å.txt)
+
+2025-01-10: [b/y As A Special Symbol For Authorship](by.txt)
