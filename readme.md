@@ -181,3 +181,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2025-01-11: 𝝋 [The Transcendent Beauty Of Life Is Very Inconvenient](the_transcendent_beauty_of_life_is_very_inconvenient.txt)
 
 2025-01-12: 𝝋 [Arguments Are Or Are Not Reasons, Which Are Or Are Not The Truth](arguments_are_or_are_not_reasons_which_are_or_are_not_the_truth.txt)
+
+2025-01-16: 𝝋 [The Moral Comportment Of The Propaganda Of A Politician Is A Good Thing To Have](the_moral_comportment_of_the_propaganda_of_a_politician_is_a_good_thing_to_have.txt)
