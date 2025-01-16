@@ -10,9 +10,8 @@ from subprocess import run
 import re
 
 parser = argparse.ArgumentParser(
-  prog='tocify',
   description=__doc__,
-  epilog="""Example usage: tocify.py test.txt "example post" -pi -phi ===> 2024-01-01: 𝝅𝝋 [Example Post] (test.txt)"""
+  epilog="""Example usage: toc test.txt "example post" -pi -phi ===> 2024-01-01: 𝝅𝝋 [Example Post](test.txt)"""
 )
 
 def warn(*args: object) -> None:
@@ -26,7 +25,7 @@ def dateformat(s: str) -> date:
 
 file_to_which_to_append: str = "readme.md"
 
-parser.add_argument('basename.ext', type=str, help="The file name that will be used in the url. Do not include the rest of the path. Example: foo.txt. Note: you should be able to tab-complete this, which is why it's the first argument. Also, if the file doesn't exist, tocify will create it for you. SPECIAL CIRCUMSTANCE: if basename.ext is .[ext] then \"Title Of Post\" will be converted to an appropriate file name a la title_of_post.[ext] and the file will be created (in which case, the file already existing is an error); in such cases, ext defaults to txt if not provided.")
+parser.add_argument('basename.ext', type=str, help="The file name that will be used in the url. Do not include the rest of the path. Example: foo.txt. Note: you should be able to tab-complete this, which is why it's the first argument. Also, if the file doesn't exist, toc will create it for you. SPECIAL CIRCUMSTANCE: if basename.ext is .[ext] then \"Title Of Post\" will be converted to an appropriate file name a la title_of_post.[ext] and the file will be created (in which case, the file already existing is an error); in such cases, ext defaults to txt if not provided.")
 parser.add_argument('"Title Of Post"', type=str, help="The post title that will be used in the listing. Example: 'On The Fooing Of Foos: Or, How I Learned To Give Up And Love The Foo'. Note: you will probably have to quote this argument, in your shell. The title will be converted to initial caps, the capitalization style in the example I just gave.")
 parser.add_argument('-d', '-date', '--date', type=dateformat, help="The date the post will be dated as. Defaults to the output of date.today() if not specified. It should be given in 2024-03-31 format. The argument to this flag is validated against python's datetime's ISO 8601 recognizer: https://docs.python.org/3/library/datetime.html#datetime.date.fromisoformat . Additionally, a format of +k or -k, where k is an integer, will use date.today() plus (or minus) that many days.") # It would be more ergonomic to use dateparser.parse here, thus making my life easier, but currently this script has no deps outside of the stdlib, which is nice.
 parser.add_argument('-pi', '--pi', '-π', action='store_true', help="Mark the post with a 𝝅. Note: only ever used to mark a post as 𝝅𝝋, political philosophy; you may do that with -pi -phi")
@@ -66,9 +65,9 @@ if '--check' in argv or '-check' in argv: #due to the way argparse works, this i
     'README.txt',
     '.gitignore',
     'generate_rss.py',
-    'tocify',
-    'tocify.bat',
-    'tocify.py'
+    'toc',
+    'toc.bat',
+    'toc.py'
   ]
   expected_files = additionally_expected_files + readme_files
   unexpectedly_found_files = [file for file in git_files if file not in expected_files and file.removesuffix(".md") not in readme_files]
@@ -118,7 +117,7 @@ if not a["dont_git"]:
   run(["git", "add", a['basename.ext'], file_to_which_to_append])
   # Add the git pre-commit hook to the git hooks folder
   p = ".git/hooks/pre-commit"
-  p_payload = "#!/bin/sh\ngit diff --check && ./tocify.py --check" #TODO: do I have to add a #!/bin/sh to this?
+  p_payload = "#!/bin/sh\ngit diff --check && ./toc.py --check" #TODO: do I have to add a #!/bin/sh to this?
   try:
     with open(p, 'x', encoding="utf-8", newline='\n') as f:
       f.write(p_payload)

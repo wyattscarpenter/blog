@@ -1,1 +1,0 @@
-tocify.py %*
