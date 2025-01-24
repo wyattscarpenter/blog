@@ -1,2 +1,7 @@
 
 as a philosopher of science ( computer science ), I offer the analysis of plaintext: if so facto. But we could if so facto make it something else. for example, the body text of books
+
+maybe go down "what is text" rabbithole.
+
+
+research unicode tabs recommendations. Perhaps it is already the standard indentation mark for programming. And programming whitespace is probably not presentation so they will cover it.
