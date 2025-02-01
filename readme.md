@@ -187,3 +187,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2025-01-25: 𝝋 [The Nature Of Virtue](the_nature_of_virtue.txt)
 
 2025-01-30: [Thrownness As A Condition To Overcome](thrownness_as_a_condition_to_overcome.txt)
+
+2025-02-01: [Trivia: Every Comment From ThePhD's Big Array Size Survey](trivia_big_array_size_survey_comments.txt)

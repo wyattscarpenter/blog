@@ -1,0 +1,539 @@
+Recently I enjoyed reading https://thephd.dev/the-big-array-size-survey-for-c , and then https://thephd.dev/the-big-array-size-survey-for-c-results , and then every comment (free response) submitted in the survey on this topic ( full data here: https://github.com/ThePhD/big_array_size_survey ) . For the convenience and edification of the reader, I have decoded and collected the comments below, using the python one-liner `import pandas as pd; df = pd.read_csv("https://raw.githubusercontent.com/wyattscarpenter/big_array_size_survey/refs/heads/patch-1/big_array_size_survey_data.csv", quotechar='"');  open("big_array_size_survey_comments.txt", "w", encoding="utf-8").write("\n\n".join(df["comment"].dropna()))` that chatgpt generated at my behest and encouragement. (The repo in the url I used is mine instead of ThePhD's because I corrected the csv quote-escaping and my PR hasn't been accepted at time of writing.):
+
+I think C23 is a great turning point to implement disruptive changes, so if we want a keyword (which I'm sure we want) *now* is the moment to introduce it. Who knows when there will be another chance of breaking away with the past like we have right now.
+
+You're doing good work. Be strong!
+
+I only do a little bit of C programming every few years, usually because I’m the only person around who is willing to do it.
+
+It would be wise to consider a sister keyword that’s “last element of” and get rid of the `- 1` that surprises novice users and tired code reviewers
+
+Thanks for doing this.
+
+You are awesome!
+
+What's wrong with _Array_size and ARRAY_SIZE? nelemsof or nelementsof is way more awkward. The array size variants are used in existing projects with the same semantics. Also two word spelled out completely is in line with _Static_assert and _Thread_local, have mercy and keep the consistency, please.
+
+I really appreciate you doing all this work. Thank you!
+
+My 2 cents: this decision affects people twenty years from now and forward. Think about them. Make it easy for newcomers to learn C, i.e. avoid/limit arcane incantations.
+
+Prefer countof because it's least likely to be misused on a "string lteral" and misinterpreted as string length with an off-by-1 error
+
+1d arrays are not big deal, but extent of multidimensional array is. Feature will be useful for multidimensional VLA, passing them to functions alone without specifying dimension variables
+
+I think "amountof" and "numberof" are missing options. I would even prefer "amountof" over all listed options.
+
+I suspect if there was a header then I wouldn't use it, but I guess it wouldn't hurt; _Countof seems slightly easier than '#include &lt;stdcountof.h&gt; ... countof(...)'. One benefit I can see to '_Countof' (etc.) over 'countof' is that it makes clear 'this is new in C2y' (so C99/etc compatible code beware), but I can also see why it standing out might not be good (since it fits in less, and C already_has_lots_of_underscores). As for the name, _Lengthof is OK but sounds a bit similar to sizeof, and I can see _Lengthof("")==1 being odd. _Nelemsof looks weird but makes a lot of sense.
+
+keep up the good work chad, thank you for everything
+
+Thanks
+
+Not a fan of C++ putting keywords in random places (override should be where 'virtual' is), so want to avoid that in C as well. Let's keep the language feeling consistent.
+
+Count, as in Sesame Street. Ah! Ah! Ahhh!!!
+
+hi
+
+Does nitems() do something different or why can't the macro just do the same and people need to undefine it or update the BSD headers when including the keyword header?
+
+Thanks for doing this!
+
+There should be recommendations of diagnostics that detect legacy overlap in use of an identifier that clashes with any new keyword.
+
+While I hate the transition period between underscores macros and lowercase keywords, I recognize it is necessary for such a basic and core concept that will have been implemented independently many times over the last 40+ years. Opting in with a header feels too obtuse however.
+
+In FreeBSD we’d most likely be fine if nitems was stepped on by the standard. In general we don’t expect things to all work when a compiler upgrade comes along.
+
+View the keywords in a vacuum, someone with minimal knowledge has to understand what it means "nelems" means little without the context of "number of elements." This is a common complaint with C functions, see the string/memory functions. "lenof" also suffers from this whereas "countof" and "lengthof" are verbose.
+
+Thanks for adding this feature! This is a nice upgrade
+
+nelemsof or nelementsof are concatenations of too many words, I have hard time even pronouncing it.  And I think that extentof is too confusing for most people.
+
+using _Under naming and not including a macro in a header would be frustrating
+
+_Howmany()
+
+My concern is confusing the count of items in the array with the size (or length) of the array in bytes. Names with "count" and "element" in them help me. I'm unsure about what "length" means at first glance, even with having done more python than anything recently.
+
+Have some guts for land's sake and just add the dang keyword!
+
+Thank you for gathering user feedback on stuff like this!
+
+I am still writing C1999 code and I expect to be doing so forever.  In my opinion the best option of all (not on this list) would be to withdraw C2x, disband WG14 and never put out another revision of the C standard. Let C be *done*.
+
+If nitems() is already used, with exactly this semantic, why is it not the *best* option?
+
+I am mainly a C++ developer and WG21 member.  I would prefer "extentof" for better alignment with C++.
+
+Extent is the only thing that properly reflects what is going on.  "Count",and  "Len" both imply stuff that isn't intended to be reflected here.  the "nelemsof"/"nelementsof" are a distant second, but the meaning of 'n' there is kinda opaque.
+
+I mentor C in person; having an operator which can be easily pronounced and is unambiguous in oral usage would be a significant asset. 'lengthof' and 'countof' both meet that requirement.
+
+1. Unix and C are full of abbreviated names (e.g., "int" instead of "integer") because the keys on an ASR33 took a lot of effort to press. (Compare with the "INTEGER" of FORTRAN; the keys of an IBM 026 keybunch took little effort to press.) There is no good reason today to use abbreviated names. 2. For what it's worth, I was chair of the Ad Hoc 64-bit C Data Types group; see https://cacm.acm.org/news/the-long-road-to-64-bits/. 3. Is there a good reason why this text field is one long line and doesn't allow me to insert paragraph breaks? It also makes editing it difficult.
+
+My preference for _Extentof/extentof is wholly predicated on _Rankof/rankof; if that work is not guaranteed or unlikely to happen, I would instead throw my full weight/preference behind _Countof/countof
+
+terrible choices. A sensible one that I use in my projects is "array_size()". It seems that the committee deemed it "awkward to spell", which is of course nonsense
+
+I like the extent + rank idea
+
+Leading underscores can go to hell.
+
+nelementsof in a separate header like how it is for 'true'/'false' in stdbool.h
+
+Why not just sizeof?
+
+I've checked the Oracle Solaris code base and none of the proposals cause any name clashes for us. We also have an existing macro called ARRAY_LEN() that we currently use.
+
+Keep up the good work.
+
+hi
+
+Thank you for polling developers for input on this :)
+
+I'll drop the blasphemous LengthOf/_LengthOf in with PascalCase in, as I think it's much clearer, even if less consistent.
+
+I think countof is the best option because it’s less likely than lengthof/lemon to get confused with string length, much easier to remember how to spell than nelements/nelems/etc. (especially for non-English speakers), and extremely clear in its meaning.
+
+condensed versions make the intent hard to parse when first reading. Especially nelemsof. Learnable, but makes the language that much more difficult to get into
+
+Wowee, this poll is great!
+
+Every single underscored keyword should be removed and made either a header macro (with no underscore) or made true keywords.
+
+thank you for doing this!
+
+I would like macro headers (like stdbool.h, stdalign.h, assert.h (I think?)) if we could get all of the ones relevant to a given version of C under one single umbrella header, like stdc23.h or similar
+
+Count reminds me of PHP, which is why I hate. The most appealing option is having beginners learn that the size of something is often in bytes while the length of something is in blocks of arbitrary size. Something simple that's not hard to remember or to write.
+
+as BSD user, i think using "nitems" would not be "taking" it from BSDs, but rather just a way to standarize existing practice. many other BSD extensions have been introduced into other standards, i see no reason not to do the same here.
+
+Currently working on rpm packaging, which includes patching C programs. I need a bit getting back into C though.
+
+C should get namespaces, then we would not need _Underscore style naming
+
+Neither count, size or length do well with multidimensional arrays.  One might justifiably expect countof((int[4][4]){}) or lengthof((int[4][4]){}) to be 16 instead of 4.  So while I like countof more, I think extentof is the most unambiguous naming.
+
+I am mostly a C++ programmer, and I think carrying extentof forward into C++ would be amazing.
+
+Breaking old code is annoying so I prefer the _Keyword and optional macro. Coming from the C subset of C++ this seems like the simplest way to interop (like _Atomic?).
+
+Thank you for all your hard work! Say hi to me in an email if someone actually reads this.
+
+I personally think that some form of countof makes the most sense but would be happy with any of these names as long as it gets added.  Thank you for your excellent work on improving C.
+
+Any and all emphasis that there is a major difference between "Size" and this new "Count" is of utmost importance.
+
+-
+
+`countof` has seen pervasive use in community codebases; standardising on a single implementation that mirrors `sizeof` makes the absolute most sense, and any breaking changes could be _easily_ rectified.
+
+keyword should have an intuitive, based on trends of other languages, easily remembered name and when it comes to finding the lenth of the array, it should be similar to "length", "len" and not count(intuitive but not very accurate). Plus names like nelements, extend, etc are simply not generic and are non intuitive.
+
+Thanks for approving the new lenof() keyword.
+
+The whole underscore capital name macro in header song and dance is ridiculous. If you want to use the new C standard, you're going to have to find and replace on a file. I'm sorry; it's not worth making everybody else take the conceptual overhead to prevent you from running control F once. It's also not like the old versions of c have stopped working or that programs compiled before the new standard will stop working! This text box is not tall enough and should be a text area. lengthof is just the right name. It's like "sizeof" but for the appropriate concept. "extentof" is ok, and I would also like to have a "rankof" either way, But in general I'm annoyed with people in programming naming things wrong and I would just like them to pick actually the correct name which just describes the thing that it is this time! Honorable mention to count of because it would allow me to type the count of Monte Cristo in source code which would be funny. But really when I make a variable called count it is an integer that tracks how many of something there is, without reference to an array, so this would not be very satisfying to me at least.
+
+I'd love to have `lengthof` without header, but I understand that it is not something that could actually happen
+
+If we're throwing wild ideas out there. Since a keyword is implemented in the compiler, a pragma could be used to enable it and coupled with deprecation warnings if not enabled this might be a way to gradually introduce a new keyword even if it might take an extra standards revision. Please feel free to ask if you want me to elaborate my crazy ideas. :)
+
+'of' seems unnecessary.  For any of these options, I'd strongly prefer a form without 'of', for example '_Nelems' or 'nelems' or even simply 'elems' in this specific case.  I don't think 'of' fits any other naming pattern and is obvious due to the parenthesis anyway.  Len / length seem somewhat confusing as it is not clear whether it's a bytes length or elements length in C.
+
+I would prefer it in an existing header over a new header or all the cool stuff in a new stdc2y.h header.  It feels like the "small handful of macros" headers are getting out of control.
+
+Anything with len or length is bad, as the term has a different meaning for strings in the standard library already.
+
+A macro definition would be much less objectionable if it could be brought in with an #include like &lt;stdc2y.h&gt; that includes all of the new "keywords" of that and previous standards.  Basically, &lt;stdnoreturn.h&gt; was not terribly useful, but a &lt;stdc11.h&gt; (which would #include &lt;stdnoreturn.h&gt;, &lt;stdalign.h&gt;, &lt;stdc99.h&gt; etc) would have been.
+
+no.
+
+I prefer the term "extent" over both "count" and "length" because the latter terms to me imply that they are talking about the initialized part of the array only. A resizable array (std::vector in C++) has two measurements: the number of elements that are currently used (size in C++), and the number of elements that was allocated (capacity in C++).
+
+it should be "length", plain and simple. To ease the transition to/from Java.
+
+I am not particularly fond of extentof but the idea of specifying the dimension when querying the number of elements is definitely useful. Could this not be done with lengthof/countof? Could dimension not be added to lengthof/countof as an optional argument? It would not be the first operator in C to have more than one arity.
+
+When I had a "misc.h" for small fixes I felt should been standard, in the early 90s, I called it "elementsin". Still my preferred spelling.
+
+As a novice and amateur C Programmer, it feels like operators that you're going to be using often in code (outside of macro definitions) should either be an underscore keyword with a pretty name macro in a header, or just have a pretty keyword with no macro needed. _Generic is fine for me since it is mostly used in macros and thus you'll rarely see it outside of macro definitions. If I had to write _Lenof every time I wanted to get the size of an array-like thing outside of macros without a pretty keyword macro, I think I'd lose it (Even though I'd probably just make one anyways. But I'd still be miffed about it). I'd feel fine with the underscore keyword with pretty macro just as a compromise for code bases that are already using it.  I'm split between lenof, countof, and lengthof. I could also live with extentof. I just have a visceral dislike for nelemsof and nelementsof; I legitimately cannot explain it beyond a primal dislike of those options.
+
+thanks for making the stdlib much better :)
+
+_Keyword is not very ergonomic for how common this operator is. And I guess most users would expect a similar spelling to sizeof et al as possible. Thanks for the survey :)
+
+The language (I didn't say the committee) is suffering BADLY from paralysis. Fiascos like taking 30 years to add true and false can't continue to happen. If someone has a symbol named 'false' or 'lengthof' and has specified --gimme-C26 then they can take on the minute-long global search and replace in cscope, CLion, or (very carefully) sed.  Identifiers clash all the time in new development environments. They SHOULDN'T, but because there's not a contact between the set of symbols and behavoiurs requested and those available - this is just the kind of thing that developers of ACTIVELY MAINTAINED code expect.  The failure case is obvious and trivial to fix. Pick a good identifier (lengthof is like sizeof), don't hide it behind the presence of an include &lt;stdthing.h&gt; to activate it, and rip the bandaid off. Old code can stay on old compilers. When the old compilers don't run on computers that can be bought, borrowed, emulated, or virtualized, and a change MUST be made, then someone needs to exit denial and actually pay/bribe a programmer to actively maintain the stupid code.  Love your writing. Stay awesome!
+
+mostly a C++ user, only used C a few times to make small changes to existing programs
+
+I dislike nelem[ents]of because 3 words (counting n) feels like too many. I don't love the abbreviation of len (3 letters saved is not worth the reduced readability). Of the remaining 3, I like them in order: countof, lengthof, extentof. The lower and _Upper forms do not make a difference in my mind (lower matches sizeof() (which this closely relates to), _Upper matches pretty much everything else).
+
+Would like to see c moving away from truncations.  There is strong culture of variable shortening for no real reason, we have autocomplete now.
+
+This is a difficult question -- on the one hand, it's important to not "pull a python". But it'd also be nice to select something that's very natural, and that's going to stomp on code that picked a very natural way to compute this already. Good luck and thanks.
+
+upb and lwb (upperbound and lowerbound) would be classical options (but upb is the highest index, so length - 1). Countof is just bad, countof(something) must always be 1, if you mention one something.
+
+Better to break things and require rebuilds (if someone updates their standard library) to get a nice keyword for the future of C long term.
+
+If I lay out 5 wooden blocks in a row on a table and ask what the length is, I think most people would reach for a ruler. If I ask what the count is, most people would look at me like I'm trying to play a trick because the answer is so bloody obvious.
+
+elemcount() and _Elemcount should be better than all the above.
+
+I think "non-power" users of C (i.e., people not responding to surverys) are much less likely to care about whether it is defined as a lowercase keyword vs a macro, but would strongly dislike _Keyword only.
+
+Just use a normal keyword please. The whole underscore capital thing is dumb. Yes you risk clashing with identifiers, but 99% of people will not upgrade to anything beyond C11 for the next 20 years anyways.
+
+I think simpler is better, but did we count roughly how many code pieces we would break by any of those simpler changes? If not, I want to go conservative.
+
+I believe I have never ended a specifier with 'of'. As a variable it is always 'count', 'len', 'nelem', etc. As a function name I would also expect another noun after 'of' to make it more specific, e.g. nelemOfArray (not to mention I'd most likely use CamelCase). I would not expect any of the keywords to clash with my source code.
+
+It's great to have C get better and better and this looks like yet a great addition to the language. Please continue on this track :)
+
+Mostly I'm just glad it's finally being added! Happy to contribute to bikeshedding the name, but just do it already.
+
+ARRAY_SIZE or _Arraysize or array_size. Having "array" in the name mostly solves any string null terminator confusion. "ARRAY_SIZE" is an existing convention I've seen in many codebases.
+
+countof feels the most analogous to sizeof in application
+
+I think ‘count’ is the most neutral word here. I prefer full words over abbreviations. ‘length’ could be confusing with strings. ‘extent’ suggests a different concept to me, namely, the minimum allocation size (e.g. for a struct with a flexible array member), when it may be less than the stride reported by ‘sizeof’. I would accept a new keyword, but strongly prefer for all keywords (new & existing) to have the underscore+capital form, and then aliased or typedef’d in headers, since it’s backward-compatible and allows replacing standard definitions with custom ones.
+
+Thank you for all your hard work
+
+Just use rust ;P hahha just kidding. Keep up the good work,
+
+You're a glutton for punishment. THANK YOU! :) :) :)
+
+`count` and `elem` are great, but `len` is terrible for NUL-terminated strings.
+
+_Count is also good, and _PascalCase would be very nice indeed - "nelemsof" looks like "lelem sof" to my eyes. I'd get used to it but it's not good. C.f. "Header" -&gt; This is wildly out of scope but having a single "keywords2Y" compatibility header would be nice (I bet that might also allow static array extents in C++ if it had the correct macro replacement with auto and requires)
+
+Would something like array_length make it clear that it's similar to sizeof, not strlen, in regards to '\0' terminator being counted? Something len/length might not make clear as mentioned in the blog post.
+
+Size and length are loaded terms because of the null-terminator implications for strings. Please avoid them if at all possible.
+
+as a non native English speaker I have to say that extentof and lenof aren't very clear to me, lengthof and especially countof are much easier to understand. also nelemsof/nelementsof just looks messy
+
+Thanks for doing this survey!
+
+Typing speed verses understanding speed: while lenof() and lengthof() quick to write, it is also the most likely to be misunderstood. nelemsof() and nelementsof() are very well understood, but are minorly painful to write. extentof() strikes a good balance of speed of writing and reading, and has the added benefit of a lack of keyword clashing.
+
+Very excited about the possibility of having this in the standard. You're doing a fantastic job!
+
+I don't think this specific keyword is a big deal, tbh, but the first two sections are useful.
+
+numelements is the best! :)  Don't need 'of', and someone searching for how to get the number of elements will hit on 'num' or 'elements'.
+
+I don't really like the "of" prefix. I'd rather have array_extent(some_var). But then, I'd change other things in nexisting syntax too so perhaps I'm biased.
+
+"length" and "size" are ambiguous but it's definitely not an "extent" to me. It's long been a count-of-elements and is spelled COUNT() in my own code.
+
+Using Len in the name and allowing it on char arrays is going to be so confusing for new developers: lenof vs strlen is just not a distinction I want to ever have to explain. Also PLEASE at least add a macro. If the keyword looks like _Keyword, and there's no macro header, every single codebase is going to make their own macro. plsno.
+
+None of the options are amazing, but the feature is great, so I will accept anything really
+
+sizeof[] should be considered
+
+C &gt; C++ &lt;3
+
+Whatever C++ will also accept, as std::size and general library bloat is anathema in many AAA game studios
+
+Offering a macro in a new header allows testing for support via __has_include
+
+I believe that if a `rankof()` operator or similar is likely to be present in a future standard, it makes sense to use `extentof()` for C++ parity, but I otherwise feel like `countof()` is *to me* the most coherent, intuitive and clear term. I also believe that a `_Countof()` operator/macro definition makes the most sense because I suspect many codebases have oddhoc/oneoff implementaitons of it with a similar name and this allows for managing this.
+
+Thank you for your great work in the comittee!
+
+countof please
+
+elementcount or noofvalues valuecount elementsize elements nelemets noofelements
+
+Length is a standard word to describe the size of array. or instead of sizeof, sizearray(X)
+
+good luck with the survey &lt;3
+
+No need to deviate from n3325. Uglified names shoul come with a header. The feature counts more than the name. The name should be descriptive and shall be clearly different from sizeof.
+
+'length' and similar ('len'...) should be avoided, as there are already often used to indicate the current size of something (Example: message length, string length...).
+
+arrlen, arrlength, countarr, countArr
+
+I think that there should be definitively be a macro, to ease transition of implementations. Much as we did for the keywords in C23.
+
+Have you considered `nof` ;-)
+
+The world is a dark place. Please bring light to darkness by standardising a build system and make compilation uncomplicated
+
+This better be a constant time / compile time operation, I do not want hidden complexity to be introduced by this keyword.
+
+I will misspell lenghtof everytime and have to look real hard to find the misspelling. Happens embarrassingly often.
+
+The word "length" is already used for the same concept in "variable length array", so it is my preference for consistency alone.
+
+funneh gote nerd
+
+The objection that "_Lengthof" would be confusing with strings (because strlen() wouldn't give the same result) is not serious. It's already the case with sizeof(), and caveats related to null-terminated strings are something *first year students* of C are made aware of. _Lengthof() is by far the most intuitive name.
+
+Maybe put the macro in stdc2y.h header
+
+There really does need to be a way to do this, portably, without double-evaluating a macro argument.
+
+Please make using it with a pointer a compilation error. It should only work with array types.
+
+It becomes more useful if array length can be implicitly passed for pointer-to-array arguments, so that calling foo(int (*arr_ptr)[]) with &caller_array will generate code to pass the length of caller_array, which can be obtained inside foo as _Lengthof(*arr_ptr).
+
+I believe that "countof" is the best name for this keyword. Most of the projects I am involved with define this as a macro, but I am ready and waiting for the day when I can remove those definitions. To me, that tiny burden of removing that old macro is absolutely worth getting a pure and beautiful "countof" with no headers involved. Thank you for asking!
+
+Thank you for your efforts, Björkus Dorkus x)
+
+sizeof_array(x)
+
+Don't mess up C with garbage, countof is the way!!!
+
+Please make also something to count the elements in an enumeration.
+
+Thank you for moving this functionality out of macros and into the base language.
+
+Personally I do not see the need for a "compute the number of elements in this array" operator. However, if it were to be added, I would strongly prefer it to use a reserved symbol (e.g. _Countof) instead of a bare `lowercasekeyword`, with an accompanying macro in a header.
+
+Thank you for your hard work! &lt;3
+
+arrlen!  named after `strlen` because they're used very similarly.
+
+Fixing the conflict for most codebases will be a simple replace. I think it's more important to have a clean interface than to try and accomodate everybody. Like it or not, newbies care what the code "looks" like and will choose something else if they don't like the syntax.
+
+My code refers to this operation as some variant of ARRLEN..ARRAY_LENGTH, but consistency with existing language constructs suggests 'countof' as the most obvious solutipn
+
+lengthof is familiar and apparent but heavily overloaded by domain specific terminology (length of vector, length of line, length of string, length of video, etc); countof is less overloaded while still familiar and apparent; extentof may be too technical for the general purpose nature of C; cryptic abbreviations have no place in modern time
+
+I'm personally perfectly happy with sizeof array / sizeof *array; I've never defined a macro for this concept. I'd like to have a good reason to use a new keyword besides just doing preprocessor work that everyone can do at home; the double evaluation of the thing whose size is being taken is, in my experience, never an issue.
+
+The symmetry with C++'s std::extent and std::rank tips me in favor of that solution. Without consideration of C++, _Countof/countof is equally apealling. None of the proposed solutions conflict with my personal code (I've never used, or even encoutered as far as I remember, variables with names like "&lt;noun&gt;of"), so no problem for me going straight to the lowercase keyword.
+
+Thank you for pushing practical improvements to C.
+
+Shouldn't language versions be able to make breaking changes, as users can pin the -std option until they sed their codebase ? Besides, camelCase or snake_case convention in user code should reduce risks of breakage. In the next-to-best case, it's a one line deletion for the redundant macro (I use countof(), though it wouldn't have been an issue at all if all my macros were SCREAMING_CASE).
+
+extentof over countof if a rankof is also added at the same time
+
+Under the premise that the time spent actually typing code is far, far, smaller than the time spent reading and thinking about code, arguments about how long an identifier takes to type are null and void (especially with IDE autocompletion). So, why not use a prefix? This will reduce collisions with existing code, with the side benefit of readability. For example array_count.
+
+Please keep the language style/syntax consistent. Do not be afraid to create new explicit keywords, I do not see a point in _Capital type keywords since you already moved from _Bool to bool, try to keep it consistent. If you must use it, at least provide a macro.
+
+countof() needs the least explaination
+
+For my tastes, "countof" strikes the right balance between readable, spellable & "sizeof-homogeneous".  "lenof" and "nelemsof" cause brain-parsing errors, "lengthof" sounds very ambiguous (cf strlen), "nelementsof" is "readable enough" but still below my personal threshold.  I appreciate "extentof" building on C++'s prior art but having to contend with "rankof" feels like unduly increasing the "budget" for this feature (in standardization effort & programmer learning); wondering if multi-dimensionality is so common that it should gate the standardization of sizeof(𝒜)/sizeof(*𝒜).  A false dichotomy, perhaps, if "rankof" proves Not Too Hard™ to "furnish" 🫣
+
+Elegant is good. Real words are good. Leading underscores are bad.
+
+I don't like keywords that are more than one word without some kind of delimiter between them.  e.g.  extentOf or extent_of is better than extentof.  I despise the '_' prefix.  I prefer fully spelled out words.  e.g. NELEMENTS() is better than NELEMS()
+
+If we're going to have `lengthof` why not also add `lastof` or `lastindex` which returns the last usable index (i.e., `lengthof(some_array) - 1`)
+
+I think the concern about lenof or lengthof returning the NULL character is valid, considering strlen and friends do NOT include the NULL character.
+
+Consider _Arraysizeof / arraysizeof, being explicit is a virtue (even if it is a bit long).
+
+I generally dislike having multiple representations of a keyword like `_Thread_local` vs `thread_local`. I prefer just one having one of the two, whichever gets decided on. For backwards compat then that leaves the capitalised version as preferable. Having 2 versions is another "extra" piece of domain knowledge you must know as a programmer. It's a small piece of domain knowledge but it's unnecessary and detracts from the actual, writing software to solve a problem.
+
+words with _ and caps feel like platform symbols
+
+„length“ is too ambiguous. „extent“ really does not convey its meaning at all. I'm personlly not a fan of abbreviations, and love lowercase with underscores.
+
+amountof / _Amountof ?
+
+elementsof / _Elementsof
+
+Thank you for this well-structured survey :)
+
+nelenentof is far away from the word I'd type out intuitively while programming, which in my eyes kinda disqualifies it even if it was the most accurate word to describe what the operator does. It's an issue of practicality over accuracy.
+
+I like fully spelled-out names. I like "countof" the by far the most. While "lengthof" consists of full words, "length" and "size" are often consumed words. The word "count" is unique, I love it! Keep up the great work!
+
+lengthof sounds like "meters of" = bad. countof is the best because it's just like sizeof. But I think having 1 version with _Countof, followed by a builtin countof in the next C version would be great too.
+
+It isn't clear why we can't just take nelemsof from BSD, so long as the feature has the same semantics as it has in BSD.
+
+whatever it ends up being, i'll personally just use a `#define signed_countof(X) ((ptrdiff_t)countof(X))`
+
+Length sounds ambiguous with number of chars to my ears. Count somehow sounds more clear.
+
+Please drop the "of". It's very silly. _Len or _Length would be great.
+
+nelems() would be better than nelemsof(), to be consistent with nitems().
+
+Thanks for asking!  I prefer snake case to separate words for readability.  This becomes especially important the longer the word gets. nelemementsof looks like noise.  sizeof is ok, size_of would have been better.  For consistenty, it's probably better to juse choose a short word without _ though like lenof.  Not a fan of the _Capital letter convention (opposed to just leaving it lowercase as).
+
+Please consider "arraysizeof" or "asizeof" or "arraysize"
+
+i think the last line meant to say _Nelementsof
+
+The null terminator should be counted in strings, like in sizeof. The operator should be typesafe, that means when passed a pointer decayed from an array it should error unlike the sizeof macro that is commonly used which gives the wrong answer.
+
+Thanks for working on this!
+
+Why not refer to prior arts? What are these options??
+
+Length is only use for c-string in my head. It's always len=COUNT_OF(cstr)-1;
+
+I think the risk of _Lenof/_Lengthof/lenof/lengthof being confused with strlen behavior for string literals (i.e. not including a null-terminator in the count) is enough to set off my alarm bells that such a naming could become a language wart for future C developers. I use ARRAY_COUNT (and CSTR_COUNT defined as (ARRAY_COUNT(array)-1) for string literals) in all of my projects specifically because "count" cannot be confused with "length", and I have found that this naming has made it much easier for junior developers to understand what is happening under the hood. I also think having some harmonization with MSVC & C# is also a net benefit for the ecosystem as a whole. Overall I strongly prefer either _Countof or countof as the spelling out of the choices mentioned.
+
+I bet Committee will choose the most abysmal option anyway :D
+
+sizeof and typeof, and _Alignof use complete dictionary words before 'of'. Consistency aids learning.
+
+In general, I’m strongly against any alteration of the global, unprefixed namespace at this point; there are enough rules as it is. Chances are whatever it is will be `#if`'d in, b/c compilers won't support this for decades, so chances are the extra macro and header would be pointless machinery.
+
+_Array_size
+
+lenof("hello") != strlen("hello") would be very confusing; pity for nitems("hello")
+
+We already have __counted_by() for FAM. Naming should remain consistent. If __counted_by() is preserved, countof() should be favored. I strongly lengthof() as it sound more natural though. This would require renaming __counted_by with something better for FAM. A lengthof attribute for would be great too.
+
+`arrsizeof` - 42 files on github
+
+I'd prefer it to be called `array_length()`. Underscore capital functions are ugly for stuff you use on a regular basis (doesn't fit into C, it's okay for internal stuff like _Generic that you might only use in a few places). "nelementsof" is oddly phrased. Make it explicit and opt-in through a header to avoid breaking existing code.
+
+arraycount()
+
+It's should be an operator like 'sizeof' in every aspect - precedence, syntax rules and the like. The existence of the operator can be checked during preprocessor phase against language version macro like '__STDC_VERSION__', therefore no extra standard macro definition shell be introduced.
+
+thank you really
+
+Just use nitems. What "existing definition" is there to clobber that isn't already exactly what you're trying to achieve? Why do we need to invent yet another name? All the suggestions are trying to contort themselves around not being nitems. "of" suffix is not important to chase.
+
+I'd like different terminologies for different things. Let "length" be for "string length", "size" be for "in-memory size (in bytes)", so "count" is for "element count".
+
+This is a fantastic thing to add to C
+
+When naming things, I came up with a rule I like: In face of ambiguity, choose the shortest. Then when typing code if I ask myself "how did I called this last week?" it's easy to find: the shortest.
+
+I like lengthof because it's visually analogous to sizeof; if I saw it in code without previously encountering it, I would know what it means. The other options (including lenof) are more distant from sizeof and thus intuitively feel more likely to be something in a third-party header. I don't think the trailing-NUL problem with lengthof vs. strlen is a real problem (it's maybe more of a problem with lenof, but slightly). If you're taking new options, "arraylenof" or "arraysizeof" or "arraysize" (lowercase, no underscore, seems manageable) would avoid that ambiguity. Also, i hope that it only works on arrays, and that applying it to something that's decayed to a pointer or to any other scalar is a compile error.
+
+I'd rather that you standardized existing practice unchanged; the BSD macros are fine. But if you must standardize an operator, at least let me pretend it doesn't exist. I won't use it, because there's only portability-related downside over the macro based version.
+
+Call it count() or countof(). It's not how large (size), or how long (length), or what dimensions (extent), it's how many. Cocoa nailed this.
+
+I can't help but think this is a lot of effort to solve a problem that shouldn't exist
+
+I don't see how ARRAY_SIZE would be awkward, it's what I have in my own code
+
+_Keyword sucks. Officially provided functions should all be lowercase.
+
+Thank you, JeanHeyd. Best Editor of the committee in its existence. 🫶🏼 stay safe, friend.
+
+Thanks for all the work you do for C Standardization.
+
+I favour lengthof/_Lengthof very much as it has precedence in Python, Java, TypeScript, etc. as receiving the number of elements within a storage type. With Cs interoperability with C++ "sizeof" would interact nicely with C++s way of receiving the number of elements in a storage type, but that clearly will not work out. At least in my surroundings - proffesional or hobby - arrays and lists with a lot of elements are refered to as "long", and not "high cardinality" or "big". The abbreviated sibling lenof/_Lenof is Cs usual dribble of letters which only insiders can decipher their meaning and if you stumble upon them without knowing a cat might as well have walked over the keyboard.  countof/_Countof is similar to lengthof/_Lengthof and closer to the actual meaning of "what is the cardinality of this thing". Same for nelementsof/_Nelementsof. I agree with it on an academic level that it should be one of those.  As for nelemsof/_Nelemsof. I think we can spare the additional three letters. Abbreviations do help, but we do not have to go full german and abbreviate everything.
+
+why not just a macro in a header? strong dislike for a keyword. especially since the operator already conflicts with names I am aware of.
+
+My like for "extentof" does come with the implication of "rankof", I like it far less if we won't see complementary "rankof". To me, "countof" is the better choice in absence of that.
+
+I’m far enough past the newbie stage that I think I’d never use “lengthof” for a string, but not experienced enough to know how often I and others would actually make mistakes with it. And “nelemsof” is both too short to convey what a “nelem” (looks like a single word) is AND longer than the common “nelems”…
+
+My macro is C_ARRAY_SIZE(a)
+
+_Elementsof/elementsof is nicer yet.
+
+I work on a popular open source project in C17: Box2D
+
+Header macro seems the only sane way.
+
+I'm not quite sure why extentof has all this potential. but the information that it has it is accaunted in my rating, 'hgt" words scare and confuse me (when I need to spell them) (Length is relatively easy. But still. I'm against C becoming more like English)
+
+Nice to see we're slowly getting towards what C93 should have been.
+
+Thank you for your work on a modern C standard!
+
+Most of these are just plainly too long, keep it short and concise.
+
+only focusing on the lowercase no macro, I personally prefer countof, but lengthof is a close second, but either way whatever it is it'll probably be hidden behind a macro anyways
+
+extent is not clear in the slightest, and C's obsession with unnecessary abbreviations belongs with the PDP C came from: dead.
+
+I used to work on the space sector (and will start working there again soon) where safety critical software is the majority of the software written. There MISRA is prevailant and you may also find formal verification tooling and methodologies, if your mission is important and expensive enough. What all that mean, is that ambiguities and features that undermine type safety are not welcome. An operator that returns the number of elements in an array is much needed, so thank you for this work. As for the name, when I was learning C some years ago, I noticed that many of my friends and colleagues in my class were really confused with the "_Ugly keyword-normal macro in the header" which usually led to mistakes and frustration. I'd be lying if I said that I wasn't confused too. So, my preference is to not have any header, either provide a normal keyword (best case scenario), or provide a an _Ugly keyword, but to be honest, I won't really mind if the header ends up being provided. As for the names, I like extent, since it reminds me of numerical software, which is the kind of software I write in my free time. Also, since nelementsof can be provided as a keyword as is, it's also a pretty strong candidate. Even though, length is a pretty common term, and probably the most aesthetically pleasing one, you never know what's going inside the mind of someone who is just learning C, and ambiguities with strlen may actually happen. Though, at the same time, VLA is an existing term and is even used in MISRA, so those concerns may be hyperbolic. In the end, I'll use it anyway.
+
+Thank you very much for your hard work! :)
+
+extentof coupled with a future potential rankof sounds like the wisest decision. failing that I prefer lengthof.
+
+The most important is the usage pattern, "no underscore and lowercase" : strongly against as this is often the pattern used for variables, so this form will inevitably break some codes. I am also against macro usage : in case of an error in the usage of the operator, macro are always a pain to debug. So, an underscore with first capital letter is a good solution, this imply a standard function. Regarding the name, "countof" is preferred due to "len" often use for strings, this can lead to confusion null-terminated charaters
+
+I feel like _Nitems / nitems in a separate header would have been ideal pick. It wouldn't strictly clobber the BSD version, since the header would be optional, but would maintain a naming schema that's established, short, and transparent.
+
+who came up with nelementsof worst suggestion in the whole survey
+
+looking forward to it, no matter the specific name or introduction pattern
+
+Consistency is key: so many additions to C have lacked consistency, often packed with surprising behaviour. lengthof/lenof seem to fairly clearly be the most consistent with the existing sizeof operator.
+
+nitems() sounds good to me; couldn’t the committee work with the BSDs?
+
+I feel like nof or noof should've been an option
+
+Keep up the great job, thank you!
+
+“elemsof” is much better than “nelemsof”, and avoids the dangling “n”.
+
+Maybe 'enumerate'?
+
+Good Work!
+
+Would prefer a shorter name, but with “lenof”, I associate “len” with string lengths (size - 1), so I’m not keen.
+
+I don't know why "of" needs to be in the keyword". `nelem(array)` or `count(array)` is what I'd like to use.
+
+From a completely neutral point of view, I find countof the most intuitive followed by extendof. However, since the term len is already used similarily, e.g., in strlen, it is also a candidate. For compatibility reasons, I prefer the usage with _Keyword + macro for a transition similar to static_assert.
+
+If an _Underscore keyword with a macro in the header is selected, I would imagine that it could transition to a lowercase-no-underscore keyword after a transition period (compare bool, alignof, etc.)
+
+Sizes should be for byte sizes; for a number of elements, count feels to me like the best, with len(gth) being a very close second.  The extent one is creative, but way too obscure.
+
+it's about size vs length, available space vs used space, lenght as in strlen is used space
+
+Would have preferred array_len. Seems pretty clear what it would be for.
+
+Extent and length are misleading when we often count bytes, nelemof sounds ridiculous said out loud and remembering to make it plural is hard. Just... countof is the only ok one.
+
+Thanks for the survey
+
+I am mildly against namespace clobbering, but understand it will happen anyway if a feature is successful in the future, so why delay inevitable?
+
+New lowercase keywords are not nice, makes it harder to argue for upgrades if they break stuff. I'll need my own macro for compatibility anyway, so I don't care if a plain keyword's in a header or not. Naming-wise, I like all the ones that don't cause potentially security-relevant off-by-one errors equally.
+
+Thanks for doing all the work - appreciated!
+
+good job!!
+
+before reading the available options, by the description alone I assumed it would be called lenof. I was pleased to see this listed as the first option.
+
+Now let's make this work on raw pointers that happened to be the roots of arrays...
+
+nelem my beloved! (Plan 9 libc.h line 4 https://git.9front.org/plan9front/plan9front/c51566faa77810a457a543ffcf5707db9579c27a/sys/include/libc.h/f.html )
+
+In chromium we disallow span construction from string literal because of this same includes-the-nul problem. Doing so found some existing bugs and will eliminate countless more in the future. Maybe lengthof() should similarly not work on a string literal. The compiler can differentiate literals from other char arrays. We have 2 span ctor methods instead for string literals, span_from_cstring and span_from_cstring_with_nul. And the error when trying to construct span directly from a string literal points the user to these two blessed ways
+
+as always, thanks for doing this hard but necessary work!
+
+The framing around this survey was clear and informative. Excellently done.
+
+in my projects i always defined it as NUMOF(array), and worked a lot with it called ARRLEN, from oold code hehe
+
+Keep up the good work
+
+either _Nelts (preferable to _Nelems) or _Eltsof but not both n and of
+
+No
+
+Let's bulldoze legacy codebases, together.
+
+no need to worry about existing code if you do not compile it with new standard
+
+“nelems” isn’t as bad as “nelemsof”, I’d probably rank it above “extentof” even though it breaks the operator pattern
+
+this discussion was not a useful way to spend committee time or the goodwill and effort of contributors
