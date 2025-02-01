@@ -1,4 +1,4 @@
-Recently I enjoyed reading https://thephd.dev/the-big-array-size-survey-for-c , and then https://thephd.dev/the-big-array-size-survey-for-c-results , and then every comment (free response) submitted in the survey on this topic ( full data here: https://github.com/ThePhD/big_array_size_survey ) . For the convenience and edification of the reader, I have decoded and collected the comments below, using the python one-liner `import pandas as pd; df = pd.read_csv("https://raw.githubusercontent.com/wyattscarpenter/big_array_size_survey/refs/heads/patch-1/big_array_size_survey_data.csv", quotechar='"');  open("big_array_size_survey_comments.txt", "w", encoding="utf-8").write("\n\n".join(df["comment"].dropna()))` that chatgpt generated at my behest and encouragement. (The repo in the url I used is mine instead of ThePhD's because I corrected the csv quote-escaping and my PR hasn't been accepted at time of writing.):
+Recently I enjoyed reading https://thephd.dev/the-big-array-size-survey-for-c , and then https://thephd.dev/the-big-array-size-survey-for-c-results , and then every comment (free response) submitted in the survey on this topic ( full data here: https://github.com/ThePhD/big_array_size_survey ) . For the convenience and edification of the reader, I have decoded and collected the comments below, using the python one-liner `import pandas as pd; df = pd.read_csv("https://raw.githubusercontent.com/wyattscarpenter/big_array_size_survey/refs/heads/patch-1/big_array_size_survey_data.csv", quotechar='"');  open("big_array_size_survey_comments.txt", "w", encoding="utf-8").write("\n\n".join(df["comment"].dropna()))` that chatgpt generated at my behest and encouragement. The repo in the url I used is mine instead of ThePhD's because I corrected the csv quote-escaping and my PR hasn't been accepted at time of writing. Also, I then noticed that the comments escape < and &lt; as < and &gt;, so I did a find-and-replace to correct those in this file.
 
 I think C23 is a great turning point to implement disruptive changes, so if we want a keyword (which I'm sure we want) *now* is the moment to introduce it. Who knows when there will be another chance of breaking away with the past like we have right now.
 
@@ -24,7 +24,7 @@ Prefer countof because it's least likely to be misused on a "string lteral" and 
 
 I think "amountof" and "numberof" are missing options. I would even prefer "amountof" over all listed options.
 
-I suspect if there was a header then I wouldn't use it, but I guess it wouldn't hurt; _Countof seems slightly easier than '#include &lt;stdcountof.h&gt; ... countof(...)'. One benefit I can see to '_Countof' (etc.) over 'countof' is that it makes clear 'this is new in C2y' (so C99/etc compatible code beware), but I can also see why it standing out might not be good (since it fits in less, and C already_has_lots_of_underscores). As for the name, _Lengthof is OK but sounds a bit similar to sizeof, and I can see _Lengthof("")==1 being odd. _Nelemsof looks weird but makes a lot of sense.
+I suspect if there was a header then I wouldn't use it, but I guess it wouldn't hurt; _Countof seems slightly easier than '#include <stdcountof.h> ... countof(...)'. One benefit I can see to '_Countof' (etc.) over 'countof' is that it makes clear 'this is new in C2y' (so C99/etc compatible code beware), but I can also see why it standing out might not be good (since it fits in less, and C already_has_lots_of_underscores). As for the name, _Lengthof is OK but sounds a bit similar to sizeof, and I can see _Lengthof("")==1 being odd. _Nelemsof looks weird but makes a lot of sense.
 
 keep up the good work chad, thank you for everything
 
@@ -148,7 +148,7 @@ I would prefer it in an existing header over a new header or all the cool stuff 
 
 Anything with len or length is bad, as the term has a different meaning for strings in the standard library already.
 
-A macro definition would be much less objectionable if it could be brought in with an #include like &lt;stdc2y.h&gt; that includes all of the new "keywords" of that and previous standards.  Basically, &lt;stdnoreturn.h&gt; was not terribly useful, but a &lt;stdc11.h&gt; (which would #include &lt;stdnoreturn.h&gt;, &lt;stdalign.h&gt;, &lt;stdc99.h&gt; etc) would have been.
+A macro definition would be much less objectionable if it could be brought in with an #include like <stdc2y.h> that includes all of the new "keywords" of that and previous standards.  Basically, <stdnoreturn.h> was not terribly useful, but a <stdc11.h> (which would #include <stdnoreturn.h>, <stdalign.h>, <stdc99.h> etc) would have been.
 
 no.
 
@@ -166,7 +166,7 @@ thanks for making the stdlib much better :)
 
 _Keyword is not very ergonomic for how common this operator is. And I guess most users would expect a similar spelling to sizeof et al as possible. Thanks for the survey :)
 
-The language (I didn't say the committee) is suffering BADLY from paralysis. Fiascos like taking 30 years to add true and false can't continue to happen. If someone has a symbol named 'false' or 'lengthof' and has specified --gimme-C26 then they can take on the minute-long global search and replace in cscope, CLion, or (very carefully) sed.  Identifiers clash all the time in new development environments. They SHOULDN'T, but because there's not a contact between the set of symbols and behavoiurs requested and those available - this is just the kind of thing that developers of ACTIVELY MAINTAINED code expect.  The failure case is obvious and trivial to fix. Pick a good identifier (lengthof is like sizeof), don't hide it behind the presence of an include &lt;stdthing.h&gt; to activate it, and rip the bandaid off. Old code can stay on old compilers. When the old compilers don't run on computers that can be bought, borrowed, emulated, or virtualized, and a change MUST be made, then someone needs to exit denial and actually pay/bribe a programmer to actively maintain the stupid code.  Love your writing. Stay awesome!
+The language (I didn't say the committee) is suffering BADLY from paralysis. Fiascos like taking 30 years to add true and false can't continue to happen. If someone has a symbol named 'false' or 'lengthof' and has specified --gimme-C26 then they can take on the minute-long global search and replace in cscope, CLion, or (very carefully) sed.  Identifiers clash all the time in new development environments. They SHOULDN'T, but because there's not a contact between the set of symbols and behavoiurs requested and those available - this is just the kind of thing that developers of ACTIVELY MAINTAINED code expect.  The failure case is obvious and trivial to fix. Pick a good identifier (lengthof is like sizeof), don't hide it behind the presence of an include <stdthing.h> to activate it, and rip the bandaid off. Old code can stay on old compilers. When the old compilers don't run on computers that can be bought, borrowed, emulated, or virtualized, and a change MUST be made, then someone needs to exit denial and actually pay/bribe a programmer to actively maintain the stupid code.  Love your writing. Stay awesome!
 
 mostly a C++ user, only used C a few times to make small changes to existing programs
 
@@ -210,7 +210,7 @@ You're a glutton for punishment. THANK YOU! :) :) :)
 
 `count` and `elem` are great, but `len` is terrible for NUL-terminated strings.
 
-_Count is also good, and _PascalCase would be very nice indeed - "nelemsof" looks like "lelem sof" to my eyes. I'd get used to it but it's not good. C.f. "Header" -&gt; This is wildly out of scope but having a single "keywords2Y" compatibility header would be nice (I bet that might also allow static array extents in C++ if it had the correct macro replacement with auto and requires)
+_Count is also good, and _PascalCase would be very nice indeed - "nelemsof" looks like "lelem sof" to my eyes. I'd get used to it but it's not good. C.f. "Header" -> This is wildly out of scope but having a single "keywords2Y" compatibility header would be nice (I bet that might also allow static array extents in C++ if it had the correct macro replacement with auto and requires)
 
 Would something like array_length make it clear that it's similar to sizeof, not strlen, in regards to '\0' terminator being counted? Something len/length might not make clear as mentioned in the blog post.
 
@@ -238,7 +238,7 @@ None of the options are amazing, but the feature is great, so I will accept anyt
 
 sizeof[] should be considered
 
-C &gt; C++ &lt;3
+C > C++ <3
 
 Whatever C++ will also accept, as std::size and general library bloat is anathema in many AAA game studios
 
@@ -254,7 +254,7 @@ elementcount or noofvalues valuecount elementsize elements nelemets noofelements
 
 Length is a standard word to describe the size of array. or instead of sizeof, sizearray(X)
 
-good luck with the survey &lt;3
+good luck with the survey <3
 
 No need to deviate from n3325. Uglified names shoul come with a header. The feature counts more than the name. The name should be descriptive and shall be clearly different from sizeof.
 
@@ -300,7 +300,7 @@ Thank you for moving this functionality out of macros and into the base language
 
 Personally I do not see the need for a "compute the number of elements in this array" operator. However, if it were to be added, I would strongly prefer it to use a reserved symbol (e.g. _Countof) instead of a bare `lowercasekeyword`, with an accompanying macro in a header.
 
-Thank you for your hard work! &lt;3
+Thank you for your hard work! <3
 
 arrlen!  named after `strlen` because they're used very similarly.
 
@@ -312,7 +312,7 @@ lengthof is familiar and apparent but heavily overloaded by domain specific term
 
 I'm personally perfectly happy with sizeof array / sizeof *array; I've never defined a macro for this concept. I'd like to have a good reason to use a new keyword besides just doing preprocessor work that everyone can do at home; the double evaluation of the thing whose size is being taken is, in my experience, never an issue.
 
-The symmetry with C++'s std::extent and std::rank tips me in favor of that solution. Without consideration of C++, _Countof/countof is equally apealling. None of the proposed solutions conflict with my personal code (I've never used, or even encoutered as far as I remember, variables with names like "&lt;noun&gt;of"), so no problem for me going straight to the lowercase keyword.
+The symmetry with C++'s std::extent and std::rank tips me in favor of that solution. Without consideration of C++, _Countof/countof is equally apealling. None of the proposed solutions conflict with my personal code (I've never used, or even encoutered as far as I remember, variables with names like "<noun>of"), so no problem for me going straight to the lowercase keyword.
 
 Thank you for pushing practical improvements to C.
 
