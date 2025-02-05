@@ -189,3 +189,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2025-01-30: [Thrownness As A Condition To Overcome](thrownness_as_a_condition_to_overcome.txt)
 
 2025-02-01: [Trivia: Every Comment From ThePhD's Big Array Size Survey](trivia_big_array_size_survey_comments.txt)
+
+2025-02-05: [Reflections On The Bowling Green Massacre](reflections_on_the_bowling_green_massacre.txt)
