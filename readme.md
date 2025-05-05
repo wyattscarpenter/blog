@@ -196,4 +196,6 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 
 2025-04-11: [Being Alive Feels Inherently Pleasant To Me](being alive feels inherently pleasant to me.txt)
 
-2025-05-05: [What's Going On With This Blog; Its Past And Future And Present](whats_going_on_with_this_blog_its_past_and_future_and_present.txt)
+2025-04-25: [What's Going On With This Blog; Its Past And Future And Present](whats_going_on_with_this_blog_its_past_and_future_and_present.txt)
+
+2025-04-26: [Giving Up On All That](giving_up_on_all_that.txt)
