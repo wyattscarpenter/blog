@@ -1,0 +1,24 @@
+Last night, I was drifting off to sleep, and thinking about my problems and what cause them, and how come I wasn't Unifying Thought And Action and also getting a bunch of things done that I'd like to have done. And I realized what my problem was. And, like always, my problem is not using reason enough.
+
+I realized — or perhaps merely imagined, who can say — that I was, in a very limited sense, afraid of using reason. Actually, only one particular part of the reasoning process. The part where you come to a conclusion, where you end deliberation and say "that's as good as I have it figured, let's do that". There are a couple interesting facts about this phase of the process.
+
+• One fact is that your conclusion about what to do is never guaranteed to deliver to you the best possible result. In fact, what you're generally trying to reason towards choosing is a course of action that involves the highest Expected Value. So, if one course of action  has a 1% chance to get you $100, and another a 10% chance of $10, and a third a 5% chance of $30, you should actually pick the third course of action every time (ceteris paribus) even though it isn't the surest thing or the thing with the highest possible payoff — it has the highest expected value.
+  ◦ Note that in real life, your assessment of your abilities often controls the chances, so having a good idea of your abilities and taking the appropriate courses of action with respect to those can be very useful.
+
+• The process can go on forever. In two ways:
+  ◦ There's an infinite number of ideas. There's basically an infinite number of actions or series of actions you could do, or ideas you could have about them and their properties (and their plausible outcomes). So, you can always do more of this. (Except in artificially constrained settings.) In some ways, you will be doing this for the rest of your life.
+  ◦ You can get more expected value. It's not like you're ever find the optimal solution and know it because it maximizes how well life could go or whatever.
+
+• Like all processes of reasoning, this contains both conscious and unconscious parts.
+
+And so, often it's useful to keep a question of what to do open. When to close it? Well, that's another question requiring the use of reason, I suppose... or maybe just instinct. Whew! Saved us from an infinite regress. An infinitely-long deliberation. (Hope you don't need to make a rational decision about whether or not to follow your instincts!)
+
+And I was averse to doing that. But there's nothing to be averse to. Go forth, and achieve utility!
+
+Since I decided to just follow the edicts of reason, which I should impress upon you (the reader) is a distinctive mental action I can take (that's the point & premise of this blog post), without deliberating further upon them, my decisions and efficiency have improved dramatically.
+
+“Enough talk! Now is a time for action.”
+
+And now, much like a reasoning process, this blog post will conclude.
+
+Edit 2025-05-05: Having tried out this strategy for a while, I found it gave great results for a while, but then its efficacy wore off, perhaps because I started to forget to do it. In retrospect, the line between "consulting reason" and "consulting instinct" is also quite blurry.

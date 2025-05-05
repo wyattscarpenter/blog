@@ -192,4 +192,6 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 
 2025-02-05: [Reflections On The Bowling Green Massacre](reflections_on_the_bowling_green_massacre.txt)
 
+2025-02-18: [It Is A Fear Of Using Reason](it_is_a_fear_of_using_reason.txt)
+
 2025-04-11: [Being Alive Feels Inherently Pleasant To Me](being alive feels inherently pleasant to me.txt)
