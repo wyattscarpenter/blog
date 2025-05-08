@@ -1,0 +1,5 @@
+It is a truth universally acknowledged that everything is a tradeoff. Every (or, to give a little wiggle room, *almost* every) choice between A and B will have some plusses in the A column and some plusses in the B column. Given what you need, any technique *could* best any other technique in a head-to-head comparison, perhaps.
+
+But that means the ultimate skill is picking the best tradeoff, which means again nothing is a tradeoff. Of course, every choice between A and B is a tradeoff. A gives you more widgets and B gives you more flexibility — now, is it better to have more widgets or more flexibility? Is it better to pursue a strategy that leaves you needing more widgets or more flexibility? And you ask these questions upwards and upwards until you're just figuring out the best things and then doing them, and there isn't a tradeoff anymore. (At most, there are choices between equally-good alternatives.)
+
+And that's, some will tell you, the purpose of philosophy.

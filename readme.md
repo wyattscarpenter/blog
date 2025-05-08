@@ -201,3 +201,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2025-04-26: [Giving Up On All That](giving_up_on_all_that.txt)
 
 2025-05-07: [Coinciding And Noncoinciding With Religious Morality](coinciding_and_noncoinciding_with_religious_morality.txt)
+
+2025-05-08: [The Ultimate Tradeoff](the_ultimate_tradeoff.txt)
