@@ -203,3 +203,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2025-05-07: [Coinciding And Noncoinciding With Religious Morality](coinciding_and_noncoinciding_with_religious_morality.txt)
 
 2025-05-08: [The Ultimate Tradeoff](the_ultimate_tradeoff.txt)
+
+2025-05-10: [Git Note Rebase Prank](git_note_rebase_prank.txt)

@@ -1,0 +1,35 @@
+I use a lot of git features, which is always a bad idea. This is because about 50% of git commands are pranks. They were put in there to prank you. And by god, does it work.
+
+Recently, I had a git history, and I put some git notes on that git history. Git notes are like additional commit messages you can apply after-the-fact, or to any git object.
+
+So, eventually, I had to do a big rebase. This is something most git experts learn how to do and then suggest you don't do. I am no exception! Rebasing is actually broken in several ways in git, and in this blog post we are admiring one of the facets of its brokenness. But, as so often happens, I needed to rebase the entire history in order to remove some large binary files and plain text passwords. So it goes. (Note: you should actually just use https://github.com/newren/git-filter-repo for this. In my case, I wanted to *replace* the large binary files with some smaller binary files, which is not a feature of git-filter-repo as far as I can tell, so I was sort of painted into a corner here. After a lot of trouble, I ended up using git-filter-repo to remove the files and then added the new files in a new commit.)
+
+The million-dollar question: when you do a rebase, do your git notes apply to the new history? Of course, the answer should be yes. What's next, rebasing deletes all of your commit messages? Rebase doesn't update the branch tip? Ridiculous. But what is the actual answer⸮
+
+Let us turn our attention to https://git-scm.com/docs/git-notes, and ctrl-f for "rebase":
+
+> notes.rewrite.<command>
+>    When rewriting commits with <command> (currently `amend` or `rebase`), if this variable is false, git will not copy notes from the original to the rewritten commit. Defaults to true. See also notes.rewriteRef below.
+
+So far, so good! (The effective value of) `git config notes.rewrite.rebase` must be true, but it defaults to true, and it's not set on my system, so we're golden!
+
+I'd like to tell you I read this page first and was crushed when it didn't work. But actually I just assumed it would work, was crushed, and then investigated this page after the fact.
+
+Anyway, let's "see also notes.rewriteRef below".
+
+> notes.rewriteRef
+>    When copying notes during a rewrite, specifies the (fully qualified) ref whose notes should be copied. May be a glob, in which case notes in all matching refs will be copied. You may also specify this configuration several times.
+>    Does not have a default value; you must configure this variable to enable note rewriting. Set it to refs/notes/commits to enable rewriting for the default commit notes.
+
+Oh... so instead of defaulting to working, you have to enable the feature. Even though notes.rewrite.rebase defaults to true, and 
+core.notesRef defaults to refs/notes/commits, notes.rewriteRef doesn't default to anything and you need to set it or play 52-card-pickup with all your git notes. Great.
+
+Just another foolish setting default in git for https://github.com/wyattscarpenter/gyatt to fix.
+
+While researching this, I also learned:
+
+1. GitHub used to display git notes, but later removed that feature https://github.blog/news-insights/git-notes-display/. (I think the UI here looks nice, btw.) This briefly confused me, because I had previously learned you can leave comments on a commit on github (not a code review in a PR, but comments on the github.com/username/reponame/commit/BIGSTRINGOFHASHDIGTS page), and I thought those were implemented as git notes. But I guess not! Ah, well. Who can understand github features. Did you know github added "wikis" as a feature for repos... and those wikis are also git repos? Yo dawg we heard you liked repos so we put a repo in your repo so that your documentation can get out of sync.
+  ◦ See also: https://www.quora.com/Why-does-GitHub-no-longer-support-git-notes
+
+2. Of the existence of this thread, which was enlightening on this topic and a small slice of git development history:
+  https://git.vger.kernel.narkive.com/LkEHtcvT/lost-association-between-tags-and-commits-when-rebased-a-1-repository
