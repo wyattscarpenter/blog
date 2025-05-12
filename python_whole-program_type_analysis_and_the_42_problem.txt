@@ -1,0 +1,30 @@
+Recently I've been doing a lot of typechecking in python. Nevermind why. Sometimes a man is called to his fate. Anyway, any typechecker worth its salt will tell you this is a problem:
+
+"hello" + 42
+
+And they're right to, because it's a runtime error:
+
+TypeError: can only concatenate str (not "int") to str
+
+(The other way is also a type error: `42 + "hello"` results in `TypeError: unsupported operand type(s) for +: 'int' and 'str'`)
+
+In fact, this is basically the canonical type problem a python typechecker catches, because it's so simple, obvious (if you aren't a javascript programmer), comes immediately to mind, etc.
+
+But that's not my "42 problem". This is my problem:
+
+def f(x):
+  x + 42
+f("hello")
+
+I'm trying to find something that will tell me about the type error in unannotated code like that.
+
+Mypy (including with --check-untyped-defs): no
+Basemypy: no (it complains about the statement being untyped, though)
+Pyright: no (")
+Basedpyright: "
+Pytype: couldn't find a "playground" for this quickly on google, but I'm going to guess no. (OK I tried it on my machine and yeah it's a no.)
+Pyre: no 
+Pyrefly: no
+Ty: no (this in in v0.0.0 beta, btw)
+
+I don't think I'm going to solve this problem today. (Unless, I suppose, you happen to be reading this in a very particular day in the future.) This is more something I habitually scheme about for the future.
