@@ -26,5 +26,8 @@ Pytype: couldn't find a "playground" for this quickly on google, but I'm going t
 Pyre: no 
 Pyrefly: no
 Ty: no (this in in v0.0.0 beta, btw)
+shedskin: surprisingly, it seems not
 
 I don't think I'm going to solve this problem today. (Unless, I suppose, you happen to be reading this in a very particular day in the future.) This is more something I habitually scheme about for the future.
+
+(This is probably called "whole-program" or "global" type inference. It may also be complete type inference.)
