@@ -209,3 +209,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2025-05-12: [Python Whole-program Type Analysis And “The 42 Problem”](python_whole-program_type_analysis_and_the_42_problem.txt)
 
 2025-05-24: [Ideal And Actual Legalism](ideal_and_actual_legalism.txt)
+
+2025-05-25: [Capitalismpilled Preferenceënjoyer](capitalismpilled_preferenceenjoyer.txt)
