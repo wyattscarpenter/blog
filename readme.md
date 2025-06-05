@@ -213,3 +213,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2025-05-25: [Capitalismpilled Preferenceënjoyer](capitalismpilled_preferenceenjoyer.txt)
 
 2025-06-02: [When They “Clever Hans” Their Own Robot](clever_hans_llm.txt)
+
+2025-06-05: 𝝅𝝋 [About Bad Arguments About Libertarianism, Sexism](about_bad_arguments_about_libertarianism_sexism.txt)

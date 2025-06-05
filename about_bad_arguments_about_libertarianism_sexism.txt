@@ -1,0 +1,23 @@
+Part 1: about bad arguments about libertarianism
+
+In practice I'm one of the most libertarian guys I know of, but I think most of the arguments for the principle of libertarianism are embarrassingly bad.
+
+(aside: ... Unfortunately, like JS Mill said, arguments for positions only become better when they have counter arguments to best that are actually good, and nobody besides libertarians is even trying to think about the issues coherently.)
+
+I'm like that guy from the meme who is giving an argument under your premises instead of his own (this is how all persuasive arguments work btw). "I just believe we should do good things and not bad things. But maybe you'll believe this dumb principle about humility in lawmaking or whatever."
+
+((Guy takes the argument about legislative humility too seriously and decides we can't make a law against people camping on public places in the city.) "Uh, no, not like that!")
+
+Part 2: about bad arguments about sexism
+
+It strikes me that this bad arguments for libertarianism train of thought connects to the bad argument that tech company hiring can't be sexist that was in currency in, I would say, the 2010s.
+
+I wish I could find my other note that I wrote on the matter to save us some time (it's not a blog post, just some text I jotted down), but basically I thought it was implausible that tech companies would be sexist against women in terms of hiring (as was often alleged), until I learned that the people doing the hiring that was allegedly sexist were often Indian and Chinese men (immigrants from those countries, not simply of those races). And then I was like, oh, yeah, it all makes sense now.
+
+The real reason why it was implausible that tech companies were sexist against hiring women was because American culture is not sexist. (Specifically, upper- or middle- class white-collar professional business culture is not sexist.) The real reason why it's implausible is not "because companies like money" — there's a huge principal-agent problem there which completely thwarts that in practice.
+
+I don't know if indian and chinese immigrant professional business culture is sexist, because I don't know a lot about those. But it's more plausible.
+
+(Another reason is "because that's illegal" — the subsequent decade and a half of politics has basically been about various aspects this, in various ways, with no end in sight. So, that's too much detail for me to go into here, besides noting that it's still a huge principal-agent problem.)
+
+However, this argument took place at a time in history that operated under different assumptions. For instance, it was a popular idea at that time that the USA was one of the most sexist countries in history; it's actually one of the least sexist, which most people have realized by now. So, you could say I believe in the progression of the history of ideas.
