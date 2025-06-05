@@ -122,7 +122,7 @@ if not a["dont_git"]:
   run(["git", "add", a['basename.ext'], file_to_which_to_append])
   # Add the git pre-commit hook to the git hooks folder
   p = ".git/hooks/pre-commit"
-  p_payload = "#!/bin/sh\ngit diff --check && ./toc.py --check" #TODO: do I have to add a #!/bin/sh to this?
+  p_payload = "#!/bin/sh\ngit diff --check && ./toc.py --check" #You have to add a #!/bin/sh to this, or chmod it, for git to use it right, I think.
   try:
     with open(p, 'x', encoding="utf-8", newline='\n') as f:
       f.write(p_payload)
