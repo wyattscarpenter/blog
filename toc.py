@@ -20,8 +20,11 @@ def warn(*args: object) -> None:
 def dateformat(s: str) -> date:
   try:
     return date.fromisoformat(s)
-  except:
-    return date.today() + timedelta(days=int(s))
+  except ValueError:
+    try:
+      return date.today() + timedelta(days=int(s))
+    except ValueError:
+      raise ValueError(f"I could not interpret ‘{s}’ as date nor a relative offset. Try something like ‘2024-03-31’ or ‘3’.")
 
 file_to_which_to_append: str = "readme.md"
 
@@ -29,7 +32,7 @@ pf_usage: str = "used to mark a post as 𝝅𝝋, political philosophy; you may 
 
 parser.add_argument('basename.ext', type=str, help="The file name that will be used in the url. Do not include the rest of the path. Example: foo.txt. Note: you should be able to tab-complete this, which is why it's the first argument. Also, if the file doesn't exist, toc will create it for you. SPECIAL CIRCUMSTANCE: if basename.ext is .[ext] then \"Title Of Post\" will be converted to an appropriate file name a la title_of_post.[ext] and the file will be created (in which case, the file already existing is an error); in such cases, ext defaults to txt if not provided.")
 parser.add_argument('"Title Of Post"', type=str, help="The post title that will be used in the listing. Example: 'On The Fooing Of Foos: Or, How I Learned To Give Up And Love The Foo'. Note: you will probably have to quote this argument, in your shell. The title will be converted to initial caps, the capitalization style in the example I just gave.")
-parser.add_argument('-d', '-date', '--date', type=dateformat, help="The date the post will be dated as. Defaults to the output of date.today() if not specified. It should be given in 2024-03-31 format. The argument to this flag is validated against python's datetime's ISO 8601 recognizer: https://docs.python.org/3/library/datetime.html#datetime.date.fromisoformat . Additionally, a format of +k or -k, where k is an integer, will use date.today() plus (or minus) that many days.") # It would be more ergonomic to use dateparser.parse here, thus making my life easier, but currently this script has no deps outside of the stdlib, which is nice.
+parser.add_argument('-d', '-date', '--date', type=dateformat, help="The date the post will be dated as. Defaults to the output of date.today() if not specified. It should be given in 2024-03-31 format. The argument to this flag is validated against python's datetime's ISO 8601 recognizer: https://docs.python.org/3/library/datetime.html#datetime.date.fromisoformat . Additionally, supplying a bare integer will use date.today() plus (or minus) that many days. I like to provide arguments like ‘+3’ because they are valid, but that is just another way to spell ‘3’ as far as Python is concerned.") # It would be more ergonomic to use dateparser.parse here, thus making my user life easier, but currently this script has no deps outside of the stdlib, which is nice.
 parser.add_argument('-p', '-pi', '--pi', '-π', action='store_true', help="Mark the post with a 𝝅. Note: only ever "+pf_usage)
 parser.add_argument('-f', '-phi', '--phi', '-φ', action='store_true', help="Mark the post with a 𝝋, indicating it is about philosophy. Note: sometimes "+pf_usage)
 parser.add_argument('-n', '-nono', '-dry-run', '--nono', '--dry-run', action='store_true', help="Exit the program before we make any changes, thereby doing nothing, in order to merely test the program.")
