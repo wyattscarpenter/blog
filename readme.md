@@ -215,3 +215,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2025-06-02: [When They “Clever Hans” Their Own Robot](clever_hans_llm.txt)
 
 2025-06-05: 𝝅𝝋 [About Bad Arguments About Libertarianism, Sexism](about_bad_arguments_about_libertarianism_sexism.txt)
+
+2025-07-03: [Levels Of Busyness 2: Coda](levels_of_busyness_2_coda.txt)
