@@ -1,0 +1,11 @@
+Eternity ii (hence: 2) is not really a puzzle (so to speak) because you cannot really "play" it.
+
+eternity ii is a thing I won't describe too much. look on Wikipedia I guess.
+
+also, I don't care about eternity i. it was probably better on the axis I'm about to describe.
+
+so, anyway, the problem with eternity ii is that you can't really play it. it's literally just a brute force state search after a certain point. simply a massive combinatorial barrier. other puzzles are kind of like a state search, but you can think about what you're doing in the middle. have some strategy. 2 isn't like that, really. the symbols on the tiles probably aren't clues. it's just, like, an np-complete graph-coloring problem.
+
+to be fair, I guess they were pretty honest about this in the marketing of the game, by saying that no mathematician would be able to crack it. but they were dishonest in implying that anyone would stumble upon the solution. I didn't follow the publicity for this product so I don't know what claims they actually made and I have no particular interest in "prosecuting" them for it. it's a fun product to exist and times were simpler then. simpler and better.
+
+
