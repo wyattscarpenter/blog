@@ -217,3 +217,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2025-06-05: 𝝅𝝋 [About Bad Arguments About Libertarianism, Sexism](about_bad_arguments_about_libertarianism_sexism.txt)
 
 2025-07-03: [Levels Of Busyness 2: Coda](levels_of_busyness_2_coda.txt)
+
+2025-08-04: [You're Going To Have To Ignore A Lot Of Bad Advice](youre going to have to ignore a lot of bad advice.txt)
