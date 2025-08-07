@@ -221,3 +221,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2025-08-04: [You're Going To Have To Ignore A Lot Of Bad Advice](youre going to have to ignore a lot of bad advice.txt)
 
 2025-08-06: [Everything I Know About Zero-knowledge Proofs](everything_i_know_about_zero-knowledge_proofs.txt)
+
+2025-08-07: [Everything I Know About Zero-knowledge Proofs 2: The Proofening](everything_i_know_about_zero-knowledge_proofs_2_the_proofening.txt)
