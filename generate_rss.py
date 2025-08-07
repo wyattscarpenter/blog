@@ -5,7 +5,7 @@ from datetime import datetime
 from os.path import basename
 from urllib.parse import quote as url_escape
 
-version = 8
+version = 9
 encoding = "UTF-8"
 blog_url_base = "https://wyattscarpenter.github.io/blog/"
 
@@ -21,7 +21,7 @@ def xml_escape(string: str) -> str:
   string = xml_unicode_limit(string)
   return string
 
-def rss_item(pubDate: str, title_raw: str, file_name: str) -> bytes:
+def rss_item(pubDate: str, title_raw: str, file_name: str) -> str:
   # It's kind of implied (but, oddly, poorly-specified) that the pubDates have to be both time AND date, but we don't really have enough information to do that so we just use the rfc 822 date format https://datatracker.ietf.org/doc/html/rfc822#section-5 (2-digit day 3-letter month 4-digit year) # Actually, we just ignore the RSS specification's specification of rfc 822 format, and use YYYY-MM-DD instead. Who's going to stop us?
   try:
     with open(file_name, "r", encoding=encoding, newline="\n", errors='replace') as f: # My rss feed replaces non-unicode characters with unicode replacement characters (U+FFFD, � using errors='replace'), because (first of all, I use unicode because I like to use emoji, and also because it's 2025 not the medieval dark ages of 1982) the XML specification (RSS documents are XML documents) defines it as a fatal error(!) "if an XML entity is determined (via default, encoding declaration, or higher-level protocol) to be in a certain encoding but contains byte sequences that are not legal in that encoding" https://www.w3.org/TR/REC-xml/#charencoding. They have additional verbiage in there that makes it extremely clear that my previous plan of shoving arbitrary binary data into a UTF-8 xml document is NOT ALLOWED and MANDATORILY ILLEGAL.
