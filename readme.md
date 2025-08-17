@@ -56,7 +56,7 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 
 2021-11-23: [Escaping Mathese](escaping_mathese.txt)
 
-2022-01-09: [A Note On The GNU/Linux Naming Controversy: in which I take a position on the greatest issue of the late 1990s - early 2000s](gnu_linux_naming_controversy.txt)
+2022-01-09: [A Note On The GNU/Linux Naming Controversy: in which I take a position on the greatest issue of the late 1990s – early 2000s](gnu_linux_naming_controversy.txt)
 
 2023-07-08: 𝝋 [Chemical Atoms Are Not Philosophical Atoms](chemical_atoms_are_not_philosophical_atoms.txt)
 
