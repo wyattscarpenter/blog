@@ -223,3 +223,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2025-08-06: [Everything I Know About Zero-knowledge Proofs](everything_i_know_about_zero-knowledge_proofs.txt)
 
 2025-08-07: [Everything I Know About Zero-knowledge Proofs 2: The Proofening](everything_i_know_about_zero-knowledge_proofs_2_the_proofening.txt)
+
+2025-09-08: ["Allows To"](allows_to.txt)
