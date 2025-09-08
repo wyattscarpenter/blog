@@ -1,0 +1,13 @@
+"Allows to" is a construction that often shows up in the technical writing of educated and competent speakers who learned English as a second language, in sentences such as "The flag allows to run the program in debug mode." (There are other unrelated constructions in a sentence that might happen to put the word to after the word allows, but I'm not talking about those in this post.) To be brief, this construction is ungrammatical and the easiest way to fix it is to replace it with "allows one to", eg "The flag allows one to run the program in debug mode."
+
+The rest of this post is additional musings and information on the topic.
+
+Is "allows to" ungrammatical? Yes. Let me be more specific about that: I am evaluating the grammaticality of the phrase as a native American English speaker, and it is not grammatical to me. I suspect this would be the same for native British English speakers. There may be some other varieties of English (perhaps Indian English or Singaporean English, for example) in which this construction is considered grammatical by native speaker; I don't know.
+
+Should "allows to" be corrected? Yes, to the extent that the projects in which the verbiage resides aspires to conform to the grammatical conventions of American English (which I believe to be a very common goal of eg programming language documentation).
+
+Is "allows to" clear? Yes; once the reader gets over the sense that something is grammatically amiss, I believe the construction is easy to understand. 
+
+Do I like "allows to"? Yes; I personally find it both logical and charming. Still not grammatical in American English, though.
+
+Why is "allows to" ungrammatical? The surface level answer to this is that "allows" (in this sense) is a transitive verb, which means it requires a direct object, which can be a noun like "one" or "him" or "running" (this is a gerund, a verb-become-noun) but can't be a verb like "run" or "to run" (this is the infinitive, which is quite similar to the gerund but is still a verb not a noun). But why is that? you might ask. And the answer there is that the essence of grammar is a bunch of arbitrary rules sorts of words can follow which other sorts of words, and they are fairly random-seeming at a basic level. So: it just is.
