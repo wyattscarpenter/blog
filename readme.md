@@ -233,3 +233,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2025-11-18: 𝝋 [The Way In Which Art Is Good](the_way_in_which_art_is_good.txt)
 
 2025-12-04: 𝝋 [A Main Bad Move In Continental Philosophy](a_main_bad_move_in_continental_philosophy.txt)
+
+2025-12-05: 𝝋 [Some Brief Reflections On Continential Philosophy](some_brief_reflections_on_continential_philosophy.txt)
