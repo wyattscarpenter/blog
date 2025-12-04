@@ -224,6 +224,8 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 
 2025-08-07: [Everything I Know About Zero-knowledge Proofs 2: The Proofening](everything_i_know_about_zero-knowledge_proofs_2_the_proofening.txt)
 
+2025-08-24: [Every Piece Of Software That Generates Footnotes Should Use Unicode Superscript Numbers Instead Of Html Superscript Numbers](unicode_superscript.txt)
+
 2025-09-08: ["Allows To"](allows_to.txt)
 
 2025-09-10: [The Theater Defies Explanation](the_theater_defies_explanation.txt)

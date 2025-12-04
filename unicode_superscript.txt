@@ -1,0 +1,25 @@
+An easy blogpost for an easy day:
+
+Every piece of software that generates footnotes should use unicode superscript numbers instead of html superscript numbers.
+
+That's my claim. To illustrate, if you're using markdown you can write something like the following:
+
+Hello.[^my_footnote_name]
+
+[^my_footnote_name]: This claim has been fact-checked by true patriots at https://example.com!
+
+and it will render (or perhaps already rendered, if you're viewing this plaintext blogpost in a markdown viewer for some reason) as something like the following:
+
+Hello.¹
+
+1: This claim has been fact-checked by true patriots at https://example.com! ⤣
+
+However, here's the problem: they will actually generate something like Hello.<sup>1</sup>
+
+If this ever has to be used or pass through a plain text context — which is quite likely these days — such as if someone copy-pastes it, or previews it as an embed, etc etc, then it will most likely lose its formatting and decay to 
+
+Hello.1
+
+1: This claim has been fact-checked by true patriots at https://example.com! ⤣
+
+This error is common and ugly. And for what reason? No reason. Unicode already provides you with character fit for this purpose. You can just use the correct text.
