@@ -231,3 +231,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2025-09-10: [The Theater Defies Explanation](the_theater_defies_explanation.txt)
 
 2025-11-18: 𝝋 [The Way In Which Art Is Good](the_way_in_which_art_is_good.txt)
+
+2025-12-04: 𝝋 [A Main Bad Move In Continental Philosophy](a_main_bad_move_in_continental_philosophy.txt)
