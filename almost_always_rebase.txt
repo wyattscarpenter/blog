@@ -10,9 +10,9 @@
 
     — Wyatt S Carpenter
 
-  What is a commit in git? Well, a commit is a snapshot of the entire codebase at a certain point in time. That's why you can "checkout" a git and browse the state of the repo at a certain point in history. Git is a little bit more complicated than keeping all of your old code versions in a hidden directory, but conceptually that's what it does.
+  What is a commit in git? Well, a commit is a snapshot of the entire codebase at a certain point in time. That's why you can "checkout" a commit in git and browse the state of the repo at a certain point in history. Git is a little bit more complicated than keeping all of your old code versions in a hidden directory, but conceptually that's what it does.
 
-  HOWEVER, because the people who made git got confused, or something, many actions that git says work on "commits" are actually performed on "deltas" (aka differences/patches/diffs). A "delta" is the difference between a commit and the previous commit. So, when you are using a git tool and you "apply" a commit from somewhere, what you're actually doing is looking at the commit, doing a diff between that commit and the commit right before it, which produces a delta, and then applying that delta to your HEAD. This is, ultimately, why you can have conflicts in git at all (but also why git is useful at all).
+  HOWEVER, because the people who made git got confused, or something, many actions that git says work on "commits" are actually performed on "deltas" (aka differences/patches/diffs). A "delta" is the difference between a commit and the previous commit. So, when you are using a git tool and you "apply" a commit from somewhere, what you're actually doing is looking at the commit, doing a diff between that commit and the commit right before it, which produces a delta, and then applying that delta. This is, ultimately, why you can have conflicts in git at all (but also why git is useful at all).
 
   (Note that git commit messages are usually written as a summary of the delta as well. If I've just added a feature X to my program, my commit message is almost certainly going to be "add feature X". Even though, conceptually, the commit is just the entire state of the program, so the commit message should perhaps be a summary of the entire capacities of the program. But this would make commit messages useless, so it is better that we write a summary of the delta in the commit message.)
 
@@ -21,9 +21,9 @@
     A - B - C (head)
           \ D (head of another branch)
 
-  And you decide to apply the commit D to the head C, using cherry-pick, it will NOT just replace the state of your codebase with the state of the codebase in commit D. Instead what it will do is compute the diff between B and D (which we can call BD by analogy to geometric notation for line segments between two points) and then apply that diff to C, resulting in a new commit with a new state of the codebase (which we can call D′, to denote it's kind of like D but special). When you were making changes to your code to make C, you might have changed the code such that now it doesn't make sense to change the code in C in the same way you changed B to get to D. For instance, maybe you changed a function name from foo to baz when you were making C, but when you were making D, you changed the function name from foo to bar. Then you will get a "conflict" when you try to apply D to C, as git won't know what to change.
+  And you decide to apply the commit D to the head C, using cherry-pick, it will *not* just replace the state of your codebase with the state of the codebase in commit D. Instead what it will do is compute the diff between B and D (which we can call BD by analogy to geometric notation for line segments between two points) and then apply that diff to C, resulting in a new commit with a new state of the codebase (which we can call D′, to denote it's kind of like D but special). When you were making changes to your code to make C, you might have changed the code such that now it doesn't make sense to change the code in C in the same way you changed B to get to D. For instance, maybe you changed a function name from foo to baz when you were making C, but when you were making D, you changed the function name from foo to bar. Then you will get a "conflict" when you try to apply D to C, as git won't know what to change.
 
-  In case you've never seen what this looks like, I've include an example repo here you can inspect with git branch, git log, etc. It has a conflict in it:
+  In case you've never seen what this looks like, I've included an example repo here you can inspect with git branch, git log, etc. It has a conflict in it: (TODO:finish this)
 
   The steps to produce this conflict went like so:
 
