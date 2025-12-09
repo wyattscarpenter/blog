@@ -1,0 +1,135 @@
+# Almost Always Rebase: Git The Right Way
+
+  ## Preamble
+
+  Git is an extremely complicated tool. But learning various concepts can make it dramatically easier. I have been asked by a friend to provide an explanation for how I believe one should use git, and why. This is that explanation. I will assume you have basic git proficiency, ie that you can git add, git commit, git push, and maybe even git pull. This document addresses certain preliminaries (which may perhaps be skipped), then my general strategy that I call "Almost Always Rebase", then the specific question of how to enact AAR in a repo with both a dev(elopment) and prod(duction) realization.
+
+  ## Preliminaries: What is a commit? What is a delta? What is a conflict, and what does it mean to resolve them?
+
+    “A delta isn't just a feature of a river in Africa.”
+
+    — Wyatt S Carpenter
+
+  What is a commit in git? Well, a commit is a snapshot of the entire codebase at a certain point in time. That's why you can "checkout" a git and browse the state of the repo at a certain point in history. Git is a little bit more complicated than keeping all of your old code versions in a hidden directory, but conceptually that's what it does.
+
+  HOWEVER, because the people who made git got confused, or something, many actions that git says work on "commits" are actually performed on "deltas" (aka differences/patches/diffs). A "delta" is the difference between a commit and the previous commit. So, when you are using a git tool and you "apply" a commit from somewhere, what you're actually doing is looking at the commit, doing a diff between that commit and the commit right before it, which produces a delta, and then applying that delta to your HEAD. This is, ultimately, why you can have conflicts in git at all (but also why git is useful at all).
+
+  (Note that git commit messages are usually written as a summary of the delta as well. If I've just added a feature X to my program, my commit message is almost certainly going to be "add feature X". Even though, conceptually, the commit is just the entire state of the program, so the commit message should perhaps be a summary of the entire capacities of the program. But this would make commit messages useless, so it is better that we write a summary of the delta in the commit message.)
+
+  So, for instance, if you have a git history that goes:
+
+    A - B - C (head)
+          \ D (head of another branch)
+
+  And you decide to apply the commit D to the head C, using cherry-pick, it will NOT just replace the state of your codebase with the state of the codebase in commit D. Instead what it will do is compute the diff between B and D (which we can call BD by analogy to geometric notation for line segments between two points) and then apply that diff to C, resulting in a new commit with a new state of the codebase (which we can call D′, to denote it's kind of like D but special). When you were making changes to your code to make C, you might have changed the code such that now it doesn't make sense to change the code in C in the same way you changed B to get to D. For instance, maybe you changed a function name from foo to baz when you were making C, but when you were making D, you changed the function name from foo to bar. Then you will get a "conflict" when you try to apply D to C, as git won't know what to change.
+
+  In case you've never seen what this looks like, I've include an example repo here you can inspect with git branch, git log, etc. It has a conflict in it:
+
+  The steps to produce this conflict went like so:
+
+  Once the conflicting branches, master and example-d-branch were set up, I was on branch master and ran the cherry-pick command to apply the HEAD of the example-d-branch (the D commit) to the HEAD of master (the C commit):
+
+    git cherry-pick example-d-branch
+
+  Then, I was greeted by this friendly error message:
+
+    Auto-merging script.txt
+    CONFLICT (content): Merge conflict in script.txt
+    error: could not apply 5294e6e... change foo to bar
+    hint: After resolving the conflicts, mark them with
+    hint: "git add/rm <pathspec>", then run
+    hint: "git cherry-pick --continue".
+    hint: You can instead skip this commit with "git cherry-pick --skip".
+    hint: To abort and get back to the state before "git cherry-pick",
+    hint: run "git cherry-pick --abort".
+
+  The hints here are actually pretty good; if you kind of know what you're doing, you can just follow them. script.txt now looks like this:
+
+    <<<<<<< HEAD
+    baz:
+    =======
+    bar:
+    >>>>>>> 5294e6e (change foo to bar)
+      1
+      2
+      3
+
+  Your task, as a conflict-resolver, is to replace everything within the <<<<<<< and >>>>>>> lines with whatever you want, and then this new version of the file will become the file in the new commit D. Usually, you use your incredible human brain to figure out a version of the file that satisfies the general intention of both commits. But here we will just
+replace baz with bar, because it makes most sense that way in this toy example (the point of the delta BD is to rename the function to bar, so BD applied to C should also rename the function to bar). So we do that, and get the result:
+
+    bar:
+      1
+      2
+      3
+
+  As our result. We can then continue the cherry-pick by running:
+
+    git add script.txt
+    git cherry-pick --continue
+
+  In this case, since we've completely resolved everything, the cherry-pick now concludes, and the new commit is formed. Since we didn't provide a commit message, our text editor will open to prompt us for one. The default is the commit message of D, but since this is a NEW COMMIT, D′, NOT THE SAME COMMIT AS D you can actually type any message you want. Still, the commit message of D is usually the most useful. In our particular case, you might want the commit message of D′ to read "change baz to bar" instead of the commit message of D, "change foo to bar", as we don't have a foo anymore. Well, in either case, we're done. We have fixed the conflict.
+
+  As far as I can tell, conflicts like these ARE ALWAYS CALLED "MERGE CONFLICTS" BY GIT, EVEN WHEN THEY ARE NOT PART OF A MERGE COMMIT BUT INSTEAD ARE PART OF A REBASE COMMIT. So, that's annoying.
+
+  By the way, if you're in the middle of some operation, git status will always keep you appraised of the situation. For instance, in the middle of the cherry-pick, running git status tells us:
+
+    On branch master
+    You are currently cherry-picking commit 5294e6e.
+      (fix conflicts and run "git cherry-pick --continue")
+      (use "git cherry-pick --skip" to skip this patch)
+      (use "git cherry-pick --abort" to cancel the cherry-pick operation)
+
+    Unmerged paths:
+      (use "git add <file>..." to mark resolution)
+            both modified:   script.txt
+
+    no changes added to commit (use "git add" and/or "git commit -a")
+
+  ## Preliminaries, partie deux (deuxième partie): What is a merge commit? What is a rebase? What is fast-forwarding, anyway? While we're at it, what is squashing?
+
+  ## Almost Always Rebase
+
+    I hate code and I want as little of it as possible in our product.
+
+    —Jack Diederich, "Stop Writing Classes", 2012, https://www.youtube.com/watch?v=o9pEzgHorH0
+
+  Reflect on the Jack Diederich quote above. It's one of the most powerful aphorisms in software engineering. It also applies to source code revision. Here is an argument:
+
+    "Code" is details.
+
+    The fewer details you need to do what you want, the easier it is to deal with.
+
+    Therefore, you should try to minimize the amount of code in your product, to make it as easy to deal with as possible.
+
+  Keep in mind that "everything should be made as simple as possible, but no simpler" (nb: this quote is apparently a famous paraphrase of Einstein, I guess). You do eventually need code. You may need a lot of code to get exactly the right behavior you want. Also performance counts as a feature. Also, not all "features" count as features, if they are bad (I will not elaborate on this here). But, within those constraints, the logic still stands.
+
+  Now: THE SAME LOGIC APPLIES TO GIT COMMITS.
+
+
+Two mommies meme
+
+Note in almost always rebase:  the developers of git also realized this.
+
+
+Now that you've read this document, treat yourself to the amusing “Handmade Hero Day 523 - Introduction to Git” https://www.youtube.com/watch?v=3mOVK0oSH2M (first half of the livestream)
+
+
+SEE A FORK IN A ROAD? TAKE IT.
+Based note for git rebases: if you're doing a rebase --rebase-merges (formerly known as --preserve-merges, a much more self-explanatory name), git will, by default, piss its pants and cry and demand you re-solve the merge every time. Here are two based hints for handsome geniuses you can use in the situation:
+
+1. You can turn on git.rerere (git config --global rerere.enabled true). This stands for “reuse recorded resolution”, and it means if you ask git to do a merge you've already done then it will just remember how you did it and do it. Naturally, something this helpful and crucial is turned off by default in git. The crazy thing about mastering git is that you go from thinking "wtf do all these commands do" to "wtf why don't these commands do the right thing?" Anyway, in this case it's because rebase was initially built to flatten your history when rebasing your feature branch on to master — which is great if you can, but as the primary verb to manipulate the DAG of history in git it's sorely lacking. You need to invent your own tools, in the form of practices, around the broken tools you do have.
+
+2. This situation is actually very easy, don't fret! The git rebase message will say something like:
+
+CONFLICT (content): Merge conflict in cicero_shared.py
+error: could not apply 0eef091... fix tag_column_name column name
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+hint: Disable this message with "git config advice.mergeConflict false"
+Recorded preimage for 'cicero_shared.py'
+Could not apply 0eef091... fix tag_column_name column name
+
+The funny thing about this is, even with the bonus helpful message, it doesn't tell you the right and obvious solution: simply git checkout 0eef091 -- cicero_shared.py. This gets the version of the file from the merge that you did the first time in the original timeline. Provided that you haven't actually changed the file in question in your previous changes that you rebased, and the "merge conflict" is just spurious, this will deal with it easily. And if rerere is on, you'll never have to deal with an identical situation to that again! (If you accidentally take this advice and when you shouldn't and ruin your rerere, you then have to get git to forget the right rerere, which I haven't figured out how you're actually supposed to do (you need to get to the state where rerere would apply but doesn't — even though the whole point of rerere is that it applies automatically?).)
+
