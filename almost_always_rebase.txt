@@ -134,8 +134,6 @@
 
     • Use jj instead of git. After mastering git, I've concluded that it's actually very poor at manipulating git histories. (Weird!) So, even though I've never used jj, it's probably better about this.
 
-    • The intended solution for this situation in git is probably to not use --rebase-merges and instead use https://stackoverflow.com/questions/3810348/setting-git-parent-pointer-to-a-different-parent
-
     • You can turn on git.rerere (git config --global rerere.enabled true). This stands for “reuse recorded resolution”, and it means if you ask git to do a merge you've already done then it will just remember how you did it and do it. Naturally, something this helpful and crucial is turned off by default in git. The crazy thing about mastering git is that you go from thinking "wtf do all these commands do" to "wtf why don't these commands do the right thing?" Anyway, in this case it's because rebase was initially built to flatten your history when rebasing your feature branch on to master — which is great if you can, but as the primary verb to manipulate the DAG of history in git it's sorely lacking. You need to invent your own tools, in the form of practices, around the broken tools you do have.
 
       ◦ rerere is turned off by default because it uses some kind of rule to determine if it should run, which is occasionally wrong. So, if it's turned on, it will eventually ruin other merges sometimes. Great... See also: https://stackoverflow.com/questions/5519244/are-there-any-downsides-to-enabling-git-rerere/77453543#77453543 & https://github.com/wyattscarpenter/funny-little-rerere-example-repo/
