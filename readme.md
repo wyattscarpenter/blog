@@ -237,3 +237,5 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2025-12-04: 𝝋 [A Main Bad Move In Continental Philosophy](a_main_bad_move_in_continental_philosophy.txt)
 
 2025-12-05: 𝝋 [Some Brief Reflections On Continential Philosophy](some_brief_reflections_on_continential_philosophy.txt)
+
+2026-01-08: [Almost Always Rebase: Git The Right Way](almost_always_rebase.txt)

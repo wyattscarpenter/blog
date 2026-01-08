@@ -90,8 +90,6 @@
 
   Due to time constraints, I have elected not to write this section. Instead, please enjoy this meme I have made: assets/almost_always_rebase/two_mommies.png
 
-
-
   ## Almost Always Rebase
 
     I hate code and I want as little of it as possible in our product.
@@ -116,7 +114,7 @@
 
   There are basically only three reasons to ever keep a commit around:
 
-  1. The commit history including that commit is public and widespread and you don't want to bother everyone by breaking history and forcing them all to perform complicated maneuvers to adjust to the new history for very little reason.
+  1. The commit history including that commit is public and widespread and you don't want to bother everyone by breaking history and forcing them all to perform complicated maneuvers to adjust to the new history for very little reason. (Thus, the common rule of thumb in git: never change the history of the master branch once it has been published to github, only ever do git reverts to it.)
 
   2. You think you might need that commit later.
 
@@ -130,11 +128,15 @@
 
   ## Appendix B: See A Fork In A Road? Take It.
 
-  Based note for git rebases: if you're doing a rebase --rebase-merges (formerly known as --preserve-merges, a much more self-explanatory name), git will, by default, piss its pants and cry and demand you re-solve the merge every time. Here are some based hints for handsome geniuses you can use in the situation:
+  Based note for git rebases: if you're doing a rebase --rebase-merges (formerly known as --preserve-merges, a much more self-explanatory name), git will, by default, piss its pants and cry and demand you re-solve the merge every time. And I do mean **every time**. Here are some based hints for handsome geniuses you can use in the situation:
+
+    • The crazy thing about mastering git is that you go from thinking "wtf do all these commands do" to "wtf why don't these commands do the right thing?" Anyway, in this case it's because rebase was initially built to flatten your history when rebasing your feature branch on to master — which is great if you can, but as the primary verb to manipulate the DAG of history in git it's sorely lacking. You need to invent your own tools, in the form of practices, around the broken tools you do have.
+
+    • The sane choice here is usually to forget doing a rebase --rebase-merges, and figure out what you can do instead to mostly satisfy whatever goal you started with. Often this involves one of the easy recipes in the famous git-filter-repo tool https://github.com/newren/git-filter-repo.
 
     • Use jj instead of git. After mastering git, I've concluded that it's actually very poor at manipulating git histories. (Weird!) So, even though I've never used jj, it's probably better about this.
 
-    • You can turn on git.rerere (git config --global rerere.enabled true). This stands for “reuse recorded resolution”, and it means if you ask git to do a merge you've already done then it will just remember how you did it and do it. Naturally, something this helpful and crucial is turned off by default in git. The crazy thing about mastering git is that you go from thinking "wtf do all these commands do" to "wtf why don't these commands do the right thing?" Anyway, in this case it's because rebase was initially built to flatten your history when rebasing your feature branch on to master — which is great if you can, but as the primary verb to manipulate the DAG of history in git it's sorely lacking. You need to invent your own tools, in the form of practices, around the broken tools you do have.
+    • You can **as soon as possible, ideally before you made any of those merge commits in the first place** turn on git.rerere (git config --global rerere.enabled true). This stands for “reuse recorded resolution”, and it means if you ask git to do a merge you've already done then it will just remember how you did it and do it. Naturally, something this helpful and crucial is turned off by default in git.
 
       ◦ rerere is turned off by default because it uses some kind of rule to determine if it should run, which is occasionally wrong. So, if it's turned on, it will eventually ruin other merges sometimes. Great... See also: https://stackoverflow.com/questions/5519244/are-there-any-downsides-to-enabling-git-rerere/77453543#77453543 & https://github.com/wyattscarpenter/funny-little-rerere-example-repo/
 
@@ -150,12 +152,14 @@
       Recorded preimage for 'foo.py'
       Could not apply 0eef091... mycommitmessage
 
-    The funny thing about this is, even with the bonus helpful message, it doesn't tell you the right and obvious solution: simply git checkout 0eef091 -- foo.py. This gets the version of the file from the merge that you did the first time in the original timeline. Provided that you haven't actually changed the file in question in your previous changes that you rebased, and the "merge conflict" is just spurious, this will deal with it easily. And if rerere is on, you'll never have to deal with an identical situation to that again! (If you accidentally take this advice and when you shouldn't and ruin your rerere, you'll then have to get git to forget the right rerere.)
+    The funny thing about this is, even with the bonus helpful message, it doesn't tell you the right and obvious solution: simply git checkout 0eef091 -- foo.py. This gets the version of the file from the merge that you did the first time in the original timeline. Provided that you haven't actually changed the file in question in your previous changes that you rebased, and the "merge conflict" is just spurious, this will deal with it easily. And if rerere is on, you'll never have to deal with an identical situation to that again! (If you accidentally take this advice when you shouldn't and ruin your rerere, you'll then have to get git to forget the right rerere.)
 
     • For certain situations, you can use git replace --grafts instead of git rebase --rebase-merges. It's extremely complicated and error-prone, full of special cases where it won't work right. That's how you can tell it's the intended solution to do it in git, babyyyyy! For more info, read this thread: https://stackoverflow.com/questions/3810348/setting-git-parent-pointer-to-a-different-parent, or just consult the man page for git replace.
 
     • There is also this guy's script https://github.com/MarkLodato/git-reparent, which includes instructions about how to rebase into a reparent, which is a little finnicky but probably does what you want in the trivial case.
+    
+    • I may one day make a tool in https://github.com/wyattscarpenter/gyatt to **actually** reparent, because this is quite feasible even though no extant tools seems to want to do it, but I wouldn't hold your breath for that. It's not high on my priority list at all.
 
   ## Appendix C: Random tool suggestions
 
-    difftastic and mergiraf
+    difftastic and mergiraf seem like they're cool.
