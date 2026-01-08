@@ -61,7 +61,7 @@ Weblog entries that are about philosophy instead of programming (or in addition 
 2022-01-09: [A Note On The GNU/Linux Naming Controversy: in which I take a position on the greatest issue of the late 1990s – early 2000s](gnu_linux_naming_controversy.txt)
 
 2023-07-08: 𝝋 [Chemical Atoms Are Not Philosophical Atoms](chemical_atoms_are_not_philosophical_atoms.txt)
-
+⤷ [comments](chemical_atoms_are_not_philosophical_atoms.comments.txt)
 2023-10-22: 𝝋 [Is It Irrational To Believe In God? Well, I Think So](is_it_irrational_to_believe_in_god.txt)
 
 2023-11-13: [On The “Great Vowel Shortage” In Computer Programming](the_great_vowel_shortage.txt)
