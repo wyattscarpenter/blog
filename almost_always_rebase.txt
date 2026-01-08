@@ -23,9 +23,11 @@
 
   And you decide to apply the commit D to the head C, using cherry-pick, it will *not* just replace the state of your codebase with the state of the codebase in commit D. Instead what it will do is compute the diff between B and D (which we can call BD by analogy to geometric notation for line segments between two points) and then apply that diff to C, resulting in a new commit with a new state of the codebase (which we can call D′, to denote it's kind of like D but special). When you were making changes to your code to make C, you might have changed the code such that now it doesn't make sense to change the code in C in the same way you changed B to get to D. For instance, maybe you changed a function name from foo to baz when you were making C, but when you were making D, you changed the function name from foo to bar. Then you will get a "conflict" when you try to apply D to C, as git won't know what to change.
 
-  In case you've never seen what this looks like, I've included an example repo here you can inspect with git branch, git log, etc. It has a conflict in it: (TODO:finish this)
+  In case you've never seen what this looks like, I've included an example repo here you can inspect with git branch, git log, etc. Since git absolutely refuses to version control other git repos recursively(??), and my blog is currently version controlled by git, I've had to zip it up for you. So, you can download it and unzip it and play around with it from where it lives at assets/almost_always_rebase/example_git_repo.zip. The repo has a conflict in it. It is in the middle of the conflict, in the conflict state, as you can see by running git status.
 
   The steps to produce this conflict went like so:
+
+  First, I wrote some text into a file. Then, I changed it in incompatible ways on both master and a branch.
 
   Once the conflicting branches, master and example-d-branch were set up, I was on branch master (meaning, HEAD was there) and ran the cherry-pick command to apply the tip of the example-d-branch (the D commit) to the tip of master (the C commit):
 
@@ -54,7 +56,7 @@
       2
       3
 
-  Your task, as a conflict-resolver, is to replace everything within the <<<<<<< and >>>>>>> lines (inclusive) with whatever you want, and then this new version of the file will become the file in the new commit D. Usually, you use your incredible human brain to figure out a version of the file that satisfies the general intention of both commits. But here we will just replace baz with bar, because it makes most sense that way in this toy example (the point of the delta BD is to rename the function to bar, so BD applied to C should also rename the function to bar). So we do that, and get the result:
+  Your task, as a conflict-resolver, is to replace everything within the <<<<<<< and >>>>>>> lines (inclusive) with whatever you want, and then this new version of the file will become the file in the new commit D. Usually, you use your incredible human brain to figure out a version of the file that satisfies the general intention of both commits. (You generally try not to introduce **new** changes at this step (unless it makes a **lot** of sense) because that would quickly make the history more confusing. A merge (not what we're doing here, btw) which introduces some completely new changes, for example, is colloquially called an "evil merge".) But here we will just replace baz with bar, because it makes most sense that way in this toy example (the point of the delta BD is to rename the function to bar, so BD applied to C should also rename the function to bar). So we do that, and get the result:
 
     bar:
       1
