@@ -10,7 +10,7 @@ Is "allows to" clear? Yes; once the reader gets over the sense that something is
 
 Do I like "allows to"? Yes; I personally find it both logical and charming. Still not grammatical in American English, though.
 
-Why is "allows to" ungrammatical? The surface level answer to this is that "allows" (in this sense) is a transitive verb, which means it requires a direct object, which can be a noun like "one" or "him" or "running" (this is a gerund, a verb-become-noun) but can't be a verb like "run" or "to run" (this is the infinitive, which is quite similar to the gerund but is still a verb not a noun). But why is that? you might ask. And the answer there is that the essence of grammar is a bunch of arbitrary rules sorts of words can follow which other sorts of words, and they are fairly random-seeming at a basic level. So: it just is.
+Why is "allows to" ungrammatical? The surface level answer to this is that "allows" (in this sense) is a transitive verb, which means it requires a direct object, which can be a noun like "one" or "him" or "running" (this is a gerund, a verb-become-noun) but can't be a verb like "run" or "to run" (this is the infinitive, which is quite similar to the gerund but is still a verb not a noun). But why is that? you might ask. And the answer there is that the essence of grammar is a bunch of arbitrary rules about what sorts of words can follow which other sorts of words, and they are fairly random-seeming at a basic level. So: it just is.
 
 How should "allows to" be corrected? Let's take "The flag allows to run the program". It can be rephrased in a couple of ways, but these are the easiest and most-correct:
 
