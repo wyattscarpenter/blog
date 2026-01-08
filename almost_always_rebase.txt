@@ -18,8 +18,8 @@
 
   So, for instance, if you have a git history that goes:
 
-    A - B - C (head)
-          \ D (head of another branch)
+    A - B - C (HEAD)
+          \ D (tip of another branch)
 
   And you decide to apply the commit D to the head C, using cherry-pick, it will *not* just replace the state of your codebase with the state of the codebase in commit D. Instead what it will do is compute the diff between B and D (which we can call BD by analogy to geometric notation for line segments between two points) and then apply that diff to C, resulting in a new commit with a new state of the codebase (which we can call D′, to denote it's kind of like D but special). When you were making changes to your code to make C, you might have changed the code such that now it doesn't make sense to change the code in C in the same way you changed B to get to D. For instance, maybe you changed a function name from foo to baz when you were making C, but when you were making D, you changed the function name from foo to bar. Then you will get a "conflict" when you try to apply D to C, as git won't know what to change.
 
@@ -27,7 +27,7 @@
 
   The steps to produce this conflict went like so:
 
-  Once the conflicting branches, master and example-d-branch were set up, I was on branch master and ran the cherry-pick command to apply the HEAD of the example-d-branch (the D commit) to the HEAD of master (the C commit):
+  Once the conflicting branches, master and example-d-branch were set up, I was on branch master (meaning, HEAD was there) and ran the cherry-pick command to apply the tip of the example-d-branch (the D commit) to the tip of master (the C commit):
 
     git cherry-pick example-d-branch
 
@@ -54,8 +54,7 @@
       2
       3
 
-  Your task, as a conflict-resolver, is to replace everything within the <<<<<<< and >>>>>>> lines with whatever you want, and then this new version of the file will become the file in the new commit D. Usually, you use your incredible human brain to figure out a version of the file that satisfies the general intention of both commits. But here we will just
-replace baz with bar, because it makes most sense that way in this toy example (the point of the delta BD is to rename the function to bar, so BD applied to C should also rename the function to bar). So we do that, and get the result:
+  Your task, as a conflict-resolver, is to replace everything within the <<<<<<< and >>>>>>> lines (inclusive) with whatever you want, and then this new version of the file will become the file in the new commit D. Usually, you use your incredible human brain to figure out a version of the file that satisfies the general intention of both commits. But here we will just replace baz with bar, because it makes most sense that way in this toy example (the point of the delta BD is to rename the function to bar, so BD applied to C should also rename the function to bar). So we do that, and get the result:
 
     bar:
       1
@@ -67,9 +66,9 @@ replace baz with bar, because it makes most sense that way in this toy example (
     git add script.txt
     git cherry-pick --continue
 
-  In this case, since we've completely resolved everything, the cherry-pick now concludes, and the new commit is formed. Since we didn't provide a commit message, our text editor will open to prompt us for one. The default is the commit message of D, but since this is a NEW COMMIT, D′, NOT THE SAME COMMIT AS D you can actually type any message you want. Still, the commit message of D is usually the most useful. In our particular case, you might want the commit message of D′ to read "change baz to bar" instead of the commit message of D, "change foo to bar", as we don't have a foo anymore. Well, in either case, we're done. We have fixed the conflict.
+  In this case, since we've completely resolved everything, the cherry-pick now concludes, and the new commit is formed. Since we didn't provide a commit message, our text editor will open to prompt us for one. The default is the commit message of D, but since this is **a new commit, D′, not the same commit as D** you can actually type any message you want. Still, the commit message of D is usually the most useful. In our particular case, you might want the commit message of D′ to read "change baz to bar" instead of the commit message of D, "change foo to bar", as we don't have a foo anymore. Well, in either case, we're done. We have fixed the conflict. Once the editor saves the files and/or exits (I don't know which) the new commit is finalized.
 
-  As far as I can tell, conflicts like these ARE ALWAYS CALLED "MERGE CONFLICTS" BY GIT, EVEN WHEN THEY ARE NOT PART OF A MERGE COMMIT BUT INSTEAD ARE PART OF A REBASE COMMIT. So, that's annoying.
+  As far as I can tell, conflicts like these **are always called "merge conflicts" by git, even when they are not part of a merge commit but instead are part of a rebase commit**. So, that's annoying.
 
   By the way, if you're in the middle of some operation, git status will always keep you appraised of the situation. For instance, in the middle of the cherry-pick, running git status tells us:
 
@@ -86,6 +85,10 @@ replace baz with bar, because it makes most sense that way in this toy example (
     no changes added to commit (use "git add" and/or "git commit -a")
 
   ## Preliminaries, partie deux (deuxième partie): What is a merge commit? What is a rebase? What is fast-forwarding, anyway? While we're at it, what is squashing?
+
+  Due to time constraints, I have elected not to write this section. Instead, please enjoy this meme: TODO: assets/almost_always_rebase/two_mommies
+
+
 
   ## Almost Always Rebase
 
@@ -105,31 +108,54 @@ replace baz with bar, because it makes most sense that way in this toy example (
 
   Now: THE SAME LOGIC APPLIES TO GIT COMMITS.
 
+  That's the point of this blog post. Now you can enjoy the rest of this section and then the appendices if you wish.
 
-Two mommies meme
+  By the way, the developers of git also realized this thing about minimizing the number of redundant commits — that's why git rebase destroys your merge commits by default. (That behavior is somewhat unfortunate, given the paucity of good ways to truly manipulate the DAG in git, but it at least showed they were thinking about it.)
 
-Note in almost always rebase:  the developers of git also realized this.
+  There are basically only three reasons to ever keep a commit around:
 
+  1. The commit history including that commit is public and widespread and you don't want to bother everyone by breaking history and forcing them all to perform complicated maneuvers to adjust to the new history for very little reason.
 
-Now that you've read this document, treat yourself to the amusing “Handmade Hero Day 523 - Introduction to Git” https://www.youtube.com/watch?v=3mOVK0oSH2M (first half of the livestream)
+  2. You think you might need that commit later.
 
+  3. The commit highlights a logical change in the code, so keeping it as a distinct commit makes reviewing the commits easier. (The optimal size of reviewable commits is somewhat a matter of taste.)
 
-SEE A FORK IN A ROAD? TAKE IT.
-Based note for git rebases: if you're doing a rebase --rebase-merges (formerly known as --preserve-merges, a much more self-explanatory name), git will, by default, piss its pants and cry and demand you re-solve the merge every time. Here are two based hints for handsome geniuses you can use in the situation:
+  kthxbai
 
-1. You can turn on git.rerere (git config --global rerere.enabled true). This stands for “reuse recorded resolution”, and it means if you ask git to do a merge you've already done then it will just remember how you did it and do it. Naturally, something this helpful and crucial is turned off by default in git. The crazy thing about mastering git is that you go from thinking "wtf do all these commands do" to "wtf why don't these commands do the right thing?" Anyway, in this case it's because rebase was initially built to flatten your history when rebasing your feature branch on to master — which is great if you can, but as the primary verb to manipulate the DAG of history in git it's sorely lacking. You need to invent your own tools, in the form of practices, around the broken tools you do have.
+  ## Appendix A: "Introduction to Git"
 
-2. This situation is actually very easy, don't fret! The git rebase message will say something like:
+    Now that you've read this document, treat yourself to the amusing “Handmade Hero Day 523 - Introduction to Git” https://www.youtube.com/watch?v=3mOVK0oSH2M (first half of the livestream)
 
-CONFLICT (content): Merge conflict in cicero_shared.py
-error: could not apply 0eef091... fix tag_column_name column name
-hint: Resolve all conflicts manually, mark them as resolved with
-hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
-hint: You can instead skip this commit: run "git rebase --skip".
-hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
-hint: Disable this message with "git config advice.mergeConflict false"
-Recorded preimage for 'cicero_shared.py'
-Could not apply 0eef091... fix tag_column_name column name
+  ## Appendix B: See A Fork In A Road? Take It.
 
-The funny thing about this is, even with the bonus helpful message, it doesn't tell you the right and obvious solution: simply git checkout 0eef091 -- cicero_shared.py. This gets the version of the file from the merge that you did the first time in the original timeline. Provided that you haven't actually changed the file in question in your previous changes that you rebased, and the "merge conflict" is just spurious, this will deal with it easily. And if rerere is on, you'll never have to deal with an identical situation to that again! (If you accidentally take this advice and when you shouldn't and ruin your rerere, you then have to get git to forget the right rerere, which I haven't figured out how you're actually supposed to do (you need to get to the state where rerere would apply but doesn't — even though the whole point of rerere is that it applies automatically?).)
+  Based note for git rebases: if you're doing a rebase --rebase-merges (formerly known as --preserve-merges, a much more self-explanatory name), git will, by default, piss its pants and cry and demand you re-solve the merge every time. Here are some based hints for handsome geniuses you can use in the situation:
 
+    • Use jj instead of git. After mastering git, I've concluded that it's actually very poor at manipulating git histories. (Weird!) So, even though I've never used jj, it's probably better about this.
+
+    • The intended solution for this situation in git is probably to not use --rebase-merges and instead use https://stackoverflow.com/questions/3810348/setting-git-parent-pointer-to-a-different-parent
+
+    • You can turn on git.rerere (git config --global rerere.enabled true). This stands for “reuse recorded resolution”, and it means if you ask git to do a merge you've already done then it will just remember how you did it and do it. Naturally, something this helpful and crucial is turned off by default in git. The crazy thing about mastering git is that you go from thinking "wtf do all these commands do" to "wtf why don't these commands do the right thing?" Anyway, in this case it's because rebase was initially built to flatten your history when rebasing your feature branch on to master — which is great if you can, but as the primary verb to manipulate the DAG of history in git it's sorely lacking. You need to invent your own tools, in the form of practices, around the broken tools you do have.
+
+      ◦ rerere is turned off by default because it uses some kind of rule to determine if it should run, which is occasionally wrong. So, if it's turned on, it will eventually ruin other merges sometimes. Great... See also: https://stackoverflow.com/questions/5519244/are-there-any-downsides-to-enabling-git-rerere/77453543#77453543 & https://github.com/wyattscarpenter/funny-little-rerere-example-repo/
+
+    • This situation is often actually very easy, don't fret! The git rebase message will say something like:
+
+      CONFLICT (content): Merge conflict in foo.py
+      error: could not apply 0eef091... mycommitmessage
+      hint: Resolve all conflicts manually, mark them as resolved with
+      hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+      hint: You can instead skip this commit: run "git rebase --skip".
+      hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+      hint: Disable this message with "git config advice.mergeConflict false"
+      Recorded preimage for 'foo.py'
+      Could not apply 0eef091... mycommitmessage
+
+    The funny thing about this is, even with the bonus helpful message, it doesn't tell you the right and obvious solution: simply git checkout 0eef091 -- foo.py. This gets the version of the file from the merge that you did the first time in the original timeline. Provided that you haven't actually changed the file in question in your previous changes that you rebased, and the "merge conflict" is just spurious, this will deal with it easily. And if rerere is on, you'll never have to deal with an identical situation to that again! (If you accidentally take this advice and when you shouldn't and ruin your rerere, you'll then have to get git to forget the right rerere.)
+
+    • For certain situations, you can use git replace --grafts instead of git rebase --rebase-merges. It's extremely complicated and error-prone, full of special cases where it won't work right. That's how you can tell it's the intended solution to do it in git, babyyyyy! For more info, read this thread: https://stackoverflow.com/questions/3810348/setting-git-parent-pointer-to-a-different-parent, or just consult the man page for git replace.
+
+    • There is also this guy's script https://github.com/MarkLodato/git-reparent, which includes instructions about how to rebase into a reparent, which is a little finnicky but probably does what you want in the trivial case.
+
+  ## Appendix C: Random tool suggestions
+
+    difftastic and mergiraf
