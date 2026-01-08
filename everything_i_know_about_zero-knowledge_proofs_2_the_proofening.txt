@@ -4,6 +4,6 @@
 
 3. Zero-knowledge proof actually is a useful technique for various things. The things it was designed for, mostly.
 
-4. A friend of mine opines that when he hears someone say "zero-knowledge", he likes to imagine they just mean "ignorance", and that makes such statements as "this system is powered by zero-knowledge" funny.
+4. A friend of mine, Nick Etz, opines that when he hears someone say "zero-knowledge", he likes to imagine they just mean "ignorance", and that makes such statements as "this system is powered by zero-knowledge" funny.
 
 5. Actually, I did watch this video https://www.youtube.com/watch?v=Otvcbw6k4eo and found it informative about ZK (that's how the cool kids are writing "zero-knowledge" these days), although you will have to muse over the implications of the video yourself, ime. So, I guess I actually know a fair amount about zero-knowledge (← oxymoron?).
