@@ -88,7 +88,7 @@
 
   ## Preliminaries, partie deux (deuxième partie): What is a merge commit? What is a rebase? What is fast-forwarding, anyway? While we're at it, what is squashing?
 
-  Due to time constraints, I have elected not to write this section. Instead, please enjoy this meme: TODO: assets/almost_always_rebase/two_mommies
+  Due to time constraints, I have elected not to write this section. Instead, please enjoy this meme I have made: assets/almost_always_rebase/two_mommies.png
 
 
 
