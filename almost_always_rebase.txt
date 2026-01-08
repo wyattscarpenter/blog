@@ -12,9 +12,11 @@
 
   What is a commit in git? Well, a commit is a snapshot of the entire codebase at a certain point in time. That's why you can "checkout" a commit in git and browse the state of the repo at a certain point in history. Git is a little bit more complicated than keeping all of your old code versions in a hidden directory, but conceptually that's what it does.
 
-  HOWEVER, because the people who made git got confused, or something, many actions that git says work on "commits" are actually performed on "deltas" (aka differences/patches/diffs). A "delta" is the difference between a commit and the previous commit. So, when you are using a git tool and you "apply" a commit from somewhere, what you're actually doing is looking at the commit, doing a diff between that commit and the commit right before it, which produces a delta, and then applying that delta. This is, ultimately, why you can have conflicts in git at all (but also why git is useful at all).
+  HOWEVER, because the people who made git got confused, or something, many actions that git says work on "commits" are actually performed on "deltas" (aka differences/patches/diffs). A "delta" is the difference between a commit and the previous commit. So, when you are using a git tool and you "apply" a commit from somewhere, what you're actually doing is looking at the commit, doing a diff between that commit and the commit right before it*, which produces a delta, and then applying that delta. This is, ultimately, why you can have conflicts in git at all (but also why git is useful at all).
 
   (Note that git commit messages are usually written as a summary of the delta as well. If I've just added a feature X to my program, my commit message is almost certainly going to be "add feature X". Even though, conceptually, the commit is just the entire state of the program, so the commit message should perhaps be a summary of the entire capacities of the program. But this would make commit messages useless, so it is better that we write a summary of the delta in the commit message.)
+
+  * Or, in the case of commits with multiple parents, ie merge commits, **one of** the commits right before it. This explains why you can apply a merge commit to another commit, but also why you need to specify which parent to use. Don't worry about this part if you don't understand it.
 
   So, for instance, if you have a git history that goes:
 
@@ -90,6 +92,8 @@
 
   Due to time constraints, I have elected not to write this section. Instead, please enjoy this meme I have made: assets/almost_always_rebase/two_mommies.png
 
+  You can just google these concepts; it's fine. I'm sure they're competently explained somewhere. They're pretty simple, especially now that you know the above.
+
   ## Almost Always Rebase
 
     I hate code and I want as little of it as possible in our product.
@@ -124,7 +128,7 @@
 
   ## Appendix A: "Introduction to Git"
 
-    Now that you've read this document, treat yourself to the amusing “Handmade Hero Day 523 - Introduction to Git” https://www.youtube.com/watch?v=3mOVK0oSH2M (first half of the livestream)
+  Now that you've read this document, treat yourself to the amusing “Handmade Hero Day 523 - Introduction to Git” https://www.youtube.com/watch?v=3mOVK0oSH2M (first half of the livestream)
 
   ## Appendix B: See A Fork In A Road? Take It.
 
@@ -157,9 +161,19 @@
     • For certain situations, you can use git replace --grafts instead of git rebase --rebase-merges. It's extremely complicated and error-prone, full of special cases where it won't work right. That's how you can tell it's the intended solution to do it in git, babyyyyy! For more info, read this thread: https://stackoverflow.com/questions/3810348/setting-git-parent-pointer-to-a-different-parent, or just consult the man page for git replace.
 
     • There is also this guy's script https://github.com/MarkLodato/git-reparent, which includes instructions about how to rebase into a reparent, which is a little finnicky but probably does what you want in the trivial case.
-    
+
     • I may one day make a tool in https://github.com/wyattscarpenter/gyatt to **actually** reparent, because this is quite feasible even though no extant tools seems to want to do it, but I wouldn't hold your breath for that. It's not high on my priority list at all.
 
   ## Appendix C: Random tool suggestions
 
-    difftastic and mergiraf seem like they're cool.
+  difftastic and mergiraf seem like they're cool. Also, jj, as I already mentioned, seems like it couldn't possibly be worse than git.
+
+  ## Appendix D: Prod and dev
+
+  I've gotten all the way to this appendix before realizing that I've still got to pay off the prod & dev thing from the introduction. That's actually why this essay was written, ultimately, although it no longer matters. Anyway, the general idea is that we'd have a master branch in dev (which was, for arcane reasons*, the staging environment, not the dev environment, as those terms are usually used) and a master branch in prod, and whatever history we had in dev, once it was settled and tested, we would eventually push to prod, creating a nice history with only a time lag, ultimately, between dev and prod. Let me stress that it was **one** history, conceptually, just some of the commits hadn't "made it to" the prod environment yet.
+
+  * the system wouldn't let us make an environment with "staging" in the name lol
+
+  ## Appendix E: Explanation of a joke
+
+  "A delta isn't just a feature of a river in Africa" is a play on the old joke "denial (the Nile) isn't just a river in Africa", which I guess you're supposed to say to or about someone who is in denial.
