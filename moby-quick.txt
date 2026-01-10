@@ -7,7 +7,9 @@ The word-counts (approximate):
   Moby-Quick (the book sans W chapters): 158,000
 So, perhaps it's not as "quick" as all that. In fact, this book is still longer than the average novel, which is about 100,000 words, maybe. But at least it's no-longer as long as TWO novels. Actually it's weird to me that it's so long, since I feel like its story is about average length, in terms of how many things happen. Well, whatever. I guess if you get rid of the Land busines as well, it becomes about 118,000 words (I just checked) — but, of course, this is not permissible.
 
-You can find a copy of the full text of Moby-Quick (based on https://www.gutenberg.org/files/2701/2701-h/2701-h.htm) at https://wyattscarpenter.github.io/blog/assets/moby-quick/moby-quick.full_text.txt . Below is the table of classifications:
+You can find a copy of the full text of Moby-Quick (based on https://www.gutenberg.org/files/2701/2701-h/2701-h.htm) at https://wyattscarpenter.github.io/blog/assets/moby-quick/moby-quick.full_text.txt
+
+Below is the table of classifications:
 
 Title Page: L
 Inscription: L
