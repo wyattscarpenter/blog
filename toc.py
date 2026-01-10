@@ -41,14 +41,15 @@ parser.add_argument('-check', '--check', action='store_true', help=f"Instead of 
 
 print("file_to_which_to_append:", file_to_which_to_append)
 
-def capture_stdout(program: list[str], use_nul_sep: bool = False) -> list[str]:
+def capture_stdout(program: list[str]) -> list[str]:
+  """Captures the stdout of a program as utf-8, checks its return code, and returns a list of the stdout splitting on ascii NUL (\0)"""
   result = run(program, capture_output=True, encoding="utf-8")
   result.check_returncode()
-  return result.stdout.split('\0') if use_nul_sep else result.stdout.splitlines()
+  return result.stdout.split('\0')
 
 if '--check' in argv or '-check' in argv: #due to the way argparse works, this is the best way to do this.
   # Get the list of files from git (if used in pre-commit, these are the files in the new commit, btw, the staged changes are included)
-  git_files = capture_stdout(['git', 'ls-files', '-z', ':(glob)*'], use_nul_sep=True) # the final argument means only list the files in the base directory, not recursive.
+  git_files = capture_stdout(['git', 'ls-files', '-z', ':(glob)*']) # the final argument means only list the files in the base directory, not recursive.
   # Check the contents of the readme
   readme_files: list[str] = []
   with open(file_to_which_to_append, "r", encoding="utf-8", newline="\n") as file:
