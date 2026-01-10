@@ -42,7 +42,7 @@ parser.add_argument('-check', '--check', action='store_true', help=f"Instead of 
 print("file_to_which_to_append:", file_to_which_to_append)
 
 def capture_stdout(program: list[str]) -> list[str]:
-  """Captures the stdout of a program as utf-8, checks its return code, and returns a list of the stdout splitting on ascii NUL (\0)"""
+  """Captures the stdout of a program as utf-8, checks the return code of that process, and returns a list of the stdout splitting on ascii NUL (\0)"""
   result = run(program, capture_output=True, encoding="utf-8")
   result.check_returncode()
   return result.stdout.split('\0')
@@ -74,7 +74,7 @@ if '--check' in argv or '-check' in argv: #due to the way argparse works, this i
     'toc.py'
   ]
   expected_files = additionally_expected_files + readme_files
-  unexpectedly_found_files = [file for file in git_files if file not in expected_files and file.removesuffix(".md") not in readme_files]
+  unexpectedly_found_files = [file for file in git_files if file not in expected_files and file.removesuffix(".md") not in readme_files and file.removesuffix(".comments.txt")+".txt" not in readme_files]
   if unexpectedly_found_files:
     warn(f"These files were unexpectedly found in the main directory, even though {file_to_which_to_append} does not contemplate them:")
     for uff in unexpectedly_found_files:
