@@ -5,7 +5,7 @@ from datetime import datetime
 from os.path import basename
 from urllib.parse import quote as url_escape
 
-version = 9
+version = 10
 encoding = "UTF-8"
 blog_url_base = "https://wyattscarpenter.github.io/blog/"
 
@@ -59,7 +59,7 @@ with open("rss.xml", "w", encoding=encoding, newline="\n") as f: #for some crazy
   f.write(rss_header)
   with open("readme.md", "r", encoding=encoding, errors='replace', newline="\n") as file:
     for i in file:
-      m = re.match(r"^(.*?): 𝝅?𝝋? ?\[(.*)\]\((.*?)\)\s*?$", i)
+      m = re.match(r"^(.*?): 𝝅?𝝋? ?\[(.*?)\]\((.*?)\)", i)
       if m:
         f.write( rss_item( *m.groups() ) )
   f.write(rss_footer)
