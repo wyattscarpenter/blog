@@ -41,14 +41,14 @@ parser.add_argument('-check', '--check', action='store_true', help=f"Instead of 
 
 print("file_to_which_to_append:", file_to_which_to_append)
 
-def capture_stdout(program: list[str]) -> list[str]:
+def capture_stdout(program: list[str], use_nul_sep: bool = False) -> list[str]:
   result = run(program, capture_output=True, encoding="utf-8")
   result.check_returncode()
-  return result.stdout.splitlines()
+  return result.stdout.split('\0') if use_nul_sep else result.stdout.splitlines()
 
 if '--check' in argv or '-check' in argv: #due to the way argparse works, this is the best way to do this.
   # Get the list of files from git (if used in pre-commit, these are the files in the new commit, btw, the staged changes are included)
-  git_files = capture_stdout(['git', 'ls-files', ':(glob)*']) # the final argument means only list the files in the base directory, not recursive.
+  git_files = capture_stdout(['git', 'ls-files', '-z', ':(glob)*'], use_nul_sep=True) # the final argument means only list the files in the base directory, not recursive.
   # Check the contents of the readme
   readme_files: list[str] = []
   with open(file_to_which_to_append, "r", encoding="utf-8", newline="\n") as file:
@@ -56,8 +56,6 @@ if '--check' in argv or '-check' in argv: #due to the way argparse works, this i
       if m := re.match(r"^(.*?): 𝝅?𝝋? ?\[(.*)\]\((.*?)\)\s*?$", line):
         readme_files += m.group(3), #lol at this syntax
   missing_files = [file for file in readme_files if file not in git_files and file+".md" not in git_files] # There is a special case due to how github pages treats md files by default
-  if r'"\303\245.txt"' in git_files: #handle an å encoding snafu
-    missing_files.remove("å.txt")
   if missing_files:
     warn("These files are not found in git files (the cache/stage of git)! (Are you sure you have git add/rm/mv'd properly?):")
     for mf in missing_files:
@@ -76,8 +74,6 @@ if '--check' in argv or '-check' in argv: #due to the way argparse works, this i
   ]
   expected_files = additionally_expected_files + readme_files
   unexpectedly_found_files = [file for file in git_files if file not in expected_files and file.removesuffix(".md") not in readme_files]
-  if "å.txt" in readme_files: #handle an å encoding snafu
-    unexpectedly_found_files.remove(r'"\303\245.txt"')
   if unexpectedly_found_files:
     warn(f"These files were unexpectedly found in the main directory, even though {file_to_which_to_append} does not contemplate them:")
     for uff in unexpectedly_found_files:
