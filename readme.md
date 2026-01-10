@@ -10,7 +10,7 @@ I reserve the right to post- or pre- date posts a little (but only a little), fo
 
 You can search the full text of my blog using <https://github.com/wyattscarpenter/blog/search?q=example>. You can also use the rss link above to get the full text of this blog, and then (for example) ctrl-f it.
 
-If you have any comments or corrections, feel free to submit a pull request <https://github.com/wyattscarpenter/blog/pulls>. Note: by doing this, you agree to release your contribution into the public domain under CC0. If there are comments on a post, I put them in a related text file (foo.comments.txt) and include a [[💬](foo.comments.txt)] at the end of the listing of the blogpost here.
+If you have any comments or corrections, feel free to submit a pull request <https://github.com/wyattscarpenter/blog/pulls>. Note: by doing this, you agree to release your contribution into the public domain under CC0. If there are comments on a post, I put them in a related text file (foo.comments.txt) and include a [[💬︎](foo.comments.txt)] at the end of the listing of the blogpost here.
 
 If you don't know the C programming language, you may enjoy reading <https://github.com/wyattscarpenter/guide-to-c> to gain background for many of these posts.
 
@@ -62,7 +62,7 @@ Due to the easy way in which I parse the blog toc, it is not permissible for me 
 
 2022-01-09: [A Note On The GNU/Linux Naming Controversy: in which I take a position on the greatest issue of the late 1990s – early 2000s](gnu_linux_naming_controversy.txt)
 
-2023-07-08: 𝝋 [Chemical Atoms Are Not Philosophical Atoms](chemical_atoms_are_not_philosophical_atoms.txt) [[💬](chemical_atoms_are_not_philosophical_atoms.comments.txt)]
+2023-07-08: 𝝋 [Chemical Atoms Are Not Philosophical Atoms](chemical_atoms_are_not_philosophical_atoms.txt) [[💬︎](chemical_atoms_are_not_philosophical_atoms.comments.txt)]
 
 2023-10-22: 𝝋 [Is It Irrational To Believe In God? Well, I Think So](is_it_irrational_to_believe_in_god.txt)
 
