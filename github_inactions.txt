@@ -14,7 +14,7 @@ Maybe I can easily save 10 seconds.
 I don't even know why it's using docker. I kind of imagine the whole environment is already in docker... or something...
 
 The default github actions are also... written in javascript...
-[assets/we simply aren't operating on the level of mutual respect I assumed.gif]
+[assets/github_inactions/we simply arent operating on the level of mutual respect i assumed.gif]
 
 
 
@@ -31,8 +31,10 @@ The blog post would have been called "My obsessive path to making this blog publ
 https://github.com/features/actions
 lists an example CI action as completing in 59 seconds, as though that isn't a deeply embarrassing number to display.
 
-From the website's vague statement that
+From the website's vague statement that:
+
 > Want to venture off the beaten path? Use the millions of open source libraries available on GitHub to create your own actions. Write them in JavaScript or create a container action—both can interact with the full GitHub API and any other public API.
+
 I intuit that maybe you have to write them in JavaScript if you want to avoid a hideously long containerization process.
 
 I basically forgot all about the project of trying to make my GitHub actions maximally efficient because I got too busy to do this. And, indeed, I don't think I'll ever become unbusy enough that it's a good idea to do that. They aren't even paying me, for example. Even though hypothetically this could deliver millions of dollars of value to their collective userbase and therefore company. Let it be known that if they offer me a mere million dollars I will make such an optimized Action (Or is it technically called a library? Or a workflow?) and upload it to the public.

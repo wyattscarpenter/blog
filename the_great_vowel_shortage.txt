@@ -3,7 +3,8 @@
   The great vowel shortage is a concept, possibly coined by my dad and myself whilst riffing, referring derisively to the tendency for programmers to leave vowels out of their variable and function names. For example, instead of "move_pointer(source, destination)", a programmer is likely to write "mv_ptr(src, dst)". This is a ridiculous practice. As seen in the "dst" part of the example there, it also dovetails with the "great ends-of-words shortage" I posit among programmers.
 
   The humorous posited reason for these omissions is some kind of shortage of vowels or ends of words. But this is funny, because such tokens of such types are free. That's the joke.
-However, this stylistic vice got its start back in the olden days of programming, where every byte cost a nickel, and punch cards were involved somehow. So there used to be a reason. And, indeed, it was a shortage of a sort, a shortage of space.
+
+  However, this stylistic vice got its start back in the olden days of programming, where every byte cost a nickel, and punch cards were involved somehow. So there used to be a reason. And, indeed, it was a shortage of a sort, a shortage of space.
 
   But, the time for all that has passed, and it is now very poor style to omit the vowels of your variables, or the ends of your words, as it makes your code harder to understand; the reader has to guess what the actual word or acronym you meant was.
 
