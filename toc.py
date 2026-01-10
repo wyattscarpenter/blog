@@ -9,6 +9,8 @@ import argparse
 from subprocess import run
 import re
 
+from generate_rss import toc_parsing_regex #this is from the other local python file
+
 parser = argparse.ArgumentParser(
   description=__doc__,
   epilog="""Example usage: toc test.txt "example post" -pi -phi ===> 2024-01-01: 𝝅𝝋 [Example Post](test.txt)"""
@@ -59,7 +61,7 @@ if '--check' in argv or '-check' in argv: #due to the way argparse works, this i
   readme_files: list[str] = []
   with open(file_to_which_to_append, "r", encoding="utf-8", newline="\n") as file:
     for line in file:
-      if m := re.match(r"^(.*?): 𝝅?𝝋? ?\[(.*?)\]\((.*?)\)", line):
+      if m := re.match(toc_parsing_regex, line):
         readme_files += m.group(3), #lol at this syntax
         dprint(m)
   dprint("\n".join(sorted(readme_files)))

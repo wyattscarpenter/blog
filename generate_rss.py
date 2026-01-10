@@ -5,9 +5,10 @@ from datetime import datetime
 from os.path import basename
 from urllib.parse import quote as url_escape
 
-version = 10
+version = 11
 encoding = "UTF-8"
 blog_url_base = "https://wyattscarpenter.github.io/blog/"
+toc_parsing_regex = r"^(.*?): 𝝅?𝝋? ?\[(.*?)\]\((.*?)\)"
 
 def is_xml_licit_unicode_codepoint(c: int) -> bool:
   return c in [0x9, 0xA, 0xD] or 0x20<=c<=0xD7FF or 0xE000<=c<=0xFFFD or 0x10000<=c<=0x10FFFF
@@ -59,7 +60,7 @@ with open("rss.xml", "w", encoding=encoding, newline="\n") as f: #for some crazy
   f.write(rss_header)
   with open("readme.md", "r", encoding=encoding, errors='replace', newline="\n") as file:
     for i in file:
-      m = re.match(r"^(.*?): 𝝅?𝝋? ?\[(.*?)\]\((.*?)\)", i)
+      m = re.match(toc_parsing_regex, i)
       if m:
         f.write( rss_item( *m.groups() ) )
   f.write(rss_footer)
