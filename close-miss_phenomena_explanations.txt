@@ -1,0 +1,33 @@
+A category of thing I think about sometimes is what I call "close-miss phenomena explanations". People have noticed a real phenomenon occurring in the world and, wow, here's a guy who comes along with an explanation of a phenomenon that sounds really similar, and his explanation is true and makes sense! However, the phenomenon he's explaining is not actually the phenomenon people were noticing in the first place. It's just another thing that is also happening.
+
+Here are some examples I have thought of over the years, some of which are marginal or debatable:
+
+cost disease:
+  people use this term to mean "why everything so expensive these days?" but things are not expensive in America because technological progress increases the value of labor in unrelated fields (Baumol's original observation); they're expensive because the government is scamming you. I think it could maybe be fine to use "cost disease" to refer to the mysterious effect of the government scamming you, and "Baumol effect" to refer to the Baumol effect, without generating cross-confusion between them. (Often times determining who is "right" to use a "term" some "way" is a little fraught, especially if the horse is already out the barn to some extent.)
+
+enshittification:
+  This term is used to observe how things, especially software, seem to be getting worse. However, the coiner of the term (Cory Doctrow) coined this term specifically to refer to a specific maneuver that I would describe as "loss-leader network-effect rug-pull" (nb: not in the cryptocurrency sense). Things are not going to shit because corporations would eventually like to turn a profit after giving you their loss leader; they're going to shit because of woke and JavaScript.
+
+bullshit jobs:
+  Dang, people like swearing in their explanatory claim terms now, huh? A trend we can probably trace back to https://en.wikipedia.org/wiki/On_Bullshit. Anyway. People use this to observe that some jobs don't seem very hard, seem to be useless, seem to not be compensated fairly (incidentally: https://en.wikipedia.org/wiki/Marginal_product_of_labor#Marginal_productivity_ethics), etc, and yet still exist and stuff. Or maybe you just think your job is bullshit in some sense. However, the David Graeber coined this term to talk about his delightfully naive theory about the economy that most jobs are bullshit for reasons along the lines of "you wouldn't need a repairman if you simply built things perfectly to begin with" or "secretaries are useless and just for inflating the egos of their principals".
+
+ugh field:
+  People use this mean the "field" of *"ugh!"* emotion you get when pondering some task, which maybe causes you to stop doing it, but the guy who coined it (as far as I can tell — I think it's from https://www.lesswrong.com/posts/EFQ3F6kmt4WHXRqik/ugh-fields) has an additional conclusion about it that it creates a subconscious failure mode where you ignore the task entirely (which actually is the opposite of consciously feeling *"ugh!"* about it, funnily enough). More on this in a separate post tomorrow: ugh_fields_considered_as_with_and_without_their_pavlovian_hypothesis.txt. Anyway, to make this fit the pattern, here I will assume that the pavlovian subconscious thing *does* affect Roko, but not most people.
+
+elite overproduction:
+  Everyone seems to mean "they makin' too many dang college degrees these days" when they say this contemporarily, but Peter Turchin, who coined the term, seems to have meant something more specific by elites, viz, princelings, or something. IDK I've never read his book.
+
+Economic signalling:
+  I'm told maybe people use this term wrong in the way described by the "close-miss phenomena explanations" pattern, but I've never seen it.
+
+Professional–managerial class:
+  I am frankly not sure what this is supposed to mean or what people use it to mean.
+
+Negative reinforcement:
+  People use this term to mean what is technically referred to as "positive punishment" in the literature that came up with the term "negative reinforcement". (See the chart in the lede of https://en.wikipedia.org/wiki/Punishment_(psychology)) I think this is just an uninteresting case of people not knowing the right technical term, though; not wildly diverging theoretical models.
+
+Occam's Razor:
+  People use this to mean "prefer the simpler explanation" in some vague way, but I've recently learned that this is how Occam justified nominalism (he was serious and specific about "not multiplying entities" in his explanations — and got rid of the abstract entities!) which is probably a mistake.
+
+We can't, we don't know how:
+  This one is mostly just for fun, since it's a meme. However, several pieces of knowledge are lost to contemporaneity, and people sometimes use the meme phrase "we don't know how" to describe this. I thought this was maybe a reference to something like https://en.wikipedia.org/wiki/FOGBANK, which was lost knowledge that had to be reverse-engineered. But in the originating tweet, it is implied specifically that "we don't know how" to build cathedrals. https://x.com/JeremyTate41/status/1669538824685223937. This is silly because we actually do know how to build cathedrals; we simply lack the will (and/or funds). This is a well-known fact among people with an interest in architecture. Furthermore, how you build a cathedral is pretty much the same as how you build a regular big building, but with more pretty façades (don't @ me).
