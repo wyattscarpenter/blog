@@ -222,7 +222,7 @@ Due to the easy way in which I parse the blog toc, it is not permissible for me 
 
 2025-07-03: [Levels Of Busyness 2: Coda](levels_of_busyness_2_coda.txt)
 
-2025-08-04: [You're Going To Have To Ignore A Lot Of Bad Advice](youre going to have to ignore a lot of bad advice.txt)
+2025-08-04: [You're Going To Have To Ignore A Lot Of Bad Advice](youre_going_to_have_to_ignore_a_lot_of_bad_advice.txt)
 
 2025-08-06: [Everything I Know About Zero-knowledge Proofs](everything_i_know_about_zero-knowledge_proofs.txt)
 
