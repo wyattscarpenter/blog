@@ -1,0 +1,85 @@
+Here are my answers to https://git.github.io/rev_news/2025/04/30/edition-122/#community-interview, which are almost timely, except that I've realized this whole survey is from last year. The questions are from the thing and are on lines starting with >. My answers are are lines starting with •.
+
+> What's your favorite Git trick or workflow that you wish more people knew about?
+
+    • This question is very similar to "Which Git commands or workflows do you think are still misunderstood or underutilized today?". Actually there are a number of ways my responses are sort of ill-fit to this format, but that's the entire conceit so I guess I'll stick with it.
+    • Merges, rebases TODO
+    • bREAKING HISTORY TODO
+    • See "Git repos should start with an empty commit at their root" below.
+
+> What was your worst Git disaster, and how did you recover from it?
+
+    • By the time I got to it, at least, Git is fairly good at preventing you from ever having big disasters.
+
+    • TODO: abort, reflog, manually delete files
+
+    • TODO: the classic: keys in the git history
+
+    • No amount of git expertise will save you from doing a rebase-merge wrong long ago and then having lost the real details by the time it's already gc'd.
+
+
+> If you could go back in time and change one design decision in Git, what would it be?
+
+    • TODO Staging area, also called the index
+    • TODO need FEWER commands, that do FEWER things each. (TODO: history-ish explanation.) I consider git switch to be a failure here because they added too many flags that make it do the opposite thing.
+    • TODO not actually good at modifying history
+    • TODO can't figure out how to do a rebase actually interactively, idk
+    • TODO fixing git lfs type things, which they're already working on.
+    • TODO file metadata
+    • TODO: using SHA256, as the other respondent points out. I didn't know if this was fair game but according to him it was available at that time.
+    • Git repos should start with an empty commit at their root; this makes many other things cleaner. This is fixed in jj (where there is a virtual "zero commit") and also in github (where they just make a commit for you initially when you make the repo which is trivial enough to serve this purpose. I always make one of these myself (as a regular, empty commit (I use --allow-empty, and use the message "initial commit" or something like that) these occur at specific times and so have different git hashes (iirc)). That said, I do find it funny to merge unrelated histories, and the fact that they never join up at the beginning does make that funnier (unlike if they both came from the "zero commit" somehow), and also is clearer about their actual relationship (not related); you don't get this with jj's pretend "zero commit".
+
+> Which Git feature or improvement over the past 20 years do you think had the biggest impact on your workflow?
+
+    • The basic git workflow that apparently no one had put into practice before Linus, with the DAG and the cryptographic hashes, is quite good. I hear it was even expensive to branch before he did his thing, lol. And, also, tedious to be a subsidiary copy.
+    • It also seems like git culture has gravitated to a particular understanding of tags for releases and branches for active development that I think is good and healthy.
+
+
+> What Git problem that existed 10 years ago has been most successfully solved?
+
+    • I don't really have a good answer for this because even though I was using git 10 years ago I wasn't paying close attention to its development so I don't know what occurred when. My off-the-cuff answer is that last version they fixed a pet peeve of mine where git diff --check couldn't warn you about no-trailing-newline, but git commit did. I think force-with-lease and force-if-includes are in here, too? Those are way better than default force push.
+
+
+> Which Git commands or workflows do you think are still misunderstood or underutilized today?
+
+    • Misunderstood: merges. TODO
+
+    • Underutilized: force-with-lease and force-if-includes. I think because people don't want to type them out all the time and it's also not self-evident what they do. I have them aliased to pffush and pfush, respectively, so you can escalated (or stop to pull and check) as desired. I have a patch sitting on my harddrive gathering dust that aliases those flags to l and i, which I might get around to one day. You should basically never be doing a bare force push, because this will discard anything anyone has already put on the branch tip that you don't know about!
+
+
+> What's one Git based project, tool, or extension you think deserves more recognition from the community?
+
+    • I guess technically I believe https://github.com/wyattscarpenter/gyatt "deserves more recognition from the community", in that it has "0" and I believe it's worth "some" (although not so strongly that I promote it).
+
+    • https://github.com/tj/git-extras also fixes a number of annoyances.
+
+    • Wow, there's a whole page of these! https://git-scm.com/tools/command-line (I haven't vetted any of them.)
+
+
+> What Git feature or capability surprised you most when you first discovered it?
+
+    • I'd been using git for years and quite seriously for about a year before I figured out that commit itself, not only add, has a --patch flag. That sure saves me some weird maneuvering!
+
+
+> What's your boldest prediction about how version control might look in another 20 years?
+
+    • I dunno. I guess the improvements from jj will become standard. Maybe they'll even be adopted first-party in git 4, or 7, or something.
+
+    • TODO Most git commands will be deprecated, and only a layer of "super-porcelain" will remain that you're actually supposed to use.
+
+
+Appendix A: interesting other segment from that newsletter, and my commentary thereupon
+
+> Daniel then asked Linus if he actually modified patches before applying them. Linus replied that he very often did modify them and that he absolutely didn’t want to apply them first and then modify them as he didn’t want “crap” in his code. He further elaborated that his git-apply tool was strict and refused to apply patches with any ‘fuzz’ (mismatched context lines), only allowing patches that matched exactly, potentially after adjusting for line number offsets. He said:
+> “So I want things to be cleaned up before they hit the tree, rather than have a really dirty history. A dirty history just makes it harder to read, and I don’t believe in a second that it’s ‘closer to reality’ like some people claim.”
+> “I don’t believe anybody wants to see the ‘true’ history. If they did, we’d be logging keystrokes, and sending all of that around. Nope, people want (and need, in order to be able to follow it) an ‘idealized’ history.”
+
+This is interesting because Linus confirms, Word Of God, that you're supposed to clean up your git history. (A classic debate in the git community.) Although I'm not sure why he doesn't just apply and then amend.
+
+Appendix B: another interesting detail
+
+In https://github.blog/open-source/git/git-turns-20-a-qa-with-linus-torvalds/, they mention the initial UI of git, which was along the lines of
+
+> Yeah, commit-tree, write, and that just returns an SHA that you write by hand into the head file and that was it.
+
+Which answers a question I've always had, about how Linus claims the UX was improved much by others, so what the heck was it to begin with that was possibly worse?!

@@ -243,3 +243,5 @@ Due to the easy way in which I parse the blog toc, it is not permissible for me 
 2026-01-08: [Almost Always Rebase: Git The Right Way](almost_always_rebase.txt)
 
 2026-04-13: [Close-miss Phenomena Explanations](close-miss_phenomena_explanations.txt)
+
+2026-04-14: [Ugh Fields (Considered As With And Without Their Pavlovian Hypothesis)](ugh_fields_considered_as_with_and_without_their_pavlovian_hypothesis.txt)
