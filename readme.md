@@ -6,7 +6,7 @@ Hi, welcome to my programming-themed weblog. To see my real programming projects
 
 This blog updates whenever I have something to say. You may subscribe to this blog using RSS at <https://wyattscarpenter.github.io/blog/rss.xml><!--Here's the rss as an html alternate link, although I don't know if anything honors this in any particular way.--><link rel="alternate" type="application/rss+xml" title="Wyatt S Carpenter’s Blog, RSS Feed" href="rss.xml"/>. You can also Watch the repo on github at <https://github.com/wyattscarpenter/blog> to receive emails and/or github notifications about updates.
 
-I reserve the right to post- or pre- date posts a little (but only a little), for aesthetic purposes, so don't be alarmed if a post shows up in your feed a couple days off. (Similarly, the RSS standard demands to know exactly when the post was published, down to the second, which I've never tracked; so, (if I convert to RSS standard time format) I just use the zero value for those extra-precise time components.) It's also occurred to me that this guarantee is fairly useless to you, the ultimate reader, because I take full advantage of the decentralized nature of git while writing my posts, and have various posts on various machines, and only actually push to the github where you can see them when I can — so, in a sense, all bets are off.
+I reserve the right to post- or pre- date posts a little (but only a little), for aesthetic purposes. Also, I take advantage of the decentralized nature of git while writing my posts, and have various posts on various machines, and only actually push to the github (where you can see them) when convenient for me. So, don't be alarmed if a post shows up in your feed at a different time than that at which it claims to be written. Similarly, the RSS standard demands to know exactly when the post was published, down to the second, which I've never tracked; so, (if I convert to RSS standard time format) I just use the zero value for those extra-precise time components.
 
 You can search the full text of my blog using <https://github.com/wyattscarpenter/blog/search?q=example>. You can also use the rss link above to get the full text of this blog, and then (for example) ctrl-f it.
 
@@ -14,7 +14,7 @@ If you have any comments or corrections, feel free to submit a pull request <htt
 
 If you don't know the C programming language, you may enjoy reading <https://github.com/wyattscarpenter/guide-to-c> to gain background for many of these posts.
 
-Weblog entries that are about philosophy instead of programming (or in addition to programming) are marked with 𝝋, unicode bold italic lowercase phi. Political philosophy is marked with 𝝅𝝋, pi-phi of the aforementioned style.
+Weblog entries that are about philosophy instead of programming (or in addition to programming) are marked with 𝝋, unicode bold italic lowercase phi. Political philosophy is marked with 𝝅𝝋, pi-phi of the aforementioned style. Philosophy is a pretty broad and varied topic, so my categorizations here may strike you as arbitrary, and also I may later revise them.
 
 Due to the easy way in which I parse the blog toc, it is not permissible for me to put square brackets in the textual title of a post, nor can I put round parens in the link of a post. So far this has not been a problem.
 
