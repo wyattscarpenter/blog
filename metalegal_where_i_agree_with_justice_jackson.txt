@@ -1,0 +1,31 @@
+As a hobby, I used to listen to Supreme Court oral arguments. This is an odd hobby, but it teaches you a lot about how the court system works. And also a bunch of weird, made-up rules that judges believe in.
+
+The judges on the Supreme Court Of The United States (scotus) are called "justices" for some reason. 🤷. In case you were confused.
+
+Anyway, I tend to agree that the "conservative" bloc of SCOTUS justices typically does a better "job" at interpreting "what the Constitution actually means". Some would dispute that this is even the proper goal of a SCOTUS justices, but whatever. I might write about that sometime.
+
+I also rarely ever read SCOTUS opinions, which you should really do if you want to get a better idea of how the law actually works, post the arguments. But most of them are too boring for me to bother devoting the time. In the oral you can often get a sense how the judges are leaning, although I never honed this skill purposeully, either.
+
+Despite that, my favorite justice (after the demise of Scalia, who had great bons mots and great points) was Justice Breyer, who liked to tell long-winded, interesting anecdote thought experiments in lieu of asking an actual question during the oral arguments. I don't know if this was good for the court somehow, but it was great radio. He was replaced on his retirement with Justice Ketanji Brown Jackson, who is more of a normal type judge, which is a shame.
+
+Justice Ketanji Brown Jackson has a bad reputation among scotus-watchers for being more of a "naked partisan" than usual; just doing whatever the Democratic Party of The United States Of America (who were responsible for her appointment) would want. Cf the previous statement about "the proper goal of a SCOTUS justices". I'm not sure if this is right or not (maybe she just shares a judicial philosophy with most democrats?) but I see where people are coming from with this assessment.
+
+But, anyway, the point of this blogpost is that on several hot-button cases I've found myself agreeing with Jackson on the meta-legal principle of judicial authority, and wasn't convinced there was a good argument against her. For instance, here is my caricature of the Jackson portions of the case in which "universal injunctions" were found to be illegal.
+
+J. Jackson: isn't the point of the judiciary to prevent the government from doing illegal things?
+
+Attorney: no comment.
+
+J. J: you suggest that judges could form a class action lawsuit against the government, but that seems inconsistent with your other arguments. If they do a class-action, will you be back here in 6 months arguing that that's unconstitutional as well?
+
+A: Maybe not.
+
+J. J: if the injunction can't stop the government action per se, only for individual cases, couldn't the government just drop the individual cases each time, and the wrong would never be righted for the vast majority of people, since it would never get to court?
+
+A: Um, uh.
+
+Other justices tend to have weird, untenable views that somehow try to get the judges out of the position of telling us what the laws are — a position that I guess they got themselves into with _Marbury v. Madison_. I admit I've never reviewed that case. But it seems to me that it's obvious, at least in how our legal system is currently "supposed to work", that the judiciary has the power to stop the government from doing anything illegal. That's just the whole point of the judiciary system, at this point.
+
+(Similarly, I have very little time for Justices who don't realize that the states have the presumptive ability to make all sorts of laws that they want. That's also the point of them being separate governments.)
+
+It's just a shame that on the *substance* of the law, Justice Jackson believes in a bunch of made up laws that are bad.
