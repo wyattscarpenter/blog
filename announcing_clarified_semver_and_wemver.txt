@@ -1,1 +1,1 @@
-Recently I have released Clarified Semver https://wyattscarpenter.github.io/clarified and Wemver https://wyattscarpenter.github.io/wemver/, two living standards that may help if you are running into ambiguities about semver.
+Recently I have released Clarified Semver https://wyattscarpenter.github.io/clarified-semver and Wemver https://wyattscarpenter.github.io/wemver/, two living standards that may help if you are running into ambiguities about semver.
