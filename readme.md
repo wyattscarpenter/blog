@@ -253,3 +253,5 @@ Due to the easy way in which I parse the blog toc, it is not permissible for me 
 2026-07-09: [A Brief Survey Of Symbols For Division](a_brief_survey_of_symbols_for_division.txt)
 
 2026-07-13: [Announcing Clarified Semver And Wemver](announcing_clarified_semver_and_wemver.txt)
+
+(the end... for now)
