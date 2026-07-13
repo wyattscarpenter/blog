@@ -1,0 +1,91 @@
+Brief survey of symbols for division. 2026-07-09 (with some additions on 2026-07-10)
+
+    The only thing better than perfect is standard.
+    —_Technology Connections_
+
+One of my recurring fruitless projects is considering mathematical notation, with some eye toward implementing them in a programming language (which brings up certain other questions of notation — although I tend to think less than conventional programming language designers think!). Often this is a more interesting question when pondering operations/operators that are sort of unique to computers, like bit manipulation, but sometimes even ordinary operations are sort of contentious.
+
+Some of these are easy. For example, addition is +. Subtraction is −, although it is quite annoying how close this looks to the en dash conventionally used to express numerical ranges, –. Also, being annoyed by APL has taught me that operators should either be unary or binary*†, but not both, or expressions will be harder to read, which suggests that −12 is a no-go, and will have to be written slightly differently. Perhaps with a superscript minus‡ like so ⁻12 or with a "high minus" like so ¯12 which ironically APL invented encoding unambiguously as far as programming languages go⹋ but which is encoded in Unicode as the standalone macron symbol which seems a little undesirable. While I'm on the subject of praising APL, its symbol for commenting code, ⍝, looks arbitrary but at least doesn't ambiguously look like anything else I know of. The opposite situation holds for its symbol for transpose, ⍉, which makes a huge amount of mnemonic sense (it's literally a drawing of the line of reflection) but unfortunately looks a lot like the letter U+29B0 ⦰ REVERSED EMPTY SET, et al. If only the little circle it operated on were a little squircle instead, a little rounded rectangle, to indicate its distinction, and also because matricies are rectangular. Anyway, let's move on to multiplication. Most programming languages have chosen asterisk, but that's bad because asterisk already means footnote. Among other uses. × is clearly the best symbol as the most popular and unambiguous and ⋅ is a close second.
+
+* Or etc, which we won't get into.
+
+† APL calls these monadic and dyadic, which... well, you can forgive them, at the very least.⸸
+
+⸸ Also, we still call functions "variadic" when they have variable arity (adicity), so, who's laughing now?
+
+‡ This seems bad, because surely a superscript minus is supposed to be used with superscript numbers, like so: ⁻¹². On the other hand, I am not sure how to describe thing like the # when it's written small and up in "#1" nor the (possibly unrelated) − and + in integer expressions without calling them "superscript". Maybe just "raised"? Could this possibly be another use of the rare "superior lettering" that either is or is not quite the same thing as superscript?
+
+⹋ as far as I know
+
+Words are really good. Kinda. I mean, if you write down "minus" usually everyone knows what you mean, and we don't need a subtraction symbol. A common strategy is just to make you write, eg, `subtract(3,2)`, which is, uh it has some pros and cons. You can also do stuff lisp style where you write (- 3 2) and the - is just a text string name of a function. I personally like that but I don't think most people do and when you have to write out a polynomial you start thinking maybe those other people are write. Although, sidenote, I think if lispers just closed their paren blocks like c-ers do, it would be much more readable. But whatever.
+
+I think maybe the ideal system of programming would make a reasonable effort to accommodate all the notations it could? Possibly using macros and libraries. Like, if you want to write multiplication with an asterisk, or any of the other hundred symbols that have been used in history, why not? Why should we stop you? A lot of fancy theoretical languages seem to take this approach, in part because they are trying to formalize proofs in math (which can use all sorts of notation, applied by human whim).
+
+By the way, I'm not afraid to make up new symbols if needed. We can just do that. However, if the problem is that there's no agreed-upon symbol, you might run into a https://xkcd.com/927/ (14 competing standards?! Ridiculous! We need to develop one universal standard that covers everyone's use cases. Soon: There are 15 competing standards.) situation.
+
+Anyway, that brings us to division. Even if you can do whatever you want, what should you want to do?  Division gets trickier because it's not closed in the integers, God's favorite numbers. Here is a brief survey of some symbols you might use in relation to division. Note that these may be technically the wrong identical unicode character; it's really inconvenient for me to type those right now so I'm not going to care.
+
+By the way, my search here was aided by Wikipedia, so I may have forgotten and remembered things based on what's covered in the Wikipedia pages, biasing me. In my defense, I do not actually have time to read all of Florian Cajori's A History of Mathematical Notations & all critical corrections to it, although I am accepting sponsorships for my sabbatical to do so.
+
+Divisibility:
+
+This one is easy. a | b means a is divisible by b. Whew.
+
+Normal division (good old fashioned division):
+
+3÷2 = 1.5 (this is probably the primary symbol for division. Some countries use it for subtraction but that should arguably be encoded as U+2052 ⁒ COMMERCIAL MINUS SIGN. The countries who use this symbol to mean range... uh... no extra symbol escape hatch for you. Anyway, arguably the subtraction use should still be encoded as ÷ and we just "live with the ambiguity" (shun those countries' traditions forever))
+
+3∕2 = 1.5
+
+3⁄2 = 1.5 (hopefully that rendered as 3 a bit up and 2 a bit down, for you)
+
+3
+— = 1.5 (the so-called "straight fraction")
+2
+
+3 : 2 = 1.5 (personally I don't like this one because I'm already using colons all the time in prose, and thus I feel like it's confusing. I'm not sure why I don't feel / is analogously confusing, given that slash is also a punctuation mark used in English (etc) prose to convey alternatives. Certainly, slash is also used in old math & physics papers, but so is colon, you know?) (unicode has special characters for the math meanings of these but they do also look identical. Remember, what I'm searching for here is a symbol, not a character. Character encoding is a secondary consideration — or, rather, confusability with other symbols visually should be a primary consideration!) (Apparently Leibnitz introduced this notation so that ratio and division could have the symbol. I like it because it pairs pretty well with Leibnitz's favored multiplication symbol, but that's a marginal benefit.) (I find personally this a little bit disorienting because odds are written with : and probabilities are written as fractions of some sort, but that's just a convention about *what is being divided by what*.)
+
+3 \ 2 = 0.6̅ (this one seems somewhat silly to me, and also can be mistaken for, uh, set minus, c-like escape character, and apparently integer division below — although, I'm not so fond of any of those either. What is a backslash even primarily for? It should have stuck in its lane. Maybe it's set minus. Then again, 2216 ∖ set minus has a gentler slope. Well the first thing offering a use(?) on https://en.wikipedia.org/wiki/Backslash is "reverse division operator", so maybe it's that.) (Notice how I wrote 0.6̅  for "point six repeating"? I don't have any better ideas for that one ha ha. This seems fine I guess.)
+
+Wacky divisions:
+
+U+27CC	Long Division	⟌: this is a unicode character for the little symbol used in long division, but with some imagination one could use it for euclidean division in general. In a computing context, euclidean division basically means 3 ∕ 2 = (1, 1), where (1, 1) is a tuple of quotient and remainder. The language would then use multiple assignment to do something with these things. Eg `q, r :=  3 ∕ 2`.
+
+So, because we have this function returning q and r here, we might want a rich vocabulary with a function that returns just q and a function that returns just r. (This will get more complicated in a second.)
+
+q-like functions:
+
+//: floor division? This is what python uses for floor division, also representable as floor(a/b) or ⌊a/b⌋. The elephant in the room here, one such elephant we invited into this room, is that // is an extremely common marker for comments in languages inspired by C. And it's not a bad symbol for comments, and it's easy to type, so unless we want to take it from that purpose to be something related to division (which it would be naturally suited for) it fits as comments very naturally.
+
+/: some languages have / inherently perform integer division, or at least perform integer division on integer types. This is not worth talking about. It's too ridiculous. Although, I will note that it's very close to a non-ridiculous thing: having / perform division and then having assigning/casting/coercing to an integer round in some way, which in practice would just do an integer division in the first place, on some versions of rounding. That's only non-ridiculous if it's suitably explicit what the rounding rules are and that you're invoking them, of course.
+
+\: I'm told this is used for integer division sometimes. I'm not impressed.
+
+r-like functions:
+
+%: I'm not even sure what the name of this is technically supposed to be (modulo? modulus? remainder?) but it's very popular in programming languages for something like the euclidean remainder, and it's easy to see why (it's quite like /, which incidentally those languages use for integer division sometimes). This is actually QUITE BAD as a symbol because % already has an extremely popular meaning, and it's already mathematical. In fact, it has a couple related meanings, if you include the % key on calculators as well as prior art. But perhaps a new symbol for this could be based on the % symbol? (Must also avoid overlap with U+2052 ⁒ COMMERCIAL MINUS SIGN.) I am going to use % for the name of this operation for the rest of this.
+
+\\: Effiel the programming language apparently uses this, which I find charming, assuming it forms a trilogy with / and //, which I haven't looked into at all.
+
+Apparently in big boy math, which I have done from time to time, the "real way" to write % type stuff is à la 2 + 3 ≡ 1 (mod 4); which is ok as far as it goes but a bit clunky if you actually want the % operator type thing.
+
+You could also imagine a function that returned r/n, like returning the fraction from a "mixed number". But I don't think anyone wants that.
+
+I'm not really sure either of these are worth it. As much as programmers like writing %, isn't it just more elegant to write `_, r = 3 ⟌ 2`? You know? Why muck about creating extra syntax when there's already a natural, simple expression for it? (I was never one for the "tau" circle-to-radius constant, given that we don't need to write τ as it's just about as short to write 2π. (Ironically, the symbol τ looks like half of the symbol π...)) Also: I don't think there's any algorithm in the general case for the operation % that's faster than just doing the euclidean division and discarding the quotient. But even if I'm wrong about that, which I might easily be, then it's still fine since the compiler optimization to notice that _ is unused and switch to the faster algorithm in that case is still pretty simple.
+
+⟌ is just an example, by the way. Arguably we shouldn't just conflate long division and euclidean division like this, and maybe should come up with a new symbol for 2-return euclidean division. Maybe we could steal //, since it has something to do with division already and the lines indicate two-ness. But that's actually a bad idea I just thought was funny; we should probably just make up a new symbol if anything, since they are free. Heck, an e under the single slash would do it, although that's kind of boring.
+
+Here's where that gets complicated:
+
+Apparently all these systems picked different definitions of %. https://en.wikipedia.org/wiki/Modulo#Variants_of_the_definition. I read this every so often and pick a new favorite based on what I've been reading recently, I think. Today I think "why did all those bozos mis-implement euclidean division lol", and think the answer is clear that you should just always do the uniquely-determined answer given by euclidean division, and there is no need to develop a rich symbolic vocabulary to talk about all of the other follies you could implement here. You can write out the other functions yourself if you really want to screw it up that bad.
+
+You can also enjoy reading https://dl.acm.org/doi/epdf/10.1145/128861.128862, "The Euclidean definition of the functions div and mod" by Raymond T. Boute, for more on the subject, and also because it's the one time I've ever seen the Integers ℤ typeset as a cool 3d Z.
+
+Here are some other symbols that might mean something related:
+
+U+2A38	Circled Division Sign	⨸
+U+2797	Heavy Division Sign	➗
+U+2298	Circled Division Slash	⊘
+U+29BC	Circled Anticlockwise-Rotated Division Sign	⦼
+
+U+22C7	Division Times	⋇: What, is this like ± but for × and ÷?!

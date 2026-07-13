@@ -249,3 +249,5 @@ Due to the easy way in which I parse the blog toc, it is not permissible for me 
 2026-04-27: [Metalegal: Where I Agree With Justice Jackson](metalegal_where_i_agree_with_justice_jackson.txt)
 
 2026-04-28: [Five Things That Might Look Like Isolated Demand For Rigor But Are Not](five_things_that_might_look_like_isolated_demand_for_rigor_but_are_not.txt)
+
+2026-07-09: [A Brief Survey Of Symbols For Division](a_brief_survey_of_symbols_for_division.txt)
