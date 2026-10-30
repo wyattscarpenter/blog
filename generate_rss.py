@@ -59,8 +59,10 @@ rss_footer="""  </channel>
 with open("rss.xml", "w", encoding=encoding, newline="\n") as f: #for some crazy Python reason, if you were to specify errors='replace' here, it would replace the unicode replacement characters (U+FFFD, �) with question marks (U+003F, ?)
   f.write(rss_header)
   with open("readme.md", "r", encoding=encoding, errors='replace', newline="\n") as file:
-    for i in file:
-      m = re.match(toc_parsing_regex, i)
+    for line in file:
+      if line.strip().lower() == "(the end... for now)":
+        break
+      m = re.match(toc_parsing_regex, line)
       if m:
         f.write( rss_item( *m.groups() ) )
   f.write(rss_footer)

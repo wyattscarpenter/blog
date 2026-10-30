@@ -28,6 +28,8 @@ Here are my answers to https://git.github.io/rev_news/2025/04/30/edition-122/#co
     • TODO file metadata
     • TODO: using SHA256, as the other respondent points out. I didn't know if this was fair game but according to him it was available at that time.
     • Git repos should start with an empty commit at their root; this makes many other things cleaner. This is fixed in jj (where there is a virtual "zero commit") and also in github (where they just make a commit for you initially when you make the repo which is trivial enough to serve this purpose. I always make one of these myself (as a regular, empty commit (I use --allow-empty, and use the message "initial commit" or something like that) these occur at specific times and so have different git hashes (iirc)). That said, I do find it funny to merge unrelated histories, and the fact that they never join up at the beginning does make that funnier (unlike if they both came from the "zero commit" somehow), and also is clearer about their actual relationship (not related); you don't get this with jj's pretend "zero commit".
+    • jj uses more possibilities per character in expressing its hashes, and that's probably a way better idea, given that in bit projects you start having to use more and more hex digits to uniquely identify a hash.
+    • JJ also has a concept of a "change id", which I'm not sure I really like. However, git definitely confuses commits and deltas all the time, so maybe that would help.
 
 > Which Git feature or improvement over the past 20 years do you think had the biggest impact on your workflow?
 

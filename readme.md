@@ -259,3 +259,13 @@ Due to the easy way in which I parse the blog toc, it is not permissible for me 
 2026-10-30: [The Argument From Divine Simplicity (For Atheism)](the_argument_from_divine_simplicity_for_atheism.txt)
 
 (the end... for now)
+
+(A shadow listing of posts I'm actively working on is below. These are after the the end marker to avoid git conflicts when I stash and pop and so on.)
+
+2026-04-29: [Git's 20th Anniversary, One Year Later](git_s_20th_anniversary_one_year_later.txt)
+
+2026-04-30: [On jus soli Citizenship In The United States](on_jus_soli_citizenship_in_the_united_states.txt)
+
+2026-05-01: [Landshark TV Tweet: The Blogpost](landshark_tv_tweet_the_blogpost.txt)
+
+2026-05-11: [Begome](begome.txt)
