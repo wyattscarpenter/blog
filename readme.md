@@ -257,3 +257,5 @@ Due to the easy way in which I parse the blog toc, it is not permissible for me 
 2026-07-17: [Three Times As Hard](three_times_as_hard.txt)
 
 (the end... for now)
+
+2026-10-30: [The Argument From Divine Simplicity (For Atheism)](the_argument_from_divine_simplicity_for_atheism.txt)

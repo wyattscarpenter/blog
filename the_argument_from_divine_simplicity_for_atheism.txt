@@ -1,0 +1,5 @@
+Much is made by various historical theologians of the principle of divine simplicity, which is supposed to prove various things, possibly including the existence of God. But I think it cuts the other way. Here is a brief argument, in which (1) is something I take to be a statement of the principle of divine simplicity, (2) is a pretty plausible intuition people have, and (3) is a conclusion that follows from the other two. I've tried to phrase each statement in natural language, which unfortunately means (3) does not follow formally mechanistically from (2) and (1), but I think it captures the meaning better than chasing facile regularity of phrasing.
+
+1. God is maximally simple.
+2. Nothing is simpler than something.
+3. Therefore, God does not exist.
