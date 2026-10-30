@@ -33,7 +33,8 @@ def dateformat(s: str) -> date:
     except ValueError:
       raise ValueError(f"I could not interpret ‘{s}’ as date nor a relative offset. Try something like ‘2024-03-31’ or ‘3’.")
 
-file_to_which_to_append: str = "readme.md"
+file_which_holds_the_toc: str = "readme.md"
+toc_end_marker: str = "(the end... for now)"
 
 pf_usage: str = "used to mark a post as 𝝅𝝋, political philosophy; you may do that with (for example) -pf"
 
@@ -43,10 +44,10 @@ parser.add_argument('-d', '-date', '--date', type=dateformat, help="The date the
 parser.add_argument('-p', '-pi', '--pi', '-π', action='store_true', help="Mark the post with a 𝝅. Note: only ever "+pf_usage)
 parser.add_argument('-f', '-phi', '--phi', '-φ', action='store_true', help="Mark the post with a 𝝋, indicating it is about philosophy. Note: sometimes "+pf_usage)
 parser.add_argument('-n', '-nono', '-dry-run', '--nono', '--dry-run', action='store_true', help="Exit the program before we make any changes, thereby doing nothing, in order to merely test the program.")
-parser.add_argument('-dont-git', '--dont-git', action='store_true', help=f"Don't git add the changes (the newly-created file and {file_to_which_to_append}). Furthermore, unless this flag is specified, this script will attempt to add a pre-commit hook to the .git/hooks folder (although it will not overwrite an extant pre-commit file.")
-parser.add_argument('-check', '--check', action='store_true', help=f"Instead of doing anything else, cross-reference the contents of {file_to_which_to_append} and git ls-files and exit with an error if there are files listed in the former that are missing from the latter.")
+parser.add_argument('-dont-git', '--dont-git', action='store_true', help=f"Don't git add the changes (the newly-created file and {file_which_holds_the_toc}). Furthermore, unless this flag is specified, this script will attempt to add a pre-commit hook to the .git/hooks folder (although it will not overwrite an extant pre-commit file.")
+parser.add_argument('-check', '--check', action='store_true', help=f"Instead of doing anything else, cross-reference the contents of {file_which_holds_the_toc} and git ls-files and exit with an error if there are files listed in the former that are missing from the latter.")
 
-print("file_to_which_to_append:", file_to_which_to_append)
+print(f"{file_which_holds_the_toc=}")
 
 def capture_stdout(program: list[str]) -> list[str]:
   """Captures the stdout of a program as utf-8, checks the return code of that process, and returns a list of the stdout splitting on ascii NUL (\0)"""
@@ -59,7 +60,7 @@ if '--check' in argv or '-check' in argv: #due to the way argparse works, this i
   git_files = capture_stdout(['git', 'ls-files', '-z', ':(glob)*']) # the final argument means only list the files in the base directory, not recursive.
   # Check the contents of the readme
   readme_files: list[str] = []
-  with open(file_to_which_to_append, "r", encoding="utf-8", newline="\n") as file:
+  with open(file_which_holds_the_toc, "r", encoding="utf-8", newline="\n") as file:
     for line in file:
       if m := re.match(toc_parsing_regex, line):
         readme_files += m.group(3), #lol at this syntax
@@ -72,7 +73,7 @@ if '--check' in argv or '-check' in argv: #due to the way argparse works, this i
       warn("  ", mf)
     exit(4)
   else:
-    warn(f"No problems found with {file_to_which_to_append} vis-a-vis what files are in the git ls-files.")
+    warn(f"No problems found with {file_which_holds_the_toc} vis-a-vis what files are in the git ls-files.")
   additionally_expected_files = [ # files we expect to be here, but aren't entries in the readme
     'readme.md',
     'README.txt',
@@ -85,7 +86,7 @@ if '--check' in argv or '-check' in argv: #due to the way argparse works, this i
   expected_files = additionally_expected_files + readme_files
   unexpectedly_found_files = [file for file in git_files if file not in expected_files and file.removesuffix(".md") not in readme_files and file.removesuffix(".comments.txt")+".txt" not in readme_files]
   if unexpectedly_found_files:
-    warn(f"These files were unexpectedly found in the main directory, even though {file_to_which_to_append} does not contemplate them:")
+    warn(f"These files were unexpectedly found in the main directory, even though {file_which_holds_the_toc} does not contemplate them:")
     for uff in unexpectedly_found_files:
       warn("  ", uff)
   exit(0) # if you got all the way here you must be fine.
@@ -118,14 +119,16 @@ if a['nono']:
   print('Dry-run ("nono" run) completed; no changes made.')
   exit()
 
-with open(file_to_which_to_append, "a", encoding="utf-8", newline='\n') as f:
-  f.write(cool_string)
+with open(file_which_holds_the_toc, "w", encoding="utf-8", newline='\n') as f:
+  read_data = f.read()
+  read_data.replace(toc_end_marker, f"{cool_string}\n\n{toc_end_marker}")
+  f.write(read_data)
 if not path.isfile(a['basename.ext']):
   with open(a['basename.ext'], "a", encoding="utf-8", newline='\n') as f:
     f.write("")
 
 if not a["dont_git"]:
-  run(["git", "add", a['basename.ext'], file_to_which_to_append])
+  run(["git", "add", a['basename.ext'], file_which_holds_the_toc])
   # Add the git pre-commit hook to the git hooks folder
   p = ".git/hooks/pre-commit"
   p_payload = "#!/bin/sh\ngit diff --check && ./toc.py --check" #You have to add a #!/bin/sh to this, or chmod it, for git to use it right, I think.
